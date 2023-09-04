@@ -1,0 +1,20 @@
+
+:root {
+  --font-family-main: 'Source Sans 3', sans-serif;
+  --font-size-xs: 12px;
+  --font-line-xs: 20px;
+  --font-xs: var( --font-size-xs) / var( --font-line-xs) var(--font-family-main);
+
+  --font-size-sm: 14px;
+  --font-line-sm: 22px;
+  --font-sm: var( --font-size-sm) / var( --font-line-sm) var(--font-family-main);
+
+
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: var( --font-size-m) / var( --font-line-m) var(--font-family-main);
+
+  --font-size-l: 24px;
+  --font-line-l: 32px;
+  --font-l: var( --font-size-l) / var( --font-line-l) var(--font-family-main)
+}
