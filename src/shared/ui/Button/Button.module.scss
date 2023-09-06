@@ -1,0 +1,19 @@
+.Button{
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+
+.clean{
+
+}
+.themeSwitcher {
+  padding: 5px;
+  svg{
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+  }
+}

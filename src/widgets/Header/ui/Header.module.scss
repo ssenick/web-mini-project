@@ -1,0 +1,29 @@
+.Header{
+  background-color: var(--bg-module);
+  width: 100%;
+  //height: 60px;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+  color: var(--module-color)
+}
+.logo{
+  display: flex;
+  align-items: center;
+  svg{
+    height: 15px;
+  }
+}
+.title{
+
+}
+.action{
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.themeBtn{
+  background-color: red;
+}
