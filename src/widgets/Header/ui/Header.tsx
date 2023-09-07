@@ -14,6 +14,7 @@ interface HeaderProps {
 export const Header = ({className}: HeaderProps) => {
     const {theme} = useTheme()
     return (
+
         <header className={classNames(cls.Header, {}, [className])}>
             <AppLink className={cls.logo} to='/' theme={AppLinkTheme.CLEAN}>
                 {theme === Theme.DARK ? <LogoWhiteIcon/> : <LogoDarkIcon/>}
