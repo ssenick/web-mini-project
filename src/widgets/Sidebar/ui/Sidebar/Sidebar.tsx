@@ -3,6 +3,7 @@ import {classNames} from 'shared/lib/classNames/classNames';
 import cls from './Sidebar.module.scss'
 import AppLink from "shared/ui/AppLink/AppLink";
 import {RoutPath} from "shared/config/routeConfig";
+import Button, {ButtonTheme} from "shared/ui/Button/Button";
 
 interface SidebarProps {
     className?: string
@@ -16,12 +17,13 @@ export const Sidebar = ({className}: SidebarProps) => {
     }
 
     return (
-        <aside className={classNames(cls.Sidebar, {[cls.collapsed] : collapsed}, [className])}>
-            <div onClick={toggleCollapse}  className={cls.burgerBtn}>
+        <aside className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}>
+            <Button theme={ButtonTheme.CLINE} onClick={toggleCollapse} className={cls.burgerBtn}>
                 <span className={cls.itemBtn}></span>
                 <span className={cls.itemBtn}></span>
                 <span className={cls.itemBtn}></span>
-            </div>
+            </Button>
+
             <ul className={cls.list}>
                 <li><AppLink to={RoutPath.main}>Home</AppLink></li>
                 <li><AppLink to={RoutPath.about}>About</AppLink></li>

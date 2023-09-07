@@ -2,7 +2,7 @@ import React from "react";
 import cls from './Header.module.scss'
 import {classNames} from "shared/lib/classNames/classNames";
 import AppLink, {AppLinkTheme} from "shared/ui/AppLink/AppLink";
-import {ThemeSwitcher} from "widgets/ThemeSwitcher/ui/ThemeSwitcher";
+import {ThemeSwitcher} from "widgets/ThemeSwitcher";
 import {Theme, useTheme} from "app/povaiders/ThemeProvaider";
 import LogoDarkIcon from 'shared/assets/icons/logo.svg'
 import LogoWhiteIcon from 'shared/assets/icons/logo-w.svg'
