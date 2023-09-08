@@ -39,9 +39,22 @@ export function buildLoaders({isDev}: BuildOptions) {
             "sass-loader",
         ],
     }
+    const babelLoader = {
+        test: /\.(js|jsx|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: [
+                    ['@babel/preset-env']
+                ]
+            }
+        }
+    }
     return [
         fileLoader,
         svgLoader,
+        babelLoader,
         typescriptLoader,
         scssLoader,
     ]
