@@ -29,7 +29,7 @@ export default (env: BuildEnv) => {
         paths,
         isDev,
         port: PORT,
-        host: Host.localIp
+        host: Host.localhost
     })
 
     return config

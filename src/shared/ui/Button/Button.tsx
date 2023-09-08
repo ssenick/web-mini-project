@@ -4,7 +4,9 @@ import {ButtonHTMLAttributes, FC} from "react";
 
 export enum ButtonTheme {
     CLINE = 'clean',
-    THEME_SWITCHER ='themeSwitcher'
+    THEME_ICON ='icon',
+    FILL = 'fill',
+    SQUARE_FILL= 'squareFill'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

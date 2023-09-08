@@ -2,12 +2,13 @@
   cursor: pointer;
   color: inherit;
   background-color: inherit;
+  padding: 5px 10px;
 }
 
 .clean{
-
+  padding: 5px;
 }
-.themeSwitcher {
+.icon {
   padding: 5px;
   svg{
     width: 16px;
@@ -16,4 +17,13 @@
     justify-content:center;
     align-items: center;
   }
+}
+.squareFill{
+  width: 32px;
+  height: 32px;
+  background-color: var(--bg-module);
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  border-radius: 5px;
 }

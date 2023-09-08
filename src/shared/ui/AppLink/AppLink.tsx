@@ -5,7 +5,8 @@ import {classNames} from "shared/lib/classNames/classNames";
 
 
 export enum AppLinkTheme {
-    CLEAN = 'clean'
+    CLEAN = 'clean',
+
 }
 
 interface AppLinkProps extends LinkProps {
