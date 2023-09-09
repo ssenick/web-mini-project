@@ -3,7 +3,7 @@ import {classNames} from 'shared/lib/classNames/classNames';
 import cls from './Sidebar.module.scss'
 import AppLink from "shared/ui/AppLink/AppLink";
 import {RoutPath} from "shared/config/routeConfig";
-import Button, {ButtonTheme} from "shared/ui/Button/Button";
+import Button, {ButtonVariant} from "shared/ui/Button/Button";
 import HomeIcon from 'shared/assets/icons/home.svg'
 import AboutIcon from 'shared/assets/icons/about.svg'
 import {useTranslation} from "react-i18next";
@@ -22,7 +22,9 @@ export const Sidebar = ({className}: SidebarProps) => {
 
     return (
         <aside className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}>
-            <Button theme={ButtonTheme.CLINE} onClick={toggleCollapse} className={cls.burgerBtn}>
+            <Button variant={ButtonVariant.CLINE}
+                    onClick={toggleCollapse}
+                    className={cls.burgerBtn}>
                 <span className={cls.itemBtn}></span>
                 <span className={cls.itemBtn}></span>
                 <span className={cls.itemBtn}></span>

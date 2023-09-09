@@ -1,7 +1,7 @@
 import React from "react";
 import cls from './Header.module.scss'
 import {classNames} from "shared/lib/classNames/classNames";
-import AppLink, {AppLinkTheme} from "shared/ui/AppLink/AppLink";
+import AppLink, {AppLinkVariant} from "shared/ui/AppLink/AppLink";
 import {ThemeSwitcher} from "widgets/ThemeSwitcher";
 import {Theme, useTheme} from "app/povaiders/ThemeProvaider";
 import LogoDarkIcon from 'shared/assets/icons/logo.svg'
@@ -17,9 +17,8 @@ export const Header = ({className}: HeaderProps) => {
     const {theme} = useTheme()
     const {t} = useTranslation()
     return (
-
         <header className={classNames(cls.Header, {}, [className])}>
-            <AppLink className={cls.logo} to='/' theme={AppLinkTheme.CLEAN}>
+            <AppLink className={cls.logo} to='/' variant={AppLinkVariant.CLEAN}>
                 {theme === Theme.DARK ? <LogoWhiteIcon/> : <LogoDarkIcon/>}
             </AppLink>
             <div className={cls.title}> {t('Главная')}</div>

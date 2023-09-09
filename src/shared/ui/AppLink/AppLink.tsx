@@ -4,23 +4,22 @@ import cls from './AppLink.module.scss'
 import {classNames} from "shared/lib/classNames/classNames";
 
 
-export enum AppLinkTheme {
+export enum AppLinkVariant {
     CLEAN = 'clean',
-
 }
 
 interface AppLinkProps extends LinkProps {
     className?: string,
-    theme?: AppLinkTheme
+    variant?: AppLinkVariant
 }
 
 const AppLink: FC<AppLinkProps> = (props) => {
 
-    const {to, className, children,theme = AppLinkTheme.CLEAN, ...otherProps} = props
+    const {to, className, children,variant = AppLinkVariant.CLEAN, ...otherProps} = props
     return (
         <Link
             to={to}
-            className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+            className={classNames(cls.AppLink, {}, [className, cls[variant]])}
             {...otherProps}
         >
             {children}

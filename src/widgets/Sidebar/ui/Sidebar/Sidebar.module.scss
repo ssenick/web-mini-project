@@ -3,7 +3,8 @@
   width: var(--sidebar-width);
   background-color: var(--bg-module);
   transition: width var(--animation-time) cubic-bezier(.42, 0, .58, 1) 0s;
-  padding: 65px 15px 20px 32px;
+  padding: 65px 20px 20px 20px;
+  overflow: hidden;
 
   &.collapsed {
     width: var(--sidebar-width-collapsed);
@@ -13,7 +14,7 @@
 
 .burgerBtn {
   top: 15px;
-  right: 15px;
+  right: 20px;
   display: flex;
   position: absolute;
   width: 30px;
@@ -21,6 +22,8 @@
   cursor: pointer;
   transition: right var(--animation-time), transform var(--animation-time);
   background-color: transparent;
+
+
 
   .itemBtn {
     display: block;
@@ -90,31 +93,40 @@
 
 .list {
   .item {
+
+    display: block;
+    overflow: hidden;
+
     &:not(:last-child) {
       margin-bottom: 10px;
     }
   }
 
   .link {
+    padding: 5px;
+    flex: 1 1 auto;
     display: inline-flex;
     align-items: center;
 
     svg {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       fill: var(--primary-color);
     }
 
     span {
       transition: margin var(--animation-time),
-      opacity var(--animation-time),
-      width var(--animation-time);;
+      opacity var(--animation-time);
       margin-left: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      pointer-events: auto;
 
       .collapsed & {
         margin: 0;
         opacity: 0;
-        width: 0;
+        pointer-events: none;
       }
     }
   }
