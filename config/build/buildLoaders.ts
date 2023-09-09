@@ -1,6 +1,7 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BuildOptions} from "./types/config";
 
+const ReactRefreshTypeScript = require('react-refresh-typescript');
 
 export function buildLoaders({isDev}: BuildOptions) {
     const fileLoader = {
@@ -51,6 +52,8 @@ export function buildLoaders({isDev}: BuildOptions) {
             }
         }
     }
+
+
     return [
         fileLoader,
         svgLoader,

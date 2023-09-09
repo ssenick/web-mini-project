@@ -5,7 +5,6 @@
   transition: width var(--animation-time) cubic-bezier(.42, 0, .58, 1) 0s;
   padding: 65px 20px 20px 20px;
   overflow: hidden;
-
   &.collapsed {
     width: var(--sidebar-width-collapsed);
   }
@@ -107,7 +106,7 @@
     flex: 1 1 auto;
     display: inline-flex;
     align-items: center;
-
+    font-weight: 500;
     svg {
       width: 18px;
       height: 18px;

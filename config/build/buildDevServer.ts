@@ -7,7 +7,6 @@ export function buildDevServer (option : BuildOptions): DevServerConfiguration {
         open: true,
         historyApiFallback: true,
         host: option.host,
-        // localhost
-        //'local-ip'
+        hot:true,
     }
 }
