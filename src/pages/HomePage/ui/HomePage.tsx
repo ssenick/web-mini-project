@@ -1,12 +1,12 @@
-import {useTranslation} from "react-i18next";
+import { useTranslation } from 'react-i18next'
 
-const HomePage = () => {
-    const {t} = useTranslation('home')
-    return (
+const HomePage = (): JSX.Element => {
+  const { t } = useTranslation('home')
+  return (
         <div>
             {t('Заголовок страницы')}
         </div>
-    );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

@@ -1,17 +1,16 @@
-import {Route, Routes} from "react-router-dom";
-import React, {Suspense} from "react";
-import {routeConfig} from "shared/config/routeConfig";
-import {classNames} from "shared/lib/classNames/classNames";
-import {PageLoader} from "widgets/PageLoader";
-
+import { Route, Routes } from 'react-router-dom'
+import { Suspense } from 'react'
+import { routeConfig } from 'shared/config/routeConfig'
+import { classNames } from 'shared/lib/classNames/classNames'
+import { PageLoader } from 'widgets/PageLoader'
 
 interface AppRouterProps {
-    className?: string
+  className?: string
 }
 
-export const AppRouter = ({className}:AppRouterProps) => {
-    return (
-        <div className={classNames('',{},[className])}>
+export const AppRouter = ({ className }: AppRouterProps): JSX.Element => {
+  return (
+        <div className={classNames('', {}, [className])}>
             <Suspense fallback={<PageLoader/>}>
                 <Routes>
                     {Object.values(routeConfig).map(el =>
@@ -20,5 +19,5 @@ export const AppRouter = ({className}:AppRouterProps) => {
                 </Routes>
             </Suspense>
         </div>
-    );
-};
+  )
+}

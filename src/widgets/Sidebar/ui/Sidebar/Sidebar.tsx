@@ -1,27 +1,27 @@
-import {useCallback, useState} from "react";
-import {classNames} from 'shared/lib/classNames/classNames';
+import { useCallback, useState } from 'react'
+import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Sidebar.module.scss'
-import AppLink from "shared/ui/AppLink/AppLink";
-import {RoutPath} from "shared/config/routeConfig";
-import Button, {ButtonVariant} from "shared/ui/Button/Button";
+import AppLink from 'shared/ui/AppLink/AppLink'
+import { RoutPath } from 'shared/config/routeConfig'
+import Button, { ButtonVariant } from 'shared/ui/Button/Button'
 import HomeIcon from 'shared/assets/icons/home.svg'
 import AboutIcon from 'shared/assets/icons/about.svg'
-import {useTranslation} from "react-i18next";
+import { useTranslation } from 'react-i18next'
 
 interface SidebarProps {
-    className?: string
+  className?: string
 }
 
-export const Sidebar = ({className}: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(false);
-    const {t} = useTranslation()
+export const Sidebar = ({ className }: SidebarProps): JSX.Element => {
+  const [collapsed, setCollapsed] = useState(false)
+  const { t } = useTranslation()
 
-    const toggleCollapse = useCallback(() => {
-        setCollapsed(!collapsed)
-    },[collapsed])
+  const toggleCollapse = useCallback(() => {
+    setCollapsed(!collapsed)
+  }, [collapsed])
 
-    return (
-        <aside className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}>
+  return (
+        <aside className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
             <Button variant={ButtonVariant.CLINE}
                     onClick={toggleCollapse}
                     className={cls.burgerBtn}>
@@ -41,7 +41,6 @@ export const Sidebar = ({className}: SidebarProps) => {
                 </AppLink></li>
             </ul>
 
-
         </aside>
-    );
-};
+  )
+}
