@@ -1,29 +1,29 @@
 .Header {
-   background-color: var(--bg-color);
-   width: 100%;
-   padding: 10px 15px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   column-gap: 20px;
-   color: var(--module-color);
+  background-color: var(--bg-color);
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+  color: var(--module-color);
 }
 
 .logo {
-   display: flex;
-   align-items: center;
+  display: flex;
+  align-items: center;
 
-   svg {
-      height: 15px;
-   }
+  svg {
+    height: 15px;
+  }
 }
 
 .action {
-   display: flex;
-   align-items: center;
-   column-gap: 10px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
 }
 
 .themeBtn {
-   background-color: red;
+  background-color: red;
 }
