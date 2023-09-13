@@ -35,7 +35,7 @@ module.exports = {
       "i18next"
    ],
    "rules": {
-      "react/no-deprecated": "warn",
+      "react/no-deprecated": "off",
       "@typescript-eslint/strict-boolean-expressions": "off",
       "@typescript-eslint/prefer-nullish-coalescing": "off",
 

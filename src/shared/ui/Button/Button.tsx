@@ -30,7 +30,7 @@ const Button: FC<ButtonProps> = (props) => {
     children,
     variant = ButtonVariant.CLINE,
     square,
-    size = ButtonSize.SM,
+    size,
     ...otherProps
   } = props
   return (

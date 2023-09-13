@@ -7,6 +7,8 @@ import LogoDarkIcon from 'shared/assets/icons/logo.svg'
 import LogoWhiteIcon from 'shared/assets/icons/logo-w.svg'
 import { useTranslation } from 'react-i18next'
 import { LangSwitcher } from 'widgets/LangSwitcher'
+import Button, { ButtonVariant } from 'shared/ui/Button/Button'
+import { useEffect, useState } from 'react'
 
 interface HeaderProps {
   className?: string
@@ -15,6 +17,18 @@ interface HeaderProps {
 export const Header = ({ className }: HeaderProps): JSX.Element => {
   const { theme } = useTheme()
   const { t } = useTranslation()
+
+  const [error, setError] = useState(false)
+  const onThrow = (): void => {
+    setError(true)
+  }
+
+  useEffect(() => {
+    if (error) {
+      throw new Error()
+    }
+  }, [error])
+
   return (
         <header className={classNames(cls.Header, {}, [className])}>
             <AppLink className={cls.logo} to='/' variant={AppLinkVariant.CLEAN}>
@@ -23,8 +37,10 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
             <div className={cls.title}> {t('Главная')}</div>
             <div className={cls.action}>
                 {/* кнопку темы и тд */}
+                <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>{t('ошибка')}</Button>
                 <LangSwitcher/>
                 <ThemeSwitcher/>
+
             </div>
         </header>
   )

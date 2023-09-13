@@ -7,7 +7,7 @@ interface NotFoundPageProps {
 }
 
 export const NotFoundPage = ({ className }: NotFoundPageProps): JSX.Element => {
-  const { t } = useTranslation('notFound')
+  const { t } = useTranslation()
   return (
         <div className={classNames(cls.NotFoundPage, {}, [className])} >
             <div className={cls.container} data-text='404'>
