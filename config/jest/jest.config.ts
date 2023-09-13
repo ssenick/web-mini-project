@@ -32,14 +32,18 @@ export default {
   ],
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
-    'node_modules'
+    'node_modules', 'src'
   ],
   rootDir: '../../',
   // The glob patterns Jest uses to detect test files
   testMatch: [
     // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
-  ]
+  ],
+  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+  moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy'
+  }
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,

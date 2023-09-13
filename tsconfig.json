@@ -21,5 +21,10 @@
       "strictNullChecks": true
     },
   },
-
+  "include": [
+    "./config/jest/setupTests.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./config"
+  ]
 }
