@@ -12,7 +12,7 @@ interface AppLinkProps extends LinkProps {
   variant?: AppLinkVariant
 }
 
-const AppLink: FC<AppLinkProps> = (props) => {
+export const AppLink: FC<AppLinkProps> = (props) => {
   const { to, className, children, variant = AppLinkVariant.CLEAN, ...otherProps } = props
   return (
         <Link
@@ -24,5 +24,3 @@ const AppLink: FC<AppLinkProps> = (props) => {
         </Link>
   )
 }
-
-export default AppLink

@@ -1,13 +1,13 @@
 import cls from './Header.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
-import AppLink, { AppLinkVariant } from 'shared/ui/AppLink/AppLink'
+import { AppLinkVariant, AppLink } from 'shared/ui/AppLink/AppLink'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { Theme, useTheme } from 'app/povaiders/ThemeProvaider'
 import LogoDarkIcon from 'shared/assets/icons/logo.svg'
 import LogoWhiteIcon from 'shared/assets/icons/logo-w.svg'
 import { useTranslation } from 'react-i18next'
 import { LangSwitcher } from 'widgets/LangSwitcher'
-import Button, { ButtonVariant } from 'shared/ui/Button/Button'
+import { ButtonVariant, Button } from 'shared/ui/Button/Button'
 import { useEffect, useState } from 'react'
 
 interface HeaderProps {

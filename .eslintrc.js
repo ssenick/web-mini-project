@@ -8,36 +8,44 @@ module.exports = {
       "plugin:react/recommended",
       "plugin:react/jsx-runtime",
       "plugin:i18next/recommended",
+      "plugin:storybook/recommended"
    ],
+   // "parser": '@typescript-eslint/parser',
 
+   "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+      // "ecmaFeatures": {
+      //    jsx: true,
+      // },
+      "parser": '@typescript-eslint/parser',
+      "project": './tsconfig.json',
+      "tsconfigRootDir": __dirname,
+   },
    "overrides": [
       {
          "env": {
             "node": true
          },
          "files": [
-            ".eslintrc.{js,cjs}"
+            ".eslintrc.{js,cjs}",
+
          ],
          "parserOptions": {
-            "sourceType": "script"
+            "sourceType": "script",
          }
       }
    ],
-   "parserOptions": {
-      "ecmaVersion": "latest",
-      "sourceType": "module",
-      "parser": '@typescript-eslint/parser',
-      "project": './tsconfig.json',
-      "tsconfigRootDir": __dirname,
-   },
    "plugins": [
       "react",
-      "i18next"
+      "i18next",
+      // '@typescript-eslint',
    ],
    "rules": {
       "react/no-deprecated": "off",
       "@typescript-eslint/strict-boolean-expressions": "off",
       "@typescript-eslint/prefer-nullish-coalescing": "off",
+      "@typescript-eslint/explicit-function-return-type" : 'warn',
 
       "@typescript-eslint/no-misused-promises": [
          "error",

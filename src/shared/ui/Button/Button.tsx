@@ -3,7 +3,7 @@ import cls from './Button.module.scss'
 import { type ButtonHTMLAttributes, type FC } from 'react'
 
 export enum ButtonVariant {
-  CLINE = 'clean',
+  CLEAN = 'clean',
   THEME_ICON = 'icon',
   BACKGROUND = 'background',
 }
@@ -24,11 +24,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 }
 
-const Button: FC<ButtonProps> = (props) => {
+export const Button: FC<ButtonProps> = (props) => {
   const {
     className,
     children,
-    variant = ButtonVariant.CLINE,
+    variant = ButtonVariant.CLEAN,
     square,
     size,
     ...otherProps
@@ -42,5 +42,3 @@ const Button: FC<ButtonProps> = (props) => {
         </button>
   )
 }
-
-export default Button

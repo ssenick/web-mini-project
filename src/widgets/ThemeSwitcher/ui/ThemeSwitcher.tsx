@@ -1,4 +1,4 @@
-import Button, { ButtonVariant } from 'shared/ui/Button/Button'
+import { ButtonVariant, Button } from 'shared/ui/Button/Button'
 import { Theme, useTheme } from 'app/povaiders/ThemeProvaider'
 import MoonIcon from 'shared/assets/icons/moon.svg'
 import SunIcon from 'shared/assets/icons/sun.svg'

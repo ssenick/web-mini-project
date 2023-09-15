@@ -1,4 +1,4 @@
-import Button from 'shared/ui/Button/Button'
+import { Button } from 'shared/ui/Button/Button'
 import { render, screen } from '@testing-library/react'
 
 describe('classNames', () => {

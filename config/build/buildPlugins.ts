@@ -19,7 +19,9 @@ export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
     }),
     new webpack.HotModuleReplacementPlugin(),
     new BundleAnalyzerPlugin({
-      openAnalyzer: false
+      openAnalyzer: false,
+      analyzerMode: 'static',
+      analyzerPort: 'auto'
     })
   ]
 }
