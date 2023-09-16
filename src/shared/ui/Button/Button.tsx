@@ -30,7 +30,7 @@ export const Button: FC<ButtonProps> = (props) => {
     children,
     variant = ButtonVariant.CLEAN,
     square,
-    size,
+    size = ButtonSize.XS,
     ...otherProps
   } = props
   return (

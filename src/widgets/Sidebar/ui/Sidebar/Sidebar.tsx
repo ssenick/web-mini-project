@@ -22,7 +22,7 @@ export const Sidebar = ({ className }: SidebarProps): JSX.Element => {
 
   return (
         <aside className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-            <Button variant={ButtonVariant.CLINE}
+            <Button variant={ButtonVariant.CLEAN}
                     onClick={toggleCollapse}
                     className={cls.burgerBtn}>
                 <span className={cls.itemBtn}></span>

@@ -4,6 +4,7 @@
   background-color: inherit;
   padding: 5px 10px;
   border-radius: 5px;
+  font-weight: 700;
 }
 
 .clean {
@@ -31,70 +32,41 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  padding: 3px;
 }
 
 .square.squareXS {
   width: 24px;
   height: 24px;
-  font: var(--font-xs);
-  font-weight: 700;
 }
 
 .square.squareSM {
   width: 28px;
   height: 28px;
-  font: var(--font-sm);
-  font-weight: 700;
 }
 
 .square.squareM {
   width: 32px;
   height: 32px;
-  font: var(--font-sm);
-  font-weight: 700;
 }
 
 .square.squareL {
   width: 38px;
   height: 38px;
-  font: var(--font-m);
-  font-weight: 700;
-}
-
-.squareXS,
-.squareSM,
-.squareL,
-.squareM {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
 }
 
 .squareXS {
-  width: 24px;
-  height: 24px;
   font: var(--font-xs);
-  font-weight: 700;
 }
 
 .squareSM {
-  width: 28px;
-  height: 28px;
   font: var(--font-sm);
-  font-weight: 700;
 }
 
 .squareM {
-  width: 32px;
-  height: 32px;
   font: var(--font-m);
-  font-weight: 700;
 }
 
 .squareL {
-  width: 36px;
-  height: 36px;
   font: var(--font-l);
-  font-weight: 700;
 }

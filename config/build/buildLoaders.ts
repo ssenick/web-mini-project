@@ -1,6 +1,7 @@
+import type webpack from 'webpack'
 import { type BuildOptions } from './types/config'
 import { buildScssLoader } from './loaders/buildScssLoader'
-import type webpack from 'webpack'
+import { buildSvgLoader } from './loaders/buildSvgLoader'
 
 export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const fileLoader = {
@@ -11,10 +12,7 @@ export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
       }
     ]
   }
-  const svgLoader = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack']
-  }
+  const svgLoader = buildSvgLoader()
 
   const typescriptLoader = {
     test: /\.tsx?$/,
