@@ -8,7 +8,7 @@ const style: Record<string, string | boolean> = {
 export const ThemeDecorator = (theme: Theme) => {
   const decorator: Decorator = (Story) => (
         <div className={`app ${theme}`} style={style}>
-            <Story/>
+            {Story()}
         </div>
   )
   return decorator

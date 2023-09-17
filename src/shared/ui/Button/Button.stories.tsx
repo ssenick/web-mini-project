@@ -21,13 +21,13 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const CleanLight: Story = {
+export const Clean: Story = {
   args: {
     variant: ButtonVariant.CLEAN,
     children: 'TEXT'
   }
 }
-CleanLight.decorators = [ThemeDecorator(Theme.LIGHT)]
+Clean.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const CleanDark: Story = {
   args: {
@@ -37,13 +37,13 @@ export const CleanDark: Story = {
 }
 CleanDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const IconLight: Story = {
+export const Icon: Story = {
   args: {
     variant: ButtonVariant.THEME_ICON,
     children: <MoonIcon/>
   }
 }
-IconLight.decorators = [ThemeDecorator(Theme.LIGHT)]
+Icon.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const IconDark: Story = {
   args: {
@@ -53,13 +53,13 @@ export const IconDark: Story = {
 }
 IconDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const BackgroundLight: Story = {
+export const Background: Story = {
   args: {
     variant: ButtonVariant.BACKGROUND,
     children: 'TEXT'
   }
 }
-BackgroundLight.decorators = [ThemeDecorator(Theme.LIGHT)]
+Background.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const BackgroundDark: Story = {
   args: {
@@ -69,7 +69,7 @@ export const BackgroundDark: Story = {
 }
 BackgroundDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const SquareXSLight: Story = {
+export const SquareXS: Story = {
   args: {
     variant: ButtonVariant.BACKGROUND,
     children: '1',
@@ -77,7 +77,7 @@ export const SquareXSLight: Story = {
     size: ButtonSize.XS
   }
 }
-SquareXSLight.decorators = [ThemeDecorator(Theme.LIGHT)]
+SquareXS.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const SquareXSDark: Story = {
   args: {
@@ -89,7 +89,7 @@ export const SquareXSDark: Story = {
 }
 SquareXSDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const SquareSMLight: Story = {
+export const SquareSM: Story = {
   args: {
     variant: ButtonVariant.BACKGROUND,
     children: '1',
@@ -97,7 +97,7 @@ export const SquareSMLight: Story = {
     size: ButtonSize.SM
   }
 }
-SquareSMLight.decorators = [ThemeDecorator(Theme.LIGHT)]
+SquareSM.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const SquareSMDark: Story = {
   args: {
@@ -109,7 +109,7 @@ export const SquareSMDark: Story = {
 }
 SquareSMDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const SquareSizeMLight: Story = {
+export const SquareSizeM: Story = {
   args: {
     variant: ButtonVariant.BACKGROUND,
     children: '1',
@@ -117,7 +117,7 @@ export const SquareSizeMLight: Story = {
     size: ButtonSize.M
   }
 }
-SquareSizeMLight.decorators = [ThemeDecorator(Theme.LIGHT)]
+SquareSizeM.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const SquareSizeMDark: Story = {
   args: {
@@ -129,7 +129,7 @@ export const SquareSizeMDark: Story = {
 }
 SquareSizeMDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const SquareSizeLLight: Story = {
+export const SquareSizeL: Story = {
   args: {
     variant: ButtonVariant.BACKGROUND,
     children: '1',
@@ -137,7 +137,7 @@ export const SquareSizeLLight: Story = {
     size: ButtonSize.L
   }
 }
-SquareSizeLLight.decorators = [ThemeDecorator(Theme.LIGHT)]
+SquareSizeL.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const SquareSizeLDark: Story = {
   args: {
