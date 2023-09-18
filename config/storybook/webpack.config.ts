@@ -10,6 +10,10 @@ export default ({config}: { config: webpack.Configuration }) => {
         html: "",
         build: "",
         src: path.resolve(__dirname, "..", "..", 'src'),
+
+    }
+    config.performance={
+        hints: false,
     }
     config.resolve.modules.push(paths.src)
     config.resolve.extensions.push('.ts', '.tsx')
