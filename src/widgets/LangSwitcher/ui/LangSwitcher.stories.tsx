@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { ThemeSwitcher } from './ThemeSwitcher'
+import { LangSwitcher } from './LangSwitcher'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
-import SunIcon from 'shared/assets/icons/sun.svg'
 
-const meta: Meta<typeof ThemeSwitcher> = {
-  title: 'widgets/ThemeSwitcher',
-  component: ThemeSwitcher,
+const meta: Meta<typeof LangSwitcher> = {
+  title: 'widgets/LangSwitcher',
+  component: LangSwitcher,
   parameters: {
     layout: 'fullscreen'
   },
@@ -20,13 +19,15 @@ type Story = StoryObj<typeof meta>
 
 export const Light: Story = {
   args: {
+    children: 'EN'
   }
+
 }
 Light.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const Dark: Story = {
   args: {
-    children: <SunIcon/>
+    children: 'RU'
   }
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]

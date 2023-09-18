@@ -11,6 +11,11 @@ const meta: Meta<typeof AppLink> = {
   },
   // tags: ['autodocs'],
   argTypes: {
+  },
+  args: {
+    to: '/',
+    variant: AppLinkVariant.CLEAN,
+    children: 'Text link'
   }
 }
 export default meta
@@ -19,18 +24,12 @@ type Story = StoryObj<typeof meta>
 
 export const Clean: Story = {
   args: {
-    to: '/',
-    variant: AppLinkVariant.CLEAN,
-    children: 'Text link'
   }
 }
 Clean.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
 
 export const CleanDark: Story = {
   args: {
-    to: '/',
-    variant: AppLinkVariant.CLEAN,
-    children: 'Text link'
   }
 }
 CleanDark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]

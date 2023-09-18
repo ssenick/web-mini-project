@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { ThemeSwitcher } from './ThemeSwitcher'
+import { PageLoader } from './PageLoader'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
-import SunIcon from 'shared/assets/icons/sun.svg'
 
-const meta: Meta<typeof ThemeSwitcher> = {
-  title: 'widgets/ThemeSwitcher',
-  component: ThemeSwitcher,
+const meta: Meta<typeof PageLoader> = {
+  title: 'widgets/PageLoader',
+  component: PageLoader,
   parameters: {
     layout: 'fullscreen'
   },
@@ -19,14 +18,20 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Light: Story = {
-  args: {
-  }
+  render: (args) => (
+        <div className="app__content">
+            <PageLoader/>
+        </div>
+  )
+
 }
 Light.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const Dark: Story = {
-  args: {
-    children: <SunIcon/>
-  }
+  render: (args) => (
+        <div className="app__content">
+            <PageLoader/>
+        </div>
+  )
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]

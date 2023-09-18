@@ -1,9 +1,13 @@
-import { Button } from 'shared/ui/Button/Button'
+import { Button, ButtonVariant } from 'shared/ui/Button/Button'
 import { render, screen } from '@testing-library/react'
 
-describe('classNames', () => {
-  test('with only first param', () => {
+describe('Button', () => {
+  test('Test render', () => {
     render(<Button>TEST</Button>)
     expect(screen.getByText('TEST')).toBeInTheDocument()
+  })
+  test('test theme clean', () => {
+    render(<Button variant={ButtonVariant.CLEAN} >TEST</Button>)
+    expect(screen.getByText('TEST')).toHaveClass('clean')
   })
 })

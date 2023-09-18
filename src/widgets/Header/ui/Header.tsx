@@ -28,7 +28,6 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
       throw new Error()
     }
   }, [error])
-
   return (
         <header className={classNames(cls.Header, {}, [className])}>
             <AppLink className={cls.logo} to='/' variant={AppLinkVariant.CLEAN}>
@@ -37,10 +36,9 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
             <div className={cls.title}> {t('Главная')}</div>
             <div className={cls.action}>
                 {/* кнопку темы и тд */}
-                <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>{t('ошибка')}</Button>
+                <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>{ t('ошибка')}</Button>
                 <LangSwitcher/>
                 <ThemeSwitcher/>
-
             </div>
         </header>
   )

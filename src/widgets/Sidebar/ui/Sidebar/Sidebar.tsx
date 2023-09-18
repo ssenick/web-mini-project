@@ -21,8 +21,9 @@ export const Sidebar = ({ className }: SidebarProps): JSX.Element => {
   }, [collapsed])
 
   return (
-        <aside className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-            <Button variant={ButtonVariant.CLEAN}
+        <aside data-testid='sidebar'
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+            <Button data-testid='sidebar-toggle' variant={ButtonVariant.CLEAN}
                     onClick={toggleCollapse}
                     className={cls.burgerBtn}>
                 <span className={cls.itemBtn}></span>
