@@ -10,7 +10,6 @@ jobs:
     strategy:
       matrix:
         node-version: [ 17.x ]
-
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
@@ -28,6 +27,6 @@ jobs:
       - name: unit testing
         run: npm run test:unit
       - name: build storybook
-        run: npm run storybook:build
+        run: npm run storybook:build:git
       - name: screenshot testing
         run: npm run test:ui:ci
