@@ -11,7 +11,6 @@ const meta: Meta<typeof Header> = {
   parameters: {
     layout: 'fullscreen'
   },
-  // tags: ['autodocs'],
   argTypes: {
   }
 
@@ -26,7 +25,6 @@ export const Light: Story = {
         <Header />
       </div>
   )
-
 }
 Light.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
 export const Dark: Story = {
