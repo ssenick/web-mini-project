@@ -19,6 +19,7 @@ export default ({config}: { config: webpack.Configuration }) => {
     config.resolve.extensions.push('.ts', '.tsx', '.js', 'jsx')
     config.module.rules.push(buildScssLoader(true))
 
+
     config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
         if(/svg/.test(rule.test as string)){
             return { ...rule, exclude:/\.svg$/i};
