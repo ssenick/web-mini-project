@@ -2,7 +2,7 @@ import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator'
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator'
 import { Theme } from '../../src/app/povaiders/ThemeProvaider'
-
+import 'loki/configure-react'
 export const preview = {
   decorators: [
     StyleDecorator,

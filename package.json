@@ -12,13 +12,12 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest  --config ./config/jest/jest.config.ts",
-    "test_ui_ci": "storybook build -c ./config/storybook && loki update --reactUri=\"file:./storybook-static && loki --requireReference --reactUri file:./storybook-static",
-    "test_ui_ci_ok": "loki update --reactUri=\"file:./storybook-static",
     "test:ui": "npx loki test",
+    "test_ui_ci": "storybook build -c ./config/storybook -s public --quiet -c ./config/storybook && loki --requireReference --reactUri file:./storybook-static",
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "storybook:build": "storybook build -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook -s public --quiet"
   },
   "keywords": [],
   "author": "",
@@ -36,6 +35,7 @@
     "@storybook/blocks": "^7.4.2",
     "@storybook/builder-webpack5": "^7.4.2",
     "@storybook/react": "^7.4.2",
+    "@storybook/react-native": "^6.5.6",
     "@storybook/react-webpack5": "^7.4.2",
     "@storybook/testing-library": "^0.2.1",
     "@svgr/webpack": "^6.5.1",
