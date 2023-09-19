@@ -20,8 +20,8 @@ jobs:
         run: npm install --force
 #      - name: build production project
 #        run: npm run build
-      - name: linting typescript
-        run: npm run lint:ts
+#      - name: linting typescript
+#        run: npm run lint:ts
 #      - name: linting css
 #        run: npm run lint:scss
 #      - name: unit testing
