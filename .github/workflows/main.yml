@@ -30,8 +30,6 @@ jobs:
 #        run: npm run storybook:build
       - name: screenshot testing
         run: npm run test_ui_ci
-      - name: screenshot ok
-        run: npm run test_ui_ci_ok
       - name: Archive screenshots
         if: ${{ failure() }}
         uses: actions/upload-artifact@v1
