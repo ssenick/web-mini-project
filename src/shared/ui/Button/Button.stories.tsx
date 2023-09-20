@@ -1,150 +1,145 @@
-import type { Meta, StoryObj } from '@storybook/react'
-
+import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { Button, ButtonSize, ButtonVariant } from './Button'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
-import MoonIcon from 'shared/assets/icons/moon.svg'
-import SunIcon from 'shared/assets/icons/sun.svg'
+import IconSun from 'shared/assets/icons/sun.svg'
 
-const meta: Meta<typeof Button> = {
+export default {
   title: 'shared/Button',
   component: Button,
-  parameters: {
-    layout: 'fullscreen'
-  },
-  // tags: ['autodocs'],
   argTypes: {
-
+    backgroundColor: { control: 'color' }
   }
-}
-export default meta
+} as ComponentMeta<typeof Button>
 
-type Story = StoryObj<typeof meta>
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
-export const Clean: Story = {
-  args: {
-    variant: ButtonVariant.CLEAN,
-    children: 'TEXT'
-  }
+export const Clean = Template.bind({})
+Clean.args = {
+  children: 'Text',
+  variant: ButtonVariant.CLEAN
 }
 Clean.decorators = [ThemeDecorator(Theme.LIGHT)]
 
-export const CleanDark: Story = {
-  args: {
-    variant: ButtonVariant.CLEAN,
-    children: 'TEXT'
-  }
+export const CleanDark = Template.bind({})
+CleanDark.args = {
+  children: 'Text',
+  variant: ButtonVariant.CLEAN
 }
 CleanDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Icon: Story = {
-  args: {
-    variant: ButtonVariant.THEME_ICON,
-    children: <MoonIcon/>
-  }
+export const Icon = Template.bind({})
+Icon.args = {
+  children: <IconSun/>,
+  variant: ButtonVariant.THEME_ICON
 }
 Icon.decorators = [ThemeDecorator(Theme.LIGHT)]
 
-export const IconDark: Story = {
-  args: {
-    variant: ButtonVariant.THEME_ICON,
-    children: <SunIcon/>
-  }
+export const IconDark = Template.bind({})
+IconDark.args = {
+  children: <IconSun/>,
+  variant: ButtonVariant.THEME_ICON
 }
 IconDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Background: Story = {
-  args: {
-    variant: ButtonVariant.BACKGROUND,
-    children: 'TEXT'
-  }
+export const Background = Template.bind({})
+Background.args = {
+  children: 'Text',
+  variant: ButtonVariant.BACKGROUND
 }
 Background.decorators = [ThemeDecorator(Theme.LIGHT)]
 
-export const BackgroundDark: Story = {
-  args: {
-    variant: ButtonVariant.BACKGROUND,
-    children: 'TEXT'
-  }
+export const BackgroundDark = Template.bind({})
+BackgroundDark.args = {
+  children: 'Text',
+  variant: ButtonVariant.BACKGROUND
 }
 BackgroundDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const SquareXS: Story = {
-  args: {
-    variant: ButtonVariant.BACKGROUND,
-    children: '1',
-    square: true,
-    size: ButtonSize.XS
-  }
+export const Square = Template.bind({})
+Square.args = {
+  children: '1',
+  variant: ButtonVariant.BACKGROUND,
+  square: true
 }
-SquareXS.decorators = [ThemeDecorator(Theme.LIGHT)]
+Square.decorators = [ThemeDecorator(Theme.LIGHT)]
 
-export const SquareXSDark: Story = {
-  args: {
-    variant: ButtonVariant.BACKGROUND,
-    children: '1',
-    square: true,
-    size: ButtonSize.XS
-  }
+export const SquareDark = Template.bind({})
+SquareDark.args = {
+  children: '1',
+  variant: ButtonVariant.BACKGROUND,
+  square: true
 }
-SquareXSDark.decorators = [ThemeDecorator(Theme.DARK)]
+SquareDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const SquareSM: Story = {
-  args: {
-    variant: ButtonVariant.BACKGROUND,
-    children: '1',
-    square: true,
-    size: ButtonSize.SM
-  }
+export const SizeSM = Template.bind({})
+SizeSM.args = {
+  children: '1',
+  variant: ButtonVariant.BACKGROUND,
+  square: true,
+  size: ButtonSize.SM
 }
-SquareSM.decorators = [ThemeDecorator(Theme.LIGHT)]
+SizeSM.decorators = [ThemeDecorator(Theme.LIGHT)]
 
-export const SquareSMDark: Story = {
-  args: {
-    variant: ButtonVariant.BACKGROUND,
-    children: '1',
-    square: true,
-    size: ButtonSize.SM
-  }
+export const SizeSMDark = Template.bind({})
+SizeSMDark.args = {
+  children: '1',
+  variant: ButtonVariant.BACKGROUND,
+  square: true,
+  size: ButtonSize.SM
 }
-SquareSMDark.decorators = [ThemeDecorator(Theme.DARK)]
+SizeSMDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const SquareSizeM: Story = {
-  args: {
-    variant: ButtonVariant.BACKGROUND,
-    children: '1',
-    square: true,
-    size: ButtonSize.M
-  }
+export const SizeXS = Template.bind({})
+SizeXS.args = {
+  children: '1',
+  variant: ButtonVariant.BACKGROUND,
+  square: true,
+  size: ButtonSize.XS
 }
-SquareSizeM.decorators = [ThemeDecorator(Theme.LIGHT)]
+SizeXS.decorators = [ThemeDecorator(Theme.LIGHT)]
 
-export const SquareSizeMDark: Story = {
-  args: {
-    variant: ButtonVariant.BACKGROUND,
-    children: '1',
-    square: true,
-    size: ButtonSize.M
-  }
+export const SizeXSDark = Template.bind({})
+SizeXSDark.args = {
+  children: '1',
+  variant: ButtonVariant.BACKGROUND,
+  square: true,
+  size: ButtonSize.XS
 }
-SquareSizeMDark.decorators = [ThemeDecorator(Theme.DARK)]
+SizeXSDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const SquareSizeL: Story = {
-  args: {
-    variant: ButtonVariant.BACKGROUND,
-    children: '1',
-    square: true,
-    size: ButtonSize.L
-  }
+export const SizeM = Template.bind({})
+SizeM.args = {
+  children: '1',
+  variant: ButtonVariant.BACKGROUND,
+  square: true,
+  size: ButtonSize.M
 }
-SquareSizeL.decorators = [ThemeDecorator(Theme.LIGHT)]
+SizeM.decorators = [ThemeDecorator(Theme.LIGHT)]
 
-export const SquareSizeLDark: Story = {
-  args: {
-    variant: ButtonVariant.BACKGROUND,
-    children: '1',
-    square: true,
-    size: ButtonSize.L
-  }
+export const SizeMDark = Template.bind({})
+SizeMDark.args = {
+  children: '1',
+  variant: ButtonVariant.BACKGROUND,
+  square: true,
+  size: ButtonSize.M
 }
-SquareSizeLDark.decorators = [ThemeDecorator(Theme.DARK)]
+SizeMDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const SizeL = Template.bind({})
+SizeL.args = {
+  children: '1',
+  variant: ButtonVariant.BACKGROUND,
+  square: true,
+  size: ButtonSize.L
+}
+SizeL.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const SizeLDark = Template.bind({})
+SizeLDark.args = {
+  children: '1',
+  variant: ButtonVariant.BACKGROUND,
+  square: true,
+  size: ButtonSize.L
+}
+SizeMDark.decorators = [ThemeDecorator(Theme.DARK)]

@@ -55,7 +55,9 @@ module.exports = {
       ],
       "@typescript-eslint/naming-convention": 'off',
       "@typescript-eslint/no-var-requires": 'off',
-      "i18next/no-literal-string": ["error", {markupOnly: true }]
+      "i18next/no-literal-string": ["error", {markupOnly: true }],
+      "@typescript-eslint/consistent-type-assertions":'off',
+      "react/display-name": 'off'
    },
    globals: {
       __IS_DEV__: true
