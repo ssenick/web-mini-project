@@ -8,7 +8,7 @@ module.exports = {
       "plugin:react/recommended",
       "plugin:react/jsx-runtime",
       "plugin:i18next/recommended",
-      "plugin:storybook/recommended"
+      // "plugin:storybook/recommended"
    ],
    // "parser": '@typescript-eslint/parser',
 
