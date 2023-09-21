@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-
+import './styles/index.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTheme } from 'app/povaiders/ThemeProvaider'
 import { Header } from 'widgets/Header'

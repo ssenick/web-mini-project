@@ -1,10 +1,15 @@
-import { type Story } from '@storybook/react'
-import { type Theme, ThemeProvider } from 'app/povaiders/ThemeProvaider'
+import { type Theme } from 'app/povaiders/ThemeProvaider'
+import { type Decorator } from '@storybook/react'
 
-export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) => (
-    <ThemeProvider initialTheme={theme}>
-        <div className={`app ${theme}`}>
-            <StoryComponent />
+const style: Record<string, string | boolean> = {
+  padding: '15px'
+}
+
+export const ThemeDecorator = (theme: Theme) => {
+  const decorator: Decorator = (Story) => (
+        <div className={`app ${theme}`} style={style}>
+            <Story />
         </div>
-    </ThemeProvider>
-)
+  )
+  return decorator
+}

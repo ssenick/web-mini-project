@@ -8,7 +8,7 @@ module.exports = {
       "plugin:react/recommended",
       "plugin:react/jsx-runtime",
       "plugin:i18next/recommended",
-      // "plugin:storybook/recommended"
+      "plugin:storybook/recommended"
    ],
    // "parser": '@typescript-eslint/parser',
 
@@ -55,9 +55,7 @@ module.exports = {
       ],
       "@typescript-eslint/naming-convention": 'off',
       "@typescript-eslint/no-var-requires": 'off',
-      "i18next/no-literal-string": ["error", {markupOnly: true }],
-      "@typescript-eslint/consistent-type-assertions":'off',
-      "react/display-name": 'off'
+      "i18next/no-literal-string": ["error", {markupOnly: true }]
    },
    globals: {
       __IS_DEV__: true

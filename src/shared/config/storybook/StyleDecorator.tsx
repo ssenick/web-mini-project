@@ -1,4 +1,4 @@
+import { type Decorator } from '@storybook/react'
 import 'app/styles/index.scss'
-import { type Story } from '@storybook/react'
 
-export const StyleDecorator = (story: () => Story) => story()
+export const StyleDecorator: Decorator = (Story) => Story()
