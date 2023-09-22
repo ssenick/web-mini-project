@@ -19,7 +19,7 @@ export const LangSwitcher = ({ className, children }: LangSwitcherProps): JSX.El
         <Button
             variant={ButtonVariant.BACKGROUND}
             className={classNames(cls.LangSwitcher, {}, [className])}
-            square
+            // square
             size={ButtonSize.SM}
             onClick={toggle}
         >

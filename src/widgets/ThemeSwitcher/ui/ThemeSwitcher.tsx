@@ -12,9 +12,8 @@ interface ThemeSwitcherProps {
 export const ThemeSwitcher = ({ className, children }: ThemeSwitcherProps): JSX.Element => {
   const { theme, toggleTheme } = useTheme()
   return (
-        <Button variant={ButtonVariant.THEME_ICON} onClick={toggleTheme} className={className}>
+        <Button data-testid='themSwitcherBtn' variant={ButtonVariant.THEME_ICON} onClick={toggleTheme} className={className}>
             {children || theme === Theme.DARK ? <SunIcon/> : <MoonIcon/>}
-            {/* {children && children} */}
         </Button>
   )
 }

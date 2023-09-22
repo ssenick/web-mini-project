@@ -6,8 +6,8 @@ import { Theme } from '../../src/app/povaiders/ThemeProvaider'
 export const preview = {
   decorators: [
     StyleDecorator,
-    ThemeDecorator(Theme.LIGHT),
-    RouterDecorator
+    RouterDecorator,
+    ThemeDecorator(Theme.LIGHT)
   ],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },

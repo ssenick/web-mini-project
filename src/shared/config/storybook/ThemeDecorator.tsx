@@ -1,4 +1,4 @@
-import { type Theme } from 'app/povaiders/ThemeProvaider'
+import { type Theme, ThemeProvider } from 'app/povaiders/ThemeProvaider'
 import { type Decorator } from '@storybook/react'
 
 const style: Record<string, string | boolean> = {
@@ -7,9 +7,11 @@ const style: Record<string, string | boolean> = {
 
 export const ThemeDecorator = (theme: Theme) => {
   const decorator: Decorator = (Story) => (
-        <div className={`app ${theme}`} style={style}>
-            <Story />
-        </div>
+      <ThemeProvider initialTheme={theme}>
+          <div className={`app ${theme}`} style={style}>
+              <Story />
+          </div>
+      </ThemeProvider>
   )
   return decorator
 }

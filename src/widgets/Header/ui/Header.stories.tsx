@@ -21,19 +21,15 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Light: Story = {
-  render: (args) => (
-      <div className='app__header'>
-        <Header />
-      </div>
-  )
+  args: {
+    className: 'app__header'
+  }
 
 }
 Light.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
 export const Dark: Story = {
-  render: (args) => (
-      <div className='app__header'>
-        <Header />
-      </div>
-  )
+  args: {
+    className: 'app__header'
+  }
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]
