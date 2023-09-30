@@ -2,12 +2,11 @@ import { type ReactNode } from 'react'
 import { type StateSchema } from '../config/StateSchema'
 import { createReduxStore } from 'app/povaiders/StorePorider/config/store'
 import { Provider } from 'react-redux'
-// import { type DeepPartial } from '@reduxjs/toolkit'
+import { type DeepPartial } from '@reduxjs/toolkit'
 
 interface StoreProviderProps {
   children?: ReactNode
-  initialState?: StateSchema
-  // initialState?: DeepPartial<StateSchema>
+  initialState?: DeepPartial<StateSchema>
 }
 
 export const StoreProvider = (props: StoreProviderProps) => {
@@ -16,8 +15,7 @@ export const StoreProvider = (props: StoreProviderProps) => {
     initialState
   } = props
 
-  const store = createReduxStore(initialState)
-  // const store = createReduxStore(initialState as StateSchema)
+  const store = createReduxStore(initialState as StateSchema)
 
   return (
         <Provider store={store}>
