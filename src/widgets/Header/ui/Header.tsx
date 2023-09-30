@@ -17,7 +17,11 @@ interface HeaderProps {
 export const Header = ({ className }: HeaderProps): JSX.Element => {
   const { theme } = useTheme()
   const { t } = useTranslation()
+  // const [isAuthModal, setIsAuthModal] = useState(false)
 
+  // const onToggleModal = () => {
+  //   setIsAuthModal(prev => !prev)
+  // }
   const [error, setError] = useState(false)
   const onThrow = (): void => {
     setError(true)
@@ -34,6 +38,7 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
                 {theme === Theme.DARK ? <LogoWhiteIcon/> : <LogoDarkIcon/>}
             </AppLink>
             <div className={cls.title}> {t('Главная')}</div>
+
             <div className={cls.action}>
                 {/* кнопку темы и тд */}
                 <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>{ t('ошибка')}</Button>
