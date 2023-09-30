@@ -5,7 +5,7 @@
   top: 0;
   bottom: 0;
   z-index: 101;
-  background-color: rgb(0 0 0 / 30%);
+  background-color: var(--overlay-color);
   transform: scale(0);
 
   .overlay {
@@ -20,9 +20,8 @@
   }
 
   .content {
-    background-color: #fff;
+    background-color: var(--bg-module);
     max-width: 60vw;
-    color: #000;
     padding: 15px;
     border-radius: 8px;
 

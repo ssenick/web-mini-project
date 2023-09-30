@@ -8,7 +8,9 @@ module.exports = {
       "plugin:react/recommended",
       "plugin:react/jsx-runtime",
       "plugin:i18next/recommended",
-      "plugin:storybook/recommended"
+      "plugin:storybook/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react-hooks/recommended"
    ],
    // "parser": '@typescript-eslint/parser',
 
@@ -39,6 +41,8 @@ module.exports = {
    "plugins": [
       "react",
       "i18next",
+      '@typescript-eslint',
+      "react-hooks"
       // '@typescript-eslint',
    ],
    "rules": {
@@ -46,7 +50,6 @@ module.exports = {
       "@typescript-eslint/strict-boolean-expressions": "off",
       "@typescript-eslint/prefer-nullish-coalescing": "off",
       "@typescript-eslint/explicit-function-return-type" : 'warn',
-
       "@typescript-eslint/no-misused-promises": [
          "error",
          {
@@ -55,7 +58,9 @@ module.exports = {
       ],
       "@typescript-eslint/naming-convention": 'off',
       "@typescript-eslint/no-var-requires": 'off',
-      "i18next/no-literal-string": ["error", {markupOnly: true }]
+      "i18next/no-literal-string": ["error", {markupOnly: true }],
+      'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+      'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies,
    },
    globals: {
       __IS_DEV__: true

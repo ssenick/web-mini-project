@@ -1,4 +1,5 @@
-import { useState, type ReactNode, useRef, useCallback, useEffect, type FC } from 'react'
+import type React from 'react'
+import { useState, type ReactNode, useRef, useEffect, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
 
@@ -9,7 +10,7 @@ interface ModalProps {
   onClose?: () => void
 }
 
-export const Modal: FC<ModalProps> = (props) => {
+export const Modal = (props: ModalProps): JSX.Element => {
   const {
     className,
     children,
@@ -31,18 +32,26 @@ export const Modal: FC<ModalProps> = (props) => {
     }
   }, [onClose])
 
-  const onContentClick = useCallback((e) => {
+  const onContentClick = useCallback((e: React.MouseEvent): void => {
     e.stopPropagation()
   }, [])
+  const onKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      closeHandler()
+    }
+  }, [closeHandler])
 
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add('lock')
+      window.addEventListener('keydown', onKeyDown)
     }
     return () => {
       clearTimeout(timeRef.current)
+      window.removeEventListener('keydown', onKeyDown)
     }
-  }, [isOpen])
+  }, [isOpen, onKeyDown])
+
   const mods: Record<string, boolean> = {
     [cls.isOpen]: isOpen,
     [cls.isClose]: isClosing
