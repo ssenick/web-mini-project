@@ -2,6 +2,7 @@ import type React from 'react'
 import { useState, type ReactNode, useRef, useEffect, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
+import { Portal } from 'shared/ui/Portal/Portal'
 
 interface ModalProps {
   className?: string
@@ -57,12 +58,14 @@ export const Modal = (props: ModalProps): JSX.Element => {
     [cls.isClose]: isClosing
   }
   return (
-        <div className={classNames(cls.Modal, mods, [className])}>
-              <div className={cls.overlay} onClick={closeHandler}>
-                <div className={cls.content} onClick={onContentClick}>
-                  {children}
-                </div>
-              </div>
+      <Portal>
+        <div data-testid='modal' className={classNames(cls.Modal, mods, [className])}>
+          <div className={cls.overlay} onClick={closeHandler}>
+            <div className={cls.content} onClick={onContentClick}>
+              {children}
+            </div>
+          </div>
         </div>
+      </Portal>
   )
 }

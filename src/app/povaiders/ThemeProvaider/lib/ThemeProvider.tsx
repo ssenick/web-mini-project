@@ -1,5 +1,5 @@
 import { LOCAL_STORAGE_THEME_KAY, Theme, ThemeContext } from '../ui/ThemeContext'
-import { type FC, type ReactNode, useMemo, useState } from 'react'
+import { type FC, type ReactNode, useEffect, useMemo, useState } from 'react'
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KAY) as Theme || Theme.LIGHT
 
@@ -18,6 +18,9 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     theme,
     setTheme
   }), [theme])
+  useEffect(() => {
+    document.body.className = theme
+  }, [theme])
   return (
         <ThemeContext.Provider value={defaultValue}>
             {children}

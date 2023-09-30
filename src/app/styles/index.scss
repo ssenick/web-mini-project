@@ -7,6 +7,9 @@ body {
   &.lock {
     overflow: hidden;
   }
+
+  color: var(--primary-color);
+  font: var(--font-m);
 }
 
 .app {
@@ -19,8 +22,6 @@ body {
     "sidebar content";
   background-color: var(--bg-color);
   min-height: 100vh;
-  color: var(--primary-color);
-  font: var(--font-m);
 
   &__header {
     grid-area: header;
