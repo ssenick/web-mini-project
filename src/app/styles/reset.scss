@@ -15,6 +15,12 @@
   outline: none;
 }
 
+input,
+button,
+textarea {
+  font-size: inherit;
+}
+
 a {
   color: inherit;
 

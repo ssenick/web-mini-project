@@ -1,0 +1,20 @@
+.inputWrapper {
+  display: flex;
+  background-color: var(--bg-input);
+  border-radius: 5px;
+  opacity: 0.8;
+  transition: opacity var(--animation-time) ease 0s;
+
+  input {
+    background-color: transparent;
+    height: 36px;
+    width: 100%;
+    padding: 5px 15px;
+    outline: none;
+    color: inherit;
+  }
+
+  &.isFocus {
+    opacity: 1;
+  }
+}
