@@ -37,8 +37,9 @@ export const Input = (props: InputProps): JSX.Element => {
     [cls.isFocus]: isFocus
   }
   return (
-        <div className={classNames(cls.inputWrapper, mods, [className])}>
+        <div data-testid='input-wrapper' className={classNames(cls.inputWrapper, mods, [className])}>
             <input
+                data-testid='input'
                 value={value}
                 onChange={onChangeHandler}
                 type={type}
