@@ -1,14 +1,16 @@
 import cls from './Header.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { AppLinkVariant, AppLink } from 'shared/ui/AppLink/AppLink'
+import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { Theme, useTheme } from 'app/povaiders/ThemeProvaider'
 import LogoDarkIcon from 'shared/assets/icons/logo.svg'
 import LogoWhiteIcon from 'shared/assets/icons/logo-w.svg'
+import LoginIcon from 'shared/assets/icons/login.svg'
 import { useTranslation } from 'react-i18next'
 import { LangSwitcher } from 'widgets/LangSwitcher'
-import { ButtonVariant, Button } from 'shared/ui/Button/Button'
-import { useEffect, useState } from 'react'
+import { Button, ButtonVariant } from 'shared/ui/Button/Button'
+import { useCallback, useEffect, useState } from 'react'
+import { LoginModal } from 'features/AuthByUsername'
 
 interface HeaderProps {
   className?: string
@@ -18,7 +20,14 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
   const { theme } = useTheme()
   const { t } = useTranslation()
   const [error, setError] = useState(false)
+  const [isAuthModal, setIsAuthModal] = useState(false)
 
+  const onCloseModal = useCallback((): void => {
+    setIsAuthModal(false)
+  }, [])
+  const onShowModal = useCallback((): void => {
+    setIsAuthModal(true)
+  }, [])
   const onThrow = (): void => {
     setError(true)
   }
@@ -39,7 +48,12 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
                 <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>{ t('ошибка')}</Button>
                 <LangSwitcher/>
                 <ThemeSwitcher/>
+                <Button onClick={onShowModal} className={cls.login} variant={ButtonVariant.BACKGROUND} withIcon={true}>
+                    <LoginIcon/>
+                    {t('Вход')}
+                </Button>
             </div>
+            <LoginModal isOpen={isAuthModal} onClose={onCloseModal}/>
         </header>
   )
 }

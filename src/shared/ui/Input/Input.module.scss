@@ -12,9 +12,22 @@
     padding: 5px 15px;
     outline: none;
     color: inherit;
+
+    &::placeholder {
+      opacity: 0.5;
+      color: inherit;
+    }
   }
 
   &.isFocus {
     opacity: 1;
+
+    input::placeholder {
+      opacity: 0;
+    }
   }
+}
+
+.inverse-bg {
+  background-color: var(--bg-input-inverse);
 }

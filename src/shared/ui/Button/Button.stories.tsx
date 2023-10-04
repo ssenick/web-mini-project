@@ -69,6 +69,41 @@ export const BackgroundDark: Story = {
 }
 BackgroundDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const Border: Story = {
+  args: {
+    variant: ButtonVariant.BORDER,
+    children: 'TEXT'
+  }
+}
+Border.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const BorderDark: Story = {
+  args: {
+    variant: ButtonVariant.BORDER,
+    children: 'TEXT'
+  }
+}
+BorderDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const WithIcon: Story = {
+  args: {
+    variant: ButtonVariant.BORDER,
+    withIcon: true,
+    children: <><MoonIcon/><span>TEXT</span></>
+  }
+}
+WithIcon.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const WithIconDark: Story = {
+  args: {
+    variant: ButtonVariant.BORDER,
+    withIcon: true,
+    children: <><MoonIcon/><span>TEXT</span></>
+
+  }
+}
+WithIconDark.decorators = [ThemeDecorator(Theme.DARK)]
+
 export const SquareXS: Story = {
   args: {
     variant: ButtonVariant.BACKGROUND,

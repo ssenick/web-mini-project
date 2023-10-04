@@ -3,10 +3,16 @@ import { useState, type InputHTMLAttributes, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 
+export enum InputVariant {
+  NORMAL = '',
+  INVERSE_BG = 'inverse-bg'
+}
+
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' >
 
 interface InputProps extends HTMLInputProps {
   className?: string
+  variant?: InputVariant
   value?: string
   onChange?: (value: string) => void
 }
@@ -17,6 +23,7 @@ export const Input = (props: InputProps): JSX.Element => {
     value,
     onChange,
     type = 'text',
+    variant = InputVariant.NORMAL,
     ...otherProps
   } = props
   const [isFocus, setIsFocus] = useState(false)
@@ -37,7 +44,7 @@ export const Input = (props: InputProps): JSX.Element => {
     [cls.isFocus]: isFocus
   }
   return (
-        <div data-testid='input-wrapper' className={classNames(cls.inputWrapper, mods, [className])}>
+        <div data-testid='input-wrapper' className={classNames(cls.inputWrapper, mods, [className, cls[variant]])}>
             <input
                 data-testid='input'
                 value={value}

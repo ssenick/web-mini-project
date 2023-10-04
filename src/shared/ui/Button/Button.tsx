@@ -6,6 +6,7 @@ export enum ButtonVariant {
   CLEAN = 'clean',
   THEME_ICON = 'icon',
   BACKGROUND = 'background',
+  BORDER = 'border',
 }
 
 export enum ButtonSize {
@@ -13,13 +14,13 @@ export enum ButtonSize {
   SM = 'squareSM',
   M = 'squareM',
   L = 'squareL',
-
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   variant?: ButtonVariant
   square?: boolean
+  withIcon?: boolean
   size?: ButtonSize
 
 }
@@ -30,11 +31,12 @@ export const Button: FC<ButtonProps> = (props) => {
     children,
     variant = ButtonVariant.CLEAN,
     square,
+    withIcon,
     size = ButtonSize.XS,
     ...otherProps
   } = props
   return (
-        <button className={classNames(cls.Button, { [cls.square]: square }, [className, cls[variant], cls[size]])}
+        <button className={classNames(cls.Button, { [cls.square]: square, [cls.withIcon]: withIcon }, [className, cls[variant], cls[size]])}
                 type='button'
                 {...otherProps}
         >

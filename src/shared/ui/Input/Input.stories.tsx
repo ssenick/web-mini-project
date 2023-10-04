@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
-import { Input } from './Input'
+import { Input, InputVariant } from './Input'
 
 const meta: Meta<typeof Input> = {
   title: 'shared/Input',
@@ -31,3 +31,19 @@ export const CleanDark: Story = {
   }
 }
 CleanDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const InverseBackground: Story = {
+  args: {
+    value: 'Input',
+    variant: InputVariant.INVERSE_BG
+  }
+}
+InverseBackground.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const InverseBackgroundDark: Story = {
+  args: {
+    value: 'Input',
+    variant: InputVariant.INVERSE_BG
+  }
+}
+InverseBackgroundDark.decorators = [ThemeDecorator(Theme.DARK)]

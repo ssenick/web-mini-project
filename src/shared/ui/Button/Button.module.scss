@@ -27,6 +27,22 @@
   background-color: var(--bg-module);
 }
 
+.withIcon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--primary-color);
+  }
+}
+
+.border {
+  border: 1.5px solid var(--primary-color);
+}
+
 .square {
   display: flex;
   justify-content: center;
