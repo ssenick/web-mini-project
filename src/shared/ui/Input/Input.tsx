@@ -1,5 +1,5 @@
 import type React from 'react'
-import { useState, type InputHTMLAttributes, useCallback } from 'react'
+import { useState, type InputHTMLAttributes, useCallback, memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 
@@ -17,7 +17,7 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void
 }
 
-export const Input = (props: InputProps): JSX.Element => {
+export const Input = memo((props: InputProps): JSX.Element => {
   const {
     className,
     value,
@@ -56,4 +56,4 @@ export const Input = (props: InputProps): JSX.Element => {
             />
         </div>
   )
-}
+})

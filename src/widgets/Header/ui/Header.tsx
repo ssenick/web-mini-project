@@ -28,9 +28,9 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
   const onShowModal = useCallback((): void => {
     setIsAuthModal(true)
   }, [])
-  const onThrow = (): void => {
+  const onThrow = useCallback((): void => {
     setError(true)
-  }
+  }, [])
 
   useEffect(() => {
     if (error) {
@@ -45,9 +45,9 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
             <div className={cls.title}> {t('Главная')}</div>
             <div className={cls.action}>
                 {/* кнопку темы и тд */}
+                <ThemeSwitcher/>
                 <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>{ t('ошибка')}</Button>
                 <LangSwitcher/>
-                <ThemeSwitcher/>
                 <Button onClick={onShowModal} className={cls.login} variant={ButtonVariant.BACKGROUND} withIcon={true}>
                     <LoginIcon/>
                     {t('Вход')}

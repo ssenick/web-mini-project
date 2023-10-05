@@ -22,6 +22,7 @@ import { useTranslation } from 'react-i18next';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useCallback, useEffect, useState } from 'react';
+import { LoginModal } from 'features/AuthByUsername';
 export var Header = function (_a) {
     var className = _a.className;
     var theme = useTheme().theme;
@@ -42,5 +43,5 @@ export var Header = function (_a) {
             throw new Error();
         }
     }, [error]);
-    return (_jsxs("header", __assign({ className: classNames(cls.Header, {}, [className]) }, { children: [_jsx(AppLink, __assign({ className: cls.logo, to: '/', variant: AppLinkVariant.CLEAN }, { children: theme === Theme.DARK ? _jsx(LogoWhiteIcon, {}) : _jsx(LogoDarkIcon, {}) })), _jsxs("div", __assign({ className: cls.title }, { children: [" ", t('Главная')] })), _jsxs("div", __assign({ className: cls.action }, { children: [_jsx(Button, __assign({ onClick: onThrow, variant: ButtonVariant.BACKGROUND }, { children: t('ошибка') })), _jsx(LangSwitcher, {}), _jsx(ThemeSwitcher, {}), _jsxs(Button, __assign({ onClick: onShowModal, className: cls.login, variant: ButtonVariant.BACKGROUND, withIcon: true }, { children: [_jsx(LoginIcon, {}), t('Вход')] }))] }))] })));
+    return (_jsxs("header", __assign({ className: classNames(cls.Header, {}, [className]) }, { children: [_jsx(AppLink, __assign({ className: cls.logo, to: '/', variant: AppLinkVariant.CLEAN }, { children: theme === Theme.DARK ? _jsx(LogoWhiteIcon, {}) : _jsx(LogoDarkIcon, {}) })), _jsxs("div", __assign({ className: cls.title }, { children: [" ", t('Главная')] })), _jsxs("div", __assign({ className: cls.action }, { children: [_jsx(Button, __assign({ onClick: onThrow, variant: ButtonVariant.BACKGROUND }, { children: t('ошибка') })), _jsx(LangSwitcher, {}), _jsx(ThemeSwitcher, {}), _jsxs(Button, __assign({ onClick: onShowModal, className: cls.login, variant: ButtonVariant.BACKGROUND, withIcon: true }, { children: [_jsx(LoginIcon, {}), t('Вход')] }))] })), _jsx(LoginModal, { isOpen: isAuthModal, onClose: onCloseModal })] })));
 };

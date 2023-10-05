@@ -1,4 +1,4 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 import { Button, ButtonSize, ButtonVariant } from './Button';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/povaiders/ThemeProvaider';
@@ -73,8 +73,8 @@ BorderDark.decorators = [ThemeDecorator(Theme.DARK)];
 export var WithIcon = {
     args: {
         variant: ButtonVariant.BORDER,
-        children: 'TEXT',
-        withIcon: true
+        withIcon: true,
+        children: _jsxs(_Fragment, { children: [_jsx(MoonIcon, {}), _jsx("span", { children: "TEXT" })] })
     }
 };
 WithIcon.decorators = [ThemeDecorator(Theme.LIGHT)];
@@ -82,7 +82,7 @@ export var WithIconDark = {
     args: {
         variant: ButtonVariant.BORDER,
         withIcon: true,
-        children: _jsxs("div", { children: [_jsx(MoonIcon, {}), "TEXT"] }),
+        children: _jsxs(_Fragment, { children: [_jsx(MoonIcon, {}), _jsx("span", { children: "TEXT" })] })
     }
 };
 WithIconDark.decorators = [ThemeDecorator(Theme.DARK)];
