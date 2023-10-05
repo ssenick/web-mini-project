@@ -59,7 +59,5 @@ export var LangSwitcher = function (_a) {
             return [2 /*return*/];
         });
     }); };
-    return (_jsx(Button, __assign({ variant: ButtonVariant.BACKGROUND, className: classNames(cls.LangSwitcher, {}, [className]), 
-        // square
-        size: ButtonSize.SM, onClick: toggle }, { children: children || t('Язык') })));
+    return (_jsx(Button, __assign({ variant: ButtonVariant.BACKGROUND, className: classNames(cls.LangSwitcher, {}, [className]), size: ButtonSize.XS, onClick: toggle }, { children: children || t('Язык') })));
 };

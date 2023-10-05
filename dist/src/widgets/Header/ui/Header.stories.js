@@ -2,6 +2,7 @@ import { Header } from './Header';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/povaiders/ThemeProvaider';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 var meta = {
     title: 'widgets/Header',
     component: Header,
@@ -17,10 +18,10 @@ export var Light = {
         className: 'app__header'
     }
 };
-Light.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator];
+Light.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, StoreDecorator()];
 export var Dark = {
     args: {
         className: 'app__header'
     }
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator];
+Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator, StoreDecorator()];

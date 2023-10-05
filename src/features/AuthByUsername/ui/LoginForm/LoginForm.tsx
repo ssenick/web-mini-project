@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loginActions } from '../../model/slice/loginSlice'
 import { getLoginUsername } from '../../model/selectros/getLoginUsername/getLoginUsername'
 import { getLoginPassword } from '../../model/selectros/getLoginPassword/getLoginPassword'
+// import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 
 interface LoginFormProps {
   className?: string
@@ -26,6 +27,10 @@ export const LoginForm = memo(({ className }: LoginFormProps): JSX.Element => {
     dispatch(loginActions.setPassword(value))
   }, [dispatch])
 
+  const onLoginClick = useCallback(() => {
+    // dispatch(loginByUsername({ username, password }))
+  }, [])
+
   return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
             <Input
@@ -42,7 +47,11 @@ export const LoginForm = memo(({ className }: LoginFormProps): JSX.Element => {
                 value={password}
             />
             <div className={cls.loginBottom}>
-                <Button size={ButtonSize.M} variant={ButtonVariant.BORDER}>{t('Вход')}</Button>
+                <Button
+                    size={ButtonSize.M}
+                    variant={ButtonVariant.BORDER}
+                    onClick={onLoginClick}
+                >{t('Вход')}</Button>
             </div>
         </div>
   )

@@ -21,7 +21,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useState, useCallback } from 'react';
+import { useState, useCallback, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 export var InputVariant;
@@ -29,7 +29,7 @@ export var InputVariant;
     InputVariant["NORMAL"] = "";
     InputVariant["INVERSE_BG"] = "inverse-bg";
 })(InputVariant || (InputVariant = {}));
-export var Input = function (props) {
+export var Input = memo(function (props) {
     var _a;
     var className = props.className, value = props.value, onChange = props.onChange, _b = props.type, type = _b === void 0 ? 'text' : _b, _c = props.variant, variant = _c === void 0 ? InputVariant.NORMAL : _c, otherProps = __rest(props, ["className", "value", "onChange", "type", "variant"]);
     var _d = useState(false), isFocus = _d[0], setIsFocus = _d[1];
@@ -46,4 +46,4 @@ export var Input = function (props) {
         _a[cls.isFocus] = isFocus,
         _a);
     return (_jsx("div", __assign({ "data-testid": 'input-wrapper', className: classNames(cls.inputWrapper, mods, [className, cls[variant]]) }, { children: _jsx("input", __assign({ "data-testid": 'input', value: value, onChange: onChangeHandler, type: type, onFocus: onFocus, onBlur: onBlur }, otherProps)) })));
-};
+});

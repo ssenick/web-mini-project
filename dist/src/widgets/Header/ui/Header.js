@@ -35,13 +35,13 @@ export var Header = function (_a) {
     var onShowModal = useCallback(function () {
         setIsAuthModal(true);
     }, []);
-    var onThrow = function () {
+    var onThrow = useCallback(function () {
         setError(true);
-    };
+    }, []);
     useEffect(function () {
         if (error) {
             throw new Error();
         }
     }, [error]);
-    return (_jsxs("header", __assign({ className: classNames(cls.Header, {}, [className]) }, { children: [_jsx(AppLink, __assign({ className: cls.logo, to: '/', variant: AppLinkVariant.CLEAN }, { children: theme === Theme.DARK ? _jsx(LogoWhiteIcon, {}) : _jsx(LogoDarkIcon, {}) })), _jsxs("div", __assign({ className: cls.title }, { children: [" ", t('Главная')] })), _jsxs("div", __assign({ className: cls.action }, { children: [_jsx(Button, __assign({ onClick: onThrow, variant: ButtonVariant.BACKGROUND }, { children: t('ошибка') })), _jsx(LangSwitcher, {}), _jsx(ThemeSwitcher, {}), _jsxs(Button, __assign({ onClick: onShowModal, className: cls.login, variant: ButtonVariant.BACKGROUND, withIcon: true }, { children: [_jsx(LoginIcon, {}), t('Вход')] }))] })), _jsx(LoginModal, { isOpen: isAuthModal, onClose: onCloseModal })] })));
+    return (_jsxs("header", __assign({ className: classNames(cls.Header, {}, [className]) }, { children: [_jsx(AppLink, __assign({ className: cls.logo, to: '/', variant: AppLinkVariant.CLEAN }, { children: theme === Theme.DARK ? _jsx(LogoWhiteIcon, {}) : _jsx(LogoDarkIcon, {}) })), _jsxs("div", __assign({ className: cls.title }, { children: [" ", t('Главная')] })), _jsxs("div", __assign({ className: cls.action }, { children: [_jsx(ThemeSwitcher, {}), _jsx(Button, __assign({ onClick: onThrow, variant: ButtonVariant.BACKGROUND }, { children: t('ошибка') })), _jsx(LangSwitcher, {}), _jsxs(Button, __assign({ onClick: onShowModal, className: cls.login, variant: ButtonVariant.BACKGROUND, withIcon: true }, { children: [_jsx(LoginIcon, {}), t('Вход')] }))] })), _jsx(LoginModal, { isOpen: isAuthModal, onClose: onCloseModal })] })));
 };
