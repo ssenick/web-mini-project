@@ -69,6 +69,24 @@ export const BackgroundDark: Story = {
 }
 BackgroundDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const Disabled: Story = {
+  args: {
+    variant: ButtonVariant.BACKGROUND,
+    children: 'TEXT',
+    disabled: true
+  }
+}
+Disabled.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const DisabledDark: Story = {
+  args: {
+    variant: ButtonVariant.BACKGROUND,
+    children: 'TEXT',
+    disabled: true
+  }
+}
+DisabledDark.decorators = [ThemeDecorator(Theme.DARK)]
+
 export const Border: Story = {
   args: {
     variant: ButtonVariant.BORDER,
