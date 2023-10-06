@@ -8,7 +8,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loginActions } from '../../model/slice/loginSlice'
 import { getLoginUsername } from '../../model/selectros/getLoginUsername/getLoginUsername'
 import { getLoginPassword } from '../../model/selectros/getLoginPassword/getLoginPassword'
-// import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
+import { getLoginIsLoading } from '../../model/selectros/getLoginIsLoading/getLoginIsLoading'
+import { getLoginError } from '../../model/selectros/getLoginError/getLoginError'
 
 interface LoginFormProps {
   className?: string
@@ -18,7 +20,10 @@ export const LoginForm = memo(({ className }: LoginFormProps): JSX.Element => {
   const { t } = useTranslation()
   const username = useSelector(getLoginUsername)
   const password = useSelector(getLoginPassword)
+  const isLoading = useSelector(getLoginIsLoading)
+  const error = useSelector(getLoginError)
   const dispatch = useDispatch()
+
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value))
   }, [dispatch])
@@ -28,31 +33,40 @@ export const LoginForm = memo(({ className }: LoginFormProps): JSX.Element => {
   }, [dispatch])
 
   const onLoginClick = useCallback(() => {
-    // dispatch(loginByUsername({ username, password }))
-  }, [])
+    if (username && password) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      dispatch(loginByUsername({ username, password }))
+    }
+  }, [dispatch, username, password])
 
   return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
-            <Input
-                placeholder={t('User name')}
-                variant={InputVariant.INVERSE_BG}
-                onChange={onChangeUsername}
-                value={username}
-            />
-            <Input
-                type='password'
-                placeholder={t('Password')}
-                variant={InputVariant.INVERSE_BG}
-                onChange={onChangePassword}
-                value={password}
-            />
-            <div className={cls.loginBottom}>
-                <Button
-                    size={ButtonSize.M}
-                    variant={ButtonVariant.BORDER}
-                    onClick={onLoginClick}
-                >{t('Вход')}</Button>
+            {error && t('Пользователь не найдет или данные не верны')}
+            <div className={cls.wrapper}>
+                <Input
+                    placeholder={t('User name')}
+                    variant={InputVariant.INVERSE_BG}
+                    onChange={onChangeUsername}
+                    value={username}
+                />
+                <Input
+                    type='password'
+                    placeholder={t('Password')}
+                    variant={InputVariant.INVERSE_BG}
+                    onChange={onChangePassword}
+                    value={password}
+                />
+                <div className={cls.loginBottom}>
+                    <Button
+                        size={ButtonSize.M}
+                        variant={ButtonVariant.BORDER}
+                        onClick={onLoginClick}
+                        disabled={isLoading}
+                    >{t('Вход')}</Button>
+                </div>
             </div>
+
         </div>
   )
 })

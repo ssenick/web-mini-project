@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react'
 import { type StateSchema } from '../config/StateSchema'
-import { createReduxStore } from 'app/povaiders/StorePorider/config/store'
+import { createReduxStore } from '../config/store'
 import { Provider } from 'react-redux'
 import { type DeepPartial } from '@reduxjs/toolkit'
 

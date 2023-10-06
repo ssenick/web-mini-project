@@ -5,6 +5,12 @@
   padding: 5px 10px;
   border-radius: 5px;
   font-weight: 700;
+  pointer-events: auto;
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 
 .clean {

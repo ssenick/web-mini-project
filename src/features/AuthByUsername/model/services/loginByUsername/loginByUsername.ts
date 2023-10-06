@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type User } from 'entities/User'
 import axios from 'axios'
 
-interface LoginByUsername {
+interface LoginByUsernameProps {
   username: string
   password: string
 }
@@ -13,7 +13,7 @@ function checkData (data: User): void {
   }
 }
 
-export const loginByUsername = createAsyncThunk<User, LoginByUsername>(
+export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { rejectValue: string }>(
   'login/loginByUsername',
   async (authData, thunkAPI) => {
     try {
