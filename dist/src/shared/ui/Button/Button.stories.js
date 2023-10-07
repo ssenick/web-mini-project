@@ -56,6 +56,22 @@ export var BackgroundDark = {
     }
 };
 BackgroundDark.decorators = [ThemeDecorator(Theme.DARK)];
+export var Disabled = {
+    args: {
+        variant: ButtonVariant.BACKGROUND,
+        children: 'TEXT',
+        disabled: true
+    }
+};
+Disabled.decorators = [ThemeDecorator(Theme.LIGHT)];
+export var DisabledDark = {
+    args: {
+        variant: ButtonVariant.BACKGROUND,
+        children: 'TEXT',
+        disabled: true
+    }
+};
+DisabledDark.decorators = [ThemeDecorator(Theme.DARK)];
 export var Border = {
     args: {
         variant: ButtonVariant.BORDER,

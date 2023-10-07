@@ -9,5 +9,6 @@
   "Вход": "Login",
   "Password": "Password",
   "User name": "User name",
-  "Пользователь не найдет или данные не верны": "The user cannot find it or the data is incorrect"
+  "Пользователь не найдет или данные не верны": "The user cannot find it or the data is incorrect",
+  "Авторизация": "Authorization"
 }

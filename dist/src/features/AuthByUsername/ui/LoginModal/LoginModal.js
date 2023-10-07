@@ -14,5 +14,5 @@ import { Modal } from 'shared/ui/Modal/Modal';
 import { LoginForm } from '../LoginForm/LoginForm';
 export var LoginModal = function (_a) {
     var className = _a.className, isOpen = _a.isOpen, onClose = _a.onClose;
-    return (_jsx(Modal, __assign({ className: className, isOpen: isOpen, onClose: onClose }, { children: _jsx(LoginForm, {}) })));
+    return (_jsx(Modal, __assign({ className: className, isOpen: isOpen, onClose: onClose, lazy: true }, { children: _jsx(LoginForm, {}) })));
 };

@@ -14,6 +14,9 @@ export var loginSlice = createSlice({
         },
         setPassword: function (state, action) {
             state.password = action.payload;
+        },
+        setError: function (state, action) {
+            state.error = '';
         }
     },
     extraReducers: function (builder) {
@@ -27,7 +30,7 @@ export var loginSlice = createSlice({
         })
             .addCase(loginByUsername.rejected, function (state, action) {
             state.isLoading = false;
-            state.error = action.error.message;
+            state.error = action.payload;
         });
     }
 });

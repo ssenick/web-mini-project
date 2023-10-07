@@ -31,7 +31,7 @@ export var InputVariant;
 })(InputVariant || (InputVariant = {}));
 export var Input = memo(function (props) {
     var _a;
-    var className = props.className, value = props.value, onChange = props.onChange, _b = props.type, type = _b === void 0 ? 'text' : _b, _c = props.variant, variant = _c === void 0 ? InputVariant.NORMAL : _c, otherProps = __rest(props, ["className", "value", "onChange", "type", "variant"]);
+    var className = props.className, value = props.value, onChange = props.onChange, _b = props.type, type = _b === void 0 ? 'text' : _b, _c = props.variant, variant = _c === void 0 ? InputVariant.NORMAL : _c, autofocus = props.autofocus, otherProps = __rest(props, ["className", "value", "onChange", "type", "variant", "autofocus"]);
     var _d = useState(false), isFocus = _d[0], setIsFocus = _d[1];
     var onChangeHandler = useCallback(function (e) {
         onChange === null || onChange === void 0 ? void 0 : onChange(e.target.value);
@@ -45,5 +45,5 @@ export var Input = memo(function (props) {
     var mods = (_a = {},
         _a[cls.isFocus] = isFocus,
         _a);
-    return (_jsx("div", __assign({ "data-testid": 'input-wrapper', className: classNames(cls.inputWrapper, mods, [className, cls[variant]]) }, { children: _jsx("input", __assign({ "data-testid": 'input', value: value, onChange: onChangeHandler, type: type, onFocus: onFocus, onBlur: onBlur }, otherProps)) })));
+    return (_jsx("div", __assign({ "data-testid": 'input-wrapper', className: classNames(cls.inputWrapper, mods, [className, cls[variant]]) }, { children: _jsx("input", __assign({ "data-testid": 'input', value: value, onChange: onChangeHandler, type: type, onFocus: onFocus, onBlur: onBlur }, otherProps, { autoFocus: autofocus })) })));
 });

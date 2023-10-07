@@ -15,6 +15,7 @@ interface InputProps extends HTMLInputProps {
   variant?: InputVariant
   value?: string
   onChange?: (value: string) => void
+  autofocus?: boolean
 }
 
 export const Input = memo((props: InputProps): JSX.Element => {
@@ -24,6 +25,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
     onChange,
     type = 'text',
     variant = InputVariant.NORMAL,
+    autofocus,
     ...otherProps
   } = props
   const [isFocus, setIsFocus] = useState(false)
@@ -53,6 +55,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
                 onFocus={onFocus}
                 onBlur={onBlur}
                 {...otherProps}
+                autoFocus={autofocus}
             />
         </div>
   )

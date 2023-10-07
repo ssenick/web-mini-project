@@ -9,6 +9,7 @@ interface ModalProps {
   children?: ReactNode
   isOpen?: boolean
   onClose?: () => void
+  lazy?: boolean
 }
 
 export const Modal = (props: ModalProps): JSX.Element => {
@@ -16,11 +17,13 @@ export const Modal = (props: ModalProps): JSX.Element => {
     className,
     children,
     isOpen,
-    onClose
+    onClose,
+    lazy
   } = props
 
   const [isClosing, setIsClosing] = useState(false)
   const timeRef = useRef<ReturnType<typeof setTimeout>>()
+  const [isMounted, setIsMounted] = useState(false)
 
   const closeHandler = useCallback((): void => {
     if (onClose) {
@@ -36,11 +39,17 @@ export const Modal = (props: ModalProps): JSX.Element => {
   const onContentClick = useCallback((e: React.MouseEvent): void => {
     e.stopPropagation()
   }, [])
+
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       closeHandler()
     }
   }, [closeHandler])
+
+  useEffect(() => {
+    if (isOpen) setIsMounted(true)
+    return () => { setIsMounted(false) }
+  }, [isOpen])
 
   useEffect(() => {
     if (isOpen) {
@@ -57,6 +66,9 @@ export const Modal = (props: ModalProps): JSX.Element => {
     [cls.isOpen]: isOpen,
     [cls.isClose]: isClosing
   }
+
+  if (lazy && !isMounted) return null
+
   return (
       <Portal>
         <div data-testid='modal' className={classNames(cls.Modal, mods, [className])}>

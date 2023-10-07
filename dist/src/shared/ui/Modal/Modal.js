@@ -16,9 +16,10 @@ import cls from './Modal.module.scss';
 import { Portal } from 'shared/ui/Portal/Portal';
 export var Modal = function (props) {
     var _a;
-    var className = props.className, children = props.children, isOpen = props.isOpen, onClose = props.onClose;
+    var className = props.className, children = props.children, isOpen = props.isOpen, onClose = props.onClose, lazy = props.lazy;
     var _b = useState(false), isClosing = _b[0], setIsClosing = _b[1];
     var timeRef = useRef();
+    var _c = useState(false), isMounted = _c[0], setIsMounted = _c[1];
     var closeHandler = useCallback(function () {
         if (onClose) {
             setIsClosing(true);
@@ -38,6 +39,11 @@ export var Modal = function (props) {
         }
     }, [closeHandler]);
     useEffect(function () {
+        if (isOpen)
+            setIsMounted(true);
+        return function () { setIsMounted(false); };
+    }, [isOpen]);
+    useEffect(function () {
         if (isOpen) {
             document.body.classList.add('lock');
             window.addEventListener('keydown', onKeyDown);
@@ -51,5 +57,7 @@ export var Modal = function (props) {
         _a[cls.isOpen] = isOpen,
         _a[cls.isClose] = isClosing,
         _a);
+    if (lazy && !isMounted)
+        return null;
     return (_jsx(Portal, { children: _jsx("div", __assign({ "data-testid": 'modal', className: classNames(cls.Modal, mods, [className]) }, { children: _jsx("div", __assign({ className: cls.overlay, onClick: closeHandler }, { children: _jsx("div", __assign({ className: cls.content, onClick: onContentClick }, { children: children })) })) })) }));
 };
