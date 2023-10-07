@@ -58,7 +58,8 @@ export const LoginForm = memo(({ className }: LoginFormProps): JSX.Element => {
       if (error) {
         dispatch(loginActions.setUsername(''))
         dispatch(loginActions.setPassword(''))
-        dispatch(loginActions.setError())
+        // dispatch(loginActions.setError())
+        dispatch(loginByUsername.rejected)
       }
     }
   }, [dispatch, error])
