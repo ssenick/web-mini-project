@@ -53,16 +53,16 @@ export const LoginForm = memo(({ className }: LoginFormProps): JSX.Element => {
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [onKeyDown])
-  useEffect(() => {
-    return () => {
-      if (error) {
-        dispatch(loginActions.setUsername(''))
-        dispatch(loginActions.setPassword(''))
-        // dispatch(loginActions.setError())
-        dispatch(loginByUsername.rejected)
-      }
-    }
-  }, [dispatch, error])
+  // useEffect(() => {
+  //   return () => {
+  //     if (error) {
+  //         console.log(111)
+  //       dispatch(loginActions.setUsername(''))
+  //       dispatch(loginActions.setPassword(''))
+  //       dispatch(loginActions.setError())
+  //     }
+  //   }
+  // }, [dispatch, error])
 
   return (
         <div className={classNames(cls.LoginForm, {}, [className])}>

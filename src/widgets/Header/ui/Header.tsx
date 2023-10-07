@@ -6,11 +6,14 @@ import { Theme, useTheme } from 'app/povaiders/ThemeProvaider'
 import LogoDarkIcon from 'shared/assets/icons/logo.svg'
 import LogoWhiteIcon from 'shared/assets/icons/logo-w.svg'
 import LoginIcon from 'shared/assets/icons/login.svg'
+import LogoutIcon from 'shared/assets/icons/logout.svg'
 import { useTranslation } from 'react-i18next'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
 import { useCallback, useEffect, useState } from 'react'
 import { LoginModal } from 'features/AuthByUsername'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserAuthData, userActions } from 'entities/User'
 
 interface HeaderProps {
   className?: string
@@ -21,6 +24,8 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
   const { t } = useTranslation()
   const [error, setError] = useState(false)
   const [isAuthModal, setIsAuthModal] = useState(false)
+  const userAuth = useSelector(getUserAuthData)
+  const dispatch = useDispatch()
 
   const onCloseModal = useCallback((): void => {
     setIsAuthModal(false)
@@ -31,6 +36,9 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
   const onThrow = useCallback((): void => {
     setError(true)
   }, [])
+  const onLogout = useCallback(() => {
+    dispatch(userActions.logout())
+  }, [dispatch])
 
   useEffect(() => {
     if (error) {
@@ -48,10 +56,19 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
                 <ThemeSwitcher/>
                 <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>{ t('ошибка')}</Button>
                 <LangSwitcher/>
-                <Button onClick={onShowModal} className={cls.login} variant={ButtonVariant.BACKGROUND} withIcon={true}>
-                    <LoginIcon/>
-                    {t('Вход')}
-                </Button>
+
+                {
+                    userAuth
+                      ? <Button onClick={onLogout} className={cls.login} variant={ButtonVariant.BACKGROUND} withIcon={true}>
+                            {t('Выход')}
+                            <LogoutIcon/>
+                        </Button>
+                      : <Button onClick={onShowModal} className={cls.login} variant={ButtonVariant.BACKGROUND} withIcon={true}>
+                            <LoginIcon/>
+                            {t('Вход')}
+                        </Button>
+                }
+
             </div>
             <LoginModal isOpen={isAuthModal} onClose={onCloseModal}/>
         </header>
