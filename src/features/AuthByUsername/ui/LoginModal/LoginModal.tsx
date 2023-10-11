@@ -1,8 +1,9 @@
 import { Modal } from 'shared/ui/Modal/Modal'
-import { LoginForm } from '../LoginForm/LoginForm'
-import { useEffect } from 'react'
+import { LoginFormAsync } from '../LoginForm/LoginFormAsync'
+import { Suspense, useEffect } from 'react'
 import { loginActions } from '../../model/slice/loginSlice'
 import { useDispatch } from 'react-redux'
+import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints'
 interface LoginModalProps {
   className?: string
   isOpen?: boolean
@@ -29,7 +30,9 @@ export const LoginModal = ({ className, isOpen, onClose, isCloseModal }: LoginMo
             lazy
             isCloseModal={isCloseModal}
         >
-            <LoginForm/>
+          <Suspense fallback={<LoaderPoints />}>
+            <LoginFormAsync />
+          </Suspense>
         </Modal>
   )
 }

@@ -17,7 +17,7 @@ interface LoginFormProps {
   className?: string
 }
 
-export const LoginForm = memo(({ className }: LoginFormProps): JSX.Element => {
+const LoginForm = memo(({ className }: LoginFormProps): JSX.Element => {
   const { t } = useTranslation()
   const username = useSelector(getLoginUsername)
   const password = useSelector(getLoginPassword)
@@ -90,3 +90,4 @@ export const LoginForm = memo(({ className }: LoginFormProps): JSX.Element => {
         </div>
   )
 })
+export default LoginForm
