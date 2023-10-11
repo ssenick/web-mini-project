@@ -18,17 +18,23 @@ import { Theme, useTheme } from 'app/povaiders/ThemeProvaider';
 import LogoDarkIcon from 'shared/assets/icons/logo.svg';
 import LogoWhiteIcon from 'shared/assets/icons/logo-w.svg';
 import LoginIcon from 'shared/assets/icons/login.svg';
+import LogoutIcon from 'shared/assets/icons/logout.svg';
 import { useTranslation } from 'react-i18next';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useCallback, useEffect, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData, userActions } from 'entities/User';
 export var Header = function (_a) {
     var className = _a.className;
     var theme = useTheme().theme;
     var t = useTranslation().t;
     var _b = useState(false), error = _b[0], setError = _b[1];
     var _c = useState(false), isAuthModal = _c[0], setIsAuthModal = _c[1];
+    // const [isClose, setIsClose] = useState(false)
+    var userAuth = useSelector(getUserAuthData);
+    var dispatch = useDispatch();
     var onCloseModal = useCallback(function () {
         setIsAuthModal(false);
     }, []);
@@ -38,10 +44,20 @@ export var Header = function (_a) {
     var onThrow = useCallback(function () {
         setError(true);
     }, []);
+    var onLogout = useCallback(function () {
+        dispatch(userActions.logout());
+    }, [dispatch]);
+    useEffect(function () {
+        if (userAuth) {
+            onCloseModal();
+        }
+    }, [userAuth, onCloseModal]);
     useEffect(function () {
         if (error) {
             throw new Error();
         }
     }, [error]);
-    return (_jsxs("header", __assign({ className: classNames(cls.Header, {}, [className]) }, { children: [_jsx(AppLink, __assign({ className: cls.logo, to: '/', variant: AppLinkVariant.CLEAN }, { children: theme === Theme.DARK ? _jsx(LogoWhiteIcon, {}) : _jsx(LogoDarkIcon, {}) })), _jsxs("div", __assign({ className: cls.title }, { children: [" ", t('Главная')] })), _jsxs("div", __assign({ className: cls.action }, { children: [_jsx(ThemeSwitcher, {}), _jsx(Button, __assign({ onClick: onThrow, variant: ButtonVariant.BACKGROUND }, { children: t('ошибка') })), _jsx(LangSwitcher, {}), _jsxs(Button, __assign({ onClick: onShowModal, className: cls.login, variant: ButtonVariant.BACKGROUND, withIcon: true }, { children: [_jsx(LoginIcon, {}), t('Вход')] }))] })), _jsx(LoginModal, { isOpen: isAuthModal, onClose: onCloseModal })] })));
+    return (_jsxs("header", __assign({ className: classNames(cls.Header, {}, [className]) }, { children: [_jsx(AppLink, __assign({ className: cls.logo, to: '/', variant: AppLinkVariant.CLEAN }, { children: theme === Theme.DARK ? _jsx(LogoWhiteIcon, {}) : _jsx(LogoDarkIcon, {}) })), _jsxs("div", __assign({ className: cls.title }, { children: [" ", t('Главная')] })), _jsxs("div", __assign({ className: cls.action }, { children: [_jsx(ThemeSwitcher, {}), _jsx(Button, __assign({ onClick: onThrow, variant: ButtonVariant.BACKGROUND }, { children: t('ошибка') })), _jsx(LangSwitcher, {}), userAuth
+                        ? _jsxs(Button, __assign({ onClick: onLogout, className: cls.login, variant: ButtonVariant.BACKGROUND, withIcon: true }, { children: [t('Выход'), _jsx(LogoutIcon, {})] }))
+                        : _jsxs(Button, __assign({ onClick: onShowModal, className: cls.login, variant: ButtonVariant.BACKGROUND, withIcon: true }, { children: [_jsx(LoginIcon, {}), t('Вход')] }))] })), _jsx(LoginModal, { isOpen: isAuthModal, onClose: onCloseModal })] })));
 };

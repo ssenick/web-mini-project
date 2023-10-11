@@ -47,24 +47,24 @@ export var LoginForm = memo(function (_a) {
     }, [dispatch, username, password]);
     var onKeyDown = useCallback(function (e) {
         if (e.key === 'Enter' && username && password) {
-            console.log(1);
             onLoginClick();
         }
-    }, [onLoginClick]);
+    }, [onLoginClick, username, password]);
     useEffect(function () {
         window.addEventListener('keydown', onKeyDown);
         return function () {
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [onKeyDown]);
-    useEffect(function () {
-        return function () {
-            if (error) {
-                dispatch(loginActions.setUsername(''));
-                dispatch(loginActions.setPassword(''));
-                dispatch(loginActions.setError());
-            }
-        };
-    }, [dispatch, error]);
+    // useEffect(() => {
+    //   return () => {
+    //     if (error) {
+    //         console.log(111)
+    //       dispatch(loginActions.setUsername(''))
+    //       dispatch(loginActions.setPassword(''))
+    //       dispatch(loginActions.setError())
+    //     }
+    //   }
+    // }, [dispatch, error])
     return (_jsxs("div", __assign({ className: classNames(cls.LoginForm, {}, [className]) }, { children: [_jsx(Text, { className: cls.title, size: TextFontSize.M, title: t('Авторизация') }), error && _jsx(Text, { className: cls.error, variant: TextVariant.ERROR, size: TextFontSize.XS, text: t('Пользователь не найдет или данные не верны') }), _jsxs("div", __assign({ className: cls.wrapper }, { children: [_jsx(Input, { placeholder: t('User name'), variant: InputVariant.INVERSE_BG, onChange: onChangeUsername, value: username, autofocus: true }), _jsx(Input, { type: 'password', placeholder: t('Password'), variant: InputVariant.INVERSE_BG, onChange: onChangePassword, value: password }), _jsx("div", __assign({ className: cls.loginBottom }, { children: _jsx(Button, __assign({ size: ButtonSize.M, variant: ButtonVariant.BORDER, onClick: onLoginClick, disabled: isLoading }, { children: t('Вход') })) }))] }))] })));
 });

@@ -25,7 +25,6 @@ export const Light: Story = {
   args: {
     className: 'app__header'
   }
-
 }
 Light.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, StoreDecorator()]
 export const Dark: Story = {

@@ -35,7 +35,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { userActions } from 'entities/User';
 import axios from 'axios';
+import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 function checkData(data) {
     if (!data) {
         throw new Error('missing data');
@@ -51,6 +53,8 @@ export var loginByUsername = createAsyncThunk('login/loginByUsername', function 
             case 1:
                 data = (_a.sent()).data;
                 checkData(data);
+                localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
+                thunkAPI.dispatch(userActions.setAuthData(data));
                 return [2 /*return*/, data];
             case 2:
                 e_1 = _a.sent();

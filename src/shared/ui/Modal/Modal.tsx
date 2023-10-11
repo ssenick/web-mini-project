@@ -10,6 +10,7 @@ interface ModalProps {
   isOpen?: boolean
   onClose?: () => void
   lazy?: boolean
+  isCloseModal?: boolean
 }
 
 export const Modal = (props: ModalProps): JSX.Element => {
@@ -18,7 +19,8 @@ export const Modal = (props: ModalProps): JSX.Element => {
     children,
     isOpen,
     onClose,
-    lazy
+    lazy,
+    isCloseModal
   } = props
 
   const [isClosing, setIsClosing] = useState(false)
@@ -50,6 +52,12 @@ export const Modal = (props: ModalProps): JSX.Element => {
     if (isOpen) setIsMounted(true)
     return () => { setIsMounted(false) }
   }, [isOpen])
+
+  useEffect(() => {
+    if (isCloseModal) {
+      closeHandler()
+    }
+  }, [isCloseModal, closeHandler])
 
   useEffect(() => {
     if (isOpen) {

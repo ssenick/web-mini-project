@@ -14,6 +14,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
+import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice'
 
 interface HeaderProps {
   className?: string
@@ -24,6 +25,7 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
   const { t } = useTranslation()
   const [error, setError] = useState(false)
   const [isAuthModal, setIsAuthModal] = useState(false)
+  const [isCloseModal, setIsCloseModal] = useState(false)
   const userAuth = useSelector(getUserAuthData)
   const dispatch = useDispatch()
 
@@ -39,6 +41,22 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
   const onLogout = useCallback(() => {
     dispatch(userActions.logout())
   }, [dispatch])
+
+  useEffect(() => {
+    if (!isAuthModal) {
+      dispatch(loginActions.setUsername(''))
+      dispatch(loginActions.setPassword(''))
+      dispatch(loginActions.setError(undefined))
+    }
+  }, [dispatch, isAuthModal])
+
+  useEffect(() => {
+    if (userAuth) {
+      setIsCloseModal(true)
+    } else {
+      setIsCloseModal(false)
+    }
+  }, [userAuth])
 
   useEffect(() => {
     if (error) {
@@ -70,7 +88,7 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
                 }
 
             </div>
-            <LoginModal isOpen={isAuthModal} onClose={onCloseModal}/>
+             <LoginModal isOpen={isAuthModal} onClose={onCloseModal} isCloseModal={isCloseModal} />
         </header>
   )
 }
