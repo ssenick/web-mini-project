@@ -14,7 +14,6 @@ import { useCallback, useEffect, useState } from 'react'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
-import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice'
 
 interface HeaderProps {
   className?: string
@@ -41,14 +40,6 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
   const onLogout = useCallback(() => {
     dispatch(userActions.logout())
   }, [dispatch])
-
-  useEffect(() => {
-    if (!isAuthModal) {
-      dispatch(loginActions.setUsername(''))
-      dispatch(loginActions.setPassword(''))
-      dispatch(loginActions.setError(undefined))
-    }
-  }, [dispatch, isAuthModal])
 
   useEffect(() => {
     if (userAuth) {
