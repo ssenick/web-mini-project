@@ -11,7 +11,7 @@ interface LoginModalProps {
   isCloseModal?: boolean
 }
 
-export const LoginModal = ({ className, isOpen, onClose, isCloseModal }: LoginModalProps): JSX.Element => {
+export const LoginModal = ({ className, isOpen, onClose, isCloseModal }: LoginModalProps) => {
   const dispatch = useDispatch()
 
   useEffect(() => {

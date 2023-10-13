@@ -1,2 +1,3 @@
-import { lazy } from 'react'
-export const LoginFormAsync = lazy(async () => await import('./LoginForm'))
+import { type FC, lazy } from 'react'
+import { type LoginFormProps } from './LoginForm'
+export const LoginFormAsync = lazy<FC<LoginFormProps>>(async () => await import('./LoginForm'))

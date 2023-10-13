@@ -14,7 +14,4 @@ import { ThemeProvider } from 'app/povaiders/ThemeProvaider';
 var style = {
     padding: '15px'
 };
-export var ThemeDecorator = function (theme) {
-    var decorator = function (Story) { return (_jsx(ThemeProvider, __assign({ initialTheme: theme }, { children: _jsx("div", __assign({ className: "app ".concat(theme), style: style }, { children: _jsx(Story, {}) })) }))); };
-    return decorator;
-};
+export var ThemeDecorator = function (theme) { return function (Story) { return (_jsx(ThemeProvider, __assign({ initialTheme: theme }, { children: _jsx("div", __assign({ className: "app ".concat(theme), style: style }, { children: _jsx(Story, {}) })) }))); }; };

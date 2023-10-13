@@ -16,7 +16,7 @@ import cls from './Modal.module.scss';
 import { Portal } from 'shared/ui/Portal/Portal';
 export var Modal = function (props) {
     var _a;
-    var className = props.className, children = props.children, isOpen = props.isOpen, onClose = props.onClose, lazy = props.lazy;
+    var className = props.className, children = props.children, isOpen = props.isOpen, onClose = props.onClose, lazy = props.lazy, isCloseModal = props.isCloseModal;
     var _b = useState(false), isClosing = _b[0], setIsClosing = _b[1];
     var timeRef = useRef();
     var _c = useState(false), isMounted = _c[0], setIsMounted = _c[1];
@@ -43,6 +43,11 @@ export var Modal = function (props) {
             setIsMounted(true);
         return function () { setIsMounted(false); };
     }, [isOpen]);
+    useEffect(function () {
+        if (isCloseModal) {
+            closeHandler();
+        }
+    }, [isCloseModal, closeHandler]);
     useEffect(function () {
         if (isOpen) {
             document.body.classList.add('lock');

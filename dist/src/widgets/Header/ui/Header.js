@@ -32,7 +32,7 @@ export var Header = function (_a) {
     var t = useTranslation().t;
     var _b = useState(false), error = _b[0], setError = _b[1];
     var _c = useState(false), isAuthModal = _c[0], setIsAuthModal = _c[1];
-    // const [isClose, setIsClose] = useState(false)
+    var _d = useState(false), isCloseModal = _d[0], setIsCloseModal = _d[1];
     var userAuth = useSelector(getUserAuthData);
     var dispatch = useDispatch();
     var onCloseModal = useCallback(function () {
@@ -49,9 +49,12 @@ export var Header = function (_a) {
     }, [dispatch]);
     useEffect(function () {
         if (userAuth) {
-            onCloseModal();
+            setIsCloseModal(true);
         }
-    }, [userAuth, onCloseModal]);
+        else {
+            setIsCloseModal(false);
+        }
+    }, [userAuth]);
     useEffect(function () {
         if (error) {
             throw new Error();
@@ -59,5 +62,5 @@ export var Header = function (_a) {
     }, [error]);
     return (_jsxs("header", __assign({ className: classNames(cls.Header, {}, [className]) }, { children: [_jsx(AppLink, __assign({ className: cls.logo, to: '/', variant: AppLinkVariant.CLEAN }, { children: theme === Theme.DARK ? _jsx(LogoWhiteIcon, {}) : _jsx(LogoDarkIcon, {}) })), _jsxs("div", __assign({ className: cls.title }, { children: [" ", t('Главная')] })), _jsxs("div", __assign({ className: cls.action }, { children: [_jsx(ThemeSwitcher, {}), _jsx(Button, __assign({ onClick: onThrow, variant: ButtonVariant.BACKGROUND }, { children: t('ошибка') })), _jsx(LangSwitcher, {}), userAuth
                         ? _jsxs(Button, __assign({ onClick: onLogout, className: cls.login, variant: ButtonVariant.BACKGROUND, withIcon: true }, { children: [t('Выход'), _jsx(LogoutIcon, {})] }))
-                        : _jsxs(Button, __assign({ onClick: onShowModal, className: cls.login, variant: ButtonVariant.BACKGROUND, withIcon: true }, { children: [_jsx(LoginIcon, {}), t('Вход')] }))] })), _jsx(LoginModal, { isOpen: isAuthModal, onClose: onCloseModal })] })));
+                        : _jsxs(Button, __assign({ onClick: onShowModal, className: cls.login, variant: ButtonVariant.BACKGROUND, withIcon: true }, { children: [_jsx(LoginIcon, {}), t('Вход')] }))] })), _jsx(LoginModal, { isOpen: isAuthModal, onClose: onCloseModal, isCloseModal: isCloseModal })] })));
 };
