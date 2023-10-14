@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Sidebar.module.scss'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
@@ -12,7 +12,7 @@ interface SidebarProps {
   className?: string
 }
 
-export const Sidebar = ({ className }: SidebarProps): JSX.Element => {
+export const Sidebar = memo(({ className }: SidebarProps): JSX.Element => {
   const [collapsed, setCollapsed] = useState(false)
   const { t } = useTranslation()
 
@@ -44,4 +44,4 @@ export const Sidebar = ({ className }: SidebarProps): JSX.Element => {
 
         </aside>
   )
-}
+})

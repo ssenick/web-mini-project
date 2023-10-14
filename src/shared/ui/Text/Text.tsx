@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Text.module.scss'
+import { memo } from 'react'
 
 export enum TextVariant {
   NORMAL = 'normal',
@@ -20,7 +21,7 @@ interface TextProps {
   size?: TextFontSize
 }
 
-export const Text = (props: TextProps): JSX.Element => {
+export const Text = memo((props: TextProps): JSX.Element => {
   const {
     className,
     title,
@@ -35,4 +36,4 @@ export const Text = (props: TextProps): JSX.Element => {
             {text && <p className={cls.text}>{text}</p>}
         </div>
   )
-}
+})

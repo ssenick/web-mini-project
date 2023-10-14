@@ -26,7 +26,7 @@ Light.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const Dark: Story = {
   args: {
-    children: <SunIcon/>
+    childrenStorybook: <SunIcon/>
   }
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]

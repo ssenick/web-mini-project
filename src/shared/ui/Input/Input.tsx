@@ -1,5 +1,5 @@
 import type React from 'react'
-import { useState, type InputHTMLAttributes, useCallback, memo } from 'react'
+import { useState, type InputHTMLAttributes, useCallback, memo, useMemo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 
@@ -42,9 +42,11 @@ export const Input = memo((props: InputProps): JSX.Element => {
     setIsFocus(false)
   }, [])
 
-  const mods: Record<string, boolean> = {
-    [cls.isFocus]: isFocus
-  }
+  const mods: Record<string, boolean> = useMemo(() => (
+    {
+      [cls.isFocus]: isFocus
+    }
+  ), [isFocus])
   return (
         <div data-testid='input-wrapper' className={classNames(cls.inputWrapper, mods, [className, cls[variant]])}>
             <input

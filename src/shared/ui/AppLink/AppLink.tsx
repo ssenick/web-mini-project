@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { type ReactNode } from 'react'
 import { Link, type LinkProps } from 'react-router-dom'
 import cls from './AppLink.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -10,10 +10,17 @@ export enum AppLinkVariant {
 interface AppLinkProps extends LinkProps {
   className?: string
   variant?: AppLinkVariant
+  children?: ReactNode
 }
 
-export const AppLink: FC<AppLinkProps> = (props) => {
-  const { to, className, children, variant = AppLinkVariant.CLEAN, ...otherProps } = props
+export const AppLink = (props: AppLinkProps): JSX.Element => {
+  const {
+    to,
+    className,
+    children,
+    variant = AppLinkVariant.CLEAN,
+    ...otherProps
+  } = props
   return (
         <Link
             to={to}

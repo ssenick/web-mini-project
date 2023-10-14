@@ -1,5 +1,5 @@
 import type React from 'react'
-import { useState, type ReactNode, useRef, useEffect, useCallback } from 'react'
+import { useState, type ReactNode, useRef, useEffect, useCallback, useMemo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
 import { Portal } from 'shared/ui/Portal/Portal'
@@ -70,10 +70,12 @@ export const Modal = (props: ModalProps): JSX.Element => {
     }
   }, [isOpen, onKeyDown])
 
-  const mods: Record<string, boolean> = {
-    [cls.isOpen]: isOpen,
-    [cls.isClose]: isClosing
-  }
+  const mods: Record<string, boolean> = useMemo(() => (
+    {
+      [cls.isOpen]: isOpen,
+      [cls.isClose]: isClosing
+    }
+  ), [isOpen, isClosing])
 
   if (lazy && !isMounted) return null
 

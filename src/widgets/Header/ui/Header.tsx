@@ -10,7 +10,7 @@ import LogoutIcon from 'shared/assets/icons/logout.svg'
 import { useTranslation } from 'react-i18next'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
-import { useCallback, useEffect, useState } from 'react'
+import { memo, useCallback, useEffect, useState } from 'react'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
@@ -19,7 +19,7 @@ interface HeaderProps {
   className?: string
 }
 
-export const Header = ({ className }: HeaderProps): JSX.Element => {
+export const Header = memo(({ className }: HeaderProps): JSX.Element => {
   const { theme } = useTheme()
   const { t } = useTranslation()
   const [error, setError] = useState(false)
@@ -82,4 +82,4 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
              <LoginModal isOpen={isAuthModal} onClose={onCloseModal} isCloseModal={isCloseModal} />
         </header>
   )
-}
+})

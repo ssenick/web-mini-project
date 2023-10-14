@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ErrorPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { ButtonVariant, Button } from 'shared/ui/Button/Button'
+import { memo } from 'react'
 
 interface ErrorPageProps {
   className?: string
@@ -10,7 +11,7 @@ interface ErrorPageProps {
 const reloadPage = (): void => {
   location.reload()
 }
-export const ErrorPage = ({ className }: ErrorPageProps): JSX.Element => {
+export const ErrorPage = memo(({ className }: ErrorPageProps): JSX.Element => {
   const { t } = useTranslation()
   return (
           <div className={classNames(cls.ErrorPage, {}, [className])}>
@@ -23,4 +24,4 @@ export const ErrorPage = ({ className }: ErrorPageProps): JSX.Element => {
               </div>
           </div>
   )
-}
+})

@@ -2,17 +2,17 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './LangSwitcher.module.scss'
 import { useTranslation } from 'react-i18next'
 import { ButtonSize, Button, ButtonVariant } from 'shared/ui/Button/Button'
-import { type ReactNode } from 'react'
+import { memo, type ReactNode } from 'react'
 
 interface LangSwitcherProps {
   className?: string
   children?: ReactNode
 }
 
-export const LangSwitcher = ({ className, children }: LangSwitcherProps): JSX.Element => {
+export const LangSwitcher = memo(({ className, children }: LangSwitcherProps): JSX.Element => {
   const { t, i18n } = useTranslation()
   const toggle = async (): Promise<void> => {
-    void i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+    await i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
   }
 
   return (
@@ -25,4 +25,4 @@ export const LangSwitcher = ({ className, children }: LangSwitcherProps): JSX.El
             {children || t('Язык')}
         </Button>
   )
-}
+})

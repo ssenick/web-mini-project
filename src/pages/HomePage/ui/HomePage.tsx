@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { Counter } from 'entities/Counter'
+import { memo } from 'react'
 
-const HomePage = (): JSX.Element => {
+const HomePage = memo((): JSX.Element => {
   const { t } = useTranslation('home')
   return (
         <div>
@@ -11,6 +12,6 @@ const HomePage = (): JSX.Element => {
             </div>
         </div>
   )
-}
+})
 
 export default HomePage

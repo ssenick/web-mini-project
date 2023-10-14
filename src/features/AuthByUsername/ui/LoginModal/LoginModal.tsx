@@ -1,6 +1,6 @@
 import { Modal } from 'shared/ui/Modal/Modal'
 import { LoginFormAsync } from '../LoginForm/LoginFormAsync'
-import { Suspense, useEffect } from 'react'
+import { memo, Suspense, useEffect } from 'react'
 import { loginActions } from '../../model/slice/loginSlice'
 import { useDispatch } from 'react-redux'
 import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints'
@@ -11,7 +11,7 @@ interface LoginModalProps {
   isCloseModal?: boolean
 }
 
-export const LoginModal = ({ className, isOpen, onClose, isCloseModal }: LoginModalProps) => {
+export const LoginModal = memo(({ className, isOpen, onClose, isCloseModal }: LoginModalProps) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -35,4 +35,4 @@ export const LoginModal = ({ className, isOpen, onClose, isCloseModal }: LoginMo
           </Suspense>
         </Modal>
   )
-}
+})
