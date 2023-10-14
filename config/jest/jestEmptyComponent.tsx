@@ -1,4 +1,4 @@
-const JestEmptyComponent = () => {
+const JestEmptyComponent = (): JSX.Element => {
   return (
        <div></div>
   )
