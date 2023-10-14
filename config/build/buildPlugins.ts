@@ -19,9 +19,10 @@ export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
     })
   ]
   if (isDev) {
+    console.log('DEV')
     plugins.push(new webpack.HotModuleReplacementPlugin())
     plugins.push(new BundleAnalyzerPlugin({
-      openAnalyzer: false,
+      openAnalyzer: true,
       analyzerMode: 'static',
       analyzerPort: 'auto'
     }))

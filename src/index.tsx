@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'app/povaiders/ThemeProvaider'
 import { render } from 'react-dom'
-import { StoreProvider } from 'app/povaiders/StorePorider'
+import { StoreProvider } from 'app/povaiders/StoreProvaider'
 import { ErrorBoundary } from 'app/povaiders/ErrorBoundary'
 import { BrowserRouter } from 'react-router-dom'
 import App from './app/App'

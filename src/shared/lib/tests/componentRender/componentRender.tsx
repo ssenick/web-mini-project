@@ -1,4 +1,4 @@
-import { StoreProvider, type StateSchema } from 'app/povaiders/StorePorider'
+import { StoreProvider, type StateSchema } from 'app/povaiders/StoreProvaider'
 import { type ReactNode } from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { render } from '@testing-library/react'
