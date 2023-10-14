@@ -25,7 +25,6 @@ describe('userSlice.test', () => {
       authData: userData
     })
   })
-
   test('initAuthData no user', () => {
     const state: UserSchema = {}
     localStorage.removeItem(USER_LOCALSTORAGE_KEY)
@@ -33,7 +32,6 @@ describe('userSlice.test', () => {
       userReducer(state, userActions.initAuthData())
     ).toEqual({})
   })
-
   test('logout', () => {
     const state: UserSchema = {
       authData: userData
