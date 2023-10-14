@@ -27,7 +27,6 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
   const [isCloseModal, setIsCloseModal] = useState(false)
   const userAuth = useSelector(getUserAuthData)
   const dispatch = useDispatch()
-
   const onCloseModal = useCallback((): void => {
     setIsAuthModal(false)
   }, [])
