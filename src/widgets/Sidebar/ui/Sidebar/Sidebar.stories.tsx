@@ -31,7 +31,8 @@ Light.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
 export const LightCollapsed: Story = {
 
   args: {
-    className: `app__sidebar ${cls.collapsed}`
+    className: `app__sidebar ${cls.collapsed}`,
+    collapsedStorybook: true
   }
 
 }
@@ -47,7 +48,8 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]
 export const DarkCollapsed: Story = {
 
   args: {
-    className: `app__sidebar ${cls.collapsed}`
+    className: `app__sidebar ${cls.collapsed}`,
+    collapsedStorybook: true
   }
 
 }

@@ -16,5 +16,14 @@
       "password": "1234"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Ruslan",
+    "lastname": "Ssenick",
+    "age": 33,
+    "currency": "EUR",
+    "country": "Ukraine",
+    "city": "Sumy",
+    "username": "admin",
+    "avatar": "https://adm.tools/uploads/ufm_images/0000/0068/1708/RCYs2Evpz5.jpeg"
+  }
 }
