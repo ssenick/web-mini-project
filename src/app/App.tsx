@@ -9,11 +9,9 @@ import { useDispatch } from 'react-redux'
 
 const App = (): JSX.Element => {
   const dispatch = useDispatch()
-
   useEffect(() => {
     dispatch(userActions.initAuthData())
   }, [dispatch])
-
   return (
         <div className={classNames('app', {}, [])}>
             <Suspense fallback=''>

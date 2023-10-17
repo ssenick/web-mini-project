@@ -1,0 +1,39 @@
+.item {
+  display: block;
+  overflow: hidden;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.link {
+  padding: 5px !important;
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--primary-color);
+  }
+
+  span {
+    transition:
+      margin var(--animation-time),
+      opacity var(--animation-time);
+    margin-left: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    pointer-events: auto;
+
+    .collapsed & {
+      margin: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
