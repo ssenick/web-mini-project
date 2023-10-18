@@ -9,6 +9,7 @@ const AboutPage = memo((): JSX.Element => {
   const inputOnChange = useCallback((val: string): void => {
     setValue(val)
   }, [])
+
   return (
         <div>
             {t('Заголовок страницы')}
