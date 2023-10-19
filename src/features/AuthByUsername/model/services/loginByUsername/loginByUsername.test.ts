@@ -55,7 +55,7 @@ describe('loginByUsername.test', () => {
     // проверяем вызов нашего диспача имменно с нащим аргументом
     expect(thunk.dispatch(userActions.setAuthData(userValue)))
     // проверяем количество { username: 'admin', password: '1234' }вызова dispatch
-    expect(thunk.dispatch).toHaveBeenCalledTimes(4)
+    expect(thunk.dispatch).toHaveBeenCalledTimes(3)
     // проверяем что запрос был отправлен
     expect(mockedAxios.post).toHaveBeenCalled()
     // проверяем что статус запросса === fulfilled

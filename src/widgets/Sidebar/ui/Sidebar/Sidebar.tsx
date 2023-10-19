@@ -16,6 +16,7 @@ export const Sidebar = memo(({ className, collapsedStorybook }: SidebarProps): J
   const toggleCollapse = useCallback(() => {
     setCollapsed(!collapsed)
   }, [collapsed])
+
   return (
         <aside data-testid='sidebar'
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
@@ -32,7 +33,6 @@ export const Sidebar = memo(({ className, collapsedStorybook }: SidebarProps): J
                     <SidebarLink key={link.path} item={link} collapsed={collapsedStorybook || collapsed}/>
                 )}
             </ul>
-
         </aside>
   )
 })

@@ -13,10 +13,11 @@ export interface BuildOptions {
   isDev: boolean
   port: string
   host: string
-
+  apiUrl: string
 }
 
 export interface BuildEnv {
   mode: BuildMode
+  apiUrl: string
   //    port: string
 }

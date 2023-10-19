@@ -47,8 +47,10 @@ export const Input = memo((props: InputProps): JSX.Element => {
       [cls.isFocus]: isFocus
     }
   ), [isFocus])
+
   return (
         <div data-testid='input-wrapper' className={classNames(cls.inputWrapper, mods, [className, cls[variant]])}>
+          <label >
             <input
                 data-testid='input'
                 value={value}
@@ -59,6 +61,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
                 {...otherProps}
                 autoFocus={autofocus}
             />
+          </label>
         </div>
   )
 })
