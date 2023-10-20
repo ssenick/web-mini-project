@@ -18,7 +18,7 @@ export const LoginModal = memo(({ className, isOpen, onClose, isCloseModal }: Lo
     if (!isOpen) {
       dispatch(loginActions.setUsername(''))
       dispatch(loginActions.setPassword(''))
-      dispatch(loginActions.setError(''))
+      dispatch(loginActions.setError())
     }
   }, [dispatch, isOpen])
 
