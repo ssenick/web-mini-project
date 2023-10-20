@@ -6,7 +6,7 @@ import ProfileIcon from 'shared/assets/icons/profile.svg'
 
 export interface SidebarLinkType {
   path: string
-  Icon?: React.VFC<React.SVGProps<SVGSVGElement>>
+  Icon?: React.VoidFunctionComponent<React.SVGProps<SVGSVGElement>> | undefined
   text: string
 }
 

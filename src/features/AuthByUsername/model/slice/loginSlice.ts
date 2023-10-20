@@ -15,10 +15,10 @@ export const loginSlice = createSlice({
     setUsername: (state, action: PayloadAction<string>) => {
       state.username = action.payload
     },
-    setPassword: (state, action: PayloadAction<string>) => {
+    setPassword: (state, action: PayloadAction<string >) => {
       state.password = action.payload
     },
-    setError: (state, action: PayloadAction<string>) => {
+    setError: (state) => {
       state.error = ''
     }
   },
@@ -28,7 +28,7 @@ export const loginSlice = createSlice({
         state.error = undefined
         state.isLoading = true
       })
-      .addCase(loginByUsername.fulfilled, (state, action) => {
+      .addCase(loginByUsername.fulfilled, (state) => {
         state.isLoading = false
       })
       .addCase(loginByUsername.rejected, (state, action) => {

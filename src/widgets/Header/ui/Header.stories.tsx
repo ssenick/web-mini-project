@@ -26,10 +26,10 @@ export const Light: Story = {
     className: 'app__header'
   }
 }
-Light.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator, StoreDecorator()]
+Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator]
 export const Dark: Story = {
   args: {
     className: 'app__header'
   }
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator, StoreDecorator()]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(), RouterDecorator]

@@ -4,6 +4,7 @@ import HomePage from './HomePage'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 
 const meta: Meta<typeof HomePage> = {
   title: 'pages/HomePage',
@@ -22,10 +23,10 @@ export const Light: Story = {
   args: {
   }
 }
-Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator()]
+Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator]
 
 export const Dark: Story = {
   args: {
   }
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator()]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(), RouterDecorator]

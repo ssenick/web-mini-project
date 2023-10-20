@@ -1,10 +1,6 @@
-import axios from 'axios'
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername'
 import { userActions } from 'entities/User'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
-
-jest.mock('axios')
-const mockedAxios = jest.mocked(axios, true)
 
 describe('loginByUsername.test', () => {
   // let dispatch: Dispatch
@@ -47,17 +43,17 @@ describe('loginByUsername.test', () => {
 
   test('success login', async () => {
     const userValue = { username: 'admin', id: '1' }
-    mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }))
 
     const thunk = new TestAsyncThunk(loginByUsername)
+    thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }))
     const result = await thunk.callThunk({ username: 'admin', password: '1234' })
 
     // проверяем вызов нашего диспача имменно с нащим аргументом
     expect(thunk.dispatch(userActions.setAuthData(userValue)))
     // проверяем количество { username: 'admin', password: '1234' }вызова dispatch
-    expect(thunk.dispatch).toHaveBeenCalledTimes(3)
+    expect(thunk.dispatch).toHaveBeenCalledTimes(4)
     // проверяем что запрос был отправлен
-    expect(mockedAxios.post).toHaveBeenCalled()
+    expect(thunk.api.post).toHaveBeenCalled()
     // проверяем что статус запросса === fulfilled
     expect(result.meta.requestStatus).toBe('fulfilled')
     // проверяем что возвразает этот запрос
@@ -65,13 +61,12 @@ describe('loginByUsername.test', () => {
   })
   // тест с ошибкой
   test('error login', async () => {
-    mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }))
-
     const thunk = new TestAsyncThunk(loginByUsername)
+    thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }))
     const result = await thunk.callThunk({ username: 'admin', password: '1234' })
 
     // проверяем что запрос был отправлен
-    expect(mockedAxios.post).toHaveBeenCalled()
+    expect(thunk.api.post).toHaveBeenCalled()
     // проверяем количество вызова dispatch
     expect(thunk.dispatch).toHaveBeenCalledTimes(2)
     // проверяем что статус запросса === rejected

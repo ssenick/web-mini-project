@@ -24,7 +24,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
       checkData(data)
 
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data))
-      extra.navigate('/profile')
+      if (extra.navigate) extra.navigate('/profile')
       dispatch(userActions.setAuthData(data))
 
       return data

@@ -27,7 +27,7 @@ export const Text = memo((props: TextProps): JSX.Element => {
     title,
     text,
     variant = TextVariant.NORMAL,
-    size
+    size = TextFontSize.M
   } = props
 
   return (

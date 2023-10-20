@@ -1,6 +1,6 @@
 import type React from 'react'
 import { useState, type ReactNode, useRef, useEffect, useCallback, useMemo } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
 import { Portal } from 'shared/ui/Portal/Portal'
 
@@ -13,7 +13,7 @@ interface ModalProps {
   isCloseModal?: boolean
 }
 
-export const Modal = (props: ModalProps): JSX.Element => {
+export const Modal = (props: ModalProps): JSX.Element | null => {
   const {
     className,
     children,
@@ -65,12 +65,12 @@ export const Modal = (props: ModalProps): JSX.Element => {
       window.addEventListener('keydown', onKeyDown)
     }
     return () => {
-      clearTimeout(timeRef.current)
+      if (timeRef.current) clearTimeout(timeRef.current)
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [isOpen, onKeyDown])
 
-  const mods: Record<string, boolean> = useMemo(() => (
+  const mods: Mods = useMemo(() => (
     {
       [cls.isOpen]: isOpen,
       [cls.isClose]: isClosing

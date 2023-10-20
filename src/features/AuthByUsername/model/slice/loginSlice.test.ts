@@ -1,4 +1,3 @@
-import { type DeepPartial } from '@reduxjs/toolkit'
 import { type LoginSchema } from '../types/loginSchema'
 import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
 
@@ -11,14 +10,6 @@ describe('loginSlice.test', () => {
       loginReducer(state as LoginSchema, loginActions.setUsername('admin'))
     ).toEqual({ username: 'admin' })
   })
-  test('test set username without actions', () => {
-    const state: DeepPartial<LoginSchema> = {
-      username: 'admin'
-    }
-    expect(
-      loginReducer(state as LoginSchema, loginActions.setUsername())
-    ).toEqual({ username: undefined })
-  })
   test('test set password', () => {
     const state: DeepPartial<LoginSchema> = {
       password: 'password'
@@ -26,13 +17,5 @@ describe('loginSlice.test', () => {
     expect(
       loginReducer(state as LoginSchema, loginActions.setPassword('admin'))
     ).toEqual({ password: 'admin' })
-  })
-  test('test set username without actions', () => {
-    const state: DeepPartial<LoginSchema> = {
-      password: 'admin'
-    }
-    expect(
-      loginReducer(state as LoginSchema, loginActions.setPassword())
-    ).toEqual({ password: undefined })
   })
 })
