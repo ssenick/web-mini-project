@@ -6,6 +6,11 @@ export enum TextVariant {
   NORMAL = 'normal',
   ERROR = 'error'
 }
+export enum TextAlign {
+  LEFT = 'left',
+  CENTER = 'center',
+  RIGHT = 'right'
+}
 export enum TextFontSize {
   XS = 'sizeXS',
   SM = 'sizeSM',
@@ -19,6 +24,7 @@ interface TextProps {
   text?: string
   variant?: TextVariant
   size?: TextFontSize
+  texAlign?: TextAlign
 }
 
 export const Text = memo((props: TextProps): JSX.Element => {
@@ -27,11 +33,12 @@ export const Text = memo((props: TextProps): JSX.Element => {
     title,
     text,
     variant = TextVariant.NORMAL,
-    size = TextFontSize.M
+    size = TextFontSize.M,
+    texAlign = TextAlign.LEFT
   } = props
 
   return (
-        <div className={classNames(cls.Text, { }, [className, cls[variant], cls[size]])}>
+        <div className={classNames(cls.Text, { }, [className, cls[variant], cls[size], cls[texAlign]])}>
             {title && <p className={cls.title}>{title}</p>}
             {text && <p className={cls.text}>{text}</p>}
         </div>

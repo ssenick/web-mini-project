@@ -1,0 +1,10 @@
+.ProfileForm {
+  min-height: 200px;
+
+  &.error,
+  &.isLoading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -22,11 +22,9 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
       const { data } = await extra.api.post<User>('/login', authData)
 
       checkData(data)
-
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data))
-      if (extra.navigate) extra.navigate('/profile')
       dispatch(userActions.setAuthData(data))
-
+      if (extra.navigate && data) extra.navigate('/profile')
       return data
     } catch (e) {
       console.log(e)
