@@ -39,6 +39,7 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
                    title={t('что-то пошло не так')}
                    text={t('попробуйте обновить страницу')}/>
             }
+
             {isLoading && <LoaderPoints/>}
             {data && <ProfileCard data={data}/>}
         </div>
