@@ -1,9 +1,10 @@
-import { Modal } from 'shared/ui/Modal/Modal'
-import { LoginFormAsync } from '../LoginForm/LoginFormAsync'
 import { memo, Suspense, useEffect } from 'react'
-import { loginActions } from '../../model/slice/loginSlice'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints'
+import { Modal } from 'shared/ui/Modal/Modal'
+import { loginActions } from '../../model/slice/loginSlice'
+import { LoginFormAsync } from '../LoginForm/LoginFormAsync'
+
 interface LoginModalProps {
   className?: string
   isOpen?: boolean
@@ -12,8 +13,7 @@ interface LoginModalProps {
 }
 
 export const LoginModal = memo(({ className, isOpen, onClose, isCloseModal }: LoginModalProps) => {
-  const dispatch = useDispatch()
-
+  const dispatch = useAppDispatch()
   useEffect(() => {
     if (!isOpen) {
       dispatch(loginActions.setUsername(''))

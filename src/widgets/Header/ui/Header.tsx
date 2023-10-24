@@ -1,19 +1,19 @@
-import cls from './Header.module.scss'
+import { Theme, useTheme } from 'app/povaiders/ThemeProvaider'
+import { getUserAuthData, userActions } from 'entities/User'
+import { LoginModal } from 'features/AuthByUsername'
+import { memo, useCallback, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
+import LoginIcon from 'shared/assets/icons/login.svg'
+import LogoWhiteIcon from 'shared/assets/icons/logo-w.svg'
+import LogoDarkIcon from 'shared/assets/icons/logo.svg'
+import LogoutIcon from 'shared/assets/icons/logout.svg'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink'
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
-import { Theme, useTheme } from 'app/povaiders/ThemeProvaider'
-import LogoDarkIcon from 'shared/assets/icons/logo.svg'
-import LogoWhiteIcon from 'shared/assets/icons/logo-w.svg'
-import LoginIcon from 'shared/assets/icons/login.svg'
-import LogoutIcon from 'shared/assets/icons/logout.svg'
-import { useTranslation } from 'react-i18next'
-import { LangSwitcher } from 'widgets/LangSwitcher'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
-import { memo, useCallback, useEffect, useState } from 'react'
-import { LoginModal } from 'features/AuthByUsername'
-import { useDispatch, useSelector } from 'react-redux'
-import { getUserAuthData, userActions } from 'entities/User'
+import { LangSwitcher } from 'widgets/LangSwitcher'
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
+import cls from './Header.module.scss'
 
 interface HeaderProps {
   className?: string
@@ -46,13 +46,11 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
     } else {
       setIsCloseModal(false)
     }
-  }, [userAuth])
-
-  useEffect(() => {
     if (error) {
       throw new Error()
     }
-  }, [error])
+  }, [userAuth, error])
+
   return (
         <header className={classNames(cls.Header, {}, [className])}>
             <AppLink className={cls.logo} to='/' variant={AppLinkVariant.CLEAN}>

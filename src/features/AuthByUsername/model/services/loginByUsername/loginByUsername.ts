@@ -7,7 +7,6 @@ interface LoginByUsernameProps {
   username: string
   password: string
 }
-
 function checkData (data: User): void {
   if (!data) {
     throw new Error('missing data')
@@ -20,10 +19,10 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
     const { dispatch, extra, rejectWithValue } = thunkAPI
     try {
       const { data } = await extra.api.post<User>('/login', authData)
-
       checkData(data)
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data))
       dispatch(userActions.setAuthData(data))
+      // лучше не использовать
       if (extra.navigate && data) extra.navigate('/profile')
       return data
     } catch (e) {

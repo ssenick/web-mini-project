@@ -42,7 +42,7 @@ server.post('/login', (req, res) => {
 // проверяем, авторизован ли пользователь
 server.use((req, res, next) => {
   if (!req.headers.authorization) {
-    return res.status(403).json({ message: 'AUTH ERROR' })
+    return res.status(403).json({ message: 'User is not authorized' })
   }
 
   next()

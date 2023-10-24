@@ -29,6 +29,7 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   useEffect(() => {
     void dispatch(fetchProfileData())
   }, [dispatch])
+
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
         <div className={classNames(cls.ProfileForm, { [cls.error]: error, [cls.isLoading]: isLoading }, [className])}>
