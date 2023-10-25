@@ -1,10 +1,36 @@
 .ProfileForm {
-  min-height: 200px;
+  display: grid;
+  gap: 20px;
+
+  .header,
+  .bottom {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    pointer-events: auto;
+  }
+
+  .form {
+    min-height: 200px;
+  }
 
   &.error,
   &.isLoading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &.readonly {
+    .bottom {
+      button {
+        filter: grayscale(100%);
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
   }
 }

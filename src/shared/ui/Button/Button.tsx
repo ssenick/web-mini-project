@@ -7,6 +7,7 @@ export enum ButtonVariant {
   THEME_ICON = 'icon',
   BACKGROUND = 'background',
   BORDER = 'border',
+  BORDER_ERROR = 'border_error',
 }
 
 export enum ButtonSize {

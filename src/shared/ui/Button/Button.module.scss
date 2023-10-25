@@ -49,6 +49,11 @@
   border: 1.5px solid var(--primary-color);
 }
 
+.border_error {
+  border: 1.5px solid var(--error-primary);
+  color: var(--error-primary);
+}
+
 .square {
   display: flex;
   justify-content: center;

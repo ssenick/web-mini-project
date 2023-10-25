@@ -20,7 +20,6 @@ export const fetchProfileData = createAsyncThunk<Profile, undefined, ThunkConfig
         }
       })
       checkData(data)
-      console.log(data)
       return data
     } catch (e) {
       console.log(e)

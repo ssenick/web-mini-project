@@ -101,6 +101,15 @@ export const BorderDark: Story = {
     children: 'TEXT'
   }
 }
+
+export const BorderError: Story = {
+  args: {
+    variant: ButtonVariant.BORDER_ERROR,
+    children: 'TEXT'
+  }
+}
+BorderError.decorators = [ThemeDecorator(Theme.LIGHT)]
+
 BorderDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const WithIcon: Story = {

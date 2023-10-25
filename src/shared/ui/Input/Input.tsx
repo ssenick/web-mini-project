@@ -1,6 +1,6 @@
 import type React from 'react'
 import { useState, type InputHTMLAttributes, useCallback, memo, useMemo } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 
 export enum InputVariant {
@@ -8,14 +8,15 @@ export enum InputVariant {
   INVERSE_BG = 'inverse-bg'
 }
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' >
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface InputProps extends HTMLInputProps {
   className?: string
   variant?: InputVariant
-  value?: string
+  value?: string | number
   onChange?: (value: string) => void
   autofocus?: boolean
+  readonly?: boolean
 }
 
 export const Input = memo((props: InputProps): JSX.Element => {
@@ -26,6 +27,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
     type = 'text',
     variant = InputVariant.NORMAL,
     autofocus,
+    readonly,
     ...otherProps
   } = props
   const [isFocus, setIsFocus] = useState(false)
@@ -35,18 +37,19 @@ export const Input = memo((props: InputProps): JSX.Element => {
   }, [onChange])
 
   const onFocus = useCallback(() => {
-    setIsFocus(true)
-  }, [])
+    if (!readonly) setIsFocus(true)
+  }, [readonly])
 
   const onBlur = useCallback(() => {
     setIsFocus(false)
   }, [])
 
-  const mods: Record<string, boolean> = useMemo(() => (
+  const mods: Mods = useMemo(() => (
     {
-      [cls.isFocus]: isFocus
+      [cls.isFocus]: isFocus,
+      [cls.readonly]: readonly
     }
-  ), [isFocus])
+  ), [isFocus, readonly])
 
   return (
         <div data-testid='input-wrapper' className={classNames(cls.inputWrapper, mods, [className, cls[variant]])}>
@@ -58,6 +61,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
                 type={type}
                 onFocus={onFocus}
                 onBlur={onBlur}
+                readOnly={readonly}
                 {...otherProps}
                 autoFocus={autofocus}
             />
