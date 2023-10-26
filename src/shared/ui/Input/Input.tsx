@@ -17,6 +17,7 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void
   autofocus?: boolean
   readonly?: boolean
+  label?: string
 }
 
 export const Input = memo((props: InputProps): JSX.Element => {
@@ -28,6 +29,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
     variant = InputVariant.NORMAL,
     autofocus,
     readonly,
+    label,
     ...otherProps
   } = props
   const [isFocus, setIsFocus] = useState(false)
@@ -54,6 +56,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
   return (
         <div data-testid='input-wrapper' className={classNames(cls.inputWrapper, mods, [className, cls[variant]])}>
           <label >
+            {label && <span className={cls.label}>{label}</span>}
             <input
                 data-testid='input'
                 value={value}

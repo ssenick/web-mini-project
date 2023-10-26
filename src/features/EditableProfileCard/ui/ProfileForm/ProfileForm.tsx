@@ -1,7 +1,14 @@
-import { fetchProfileData, getProfileReadonly, profileActions, ProfileCard, profileReducer } from 'entities/Profile'
-import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData'
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError'
-import { getProfileIsLoading } from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading'
+import {
+  fetchProfileData,
+  getProfileError,
+  getProfileForm,
+  getProfileIsLoading,
+  getProfileReadonly,
+  profileActions,
+  ProfileCard,
+  profileReducer, updateProfileData
+} from 'entities/Profile'
+
 import { memo, useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -22,7 +29,7 @@ interface ProfileFormProps {
 
 export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   const { t } = useTranslation()
-  const data = useSelector(getProfileData)
+  const formData = useSelector(getProfileForm)
   const error = useSelector(getProfileError)
   const isLoading = useSelector(getProfileIsLoading)
   const dispatch = useAppDispatch()
@@ -35,8 +42,13 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false))
   }, [dispatch])
+
   const onCancelEdit = useCallback(() => {
-    dispatch(profileActions.setReadonly(true))
+    dispatch(profileActions.canselEdit())
+  }, [dispatch])
+
+  const onSaveEdit = useCallback(() => {
+    void dispatch(updateProfileData())
   }, [dispatch])
 
   const onChangeFirstName = useCallback((value?: string) => {
@@ -50,7 +62,13 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   }, [dispatch])
 
   const onChangeAge = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ age: Number(value) || '' }))
+    if (Number(value) < 120) {
+      dispatch(profileActions.updateProfile({ age: Number(value) || '' }))
+    }
+  }, [dispatch])
+
+  const onChangeAvatar = useCallback((value?: string) => {
+    dispatch(profileActions.updateProfile({ avatar: value || '' }))
   }, [dispatch])
 
   const mods: Mods = useMemo(() => (
@@ -76,19 +94,21 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
 
             </div>
             <div className={cls.form}>
-                {data &&
+                {formData &&
                    <ProfileCard
-                      data={data}
+                      className={cls.card}
+                      data={formData}
                       readonly={readonly}
                       error = { error}
                       isLoading={isLoading}
                       onChangeFirstName={onChangeFirstName}
                       onChangeLastName={onChangeLastName}
                       onChangeAge={onChangeAge}
+                      onChangeAvatar={onChangeAvatar}
                    />}
             </div>
             <div className={cls.bottom}>
-                <Button className={cls.btnSave} variant={ButtonVariant.BACKGROUND}>
+                <Button onClick={onSaveEdit} className={cls.btnSave} variant={ButtonVariant.BACKGROUND}>
                     {t('Сохранить')}
                 </Button>
             </div>

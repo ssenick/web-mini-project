@@ -1,3 +1,27 @@
 .ProfileCard {
   position: relative;
+
+  .header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .row {
+    display: grid;
+    gap: 10px;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .column {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .input {
+    grid-column: span 2;
+  }
 }

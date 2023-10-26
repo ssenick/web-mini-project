@@ -47,3 +47,12 @@ export const InverseBackgroundDark: Story = {
   }
 }
 InverseBackgroundDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const WithLabel: Story = {
+  args: {
+    value: 'Input',
+    variant: InputVariant.INVERSE_BG,
+    label: 'label'
+  }
+}
+WithLabel.decorators = [ThemeDecorator(Theme.LIGHT)]

@@ -2,6 +2,7 @@ import { type Profile } from 'entities/Profile'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints'
 import { Text, TextAlign, TextVariant } from 'shared/ui/Text/Text'
 import cls from './ProfileCard.module.scss'
@@ -17,6 +18,7 @@ interface ProfileCardProps {
   onChangeFirstName?: (value?: string) => void
   onChangeLastName?: (value?: string) => void
   onChangeAge?: (value?: string) => void
+  onChangeAvatar?: (value?: string) => void
 }
 
 export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
@@ -28,7 +30,8 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
     readonly,
     onChangeFirstName,
     onChangeLastName,
-    onChangeAge
+    onChangeAge,
+    onChangeAvatar
   } = props
   const { t } = useTranslation()
 
@@ -48,9 +51,47 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
   return (
         <div className={classNames(cls.ProfileCard, {}, [className])}>
           <div className={cls.data}>
-            <Input onChange={onChangeFirstName} readonly={readonly} variant={InputVariant.INVERSE_BG} value={data?.first}/>
-            <Input onChange={onChangeLastName} readonly={readonly} variant={InputVariant.INVERSE_BG} value={data?.lastname}/>
-            <Input onChange={onChangeAge} readonly={readonly} variant={InputVariant.INVERSE_BG} value={data?.age}/>
+            <div className={cls.header}>
+              { data?.avatar && <Avatar src={data?.avatar} />}
+            </div>
+            <div className={cls.row}>
+                <Text title={t('Личные данные')}/>
+              <div className={cls.column}>
+                <Input
+                    className={cls.input}
+                    label={t('Имя')}
+                    onChange={onChangeFirstName}
+                    readonly={readonly}
+                    variant={InputVariant.INVERSE_BG}
+                    value={data?.first}/>
+                <Input
+                    className={cls.input}
+                    label={t('Фамилия')}
+                    onChange={onChangeLastName}
+                    readonly={readonly}
+                    variant={InputVariant.INVERSE_BG}
+                    value={data?.lastname}/>
+              </div>
+            </div>
+            <div className={cls.row}>
+              <Text title={t('Настройки профиля')}/>
+              <div className={cls.column}>
+                <Input
+                    className={cls.input}
+                    label={t('Возраст')}
+                    onChange={onChangeAge}
+                    readonly={readonly}
+                    variant={InputVariant.INVERSE_BG}
+                    value={data?.age}/>
+                <Input
+                    className={cls.input}
+                    label={t('Ссылка на аватар')}
+                    onChange={onChangeAvatar}
+                    readonly={readonly}
+                    variant={InputVariant.INVERSE_BG}
+                    value={data?.avatar}/>
+              </div>
+            </div>
           </div>
         </div>
   )
