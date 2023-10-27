@@ -23,7 +23,7 @@ export const Avatar = memo((props: AvatarProps) => {
   }), [size])
 
   return (
-        <div style={styles} className={classNames(cls.Avatar, {}, [className])}>
+        <div data-testid={'avatar'} style={styles} className={classNames(cls.Avatar, {}, [className])}>
             <img src={src} alt={alt}/>
         </div>
   )
