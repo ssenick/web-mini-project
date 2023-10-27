@@ -1,6 +1,7 @@
 import type React from 'react'
 import { useState, type InputHTMLAttributes, useCallback, memo, useMemo } from 'react'
 import { classNames, type Mods } from 'shared/lib/classNames/classNames'
+import { Text, TextFontSize } from 'shared/ui/Text/Text'
 import cls from './Input.module.scss'
 
 export enum InputVariant {
@@ -56,7 +57,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
   return (
         <div data-testid='input-wrapper' className={classNames(cls.inputWrapper, mods, [className, cls[variant]])}>
           <label >
-            {label && <span className={cls.label}>{label}</span>}
+            {label && <Text size={TextFontSize.SXS} title={label} className={cls.label}/>}
             <input
                 data-testid='input'
                 value={value}

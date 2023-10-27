@@ -12,6 +12,7 @@ export enum TextAlign {
   RIGHT = 'right'
 }
 export enum TextFontSize {
+  SXS = 'sizeSXS',
   XS = 'sizeXS',
   SM = 'sizeSM',
   M = 'sizeM',

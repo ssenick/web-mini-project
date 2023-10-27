@@ -23,7 +23,18 @@ export const Light: Story = {
   args: {
   }
 }
-Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator]
+Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+  profile: {
+    data: {
+      first: 'Ruslan',
+      lastname: 'Admin',
+      age: 22,
+      // country: 'Ukraine',
+      city: 'Sumy',
+      username: 'ssenick'
+    }
+  }
+}), RouterDecorator]
 
 export const Dark: Story = {
   args: {

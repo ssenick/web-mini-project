@@ -12,6 +12,16 @@
     font: var(--font-sm);
   }
 
+  &.sizeSXS {
+    .title {
+      font: var(--font-sxs);
+    }
+
+    .text {
+      font: var(--font-sxs);
+    }
+  }
+
   &.sizeXS {
     .title {
       font: var(--font-xs);

@@ -5,8 +5,8 @@ import {
   getProfileIsLoading,
   getProfileReadonly,
   profileActions,
-  ProfileCard,
-  profileReducer, updateProfileData
+  profileReducer, updateProfileData,
+  ProfileCard
 } from 'entities/Profile'
 
 import { memo, useCallback, useEffect, useMemo } from 'react'
@@ -81,7 +81,7 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
         <div className={classNames(cls.ProfileForm, mods, [className])}>
-            <div className={cls.header}>
+            {!error && !isLoading && <div className={cls.header}>
                 {!readonly
                   ? <Button onClick={onCancelEdit} withIcon variant={ButtonVariant.BORDER_ERROR}>
                         {t('Отменить')}
@@ -92,10 +92,9 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
                     </Button>
                 }
 
-            </div>
+            </div>}
             <div className={cls.form}>
-                {formData &&
-                   <ProfileCard
+                <ProfileCard
                       className={cls.card}
                       data={formData}
                       readonly={readonly}
@@ -105,14 +104,13 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
                       onChangeLastName={onChangeLastName}
                       onChangeAge={onChangeAge}
                       onChangeAvatar={onChangeAvatar}
-                   />}
+                />
             </div>
-            <div className={cls.bottom}>
-                <Button onClick={onSaveEdit} className={cls.btnSave} variant={ButtonVariant.BACKGROUND}>
-                    {t('Сохранить')}
-                </Button>
-            </div>
-
+            {!error && !isLoading && <div className={cls.bottom}>
+               <Button onClick={onSaveEdit} className={cls.btnSave} variant={ButtonVariant.BACKGROUND}>
+                   {t('Сохранить')}
+               </Button>
+            </div>}
         </div>
       </DynamicModuleLoader>
   )

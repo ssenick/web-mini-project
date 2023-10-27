@@ -3,11 +3,11 @@ import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
+import { Input, InputVariant } from 'shared/ui/Input/Input'
 import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints'
+import { Select, SelectVariant } from 'shared/ui/Select/Select'
 import { Text, TextAlign, TextVariant } from 'shared/ui/Text/Text'
 import cls from './ProfileCard.module.scss'
-
-import { Input, InputVariant } from 'shared/ui/Input/Input'
 
 interface ProfileCardProps {
   className?: string
@@ -71,11 +71,6 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                     readonly={readonly}
                     variant={InputVariant.INVERSE_BG}
                     value={data?.lastname}/>
-              </div>
-            </div>
-            <div className={cls.row}>
-              <Text title={t('Настройки профиля')}/>
-              <div className={cls.column}>
                 <Input
                     className={cls.input}
                     label={t('Возраст')}
@@ -83,6 +78,12 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                     readonly={readonly}
                     variant={InputVariant.INVERSE_BG}
                     value={data?.age}/>
+              </div>
+            </div>
+            <div className={cls.row}>
+              <Text title={t('Настройки профиля')}/>
+              <div className={cls.column}>
+                <Select readonly={readonly} variant={SelectVariant.INVERSE_BG} label={'Валюта'}/>
                 <Input
                     className={cls.input}
                     label={t('Ссылка на аватар')}
@@ -90,6 +91,13 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                     readonly={readonly}
                     variant={InputVariant.INVERSE_BG}
                     value={data?.avatar}/>
+                <Input
+                    className={cls.input}
+                    label={t('Имя пользователя')}
+                    onChange={onChangeAvatar}
+                    readonly={readonly}
+                    variant={InputVariant.INVERSE_BG}
+                    value={data?.username}/>
               </div>
             </div>
           </div>
