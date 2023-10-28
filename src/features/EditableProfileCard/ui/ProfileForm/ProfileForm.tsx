@@ -1,3 +1,4 @@
+import { type Currency } from 'entities/Currency'
 import {
   fetchProfileData,
   getProfileError,
@@ -53,22 +54,29 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
 
   const onChangeFirstName = useCallback((value?: string) => {
     const newValue = value?.trim()
-    dispatch(profileActions.updateProfile({ first: newValue || '' }))
+    dispatch(profileActions.updateFirst(newValue || ''))
   }, [dispatch])
 
   const onChangeLastName = useCallback((value?: string) => {
     const newValue = value?.trim()
-    dispatch(profileActions.updateProfile({ lastname: newValue || '' }))
+    dispatch(profileActions.updateLastname(newValue || ''))
   }, [dispatch])
 
   const onChangeAge = useCallback((value?: string) => {
     if (Number(value) < 120) {
-      dispatch(profileActions.updateProfile({ age: Number(value) || '' }))
+      dispatch(profileActions.updateAge(Number(value) || ''))
     }
+  }, [dispatch])
+  const onChangeUsername = useCallback((value?: string) => {
+    dispatch(profileActions.updateUsername(value || ''))
   }, [dispatch])
 
   const onChangeAvatar = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ avatar: value || '' }))
+    dispatch(profileActions.updateAvatar(value || ''))
+  }, [dispatch])
+
+  const onChangeCurrency = useCallback((currency: Currency) => {
+    dispatch(profileActions.updateCurrency(currency))
   }, [dispatch])
 
   const mods: Mods = useMemo(() => (
@@ -103,7 +111,9 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
                       onChangeFirstName={onChangeFirstName}
                       onChangeLastName={onChangeLastName}
                       onChangeAge={onChangeAge}
+                      onChangeUsername={onChangeUsername}
                       onChangeAvatar={onChangeAvatar}
+                      onChangeCurrency={onChangeCurrency}
                 />
             </div>
             {!error && !isLoading && <div className={cls.bottom}>
