@@ -99,7 +99,6 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
                         <EditIcon/>
                     </Button>
                 }
-
             </div>}
             <div className={cls.form}>
                 <ProfileCard
