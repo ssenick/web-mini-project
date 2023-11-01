@@ -1,3 +1,4 @@
+import { type Country, CountrySelect } from 'entities/Country'
 import { type Currency, CurrencySelect } from 'entities/Currency'
 import { type Profile } from 'entities/Profile'
 import { memo } from 'react'
@@ -21,6 +22,7 @@ interface ProfileCardProps {
   onChangeAge?: (value?: string) => void
   onChangeAvatar?: (value?: string) => void
   onChangeCurrency?: (currency: Currency) => void
+  onChangeCountry?: (currency: Country) => void
 }
 
 export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
@@ -35,7 +37,8 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
     onChangeUsername,
     onChangeAge,
     onChangeAvatar,
-    onChangeCurrency
+    onChangeCurrency,
+    onChangeCountry
   } = props
   const { t } = useTranslation()
 
@@ -82,7 +85,13 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                     readonly={readonly}
                     variant={InputVariant.INVERSE_BG}
                     value={data?.age}/>
+                <CountrySelect
+                    onChange={onChangeCountry}
+                    className={cls.currency}
+                    value={data?.country}
+                    readonly={readonly}/>
               </div>
+
             </div>
             <div className={cls.row}>
               <Text title={t('Настройки профиля')}/>

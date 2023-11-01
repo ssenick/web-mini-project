@@ -1,3 +1,4 @@
+import { type Country } from 'entities/Country'
 import { type Currency } from 'entities/Currency'
 import {
   fetchProfileData,
@@ -78,6 +79,9 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   const onChangeCurrency = useCallback((currency: Currency) => {
     dispatch(profileActions.updateCurrency(currency))
   }, [dispatch])
+  const onChangeCountry = useCallback((country: Country) => {
+    dispatch(profileActions.updateCountry(country))
+  }, [dispatch])
 
   const mods: Mods = useMemo(() => (
     {
@@ -113,6 +117,7 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
                       onChangeUsername={onChangeUsername}
                       onChangeAvatar={onChangeAvatar}
                       onChangeCurrency={onChangeCurrency}
+                      onChangeCountry={onChangeCountry}
                 />
             </div>
             {!error && !isLoading && <div className={cls.bottom}>

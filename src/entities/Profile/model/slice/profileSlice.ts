@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { type Country } from 'entities/Country'
 import { type Currency } from 'entities/Currency'
-import { type Country } from 'shared/const/common'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData'
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData'
 
