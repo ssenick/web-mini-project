@@ -1,4 +1,5 @@
 import type React from 'react'
+
 import { RoutPath } from 'shared/config/routeConfig'
 import HomeIcon from 'shared/assets/icons/home.svg'
 import AboutIcon from 'shared/assets/icons/about.svg'
@@ -8,6 +9,7 @@ export interface SidebarLinkType {
   path: string
   Icon?: React.VoidFunctionComponent<React.SVGProps<SVGSVGElement>> | undefined
   text: string
+  authOnly?: boolean
 }
 
 export const SidebarLinkList: SidebarLinkType[] = [
@@ -24,6 +26,7 @@ export const SidebarLinkList: SidebarLinkType[] = [
   {
     path: RoutPath.profile,
     Icon: ProfileIcon,
-    text: 'Профиль'
+    text: 'Профиль',
+    authOnly: true
   }
 ]

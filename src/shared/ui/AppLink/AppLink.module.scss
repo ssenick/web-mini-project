@@ -1,5 +1,11 @@
 .AppLink {
   cursor: pointer;
+  transition: border-left var(--animation-time) ease 0s;
+  border-left: 2px solid transparent;
+
+  &:global.active {
+    border-left: 2px solid var(--primary-color);
+  }
 }
 
 .clean {

@@ -1,7 +1,7 @@
 import { memo, type ReactNode } from 'react'
-import { Link, type LinkProps } from 'react-router-dom'
-import cls from './AppLink.module.scss'
+import { type LinkProps, NavLink } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
+import cls from './AppLink.module.scss'
 
 export enum AppLinkVariant {
   CLEAN = 'clean',
@@ -21,13 +21,14 @@ export const AppLink = memo((props: AppLinkProps): JSX.Element => {
     variant = AppLinkVariant.CLEAN,
     ...otherProps
   } = props
+
   return (
-        <Link
+        <NavLink
             to={to}
-            className={classNames(cls.AppLink, {}, [className, cls[variant]])}
+            className={classNames(cls.AppLink, { }, [className, cls[variant]])}
             {...otherProps}
         >
             {children}
-        </Link>
+        </NavLink>
   )
 })
