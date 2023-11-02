@@ -1,4 +1,5 @@
 import { Theme, useTheme } from 'app/povaiders/ThemeProvaider'
+import { useNavigate } from 'react-router-dom'
 import { getUserAuthData, userActions } from 'entities/User'
 import { LoginModal } from 'features/AuthByUsername'
 import { memo, useCallback, useEffect, useState } from 'react'
@@ -8,6 +9,7 @@ import LoginIcon from 'shared/assets/icons/login.svg'
 import LogoWhiteIcon from 'shared/assets/icons/logo-w.svg'
 import LogoDarkIcon from 'shared/assets/icons/logo.svg'
 import LogoutIcon from 'shared/assets/icons/logout.svg'
+import { RoutPath } from 'shared/config/routeConfig'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
@@ -27,6 +29,8 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
   const [isCloseModal, setIsCloseModal] = useState(false)
   const userAuth = useSelector(getUserAuthData)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const onCloseModal = useCallback((): void => {
     setIsAuthModal(false)
   }, [])
@@ -38,7 +42,10 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
   }, [])
   const onLogout = useCallback(() => {
     dispatch(userActions.logout())
-  }, [dispatch])
+    if (location?.pathname.substring(1) === RoutPath.profile) {
+      navigate('/')
+    }
+  }, [dispatch, navigate])
 
   useEffect(() => {
     if (userAuth) {
