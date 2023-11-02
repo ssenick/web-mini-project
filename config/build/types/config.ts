@@ -14,6 +14,7 @@ export interface BuildOptions {
   port: string
   host: string
   apiUrl: string
+  project: 'storybook' | 'frontend' | 'jest'
 }
 
 export interface BuildEnv {

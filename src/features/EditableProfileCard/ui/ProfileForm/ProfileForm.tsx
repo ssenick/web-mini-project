@@ -38,7 +38,9 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   const readonly = useSelector(getProfileReadonly)
 
   useEffect(() => {
-    void dispatch(fetchProfileData())
+    if (__PROJECT__ !== 'storybook') {
+      void dispatch(fetchProfileData())
+    }
   }, [dispatch])
 
   const onEdit = useCallback(() => {
