@@ -1,20 +1,21 @@
-import { type Country, CountrySelect } from 'entities/Country'
+import { CountrySelect, type Country } from 'entities/Country'
 import { type Currency, CurrencySelect } from 'entities/Currency'
 import { type Profile } from 'entities/Profile'
-import { memo } from 'react'
+import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Input, InputVariant } from 'shared/ui/Input/Input'
 import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints'
-import { Text, TextAlign, TextVariant } from 'shared/ui/Text/Text'
+import { Text, TextFontSize, TextVariant } from 'shared/ui/Text/Text'
+import { ValidateProfileErrors } from '../../model/types/profile'
 import cls from './ProfileCard.module.scss'
 
 interface ProfileCardProps {
   className?: string
   data?: Profile
   isLoading?: boolean
-  error?: string
+  error?: ValidateProfileErrors[]
   readonly?: boolean
   onChangeFirstName?: (value?: string) => void
   onChangeLastName?: (value?: string) => void
@@ -41,20 +42,52 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
     onChangeCountry
   } = props
   const { t } = useTranslation()
+  const [errorFirstname, setErrorFirstname] = useState('')
+  const [errorLastname, setErrorLastname] = useState('')
+  const [errorUsername, setErrorUsername] = useState('')
+  const [errorAge, setErrorAge] = useState('')
+  const [errorCity, setErrorCity] = useState('')
+  const [errorServerError, setErrorServerError] = useState('')
+
+  const errorsValidateTranslates: Record<string, string> = useMemo(() => {
+    return {
+      [ValidateProfileErrors.INCORRECT_USER_FIRST_NAME]: t('Не указано имя'),
+      [ValidateProfileErrors.INCORRECT_USER_LAST_NAME]: t('Не указана фамилия'),
+      [ValidateProfileErrors.INCORRECT_USER_USER_NAME]: t('Не указана имя пользователя'),
+      [ValidateProfileErrors.INCORRECT_AGE]: t('Не указан возраст'),
+      [ValidateProfileErrors.INCORRECT_CITY]: t('Не указан город'),
+      [ValidateProfileErrors.SERVER_ERROR]: t('что-то пошло не так')
+    }
+  }, [t])
+
+  const setErrors = useCallback(() => {
+    console.log(error)
+    error?.length && error.forEach(err => {
+      if (errorsValidateTranslates[err]) setErrorFirstname(errorsValidateTranslates[err])
+      if (errorsValidateTranslates[err]) setErrorLastname(errorsValidateTranslates[err])
+      if (errorsValidateTranslates[err]) setErrorUsername(errorsValidateTranslates[err])
+      if (errorsValidateTranslates[err]) setErrorAge(errorsValidateTranslates[err])
+      if (errorsValidateTranslates[err]) setErrorCity(errorsValidateTranslates[err])
+      if (errorsValidateTranslates[err]) setErrorServerError(errorsValidateTranslates[err])
+    })
+  }, [error, errorsValidateTranslates])
+
+  useEffect(() => {
+    setErrors()
+  }, [setErrors, errorFirstname, errorLastname, errorUsername, errorAge, errorCity, errorServerError])
 
   if (isLoading) {
     return <LoaderPoints/>
   }
-  if (error) {
-    return (
-        <Text
-            texAlign={TextAlign.CENTER}
-            variant={TextVariant.ERROR}
-            title={t('что-то пошло не так')}
-            text={t('попробуйте обновить страницу')}/>
-    )
-  }
-
+  // if (error?.length) {
+  //   return (
+  //       <Text
+  //           texAlign={TextAlign.CENTER}
+  //           variant={TextVariant.ERROR}
+  //           title={t('что-то пошло не так')}
+  //           text={t('попробуйте обновить страницу')}/>
+  //   )
+  // }
   return (
         <div className={classNames(cls.ProfileCard, {}, [className])}>
           <div className={cls.data}>
@@ -64,27 +97,45 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
             <div className={cls.row}>
                 <Text title={t('Личные данные')}/>
               <div className={cls.column}>
-                <Input
-                    className={cls.input}
-                    label={t('Имя')}
-                    onChange={onChangeFirstName}
-                    readonly={readonly}
-                    variant={InputVariant.INVERSE_BG}
-                    value={data?.first}/>
-                <Input
-                    className={cls.input}
-                    label={t('Фамилия')}
-                    onChange={onChangeLastName}
-                    readonly={readonly}
-                    variant={InputVariant.INVERSE_BG}
-                    value={data?.lastname}/>
-                <Input
-                    className={cls.age}
-                    label={t('Возраст')}
-                    onChange={onChangeAge}
-                    readonly={readonly}
-                    variant={InputVariant.INVERSE_BG}
-                    value={data?.age}/>
+                <div className={cls.inputWithError}>
+                  <Input
+                      className={cls.input}
+                      label={t('Имя')}
+                      onChange={onChangeFirstName}
+                      readonly={readonly}
+                      variant={InputVariant.INVERSE_BG}
+                      value={data?.first}/>
+                  {errorFirstname && <Text
+                      className={cls.errorInput}
+                      variant={TextVariant.ERROR}
+                      size={TextFontSize.SXS}
+                      text={errorFirstname}/>
+                    }
+                </div>
+                <div className={cls.inputWithError}>
+                  <Input
+                      className={cls.input}
+                      label={t('Фамилия')}
+                      onChange={onChangeLastName}
+                      readonly={readonly}
+                      variant={InputVariant.INVERSE_BG}
+                      value={data?.lastname}/>
+                  {errorLastname && <Text
+                      className={cls.errorInput}
+                      variant={TextVariant.ERROR}
+                      size={TextFontSize.SXS}
+                      text={errorLastname}/>
+                  }
+                </div>
+                <div className={cls.inputWithError}>
+                  <Input
+                      className={cls.age}
+                      label={t('Возраст')}
+                      onChange={onChangeAge}
+                      readonly={readonly}
+                      variant={InputVariant.INVERSE_BG}
+                      value={data?.age}/>
+                </div>
                 <CountrySelect
                     onChange={onChangeCountry}
                     className={cls.currency}
@@ -96,13 +147,15 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
             <div className={cls.row}>
               <Text title={t('Настройки профиля')}/>
               <div className={cls.column}>
-                <Input
-                    className={cls.username}
-                    label={t('Имя пользователя')}
-                    onChange={onChangeUsername}
-                    readonly={readonly}
-                    variant={InputVariant.INVERSE_BG}
-                    value={data?.username}/>
+                <div className={cls.inputWithError}>
+                  <Input
+                      className={cls.username}
+                      label={t('Имя пользователя')}
+                      onChange={onChangeUsername}
+                      readonly={readonly}
+                      variant={InputVariant.INVERSE_BG}
+                      value={data?.username}/>
+                </div>
                 <Input
                     className={cls.avatar}
                     label={t('Ссылка на аватар')}

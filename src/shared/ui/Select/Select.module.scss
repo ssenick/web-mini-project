@@ -16,6 +16,7 @@
     padding: 5px 5px 5px 15px;
     outline: none;
     color: inherit;
+    font: var(--font-m);
 
     &:disabled {
       filter: grayscale(100%);

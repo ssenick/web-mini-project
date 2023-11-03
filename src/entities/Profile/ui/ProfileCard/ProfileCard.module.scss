@@ -21,7 +21,8 @@
     gap: 10px;
   }
 
-  .input {
+  .input,
+  .inputWithError {
     grid-column: span 6;
   }
 

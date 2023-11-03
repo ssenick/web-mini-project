@@ -79,10 +79,11 @@ export const profileSlice = createSlice({
         state.readonly = true
         state.data = action.payload
         state.form = action.payload
+        state.validateError = undefined
       })
       .addCase(updateProfileData.rejected, (state, action) => {
         state.isLoading = false
-        state.error = action.payload
+        state.validateError = action.payload
       })
   }
 })

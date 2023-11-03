@@ -67,7 +67,7 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
 
   const onChangeAge = useCallback((value?: string) => {
     if (Number(value) < 120) {
-      dispatch(profileActions.updateAge(Number(value) || ''))
+      dispatch(profileActions.updateAge(Number(value)))
     }
   }, [dispatch])
   const onChangeUsername = useCallback((value?: string) => {
@@ -87,15 +87,16 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
 
   const mods: Mods = useMemo(() => (
     {
-      [cls.error]: error,
+      [cls.error]: error?.length,
       [cls.isLoading]: isLoading,
       [cls.readonly]: readonly
     }
   ), [error, isLoading, readonly])
+
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
         <div className={classNames(cls.ProfileForm, mods, [className])}>
-            {!error && !isLoading && <div className={cls.header}>
+            {!isLoading && <div className={cls.header}>
                 {!readonly
                   ? <Button onClick={onCancelEdit} withIcon variant={ButtonVariant.BORDER_ERROR}>
                         {t('Отменить')}
@@ -122,7 +123,7 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
                       onChangeCountry={onChangeCountry}
                 />
             </div>
-            {!error && !isLoading && <div className={cls.bottom}>
+            {!isLoading && <div className={cls.bottom}>
                <Button onClick={onSaveEdit} className={cls.btnSave} variant={ButtonVariant.BACKGROUND}>
                    {t('Сохранить')}
                </Button>

@@ -17,13 +17,18 @@
   "Редактировать": "Edit",
   "Отменить": "Cancel",
   "Сохранить": "Save",
-  "Имя": "Name",
-  "Фамилия": "Last name",
-  "Возраст": "Age",
+  "Имя": "Name *",
+  "Фамилия": "Last name *",
+  "Возраст": "Age *",
   "Ссылка на аватар": "Avatar link",
   "Личные данные": "Personal data",
   "Настройки профиля": "Profile Settings",
-  "Имя пользователя": "Username",
+  "Имя пользователя": "Username *",
   "Валюта": "Currency",
-  "Страна": "Country"
+  "Страна": "Country",
+  "Не указано имя": "No name provided",
+  "Не указана фамилия": "Last name not specified",
+  "Не указана имя пользователя": "Username not specified",
+  "Не указан возраст": "Age not specified",
+  "Не указан город": "City not specified"
 }
