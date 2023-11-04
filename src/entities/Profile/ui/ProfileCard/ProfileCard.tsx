@@ -68,7 +68,6 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
       if (ValidateProfileErrors.SERVER_ERROR === err) setErrorServerError(errorsValidateTranslates[err])
     })
   }, [error, errorsValidateTranslates])
-
   useEffect(() => {
     setErrors()
     return () => {
