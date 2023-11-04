@@ -31,14 +31,13 @@ const initialForm = {
 }
 
 type Story = StoryObj<typeof meta>
+
 export const Primary: Story = {
   args: {}
 }
-
 Primary.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
   profile: {
-    form: initialForm,
-    readonly: false
+    form: initialForm
   }
 }), RouterDecorator]
 
