@@ -31,7 +31,8 @@ export const Primary: Story = {
       country: Country.Canada,
       username: 'Admin',
       avatar: avatarImage
-    }
+    },
+    error: []
   }
 }
 Primary.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
