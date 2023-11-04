@@ -7,7 +7,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Input, InputVariant } from 'shared/ui/Input/Input'
 import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints'
-import { Text, TextFontSize, TextVariant } from 'shared/ui/Text/Text'
+import { Text, TextAlign, TextFontSize, TextVariant } from 'shared/ui/Text/Text'
 import { ValidateProfileErrors } from '../../model/types/profile'
 import cls from './ProfileCard.module.scss'
 
@@ -46,7 +46,6 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
   const [errorLastname, setErrorLastname] = useState('')
   const [errorUsername, setErrorUsername] = useState('')
   const [errorAge, setErrorAge] = useState('')
-  const [errorCity, setErrorCity] = useState('')
   const [errorServerError, setErrorServerError] = useState('')
 
   const errorsValidateTranslates: Record<string, string> = useMemo(() => {
@@ -61,33 +60,38 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
   }, [t])
 
   const setErrors = useCallback(() => {
-    console.log(error)
     error?.length && error.forEach(err => {
-      if (errorsValidateTranslates[err]) setErrorFirstname(errorsValidateTranslates[err])
-      if (errorsValidateTranslates[err]) setErrorLastname(errorsValidateTranslates[err])
-      if (errorsValidateTranslates[err]) setErrorUsername(errorsValidateTranslates[err])
-      if (errorsValidateTranslates[err]) setErrorAge(errorsValidateTranslates[err])
-      if (errorsValidateTranslates[err]) setErrorCity(errorsValidateTranslates[err])
-      if (errorsValidateTranslates[err]) setErrorServerError(errorsValidateTranslates[err])
+      if (ValidateProfileErrors.INCORRECT_USER_FIRST_NAME === err)setErrorFirstname(errorsValidateTranslates[err])
+      if (ValidateProfileErrors.INCORRECT_USER_LAST_NAME === err) setErrorLastname(errorsValidateTranslates[err])
+      if (ValidateProfileErrors.INCORRECT_USER_USER_NAME === err) setErrorUsername(errorsValidateTranslates[err])
+      if (ValidateProfileErrors.INCORRECT_AGE === err) setErrorAge(errorsValidateTranslates[err])
+      if (ValidateProfileErrors.SERVER_ERROR === err) setErrorServerError(errorsValidateTranslates[err])
     })
   }, [error, errorsValidateTranslates])
 
   useEffect(() => {
     setErrors()
-  }, [setErrors, errorFirstname, errorLastname, errorUsername, errorAge, errorCity, errorServerError])
+    return () => {
+      setErrorFirstname('')
+      setErrorLastname('')
+      setErrorUsername('')
+      setErrorAge('')
+      setErrorServerError('')
+    }
+  }, [setErrors, errorFirstname, errorLastname, errorUsername, errorAge, errorServerError])
 
   if (isLoading) {
     return <LoaderPoints/>
   }
-  // if (error?.length) {
-  //   return (
-  //       <Text
-  //           texAlign={TextAlign.CENTER}
-  //           variant={TextVariant.ERROR}
-  //           title={t('что-то пошло не так')}
-  //           text={t('попробуйте обновить страницу')}/>
-  //   )
-  // }
+  if (errorServerError) {
+    return (
+        <Text
+            texAlign={TextAlign.CENTER}
+            variant={TextVariant.ERROR}
+            title={t('что-то пошло не так')}
+            text={t('попробуйте обновить страницу')}/>
+    )
+  }
   return (
         <div className={classNames(cls.ProfileCard, {}, [className])}>
           <div className={cls.data}>
@@ -110,7 +114,7 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                       variant={TextVariant.ERROR}
                       size={TextFontSize.SXS}
                       text={errorFirstname}/>
-                    }
+                  }
                 </div>
                 <div className={cls.inputWithError}>
                   <Input
@@ -135,6 +139,12 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                       readonly={readonly}
                       variant={InputVariant.INVERSE_BG}
                       value={data?.age}/>
+                  {errorAge && <Text
+                      className={cls.errorInput}
+                      variant={TextVariant.ERROR}
+                      size={TextFontSize.SXS}
+                      text={errorAge}/>
+                  }
                 </div>
                 <CountrySelect
                     onChange={onChangeCountry}
@@ -155,6 +165,12 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                       readonly={readonly}
                       variant={InputVariant.INVERSE_BG}
                       value={data?.username}/>
+                  {errorUsername && <Text
+                      className={cls.errorInput}
+                      variant={TextVariant.ERROR}
+                      size={TextFontSize.SXS}
+                      text={errorUsername}/>
+                  }
                 </div>
                 <Input
                     className={cls.avatar}

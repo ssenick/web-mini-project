@@ -16,7 +16,7 @@ export const validateProfileData = (profile?: Profile): ValidateProfileErrors[] 
   if (!lastname) errors.push(ValidateProfileErrors.INCORRECT_USER_LAST_NAME)
   if (!city) errors.push(ValidateProfileErrors.INCORRECT_CITY)
   if (!username) errors.push(ValidateProfileErrors.INCORRECT_USER_USER_NAME)
-  if (!age && Number.isInteger(age)) errors.push(ValidateProfileErrors.INCORRECT_AGE)
+  if (!age) errors.push(ValidateProfileErrors.INCORRECT_AGE)
 
   return errors
 }

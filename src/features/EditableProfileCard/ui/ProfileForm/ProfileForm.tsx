@@ -67,9 +67,10 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
 
   const onChangeAge = useCallback((value?: string) => {
     if (Number(value) < 120) {
-      dispatch(profileActions.updateAge(Number(value)))
+      dispatch(profileActions.updateAge(Number(value) || ''))
     }
   }, [dispatch])
+
   const onChangeUsername = useCallback((value?: string) => {
     dispatch(profileActions.updateUsername(value || ''))
   }, [dispatch])
