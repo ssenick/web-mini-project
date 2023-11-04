@@ -5,7 +5,7 @@ import LoginForm from './LoginForm'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 const meta: Meta<typeof LoginForm> = {
-  title: 'feature/LoginForm',
+  title: 'features/LoginForm',
   component: LoginForm,
   parameters: {
     layout: 'fullscreen'
@@ -25,7 +25,7 @@ export const Light: Story = {
   }
 }
 Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
-  loginForm: { username: '123', password: 'asd' }
+  loginForm: { username: 'Admin', password: '1234' }
 }), RouterDecorator]
 
 export const Dark: Story = {
@@ -33,7 +33,7 @@ export const Dark: Story = {
   }
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-  loginForm: { username: '123', password: 'asd' }
+  loginForm: { username: 'Admin', password: '1234' }
 }), RouterDecorator]
 
 export const WithError: Story = {
@@ -41,5 +41,5 @@ export const WithError: Story = {
   }
 }
 WithError.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-  loginForm: { username: '123', password: 'asd', error: 'ERROR' }
+  loginForm: { username: 'Admin', password: '1234', error: 'ERROR' }
 }), RouterDecorator]

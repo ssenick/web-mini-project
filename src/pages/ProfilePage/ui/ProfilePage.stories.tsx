@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
+import { Country } from 'entities/Country'
+import { Currency } from 'entities/Currency'
+import Avatar from 'shared/assets/test/image.jpg'
 import ProfilePage from './ProfilePage'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
@@ -25,14 +27,17 @@ export const Light: Story = {
 }
 Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
   profile: {
-    data: {
+    form: {
       first: 'Ruslan',
       lastname: 'Admin',
       age: 22,
-      // country: 'Ukraine',
+      country: Country.Ukraine,
+      currency: Currency.UAH,
       city: 'Sumy',
-      username: 'ssenick'
-    }
+      username: 'ssenick',
+      avatar: Avatar
+    },
+    readonly: false
   }
 }), RouterDecorator]
 
@@ -40,4 +45,20 @@ export const Dark: Story = {
   args: {
   }
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(), RouterDecorator]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(
+  {
+    profile: {
+      form: {
+        first: 'Ruslan',
+        lastname: 'Admin',
+        age: 22,
+        country: Country.Ukraine,
+        currency: Currency.UAH,
+        city: 'Sumy',
+        username: 'ssenick',
+        avatar: Avatar
+      },
+      readonly: false
+    }
+  }
+), RouterDecorator]
