@@ -53,6 +53,7 @@ export const profileSlice = createSlice({
     canselEdit: (state) => {
       state.readonly = true
       state.form = state.data
+      state.validateError = undefined
     }
   },
   extraReducers: (builder) => {
