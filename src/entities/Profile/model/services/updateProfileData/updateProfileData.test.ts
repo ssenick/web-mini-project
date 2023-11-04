@@ -1,7 +1,7 @@
 import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
-import { updateProfileData } from 'entities/Profile'
-import { ValidateProfileErrors } from 'entities/Profile/model/types/profile'
+import { updateProfileData } from './updateProfileData'
+import { ValidateProfileErrors } from '../../types/profile'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 
 describe('updateProfileData.test', () => {
