@@ -60,7 +60,7 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
 
   return (
         <header className={classNames(cls.Header, {}, [className])}>
-            <AppLink className={cls.logo} to='/' variant={AppLinkVariant.CLEAN}>
+            <AppLink className={cls.logo} noActive to='/' variant={AppLinkVariant.CLEAN}>
                 {theme === Theme.DARK ? <LogoWhiteIcon/> : <LogoDarkIcon/>}
             </AppLink>
             <div className={cls.title}> {t('Главная')}</div>

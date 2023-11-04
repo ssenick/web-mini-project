@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
 import cls from './Sidebar.module.scss'
 import { Sidebar } from './Sidebar'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
@@ -16,6 +17,14 @@ const meta: Meta<typeof Sidebar> = {
   }
 
 }
+const initialState = {
+  user: {
+    authData: {
+      id: '1',
+      username: 'User'
+    }
+  }
+}
 export default meta
 
 type Story = StoryObj<typeof meta>
@@ -26,7 +35,7 @@ export const Light: Story = {
   }
 
 }
-Light.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
+Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(initialState), RouterDecorator]
 
 export const LightCollapsed: Story = {
 
@@ -36,14 +45,14 @@ export const LightCollapsed: Story = {
   }
 
 }
-LightCollapsed.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
+LightCollapsed.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(initialState), RouterDecorator]
 
 export const Dark: Story = {
   args: {
     className: 'app__sidebar'
   }
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(initialState), RouterDecorator]
 
 export const DarkCollapsed: Story = {
 
@@ -53,4 +62,4 @@ export const DarkCollapsed: Story = {
   }
 
 }
-DarkCollapsed.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]
+DarkCollapsed.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(initialState), RouterDecorator]

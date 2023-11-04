@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
@@ -21,6 +22,14 @@ const meta: Meta<typeof SidebarLink> = {
     }
   }
 }
+const initialState = {
+  user: {
+    authData: {
+      id: '1',
+      username: 'User'
+    }
+  }
+}
 export default meta
 
 type Story = StoryObj<typeof meta>
@@ -29,24 +38,24 @@ export const Clean: Story = {
   args: {
   }
 }
-Clean.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
+Clean.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(initialState), RouterDecorator]
 
 export const CleanDark: Story = {
   args: {
   }
 }
-CleanDark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]
+CleanDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(initialState), RouterDecorator]
 
 export const CleanCollapsed: Story = {
   args: {
     collapsed: true
   }
 }
-CleanCollapsed.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
+CleanCollapsed.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(initialState), RouterDecorator]
 
 export const CleanCollapsedDark: Story = {
   args: {
     collapsed: true
   }
 }
-CleanCollapsedDark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]
+CleanCollapsedDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(initialState), RouterDecorator]

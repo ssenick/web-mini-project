@@ -10,6 +10,7 @@ export enum AppLinkVariant {
 interface AppLinkProps extends LinkProps {
   className?: string
   variant?: AppLinkVariant
+  noActive?: boolean
   children?: ReactNode
 }
 
@@ -18,6 +19,7 @@ export const AppLink = memo((props: AppLinkProps): JSX.Element => {
     to,
     className,
     children,
+    noActive,
     variant = AppLinkVariant.CLEAN,
     ...otherProps
   } = props
@@ -25,7 +27,7 @@ export const AppLink = memo((props: AppLinkProps): JSX.Element => {
   return (
         <NavLink
             to={to}
-            className={classNames(cls.AppLink, { }, [className, cls[variant]])}
+            className={classNames(cls.AppLink, { [cls.noActive]: noActive }, [className, cls[variant]])}
             {...otherProps}
         >
             {children}
