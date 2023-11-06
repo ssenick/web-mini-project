@@ -35,3 +35,12 @@ export const Dark: Story = {
   )
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const Funny: Story = {
+  render: (args) => (
+        <div className="app__content">
+            <PageLoader/>
+        </div>
+  )
+}
+Funny.decorators = [ThemeDecorator(Theme.FUNNY)]

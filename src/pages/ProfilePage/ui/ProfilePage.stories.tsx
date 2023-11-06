@@ -62,3 +62,24 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(
     }
   }
 ), RouterDecorator]
+export const Funny: Story = {
+  args: {
+  }
+}
+Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator(
+  {
+    profile: {
+      form: {
+        first: 'Ruslan',
+        lastname: 'Admin',
+        age: 22,
+        country: Country.Ukraine,
+        currency: Currency.UAH,
+        city: 'Sumy',
+        username: 'ssenick',
+        avatar: Avatar
+      },
+      readonly: false
+    }
+  }
+), RouterDecorator]

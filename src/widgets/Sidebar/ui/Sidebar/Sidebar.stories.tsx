@@ -63,3 +63,20 @@ export const DarkCollapsed: Story = {
 
 }
 DarkCollapsed.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(initialState), RouterDecorator]
+
+export const Funny: Story = {
+  args: {
+    className: 'app__sidebar'
+  }
+}
+Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator(initialState), RouterDecorator]
+
+export const FunnyCollapsed: Story = {
+
+  args: {
+    className: `app__sidebar ${cls.collapsed}`,
+    collapsedStorybook: true
+  }
+
+}
+FunnyCollapsed.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator(initialState), RouterDecorator]

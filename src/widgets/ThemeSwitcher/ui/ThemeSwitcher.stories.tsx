@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ThemeSwitcher } from './ThemeSwitcher'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
-import SunIcon from 'shared/assets/icons/sun.svg'
 
 const meta: Meta<typeof ThemeSwitcher> = {
   title: 'widgets/ThemeSwitcher',
@@ -26,7 +25,11 @@ Light.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const Dark: Story = {
   args: {
-    childrenStorybook: <SunIcon/>
   }
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const Funny: Story = {
+  args: {}
+}
+Funny.decorators = [ThemeDecorator(Theme.FUNNY)]

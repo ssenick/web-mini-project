@@ -32,6 +32,13 @@ export const CleanDark: Story = {
 }
 CleanDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const CleanFunny: Story = {
+  args: {
+    value: 'Input'
+  }
+}
+CleanFunny.decorators = [ThemeDecorator(Theme.FUNNY)]
+
 export const InverseBackground: Story = {
   args: {
     value: 'Input',
@@ -48,6 +55,14 @@ export const InverseBackgroundDark: Story = {
 }
 InverseBackgroundDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const InverseBackgroundFunny: Story = {
+  args: {
+    value: 'Input',
+    variant: InputVariant.INVERSE_BG
+  }
+}
+InverseBackgroundFunny.decorators = [ThemeDecorator(Theme.FUNNY)]
+
 export const WithLabel: Story = {
   args: {
     value: 'Input',
@@ -56,3 +71,21 @@ export const WithLabel: Story = {
   }
 }
 WithLabel.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const WithLabelDark: Story = {
+  args: {
+    value: 'Input',
+    variant: InputVariant.INVERSE_BG,
+    label: 'label'
+  }
+}
+WithLabelDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const WithLabelFunny: Story = {
+  args: {
+    value: 'Input',
+    variant: InputVariant.INVERSE_BG,
+    label: 'label'
+  }
+}
+WithLabelFunny.decorators = [ThemeDecorator(Theme.FUNNY)]

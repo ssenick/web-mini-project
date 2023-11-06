@@ -32,3 +32,9 @@ export const ModalDark: Story = {
   }
 }
 ModalDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const ModalFunny: Story = {
+  args: {
+  }
+}
+ModalFunny.decorators = [ThemeDecorator(Theme.FUNNY)]

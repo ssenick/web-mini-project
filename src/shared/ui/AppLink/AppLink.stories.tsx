@@ -28,8 +28,21 @@ export const Clean: Story = {
 }
 Clean.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
 
-export const CleanDark: Story = {
+export const Active: Story = {
+  args: {
+    className: 'active'
+  }
+}
+Active.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
+
+export const Dark: Story = {
   args: {
   }
 }
-CleanDark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]
+Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]
+
+export const Funny: Story = {
+  args: {
+  }
+}
+Funny.decorators = [ThemeDecorator(Theme.FUNNY), RouterDecorator]

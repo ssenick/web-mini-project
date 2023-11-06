@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import HomePage from './HomePage'
+import { NotFoundPage } from './NotFoundPage'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 
-const meta: Meta<typeof HomePage> = {
-  title: 'pages/HomePage',
-  component: HomePage,
+const meta: Meta<typeof NotFoundPage> = {
+  title: 'pages/NotFoundPage',
+  component: NotFoundPage,
   parameters: {
     layout: 'fullscreen'
   },

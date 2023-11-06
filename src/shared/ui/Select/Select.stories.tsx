@@ -30,6 +30,30 @@ export const Normal: Story = {
 }
 Normal.decorators = [ThemeDecorator(Theme.LIGHT)]
 
+export const NormalDark: Story = {
+  args: {
+    variant: SelectVariant.NORMAL,
+    value: 'Canada',
+    options: [
+      { value: 'Canada', content: 'Canada' },
+      { value: 'Slovakia', content: 'Slovakia' }
+    ]
+  }
+}
+NormalDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const NormalFunny: Story = {
+  args: {
+    variant: SelectVariant.NORMAL,
+    value: 'Canada',
+    options: [
+      { value: 'Canada', content: 'Canada' },
+      { value: 'Slovakia', content: 'Slovakia' }
+    ]
+  }
+}
+NormalFunny.decorators = [ThemeDecorator(Theme.FUNNY)]
+
 export const Bg: Story = {
   args: {
     variant: SelectVariant.INVERSE_BG,
@@ -41,7 +65,7 @@ export const Bg: Story = {
 }
 Bg.decorators = [ThemeDecorator(Theme.LIGHT)]
 
-export const Dark: Story = {
+export const BgDark: Story = {
   args: {
     variant: SelectVariant.INVERSE_BG,
     options: [
@@ -50,4 +74,15 @@ export const Dark: Story = {
     ]
   }
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+BgDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const BgFunny: Story = {
+  args: {
+    variant: SelectVariant.INVERSE_BG,
+    options: [
+      { value: 'Canada', content: 'Canada' },
+      { value: 'Slovakia', content: 'Slovakia' }
+    ]
+  }
+}
+BgFunny.decorators = [ThemeDecorator(Theme.FUNNY)]

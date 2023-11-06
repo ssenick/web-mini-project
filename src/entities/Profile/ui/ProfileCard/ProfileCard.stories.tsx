@@ -23,16 +23,16 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    // data: {
-    //   first: 'First',
-    //   lastname: 'Last',
-    //   age: 22,
-    //   currency: Currency.UAH,
-    //   country: Country.Canada,
-    //   username: 'Admin',
-    //   avatar: avatarImage
-    // },
-    // error: []
+    data: {
+      first: 'First',
+      lastname: 'Last',
+      age: 22,
+      currency: Currency.UAH,
+      country: Country.Canada,
+      username: 'Admin',
+      avatar: avatarImage
+    },
+    error: []
   }
 }
 Primary.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]

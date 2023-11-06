@@ -31,3 +31,10 @@ export const Dark: Story = {
   }
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const Funny: Story = {
+  args: {
+    children: 'RU'
+  }
+}
+Funny.decorators = [ThemeDecorator(Theme.FUNNY)]

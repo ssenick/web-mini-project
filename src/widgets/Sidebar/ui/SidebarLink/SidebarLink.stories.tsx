@@ -46,6 +46,12 @@ export const CleanDark: Story = {
 }
 CleanDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(initialState), RouterDecorator]
 
+export const CleanFunny: Story = {
+  args: {
+  }
+}
+CleanFunny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator(initialState), RouterDecorator]
+
 export const CleanCollapsed: Story = {
   args: {
     collapsed: true
@@ -59,3 +65,10 @@ export const CleanCollapsedDark: Story = {
   }
 }
 CleanCollapsedDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(initialState), RouterDecorator]
+
+export const CleanCollapsedFunny: Story = {
+  args: {
+    collapsed: true
+  }
+}
+CleanCollapsedFunny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator(initialState), RouterDecorator]

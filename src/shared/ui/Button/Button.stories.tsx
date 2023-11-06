@@ -37,6 +37,14 @@ export const CleanDark: Story = {
 }
 CleanDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const FunnyDark: Story = {
+  args: {
+    variant: ButtonVariant.CLEAN,
+    children: 'TEXT'
+  }
+}
+FunnyDark.decorators = [ThemeDecorator(Theme.FUNNY)]
+
 export const Icon: Story = {
   args: {
     variant: ButtonVariant.THEME_ICON,
@@ -53,6 +61,14 @@ export const IconDark: Story = {
 }
 IconDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const IconFunny: Story = {
+  args: {
+    variant: ButtonVariant.THEME_ICON,
+    children: <SunIcon/>
+  }
+}
+IconFunny.decorators = [ThemeDecorator(Theme.FUNNY)]
+
 export const Background: Story = {
   args: {
     variant: ButtonVariant.BACKGROUND,
@@ -68,6 +84,14 @@ export const BackgroundDark: Story = {
   }
 }
 BackgroundDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const BackgroundFunny: Story = {
+  args: {
+    variant: ButtonVariant.BACKGROUND,
+    children: 'TEXT'
+  }
+}
+BackgroundFunny.decorators = [ThemeDecorator(Theme.FUNNY)]
 
 export const Disabled: Story = {
   args: {
@@ -87,6 +111,15 @@ export const DisabledDark: Story = {
 }
 DisabledDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const DisabledFunny: Story = {
+  args: {
+    variant: ButtonVariant.BACKGROUND,
+    children: 'TEXT',
+    disabled: true
+  }
+}
+DisabledFunny.decorators = [ThemeDecorator(Theme.FUNNY)]
+
 export const Border: Story = {
   args: {
     variant: ButtonVariant.BORDER,
@@ -101,6 +134,15 @@ export const BorderDark: Story = {
     children: 'TEXT'
   }
 }
+BorderDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const BorderFunny: Story = {
+  args: {
+    variant: ButtonVariant.BORDER,
+    children: 'TEXT'
+  }
+}
+BorderFunny.decorators = [ThemeDecorator(Theme.FUNNY)]
 
 export const BorderError: Story = {
   args: {
@@ -109,8 +151,6 @@ export const BorderError: Story = {
   }
 }
 BorderError.decorators = [ThemeDecorator(Theme.LIGHT)]
-
-BorderDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const WithIcon: Story = {
   args: {
@@ -130,6 +170,16 @@ export const WithIconDark: Story = {
   }
 }
 WithIconDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const WithIconFunny: Story = {
+  args: {
+    variant: ButtonVariant.BORDER,
+    withIcon: true,
+    children: <><MoonIcon/><span>TEXT</span></>
+
+  }
+}
+WithIconFunny.decorators = [ThemeDecorator(Theme.FUNNY)]
 
 export const SquareXS: Story = {
   args: {
@@ -151,6 +201,16 @@ export const SquareXSDark: Story = {
 }
 SquareXSDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const SquareXSFunny: Story = {
+  args: {
+    variant: ButtonVariant.BACKGROUND,
+    children: '1',
+    square: true,
+    size: ButtonSize.XS
+  }
+}
+SquareXSFunny.decorators = [ThemeDecorator(Theme.FUNNY)]
+
 export const SquareSM: Story = {
   args: {
     variant: ButtonVariant.BACKGROUND,
@@ -170,6 +230,16 @@ export const SquareSMDark: Story = {
   }
 }
 SquareSMDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const SquareSMFunny: Story = {
+  args: {
+    variant: ButtonVariant.BACKGROUND,
+    children: '1',
+    square: true,
+    size: ButtonSize.SM
+  }
+}
+SquareSMFunny.decorators = [ThemeDecorator(Theme.FUNNY)]
 
 export const SquareSizeM: Story = {
   args: {
@@ -191,6 +261,16 @@ export const SquareSizeMDark: Story = {
 }
 SquareSizeMDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const SquareSizeMFunny: Story = {
+  args: {
+    variant: ButtonVariant.BACKGROUND,
+    children: '1',
+    square: true,
+    size: ButtonSize.M
+  }
+}
+SquareSizeMFunny.decorators = [ThemeDecorator(Theme.FUNNY)]
+
 export const SquareSizeL: Story = {
   args: {
     variant: ButtonVariant.BACKGROUND,
@@ -210,3 +290,13 @@ export const SquareSizeLDark: Story = {
   }
 }
 SquareSizeLDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const SquareSizeLFunny: Story = {
+  args: {
+    variant: ButtonVariant.BACKGROUND,
+    children: '1',
+    square: true,
+    size: ButtonSize.L
+  }
+}
+SquareSizeLFunny.decorators = [ThemeDecorator(Theme.FUNNY)]

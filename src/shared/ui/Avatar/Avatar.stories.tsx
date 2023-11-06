@@ -24,9 +24,23 @@ export const CleanDark: Story = {
   args: {}
 }
 CleanDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const Funny: Story = {
+  args: {}
+}
+Funny.decorators = [ThemeDecorator(Theme.FUNNY)]
+
 export const Small: Story = {
   args: {
     size: 50
   }
 }
 Small.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const Alt: Story = {
+  args: {
+    size: 50,
+    alt: 'Image BOOOO'
+  }
+}
+Alt.decorators = [ThemeDecorator(Theme.LIGHT)]
