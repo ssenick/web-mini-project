@@ -1,10 +1,10 @@
 import { Theme, useTheme } from 'app/povaiders/ThemeProvaider'
-import { useNavigate } from 'react-router-dom'
 import { getUserAuthData, userActions } from 'entities/User'
 import { LoginModal } from 'features/AuthByUsername'
 import { memo, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import LoginIcon from 'shared/assets/icons/login.svg'
 import LogoWhiteIcon from 'shared/assets/icons/logo-w.svg'
 import LogoDarkIcon from 'shared/assets/icons/logo.svg'
@@ -61,14 +61,15 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
   return (
         <header className={classNames(cls.Header, {}, [className])}>
             <AppLink className={cls.logo} noActive to='/' variant={AppLinkVariant.CLEAN}>
-                {theme === Theme.DARK ? <LogoWhiteIcon/> : <LogoDarkIcon/>}
+                {(theme === Theme.DARK || theme === Theme.FUNNY) && <LogoWhiteIcon/>}
+                {theme === Theme.LIGHT && <LogoDarkIcon/>}
             </AppLink>
             <div className={cls.title}> {t('Главная')}</div>
             <div className={cls.action}>
                 {/* кнопку темы и тд */}
                 <ThemeSwitcher/>
-                <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>{ t('ошибка')}</Button>
                 <LangSwitcher/>
+                <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>{ t('ошибка')}</Button>
 
                 {
                     userAuth

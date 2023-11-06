@@ -8,7 +8,7 @@ export interface SelectOption {
   content: string
 }
 export enum SelectVariant {
-  NORMAL = '',
+  NORMAL = 'clear',
   INVERSE_BG = 'inverse-bg'
 }
 

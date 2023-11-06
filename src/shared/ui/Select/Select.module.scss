@@ -34,4 +34,10 @@
       background-color: var(--bg-input-inverse);
     }
   }
+
+  &.clear {
+    .select {
+      background-color: transparent;
+    }
+  }
 }
