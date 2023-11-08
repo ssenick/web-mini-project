@@ -7,7 +7,7 @@ const HomePage = memo((): JSX.Element => {
   return (
         <div>
             {t('Заголовок страницы')}
-            <div>
+            <div >
                 <Counter/>
             </div>
         </div>
