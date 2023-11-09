@@ -5,11 +5,12 @@ import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 import { Header } from 'widgets/Header'
 import { AppRouter } from 'app/povaiders/Router'
 import { Sidebar } from 'widgets/Sidebar'
-import { userActions } from 'entities/User'
-import { useDispatch } from 'react-redux'
+import { getUserInited, userActions } from 'entities/User'
+import { useDispatch, useSelector } from 'react-redux'
 
 const App = (): JSX.Element => {
   const dispatch = useDispatch()
+  const inited = useSelector(getUserInited)
   /// === ////////
   const isPcScreen = useMediaQuery({ minWidth: 1200 })
   const isTabletScreen = useMediaQuery({ maxWidth: 1200, minWidth: 768 })
@@ -35,7 +36,7 @@ const App = (): JSX.Element => {
             <Suspense fallback=''>
                 <Header className='app__header'/>
                 <Sidebar className='app__sidebar'/>
-                <AppRouter className='app__content'/>
+                {inited && <AppRouter className='app__content'/>}
             </Suspense>
         </div>
   )

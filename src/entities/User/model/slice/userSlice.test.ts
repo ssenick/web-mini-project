@@ -22,7 +22,8 @@ describe('userSlice.test', () => {
     expect(
       userReducer(state, userActions.initAuthData())
     ).toEqual({
-      authData: userData
+      authData: userData,
+      _inited: true
     })
   })
   test('initAuthData no user', () => {
@@ -30,12 +31,12 @@ describe('userSlice.test', () => {
     localStorage.removeItem(USER_LOCALSTORAGE_KEY)
     expect(
       userReducer(state, userActions.initAuthData())
-    ).toEqual({})
+    ).toEqual({
+      _inited: true
+    })
   })
   test('logout', () => {
-    const state: UserSchema = {
-      authData: userData
-    }
+    const state: UserSchema = { authData: userData }
     expect(
       userReducer(state, userActions.logout())
     ).toEqual({
