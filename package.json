@@ -15,7 +15,7 @@
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest  --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
-    "test:all": "eslint \"**/*.{ts,tsx}\" && npx stylelint \"**/*.scss\" && jest  --config ./config/jest/jest.config.ts && npx loki test",
+    "test:all": "npm run lint:ts && npm run lint:scss && npm run test:unit ",
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "concurrently --kill-others --raw --success first \"npm run storybook\" \"npm run test:ui\" \"deelay\"",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
