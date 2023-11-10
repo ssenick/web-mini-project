@@ -30,5 +30,6 @@
   "Не указана фамилия": "Last name not specified",
   "Не указана имя пользователя": "Username not specified",
   "Не указан возраст": "Age not specified",
-  "Не указан город": "City not specified"
+  "Не указан город": "City not specified",
+  "Статьи": "Articles"
 }
