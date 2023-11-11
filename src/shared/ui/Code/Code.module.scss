@@ -1,3 +1,28 @@
 .Code {
   position: relative;
+  width: 100%;
+  display: grid;
+  background-color: var(--bg-input-inverse);
+  border-radius: 5px;
+
+  .pre {
+    padding: 20px 35px 20px 20px;
+    overflow: auto;
+  }
+
+  .icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .button_copy {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    transition: all var(--animation-time) ease 0s;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }

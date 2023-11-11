@@ -15,13 +15,16 @@ export const Code = memo(({ className, text }: CodeProps) => {
     void navigator.clipboard.writeText(text)
   }, [text])
   return (
-        <pre className={classNames(cls.Code, {}, [className])}>
-            <Button onClick={onCopy} className={cls.button_copy} variant={ButtonVariant.THEME_ICON}>
-                <Icon Svg={CopyIcon}/>
-            </Button>
-            <code>
-                {text}
-            </code>
-        </pre>
+
+        <div className={classNames(cls.Code, {}, [className])}>
+            <pre className={cls.pre}>
+                <Button onClick={onCopy} className={cls.button_copy} variant={ButtonVariant.THEME_ICON}>
+                    <Icon Svg={CopyIcon} className={cls.icon}/>
+                </Button>
+                <code>
+                    {text}
+                </code>
+            </pre>
+        </div>
   )
 })
