@@ -22,7 +22,7 @@ body {
     "sidebar header"
     "sidebar content";
   background-color: var(--bg-color);
-  min-height: 100vh;
+  height: 100vh;
 
   &__header {
     grid-area: header;
@@ -35,5 +35,6 @@ body {
   &__content {
     grid-area: content;
     padding: 15px;
+    overflow: auto;
   }
 }

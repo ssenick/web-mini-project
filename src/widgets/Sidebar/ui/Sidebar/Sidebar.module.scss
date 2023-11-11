@@ -5,6 +5,7 @@
   transition: width var(--animation-time) cubic-bezier(0.42, 0, 0.58, 1) 0s;
   padding: 65px 20px 20px;
   overflow: hidden;
+  border-radius: 0 5px 5px 0;
 
   &.collapsed {
     width: var(--sidebar-width-collapsed);
