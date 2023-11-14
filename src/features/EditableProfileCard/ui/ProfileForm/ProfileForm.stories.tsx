@@ -50,15 +50,6 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
   }
 }), RouterDecorator]
 
-export const Funny: Story = {
-  args: {}
-}
-Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
-  profile: {
-    form: initialForm
-  }
-}), RouterDecorator]
-
 export const Readonly: Story = {
   args: {}
 }

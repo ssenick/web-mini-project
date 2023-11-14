@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
 
 const meta: Meta<typeof ArticlePage> = {
-  title: 'shared/ArticlePage',
+  title: 'pages/ArticlePage',
   component: ArticlePage,
   parameters: {
     layout: 'fullscreen'

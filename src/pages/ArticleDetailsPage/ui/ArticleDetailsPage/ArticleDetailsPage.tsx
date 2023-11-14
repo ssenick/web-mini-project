@@ -1,5 +1,7 @@
-import { memo } from 'react'
-// import { useTranslation } from 'react-i18next'
+import { ArticleDetails } from 'entities/Article/ui/ArticleDetails/ArticleDetails'
+import { type FC, memo } from 'react'
+import { useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleDetailsPage.module.scss'
 
@@ -7,13 +9,27 @@ interface ArticleDetailsPageProps {
   className?: string
 }
 
-const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
-  // const { t } = useTranslation()
+const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
+  const { t } = useTranslation('articleDetails')
+  const { id } = useParams<{ id: string }>()
+
+  if (__PROJECT__ === 'storybook') {
+    return (
+        <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+          <ArticleDetails id={'1'}/>
+        </div>
+    )
+  }
+
+  if (!id) {
+    return (<div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        {t('Статья не найдена')}
+    </div>)
+  }
 
   return (
-  // eslint-disable-next-line
         <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            Article Details Page
+            <ArticleDetails id={id}/>
         </div>
   )
 }

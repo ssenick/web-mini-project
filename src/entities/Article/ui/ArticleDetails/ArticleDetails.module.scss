@@ -1,0 +1,36 @@
+.ArticleDetails {
+  min-height: 100%;
+
+  .header {
+    margin-bottom: 25px;
+  }
+
+  .header__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header__content {
+    display: grid;
+    align-items: start;
+    row-gap: 7px;
+  }
+
+  .header__block {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 7px;
+  }
+
+  .header__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .block {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+}
