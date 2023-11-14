@@ -41,7 +41,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -117,7 +119,7 @@
     }
   ],
   "profile": {
-    "first": "Ruslan",
+    "first": "Ruslan1",
     "lastname": "Senchenko",
     "age": 32,
     "currency": "USD",

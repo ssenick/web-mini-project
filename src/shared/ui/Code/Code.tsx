@@ -23,7 +23,6 @@ export const Code = memo(({ className, text }: CodeProps) => {
       setIsCopy(false)
     }, delay)
   }, [text])
-  console.log(isCopy)
   return (
 
         <div className={classNames(cls.Code, {}, [className])}>
@@ -33,7 +32,7 @@ export const Code = memo(({ className, text }: CodeProps) => {
                 </Button>
                 {isCopy && (
                     <div className={cls.massage}>
-                        <Text size={TextFontSize.L} title={t('Текст скопирован')} />
+                        <Text className={cls.textMassage} size={TextFontSize.L} title={t('Текст скопирован')} />
                     </div>
                 )}
 
