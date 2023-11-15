@@ -2,7 +2,7 @@ import ArticlePage from './ArticlePage';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/povaiders/ThemeProvaider';
 var meta = {
-    title: 'shared/ArticlePage',
+    title: 'pages/ArticlePage',
     component: ArticlePage,
     parameters: {
         layout: 'fullscreen'

@@ -11,6 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { Icon } from 'shared/ui/Icon/Icon';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -56,7 +57,7 @@ export var ArticleDetails = memo(function (_a) {
         }
     }, [dispatch, id]);
     if (isLoading) {
-        content = (_jsx("div", { children: "Loading..." }));
+        content = (_jsxs(_Fragment, { children: [_jsxs("div", __assign({ className: cls.header }, { children: [_jsx("div", __assign({ className: cls.header__avatar }, { children: _jsx(Skeleton, { width: 100, height: 100, border: '50%' }) })), _jsxs("div", __assign({ className: cls.header__content }, { children: [_jsx(Skeleton, { className: cls.header__title, width: '38%', height: 40, border: '5px' }), _jsx(Skeleton, { className: cls.header__subtitle, width: '38%', height: 30, border: '5px' }), _jsx("div", __assign({ className: cls.header__block }, { children: _jsx(Skeleton, { className: cls.header__subtitle, width: '11%', height: 23, border: '5px' }) })), _jsx("div", __assign({ className: cls.header__block }, { children: _jsx(Skeleton, { className: cls.header__subtitle, width: '18%', height: 23, border: '5px' }) }))] }))] })), _jsxs("div", __assign({ className: cls.article }, { children: [_jsx(Skeleton, { className: cls.block, width: '100%', height: 100, border: '5px' }), _jsx(Skeleton, { className: cls.block, width: '100%', height: 100, border: '5px' }), _jsx(Skeleton, { className: cls.block, width: '100%', height: 100, border: '5px' }), _jsx(Skeleton, { className: cls.block, width: '100%', height: 100, border: '5px' }), _jsx(Skeleton, { className: cls.block, width: '100%', height: 100, border: '5px' })] }))] }));
     }
     else if (error) {
         content = (_jsx(Text, { size: TextFontSize.L, texAlign: TextAlign.CENTER, title: t('Статья не найдена') }));

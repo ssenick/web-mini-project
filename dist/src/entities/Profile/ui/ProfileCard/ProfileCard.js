@@ -17,7 +17,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input, InputVariant } from 'shared/ui/Input/Input';
-import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text, TextAlign, TextFontSize, TextVariant } from 'shared/ui/Text/Text';
 import { ValidateProfileErrors } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
@@ -65,7 +65,8 @@ export var ProfileCard = memo(function (props) {
         };
     }, [setErrors, errorFirstname, errorLastname, errorUsername, errorAge, errorServerError]);
     if (isLoading) {
-        return _jsx(LoaderPoints, {});
+        // return <LoaderPoints/>
+        return (_jsx("div", __assign({ className: classNames(cls.ProfileCard, {}, [className]) }, { children: _jsxs("div", __assign({ className: cls.data }, { children: [_jsx("div", __assign({ className: cls.header }, { children: _jsx(Skeleton, { border: '50%', height: 100, width: 100 }) })), _jsxs("div", __assign({ className: cls.row }, { children: [_jsx(Skeleton, { border: '5px', height: 23, width: 140 }), _jsxs("div", __assign({ className: cls.column }, { children: [_jsx("div", __assign({ className: cls.inputWithError }, { children: _jsx(Skeleton, { border: '5px', height: 58, width: '100%' }) })), _jsx("div", __assign({ className: cls.inputWithError }, { children: _jsx(Skeleton, { border: '5px', height: 58, width: '100%' }) })), _jsx("div", __assign({ className: cls.inputWithError }, { children: _jsx(Skeleton, { border: '5px', height: 58, width: '100%' }) })), _jsx(Skeleton, { className: cls.currency, border: '5px', height: 58, width: '100%' })] }))] })), _jsxs("div", __assign({ className: cls.row }, { children: [_jsx(Skeleton, { border: '5px', height: 23, width: 140 }), _jsxs("div", __assign({ className: cls.column }, { children: [_jsx("div", __assign({ className: cls.inputWithError }, { children: _jsx(Skeleton, { border: '5px', height: 58, width: '100%' }) })), _jsx(Skeleton, { className: cls.avatar, border: '5px', height: 58, width: '100%' }), _jsx(Skeleton, { className: cls.currency, border: '5px', height: 58, width: '100%' })] }))] }))] })) })));
     }
     if (errorServerError) {
         return (_jsx(Text, { texAlign: TextAlign.CENTER, variant: TextVariant.ERROR, title: t('что-то пошло не так'), text: t('попробуйте обновить страницу') }));

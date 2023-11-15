@@ -20,6 +20,9 @@ var ArticleDetailsPage = function (_a) {
     var className = _a.className;
     var t = useTranslation('articleDetails').t;
     var id = useParams().id;
+    if (__PROJECT__ === 'storybook') {
+        return (_jsx("div", __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: _jsx(ArticleDetails, { id: '1' }) })));
+    }
     if (!id) {
         return (_jsx("div", __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: t('Статья не найдена') })));
     }
