@@ -29,8 +29,28 @@
   "comments": [
     {
       "id": "1",
-      "body": "some comment",
-      "postId": "1"
+      "text": "Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque illo ipsam saepe, sint ullam voluptates.",
+      "postId": "1",
+      "createdComment": "20.02.2023"
+    },
+    {
+      "id": "2",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, voluptates.",
+      "postId": "1",
+      "createdComment": "21.02.2023"
+    },
+    {
+      "id": "3",
+      "text": "Lorem ipsum dolor sit.",
+      "articleId": "1",
+      "userId": "1",
+      "createdComment": "22.02.2023"
+    },
+    {
+      "id": "4",
+      "text": "Consectetur adipisicing elit. Atque illo ipsam saepe, sint ullam voluptates.",
+      "postId": "1",
+      "createdComment": "22.02.2023"
     }
   ],
   "articles": [
@@ -110,12 +130,14 @@
     {
       "id": "1",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"
     },
     {
       "id": "2",
       "username": "user",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
     }
   ],
   "profile": {

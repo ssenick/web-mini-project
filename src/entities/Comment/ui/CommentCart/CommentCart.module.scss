@@ -1,0 +1,24 @@
+.CommentCart {
+  padding: 12px 10px;
+  background-color: var(--bg-color-comment);
+  border-radius: 5px;
+
+  .grid {
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    align-items: center;
+    column-gap: 6px;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .createdComment {
+    opacity: 0.6;
+  }
+
+  .text {
+    grid-column: 2;
+  }
+}
