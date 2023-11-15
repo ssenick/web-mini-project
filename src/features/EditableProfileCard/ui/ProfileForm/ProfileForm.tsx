@@ -97,7 +97,7 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
         <div className={classNames(cls.ProfileForm, mods, [className])}>
-            {!isLoading && <div className={cls.header}>
+             <div className={cls.header}>
                 {!readonly
                   ? <Button onClick={onCancelEdit} withIcon variant={ButtonVariant.BORDER_ERROR}>
                         {t('Отменить')}
@@ -107,7 +107,7 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
                         <EditIcon/>
                     </Button>
                 }
-            </div>}
+            </div>
             <div className={cls.form}>
                 <ProfileCard
                       className={cls.card}
@@ -124,11 +124,11 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
                       onChangeCountry={onChangeCountry}
                 />
             </div>
-            {!isLoading && <div className={cls.bottom}>
+           <div className={cls.bottom}>
                <Button onClick={onSaveEdit} className={cls.btnSave} variant={ButtonVariant.BACKGROUND}>
                    {t('Сохранить')}
                </Button>
-            </div>}
+            </div>
         </div>
       </DynamicModuleLoader>
   )

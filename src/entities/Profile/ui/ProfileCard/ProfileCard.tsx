@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Input, InputVariant } from 'shared/ui/Input/Input'
-import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints'
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Text, TextAlign, TextFontSize, TextVariant } from 'shared/ui/Text/Text'
 import { ValidateProfileErrors } from '../../model/types/profile'
 import cls from './ProfileCard.module.scss'
@@ -80,7 +80,42 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
   }, [setErrors, errorFirstname, errorLastname, errorUsername, errorAge, errorServerError])
 
   if (isLoading) {
-    return <LoaderPoints/>
+    // return <LoaderPoints/>
+    return (
+        <div className={classNames(cls.ProfileCard, {}, [className])}>
+          <div className={cls.data}>
+            <div className={cls.header}>
+              <Skeleton border={'50%'} height={100} width={100}/>
+            </div>
+            <div className={cls.row}>
+              <Skeleton border={'5px'} height={23} width={140}/>
+              <div className={cls.column}>
+                <div className={cls.inputWithError}>
+                  <Skeleton border={'5px'} height={58} width={'100%'}/>
+                </div>
+                <div className={cls.inputWithError}>
+                  <Skeleton border={'5px'} height={58} width={'100%'}/>
+                </div>
+                <div className={cls.inputWithError}>
+                  <Skeleton border={'5px'} height={58} width={'100%'}/>
+                </div>
+                <Skeleton className={cls.currency} border={'5px'} height={58} width={'100%'}/>
+              </div>
+
+            </div>
+            <div className={cls.row}>
+              <Skeleton border={'5px'} height={23} width={140}/>
+              <div className={cls.column}>
+                <div className={cls.inputWithError}>
+                  <Skeleton border={'5px'} height={58} width={'100%'}/>
+                </div>
+                <Skeleton className={cls.avatar} border={'5px'} height={58} width={'100%'}/>
+                <Skeleton className={cls.currency} border={'5px'} height={58} width={'100%'}/>
+              </div>
+            </div>
+          </div>
+        </div>
+    )
   }
   if (errorServerError) {
     return (

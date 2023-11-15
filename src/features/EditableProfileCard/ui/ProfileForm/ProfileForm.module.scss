@@ -1,7 +1,7 @@
 .ProfileForm {
   display: grid;
   gap: 20px;
-  align-items: center;
+  width: 100%;
 
   .header,
   .bottom {
@@ -14,14 +14,7 @@
 
   .form {
     min-height: 200px;
-  }
-
-  &.isLoading {
-    .form {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    width: 100%;
   }
 
   &.readonly {
