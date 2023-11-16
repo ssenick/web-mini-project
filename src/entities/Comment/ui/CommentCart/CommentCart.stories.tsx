@@ -11,7 +11,6 @@ const meta: Meta<typeof CommentCart> = {
   parameters: {
     layout: 'fullscreen'
   },
-  // tags: ['autodocs'],
   argTypes: {
 
   }
