@@ -75,7 +75,7 @@ export const Funny: Story = {
 }
 Funny.decorators = [ThemeDecorator(Theme.FUNNY)]
 
-export const isLoading: Story = {
+export const IsLoading: Story = {
   args: {},
   render: () => (
       <div className="app__content">
@@ -84,7 +84,7 @@ export const isLoading: Story = {
   )
 
 }
-isLoading.decorators = [ThemeDecorator(Theme.LIGHT)]
+IsLoading.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const NotComments: Story = {
   args: {},
