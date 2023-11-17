@@ -7,7 +7,7 @@
     display: grid;
     grid-template-columns: 35px 1fr;
     align-items: center;
-    column-gap: 6px;
+    column-gap: 8px;
 
     &:not(:last-child) {
       margin-bottom: 10px;

@@ -4,7 +4,7 @@ import { memo } from 'react'
 
 export enum TextVariant {
   NORMAL = 'normal',
-  ERROR = 'error',
+  ERROR = 'error'
 }
 export enum TextAlign {
   LEFT = 'left',

@@ -8,7 +8,7 @@ import cls from './CommentCart.module.scss'
 
 interface CommentCartProps {
   className?: string
-  comment: Comment
+  comment?: Comment
   isLoading: boolean
 }
 
@@ -21,10 +21,23 @@ export const CommentCart = memo((props: CommentCartProps) => {
 
   if (isLoading) {
     return (
-        <Skeleton border={'5px'} width={'100%'} height={70}/>
+
+      <div className={classNames(cls.CommentCart, {}, [className])}>
+          <div className={cls.grid}>
+              <Skeleton border={'50%'} width={35} height={35}/>
+              <div className={cls.info}>
+                  <Skeleton border={'5px'} width={'20%'} height={35}/>
+              </div>
+          </div>
+          <div className={cls.grid}>
+              <Skeleton className={cls.text} border={'5px'} width={'100%'} height={35}/>
+          </div>
+      </div>
     )
   }
-
+  if (!comment) {
+    return null
+  }
   return (
         <div className={classNames(cls.CommentCart, {}, [className])}>
           <div className={cls.grid}>
