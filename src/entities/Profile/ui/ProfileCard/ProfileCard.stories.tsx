@@ -17,6 +17,7 @@ const meta: Meta<typeof ProfileCard> = {
   // tags: ['autodocs'],
   argTypes: {}
 }
+
 export default meta
 
 type Story = StoryObj<typeof meta>
@@ -40,7 +41,13 @@ Primary.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
 export const Loading: Story = {
   args: {
     isLoading: true
-  }
+  },
+  render: () => (
+      <div className={'app__content'}>
+        <ProfileCard isLoading={true}/>
+      </div>
+  )
+
 }
 Loading.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
 

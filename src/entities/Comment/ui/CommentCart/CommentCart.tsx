@@ -9,7 +9,7 @@ import cls from './CommentCart.module.scss'
 interface CommentCartProps {
   className?: string
   comment?: Comment
-  isLoading: boolean
+  isLoading?: boolean
 }
 
 export const CommentCart = memo((props: CommentCartProps) => {

@@ -9,8 +9,9 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { ArticleDetails } from 'entities/Article/ui/ArticleDetails/ArticleDetails';
+import { ArticleCommentList } from 'features/ArticleCommentList';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -26,6 +27,6 @@ var ArticleDetailsPage = function (_a) {
     if (!id) {
         return (_jsx("div", __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: t('Статья не найдена') })));
     }
-    return (_jsx("div", __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: _jsx(ArticleDetails, { id: id }) })));
+    return (_jsxs("div", __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: [_jsx(ArticleDetails, { className: cls.article, id: id }), _jsx(ArticleCommentList, {})] })));
 };
 export default memo(ArticleDetailsPage);

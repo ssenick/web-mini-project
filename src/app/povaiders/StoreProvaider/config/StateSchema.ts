@@ -2,6 +2,7 @@ import { type CombinedState, type EnhancedStore, type Reducer, type ReducersMapO
 import { type ArticleDetailsSchema } from 'entities/Article'
 import { type CounterSchema } from 'entities/Counter'
 import { type UserSchema } from 'entities/User'
+import { type ArticleDetailsCommentSchema } from 'features/ArticleCommentList'
 import { type LoginSchema } from 'features/AuthByUsername'
 import { type ProfileSchema } from 'entities/Profile'
 import { type AxiosInstance } from 'axios'
@@ -15,6 +16,7 @@ export interface StateSchema {
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
+  articleDetailsComments?: ArticleDetailsCommentSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

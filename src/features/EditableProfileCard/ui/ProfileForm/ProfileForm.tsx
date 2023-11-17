@@ -7,17 +7,19 @@ import {
   getProfileIsLoading,
   getProfileReadonly,
   profileActions,
-  profileReducer, updateProfileData,
-  ProfileCard
+  ProfileCard,
+  profileReducer,
+  updateProfileData
 } from 'entities/Profile'
 
-import { memo, useCallback, useEffect, useMemo } from 'react'
+import { memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import EditIcon from 'shared/assets/icons/edit.svg'
 import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
 import cls from './ProfileForm.module.scss'
 
@@ -37,11 +39,9 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   const dispatch = useAppDispatch()
   const readonly = useSelector(getProfileReadonly)
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      void dispatch(fetchProfileData())
-    }
-  }, [dispatch])
+  useInitialEffect(() => {
+    void dispatch(fetchProfileData())
+  })
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false))

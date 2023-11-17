@@ -26,33 +26,6 @@
       "author": "typicode"
     }
   ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque illo ipsam saepe, sint ullam voluptates.",
-      "postId": "1",
-      "createdComment": "20.02.2023"
-    },
-    {
-      "id": "2",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, voluptates.",
-      "postId": "1",
-      "createdComment": "21.02.2023"
-    },
-    {
-      "id": "3",
-      "text": "Lorem ipsum dolor sit.",
-      "articleId": "1",
-      "userId": "1",
-      "createdComment": "22.02.2023"
-    },
-    {
-      "id": "4",
-      "text": "Consectetur adipisicing elit. Atque illo ipsam saepe, sint ullam voluptates.",
-      "postId": "1",
-      "createdComment": "22.02.2023"
-    }
-  ],
   "articles": [
     {
       "id": "1",
@@ -124,6 +97,36 @@
           ]
         }
       ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque illo ipsam saepe, sint ullam voluptates.",
+      "articleId": "1",
+      "userId": "2",
+      "createdComment": "20.02.2023"
+    },
+    {
+      "id": "2",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, voluptates.",
+      "articleId": "1",
+      "userId": "1",
+      "createdComment": "21.02.2023"
+    },
+    {
+      "id": "3",
+      "text": "Lorem ipsum dolor sit.",
+      "articleId": "1",
+      "userId": "2",
+      "createdComment": "22.02.2023"
+    },
+    {
+      "id": "4",
+      "text": "Consectetur adipisicing elit. Atque illo ipsam saepe, sint ullam voluptates.",
+      "articleId": "1",
+      "userId": "1",
+      "createdComment": "22.02.2023"
     }
   ],
   "users": [

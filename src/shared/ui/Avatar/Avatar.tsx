@@ -12,7 +12,7 @@ const spareImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1wpzd
 export const Avatar = memo((props: AvatarProps) => {
   const {
     className,
-    src = spareImage,
+    src,
     alt = 'Avatar image',
     size
   } = props
@@ -24,7 +24,7 @@ export const Avatar = memo((props: AvatarProps) => {
 
   return (
         <div data-testid={'avatar'} style={styles} className={classNames(cls.Avatar, {}, [className])}>
-            <img src={src} alt={alt}/>
+            <img src={src || spareImage} alt={alt}/>
         </div>
   )
 })

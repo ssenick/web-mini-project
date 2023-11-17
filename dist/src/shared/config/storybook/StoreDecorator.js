@@ -12,11 +12,12 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { StoreProvider } from 'app/povaiders/StoreProvaider';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from 'entities/Profile';
+import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 var defaultAsyncReducers = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer
+    // articleDetailsComment
 };
 export var StoreDecorator = function (initialState, asyncReducers) { return function (Story) { return (_jsx(StoreProvider, __assign({ initialState: initialState, asyncReducers: __assign(__assign({}, defaultAsyncReducers), asyncReducers) }, { children: Story() }))); }; };

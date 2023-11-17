@@ -15,10 +15,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 var spareImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1wpzdFY5YHIXeBfCiFyK5E7yFgWFl8gvZhhhimODJIrsbmB2GoVG2FyXX9Bs5avvwbow&usqp=CAU';
 export var Avatar = memo(function (props) {
-    var className = props.className, _a = props.src, src = _a === void 0 ? spareImage : _a, _b = props.alt, alt = _b === void 0 ? 'Avatar image' : _b, size = props.size;
+    var className = props.className, src = props.src, _a = props.alt, alt = _a === void 0 ? 'Avatar image' : _a, size = props.size;
     var styles = useMemo(function () { return ({
         width: size || 100,
         height: size || 100
     }); }, [size]);
-    return (_jsx("div", __assign({ "data-testid": 'avatar', style: styles, className: classNames(cls.Avatar, {}, [className]) }, { children: _jsx("img", { src: src, alt: alt }) })));
+    return (_jsx("div", __assign({ "data-testid": 'avatar', style: styles, className: classNames(cls.Avatar, {}, [className]) }, { children: _jsx("img", { src: src || spareImage, alt: alt }) })));
 });

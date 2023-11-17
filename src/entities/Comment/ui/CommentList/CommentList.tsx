@@ -9,7 +9,7 @@ import cls from './CommentList.module.scss'
 interface CommentListProps {
   className?: string
   comments?: Comment[]
-  isLoading: boolean
+  isLoading?: boolean
 }
 
 export const CommentList = memo((props: CommentListProps) => {

@@ -1,4 +1,5 @@
 import { ArticleDetails } from 'entities/Article/ui/ArticleDetails/ArticleDetails'
+import { ArticleCommentList } from 'features/ArticleCommentList'
 import { type FC, memo } from 'react'
 import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -29,7 +30,8 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
   return (
         <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            <ArticleDetails id={id}/>
+            <ArticleDetails className={cls.article} id={id}/>
+            <ArticleCommentList/>
         </div>
   )
 }
