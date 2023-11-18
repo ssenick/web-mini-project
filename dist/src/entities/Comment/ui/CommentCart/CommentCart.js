@@ -11,7 +11,9 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { memo } from 'react';
+import { RoutPath } from 'shared/config/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text, TextFontSize } from 'shared/ui/Text/Text';
@@ -24,7 +26,7 @@ export var CommentCart = memo(function (props) {
     if (!comment) {
         return null;
     }
-    return (_jsxs("div", __assign({ className: classNames(cls.CommentCart, {}, [className]) }, { children: [_jsxs("div", __assign({ className: cls.grid }, { children: [comment.user.avatar
+    return (_jsxs("div", __assign({ className: classNames(cls.CommentCart, {}, [className]) }, { children: [_jsxs(AppLink, __assign({ to: "".concat(RoutPath.profile).concat(comment.user.id), className: cls.grid }, { children: [comment.user.avatar
                         ? _jsx(Avatar, { className: cls.avatar, src: comment.user.avatar, size: 35 })
                         : _jsx(Avatar, { className: cls.avatar, size: 35, src: '' }), _jsxs("div", __assign({ className: cls.info }, { children: [_jsx(Text, { className: cls.username, size: TextFontSize.M, title: comment.user.username }), _jsx(Text, { className: cls.createdComment, size: TextFontSize.SXS, text: comment.createdComment })] }))] })), _jsx("div", __assign({ className: cls.grid }, { children: _jsx(Text, { className: cls.text, size: TextFontSize.XS, text: comment.text }) }))] })));
 });

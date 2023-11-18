@@ -1,7 +1,7 @@
 import { type Country } from 'entities/Country'
 import { type Currency } from 'entities/Currency'
 import {
-  fetchProfileData,
+  fetchProfileData, getProfileData,
   getProfileError,
   getProfileForm,
   getProfileIsLoading,
@@ -11,10 +11,12 @@ import {
   profileReducer,
   updateProfileData
 } from 'entities/Profile'
+import { getUserAuthData } from 'entities/User'
 
 import { memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import EditIcon from 'shared/assets/icons/edit.svg'
 import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader'
@@ -33,14 +35,17 @@ interface ProfileFormProps {
 
 export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   const { t } = useTranslation()
+  const authData = useSelector(getUserAuthData)
+  const profileData = useSelector(getProfileData)
+  const canEdit = authData?.id === profileData?.id
   const formData = useSelector(getProfileForm)
   const error = useSelector(getProfileError)
   const isLoading = useSelector(getProfileIsLoading)
   const dispatch = useAppDispatch()
   const readonly = useSelector(getProfileReadonly)
-
+  const { id } = useParams<{ id: string }>()
   useInitialEffect(() => {
-    void dispatch(fetchProfileData())
+    if (id) void dispatch(fetchProfileData(id))
   })
 
   const onEdit = useCallback(() => {
@@ -97,17 +102,20 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
         <div className={classNames(cls.ProfileForm, mods, [className])}>
-             <div className={cls.header}>
-                {!readonly
-                  ? <Button onClick={onCancelEdit} withIcon variant={ButtonVariant.BORDER_ERROR}>
-                        {t('Отменить')}
-                    </Button>
-                  : <Button onClick={onEdit} withIcon variant={ButtonVariant.BORDER}>
-                        {t('Редактировать')}
-                        <EditIcon/>
-                    </Button>
-                }
-            </div>
+            {canEdit &&
+               <div className={cls.header}>
+                   {!readonly
+                     ? <Button onClick={onCancelEdit} withIcon variant={ButtonVariant.BORDER_ERROR}>
+                           {t('Отменить')}
+                       </Button>
+                     : <Button onClick={onEdit} withIcon variant={ButtonVariant.BORDER}>
+                           {t('Редактировать')}
+                           <EditIcon/>
+                       </Button>
+                   }
+               </div>
+            }
+
             <div className={cls.form}>
                 <ProfileCard
                       className={cls.card}
@@ -125,9 +133,12 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
                 />
             </div>
            <div className={cls.bottom}>
-               <Button onClick={onSaveEdit} className={cls.btnSave} variant={ButtonVariant.BACKGROUND}>
-                   {t('Сохранить')}
-               </Button>
+               {canEdit &&
+                  <Button onClick={onSaveEdit} className={cls.btnSave} variant={ButtonVariant.BACKGROUND}>
+                      {t('Сохранить')}
+                  </Button>
+               }
+
             </div>
         </div>
       </DynamicModuleLoader>

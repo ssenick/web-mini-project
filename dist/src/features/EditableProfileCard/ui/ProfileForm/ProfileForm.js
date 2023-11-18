@@ -10,14 +10,16 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions, profileReducer, updateProfileData, ProfileCard } from 'entities/Profile';
-import { memo, useCallback, useEffect, useMemo } from 'react';
+import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions, ProfileCard, profileReducer, updateProfileData } from 'entities/Profile';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import EditIcon from 'shared/assets/icons/edit.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import cls from './ProfileForm.module.scss';
 var reducers = {
@@ -31,11 +33,11 @@ export var ProfileForm = memo(function (_a) {
     var isLoading = useSelector(getProfileIsLoading);
     var dispatch = useAppDispatch();
     var readonly = useSelector(getProfileReadonly);
-    useEffect(function () {
-        if (__PROJECT__ !== 'storybook') {
-            void dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+    var id = useParams().id;
+    useInitialEffect(function () {
+        if (id)
+            void dispatch(fetchProfileData(id));
+    });
     var onEdit = useCallback(function () {
         dispatch(profileActions.setReadonly(false));
     }, [dispatch]);

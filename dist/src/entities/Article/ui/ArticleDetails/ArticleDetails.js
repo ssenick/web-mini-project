@@ -10,16 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
-import { Icon } from 'shared/ui/Icon/Icon';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/articleDetails';
-import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { ArticleBlockType } from '../../model/types/article';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import DateIcon from 'shared/assets/icons/date.svg';
@@ -27,8 +18,18 @@ import ViewIcon from 'shared/assets/icons/view.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text';
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/articleDetails';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { ArticleBlockType } from '../../model/types/article';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleDetails.module.scss';
 var reducers = {
     articleDetails: articleDetailsReducer
@@ -51,11 +52,9 @@ export var ArticleDetails = memo(function (_a) {
         }
     }, []);
     var content;
-    useEffect(function () {
-        if (__PROJECT__ !== 'storybook') {
-            void dispatch(fetchArticleById(id));
-        }
-    }, [dispatch, id]);
+    useInitialEffect(function () {
+        void dispatch(fetchArticleById(id));
+    });
     if (isLoading) {
         content = (_jsxs(_Fragment, { children: [_jsxs("div", __assign({ className: cls.header }, { children: [_jsx("div", __assign({ className: cls.header__avatar }, { children: _jsx(Skeleton, { width: 100, height: 100, border: '50%' }) })), _jsxs("div", __assign({ className: cls.header__content }, { children: [_jsx(Skeleton, { className: cls.header__title, width: '38%', height: 40, border: '5px' }), _jsx(Skeleton, { className: cls.header__subtitle, width: '38%', height: 30, border: '5px' }), _jsx("div", __assign({ className: cls.header__block }, { children: _jsx(Skeleton, { className: cls.header__subtitle, width: '11%', height: 23, border: '5px' }) })), _jsx("div", __assign({ className: cls.header__block }, { children: _jsx(Skeleton, { className: cls.header__subtitle, width: '18%', height: 23, border: '5px' }) }))] }))] })), _jsxs("div", __assign({ className: cls.article }, { children: [_jsx(Skeleton, { className: cls.block, width: '100%', height: 100, border: '5px' }), _jsx(Skeleton, { className: cls.block, width: '100%', height: 100, border: '5px' }), _jsx(Skeleton, { className: cls.block, width: '100%', height: 100, border: '5px' }), _jsx(Skeleton, { className: cls.block, width: '100%', height: 100, border: '5px' }), _jsx(Skeleton, { className: cls.block, width: '100%', height: 100, border: '5px' })] }))] }));
     }

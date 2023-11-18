@@ -35,13 +35,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 function checkData(data) {
     if (!data) {
         throw new Error('missing data');
     }
 }
-export var fetchProfileData = createAsyncThunk('profile/fetchProfileData', function (_, thunkAPI) { return __awaiter(void 0, void 0, void 0, function () {
+export var fetchProfileData = createAsyncThunk('profile/fetchProfileData', function (profileId, thunkAPI) { return __awaiter(void 0, void 0, void 0, function () {
     var extra, rejectWithValue, data, e_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -50,12 +49,7 @@ export var fetchProfileData = createAsyncThunk('profile/fetchProfileData', funct
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, extra.api.get('/profile', {
-                        headers: {
-                            // это для косяк, хз как решить, без этого кода, api.ts не работает без перезагрузки страницы
-                            authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY) || ''
-                        }
-                    })];
+                return [4 /*yield*/, extra.api.get("/profile/".concat(profileId))];
             case 2:
                 data = (_a.sent()).data;
                 checkData(data);

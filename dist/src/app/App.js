@@ -10,15 +10,15 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { AppRouter } from 'app/povaiders/Router';
+import { getUserInited, userActions } from 'entities/User';
 import { Suspense, useEffect, useMemo } from 'react';
-import './styles/index.scss';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Header } from 'widgets/Header';
-import { AppRouter } from 'app/povaiders/Router';
 import { Sidebar } from 'widgets/Sidebar';
-import { getUserInited, userActions } from 'entities/User';
-import { useDispatch, useSelector } from 'react-redux';
+import './styles/index.scss';
 var App = function () {
     var dispatch = useDispatch();
     var inited = useSelector(getUserInited);

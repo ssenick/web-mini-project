@@ -1,4 +1,5 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 var commentsAdapter = createEntityAdapter({
     selectId: function (comment) { return comment.id; }
 });
@@ -11,7 +12,22 @@ export var articleDetailsCommentsSlice = createSlice({
         ids: [],
         entities: {}
     }),
-    reducers: {}
+    reducers: {},
+    extraReducers: function (builder) {
+        builder
+            .addCase(fetchCommentsByArticleId.pending, function (state) {
+            state.error = undefined;
+            state.isLoading = true;
+        })
+            .addCase(fetchCommentsByArticleId.fulfilled, function (state, action) {
+            state.isLoading = false;
+            commentsAdapter.setAll(state, action.payload);
+        })
+            .addCase(fetchCommentsByArticleId.rejected, function (state, action) {
+            state.isLoading = false;
+            state.error = action.payload;
+        });
+    }
 });
 export var articleDetailsCommentsActions = articleDetailsCommentsSlice.actions;
 export var articleDetailsCommentsReducer = articleDetailsCommentsSlice.reducer;

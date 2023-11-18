@@ -19,7 +19,7 @@ export var AppRoutes;
 export var RoutPath = (_a = {},
     _a[AppRoutes.MAIN] = '/',
     _a[AppRoutes.ABOUT] = 'about',
-    _a[AppRoutes.PROFILE] = 'profile',
+    _a[AppRoutes.PROFILE] = 'profile/',
     _a[AppRoutes.ARTICLES] = 'articles',
     _a[AppRoutes.ARTICLE_DETAILS] = 'articles/',
     // last
@@ -35,7 +35,7 @@ export var routeConfig = (_b = {},
         element: _jsx(AboutPage, {})
     },
     _b[AppRoutes.PROFILE] = {
-        path: RoutPath.profile,
+        path: RoutPath.profile + ':id',
         element: _jsx(ProfilePage, {}),
         authOnly: true
     },

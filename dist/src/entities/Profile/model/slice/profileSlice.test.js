@@ -167,7 +167,7 @@ describe('profileSlice.test', function () {
         var state = {
             isLoading: true
         };
-        expect(profileReducer(state, fetchProfileData.fulfilled(data, '', undefined)))
+        expect(profileReducer(state, fetchProfileData.fulfilled(data, '', '1')))
             .toEqual({
             isLoading: false,
             data: data,

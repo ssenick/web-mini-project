@@ -143,14 +143,28 @@
       "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
     }
   ],
-  "profile": {
-    "first": "Ruslan1",
-    "lastname": "Senchenko",
-    "age": 33,
-    "currency": "USD",
-    "country": "Canada",
-    "city": "Sumy",
-    "username": "Admin",
-    "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Ruslan1",
+      "lastname": "Senchenko",
+      "age": 33,
+      "currency": "USD",
+      "country": "Canada",
+      "city": "Sumy",
+      "username": "art123",
+      "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Alex",
+      "lastname": "Boton",
+      "age": 23,
+      "currency": "USD",
+      "country": "Canada",
+      "city": "Sumy",
+      "username": "sse441aa",
+      "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
+    }
+  ]
 }

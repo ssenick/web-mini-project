@@ -56,7 +56,7 @@ describe('fetchProfileData.test', function () {
                 case 0:
                     thunk = new TestAsyncThunk(fetchProfileData);
                     thunk.api.get.mockReturnValue(Promise.resolve({ data: data }));
-                    return [4 /*yield*/, thunk.callThunk(undefined)
+                    return [4 /*yield*/, thunk.callThunk('1')
                         // проверяем что запрос был отправлен
                     ];
                 case 1:
@@ -79,7 +79,7 @@ describe('fetchProfileData.test', function () {
                 case 0:
                     thunk = new TestAsyncThunk(fetchProfileData);
                     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-                    return [4 /*yield*/, thunk.callThunk(undefined)
+                    return [4 /*yield*/, thunk.callThunk('1')
                         // проверяем что запрос был отправлен
                     ];
                 case 1:

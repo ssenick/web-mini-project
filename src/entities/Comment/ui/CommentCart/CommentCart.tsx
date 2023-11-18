@@ -1,5 +1,7 @@
 import { memo } from 'react'
+import { RoutPath } from 'shared/config/routeConfig'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Text, TextFontSize } from 'shared/ui/Text/Text'
@@ -40,7 +42,7 @@ export const CommentCart = memo((props: CommentCartProps) => {
   }
   return (
         <div className={classNames(cls.CommentCart, {}, [className])}>
-          <div className={cls.grid}>
+          <AppLink to={`${RoutPath.profile}${comment.user.id}`} className={cls.grid}>
               {comment.user.avatar
                 ? <Avatar className={cls.avatar} src={comment.user.avatar} size={35}/>
                 : <Avatar className={cls.avatar} size={35} src={''}/>}
@@ -48,7 +50,7 @@ export const CommentCart = memo((props: CommentCartProps) => {
                   <Text className={cls.username} size={TextFontSize.M} title={comment.user.username}/>
                   <Text className={cls.createdComment} size={TextFontSize.SXS} text={comment.createdComment}/>
               </div>
-          </div>
+          </AppLink>
             <div className={cls.grid}>
                 <Text className={cls.text} size={TextFontSize.XS} text={comment.text}/>
             </div>
