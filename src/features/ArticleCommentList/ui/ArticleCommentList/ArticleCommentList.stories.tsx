@@ -3,7 +3,7 @@ import { Theme } from 'app/povaiders/ThemeProvaider'
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-
+import Avatar from 'shared/assets/test/image.jpg'
 import { ArticleCommentList } from './ArticleCommentList'
 
 const meta: Meta<typeof ArticleCommentList> = {
@@ -24,13 +24,21 @@ const comments = {
   entities: {
     1: {
       id: '1',
-      user: { username: 'User', id: '1' },
+      user: {
+        username: 'User',
+        id: '1',
+        avatar: Avatar
+      },
       createdComment: '20.20.2001',
       text: 'Lorem asdasd asd asd asd asd'
     },
     2: {
       id: '2',
-      user: { username: 'User', id: '2' },
+      user: {
+        username: 'User',
+        id: '1',
+        avatar: Avatar
+      },
       createdComment: '20.20.2010',
       text: 'Lorem asdasd asd asd asd asd Lorem asdasd asd asd asd asd'
     }
