@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Theme } from 'app/povaiders/ThemeProvaider'
 import Icon from 'shared/assets/test/image.jpg'
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 
 import { CommentList } from './CommentList'
@@ -51,7 +52,7 @@ export const Light: Story = {
   )
 
 }
-Light.decorators = [ThemeDecorator(Theme.LIGHT)]
+Light.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
 
 export const Dark: Story = {
   args: {},
@@ -62,7 +63,7 @@ export const Dark: Story = {
   )
 
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]
 
 export const Funny: Story = {
   args: {},
@@ -73,7 +74,7 @@ export const Funny: Story = {
   )
 
 }
-Funny.decorators = [ThemeDecorator(Theme.FUNNY)]
+Funny.decorators = [ThemeDecorator(Theme.FUNNY), RouterDecorator]
 
 export const IsLoading: Story = {
   args: {},
@@ -84,7 +85,7 @@ export const IsLoading: Story = {
   )
 
 }
-IsLoading.decorators = [ThemeDecorator(Theme.LIGHT)]
+IsLoading.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
 
 export const NotComments: Story = {
   args: {},
@@ -95,4 +96,4 @@ export const NotComments: Story = {
   )
 
 }
-NotComments.decorators = [ThemeDecorator(Theme.LIGHT)]
+NotComments.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
