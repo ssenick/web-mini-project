@@ -12,6 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { Theme } from 'app/povaiders/ThemeProvaider';
 import Icon from 'shared/assets/test/image.jpg';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { CommentCart } from './CommentCart';
 var meta = {
@@ -35,21 +36,21 @@ var comment = {
 };
 export var Light = {
     args: {},
-    render: function (args) { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentCart, { comment: comment, isLoading: false }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentCart, { comment: comment, isLoading: false }) }))); }
 };
-Light.decorators = [ThemeDecorator(Theme.LIGHT)];
+Light.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator];
 export var Dark = {
     args: {},
-    render: function (args) { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentCart, { comment: comment, isLoading: false }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentCart, { comment: comment, isLoading: false }) }))); }
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator];
 export var Funny = {
     args: {},
-    render: function (args) { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentCart, { comment: comment, isLoading: false }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentCart, { comment: comment, isLoading: false }) }))); }
 };
-Funny.decorators = [ThemeDecorator(Theme.FUNNY)];
+Funny.decorators = [ThemeDecorator(Theme.FUNNY), RouterDecorator];
 export var IsLoading = {
     args: {},
-    render: function (args) { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentCart, { comment: comment, isLoading: true }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentCart, { comment: comment, isLoading: true }) }))); }
 };
-IsLoading.decorators = [ThemeDecorator(Theme.LIGHT)];
+IsLoading.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator];

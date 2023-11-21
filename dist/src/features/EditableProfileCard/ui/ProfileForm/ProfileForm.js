@@ -10,7 +10,8 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions, ProfileCard, profileReducer, updateProfileData } from 'entities/Profile';
+import { fetchProfileData, getProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions, ProfileCard, profileReducer, updateProfileData } from 'entities/Profile';
+import { getUserAuthData } from 'entities/User';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -28,6 +29,9 @@ var reducers = {
 export var ProfileForm = memo(function (_a) {
     var className = _a.className;
     var t = useTranslation().t;
+    var authData = useSelector(getUserAuthData);
+    var profileData = useSelector(getProfileData);
+    var canEdit = (authData === null || authData === void 0 ? void 0 : authData.id) === (profileData === null || profileData === void 0 ? void 0 : profileData.id);
     var formData = useSelector(getProfileForm);
     var error = useSelector(getProfileError);
     var isLoading = useSelector(getProfileIsLoading);
@@ -80,7 +84,9 @@ export var ProfileForm = memo(function (_a) {
             _a[cls.readonly] = readonly,
             _a);
     }, [error, isLoading, readonly]);
-    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsxs("div", __assign({ className: classNames(cls.ProfileForm, mods, [className]) }, { children: [_jsx("div", __assign({ className: cls.header }, { children: !readonly
-                        ? _jsx(Button, __assign({ onClick: onCancelEdit, withIcon: true, variant: ButtonVariant.BORDER_ERROR }, { children: t('Отменить') }))
-                        : _jsxs(Button, __assign({ onClick: onEdit, withIcon: true, variant: ButtonVariant.BORDER }, { children: [t('Редактировать'), _jsx(EditIcon, {})] })) })), _jsx("div", __assign({ className: cls.form }, { children: _jsx(ProfileCard, { className: cls.card, data: formData, readonly: readonly, error: error, isLoading: isLoading, onChangeFirstName: onChangeFirstName, onChangeLastName: onChangeLastName, onChangeAge: onChangeAge, onChangeUsername: onChangeUsername, onChangeAvatar: onChangeAvatar, onChangeCurrency: onChangeCurrency, onChangeCountry: onChangeCountry }) })), _jsx("div", __assign({ className: cls.bottom }, { children: _jsx(Button, __assign({ onClick: onSaveEdit, className: cls.btnSave, variant: ButtonVariant.BACKGROUND }, { children: t('Сохранить') })) }))] })) })));
+    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsxs("div", __assign({ className: classNames(cls.ProfileForm, mods, [className]) }, { children: [canEdit &&
+                    _jsx("div", __assign({ className: cls.header }, { children: !readonly
+                            ? _jsx(Button, __assign({ onClick: onCancelEdit, withIcon: true, variant: ButtonVariant.BORDER_ERROR }, { children: t('Отменить') }))
+                            : _jsxs(Button, __assign({ onClick: onEdit, withIcon: true, variant: ButtonVariant.BORDER }, { children: [t('Редактировать'), _jsx(EditIcon, {})] })) })), _jsx("div", __assign({ className: cls.form }, { children: _jsx(ProfileCard, { className: cls.card, data: formData, readonly: readonly, error: error, isLoading: isLoading, onChangeFirstName: onChangeFirstName, onChangeLastName: onChangeLastName, onChangeAge: onChangeAge, onChangeUsername: onChangeUsername, onChangeAvatar: onChangeAvatar, onChangeCurrency: onChangeCurrency, onChangeCountry: onChangeCountry }) })), _jsx("div", __assign({ className: cls.bottom }, { children: canEdit &&
+                        _jsx(Button, __assign({ onClick: onSaveEdit, className: cls.btnSave, variant: ButtonVariant.BACKGROUND }, { children: t('Сохранить') })) }))] })) })));
 });

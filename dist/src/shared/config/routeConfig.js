@@ -18,10 +18,10 @@ export var AppRoutes;
 })(AppRoutes || (AppRoutes = {}));
 export var RoutPath = (_a = {},
     _a[AppRoutes.MAIN] = '/',
-    _a[AppRoutes.ABOUT] = 'about',
-    _a[AppRoutes.PROFILE] = 'profile/',
-    _a[AppRoutes.ARTICLES] = 'articles',
-    _a[AppRoutes.ARTICLE_DETAILS] = 'articles/',
+    _a[AppRoutes.ABOUT] = '/about',
+    _a[AppRoutes.PROFILE] = '/profile/',
+    _a[AppRoutes.ARTICLES] = '/articles',
+    _a[AppRoutes.ARTICLE_DETAILS] = '/articles/',
     // last
     _a[AppRoutes.NOT_FOUND] = '*',
     _a);

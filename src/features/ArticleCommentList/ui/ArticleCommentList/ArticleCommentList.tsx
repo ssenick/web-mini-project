@@ -4,14 +4,12 @@ import {
   fetchCommentsByArticleId
 } from 'features/ArticleCommentList/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { memo } from 'react'
-import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
-import { Text, TextFontSize } from 'shared/ui/Text/Text'
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice'
 import cls from './ArticleCommentList.module.scss'
 
@@ -24,7 +22,6 @@ const reducers: ReducersList = {
 }
 
 export const ArticleCommentList = memo(({ className }: ArticleCommentListProps) => {
-  const { t } = useTranslation()
   const comments = useSelector(getArticleComments.selectAll)
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
   const dispatch = useAppDispatch()
@@ -37,10 +34,8 @@ export const ArticleCommentList = memo(({ className }: ArticleCommentListProps) 
   return (
       <DynamicModuleLoader reducers={reducers}>
         <div className={classNames(cls.ArticleCommentList, {}, [className])}>
-          <Text className={cls.title} size={TextFontSize.L} title={`${t('Комментарии')}:`}/>
           <CommentList comments={comments} isLoading={commentsIsLoading} />
         </div>
       </DynamicModuleLoader>
-
   )
 })

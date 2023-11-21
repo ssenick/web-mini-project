@@ -34,38 +34,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getProfileForm } from 'entities/Profile';
-import { validateProfileData } from '../validateProfileData/validateProfileData';
-import { ValidateProfileErrors } from '../../types/profile';
-function checkData(data) {
-    if (!data) {
-        throw new Error('missing data');
+import { lazy } from 'react';
+export var AddNewCommentFormAsync = lazy(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    switch (_a.label) {
+        case 0: return [4 /*yield*/, import('./AddNewCommentForm')];
+        case 1: return [2 /*return*/, _a.sent()];
     }
-}
-export var updateProfileData = createAsyncThunk('profile/updateProfileData', function (_, thunkAPI) { return __awaiter(void 0, void 0, void 0, function () {
-    var extra, rejectWithValue, getState, formData, errors, data, e_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                extra = thunkAPI.extra, rejectWithValue = thunkAPI.rejectWithValue, getState = thunkAPI.getState;
-                formData = getProfileForm(getState());
-                errors = validateProfileData(formData);
-                if (errors === null || errors === void 0 ? void 0 : errors.length)
-                    return [2 /*return*/, rejectWithValue(errors)];
-                _a.label = 1;
-            case 1:
-                _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, extra.api.put("/profile/".concat(formData === null || formData === void 0 ? void 0 : formData.id), formData)];
-            case 2:
-                data = (_a.sent()).data;
-                checkData(data);
-                return [2 /*return*/, data];
-            case 3:
-                e_1 = _a.sent();
-                console.log(e_1);
-                return [2 /*return*/, rejectWithValue([ValidateProfileErrors.SERVER_ERROR])];
-            case 4: return [2 /*return*/];
-        }
-    });
-}); });
+}); }); });

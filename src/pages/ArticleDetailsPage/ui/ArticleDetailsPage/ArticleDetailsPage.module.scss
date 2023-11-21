@@ -1,6 +1,16 @@
 .ArticleDetailsPage {
   min-height: 100%;
 
+  .title {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--primary-color);
+    margin-bottom: 20px;
+  }
+
+  .form {
+    margin-bottom: 20px;
+  }
+
   .article {
     &:not(:last-child) {
       margin-bottom: 25px;

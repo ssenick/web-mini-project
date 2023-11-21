@@ -7,6 +7,7 @@ import { type LoginSchema } from 'features/AuthByUsername'
 import { type ProfileSchema } from 'entities/Profile'
 import { type AxiosInstance } from 'axios'
 import { type NavigateOptions, type To } from 'react-router'
+import { type AddNewCommentFormSchema } from 'features/AddNewCommentForm'
 
 export interface StateSchema {
   counter: CounterSchema
@@ -17,6 +18,7 @@ export interface StateSchema {
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentSchema
+  addCommentForm?: AddNewCommentFormSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
