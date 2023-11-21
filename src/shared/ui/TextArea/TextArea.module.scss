@@ -1,0 +1,56 @@
+.TextArea {
+  position: relative;
+  display: flex;
+
+  label {
+    width: 100%;
+  }
+
+  .label {
+    font: var(--font-sxs);
+    margin-bottom: 5px;
+  }
+
+  textarea {
+    background-color: var(--bg-input);
+    transition: opacity var(--animation-time) ease 0s;
+    opacity: 0.8;
+    border-radius: 5px;
+    height: var(--height-textarea);
+    width: 100%;
+    padding: 10px 15px;
+    outline: none;
+    color: inherit;
+    appearance: none;
+    resize: none;
+
+    &::placeholder {
+      opacity: 0.5;
+      color: inherit;
+    }
+  }
+
+  &.readonly {
+    textarea {
+      filter: grayscale(100%);
+      opacity: 0.7;
+    }
+  }
+
+  &.inverse-bg {
+    textarea {
+      background-color: var(--bg-input-inverse);
+    }
+  }
+
+  &.isFocus {
+    textarea {
+      opacity: 1;
+      box-shadow: 3px 3px 16px -5px rgb(0 0 0 / 36%);
+    }
+
+    textarea::placeholder {
+      opacity: 0;
+    }
+  }
+}
