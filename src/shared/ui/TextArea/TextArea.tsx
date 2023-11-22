@@ -45,10 +45,27 @@ export const TextArea = memo((props: TextAreaProps) => {
     }
   ), [isFocus, readonly])
 
+  if (label) {
+    return (
+           <div className={classNames(cls.TextArea, mods, [className])}>
+               <label >
+                   {label && <Text size={TextFontSize.SXS} title={label} className={cls.label}/>}
+                   <textarea
+                       data-testid='input'
+                       value={value}
+                       onChange={onChangeHandler}
+                       onFocus={onFocus}
+                       onBlur={onBlur}
+                       readOnly={readonly}
+                       {...otherProps}
+                   />
+               </label>
+           </div>
+    )
+  }
+
   return (
         <div className={classNames(cls.TextArea, mods, [className])}>
-            <label >
-                {label && <Text size={TextFontSize.SXS} title={label} className={cls.label}/>}
                 <textarea
                     data-testid='input'
                     value={value}
@@ -58,7 +75,6 @@ export const TextArea = memo((props: TextAreaProps) => {
                     readOnly={readonly}
                     {...otherProps}
                 />
-            </label>
         </div>
   )
 })
