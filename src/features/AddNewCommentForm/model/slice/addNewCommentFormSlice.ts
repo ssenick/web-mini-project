@@ -1,9 +1,11 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { addCommentForArticle } from 'features/AddNewCommentForm/model/services/addCommentForArticle'
 import { type AddNewCommentFormSchema } from '../types/addNewCommentForm'
 
 const initialState: AddNewCommentFormSchema = {
   text: '',
-  error: ''
+  error: '',
+  isLoading: false
 }
 
 export const addNewCommentFormSlice = createSlice({
@@ -15,20 +17,18 @@ export const addNewCommentFormSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    // builder
-    //   .addCase(fetchProfileData.pending, (state) => {
-    //     state.error = undefined
-    //     state.isLoading = true
-    //   })
-    //   .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
-    //     state.isLoading = false
-    //     state.data = action.payload
-    //     state.form = action.payload
-    //   })
-    //   .addCase(fetchProfileData.rejected, (state, action) => {
-    //     state.isLoading = false
-    //     state.error = action.payload
-    //   })
+    builder
+      .addCase(addCommentForArticle.pending, (state) => {
+        state.error = undefined
+        state.isLoading = true
+      })
+      .addCase(addCommentForArticle.fulfilled, (state) => {
+        state.isLoading = false
+      })
+      .addCase(addCommentForArticle.rejected, (state, action) => {
+        state.isLoading = false
+        state.error = action.payload
+      })
   }
 })
 

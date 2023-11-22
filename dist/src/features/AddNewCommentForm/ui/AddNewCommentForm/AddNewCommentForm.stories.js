@@ -10,6 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
+import { action } from '@storybook/addon-actions';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import AddNewCommentForm from './AddNewCommentForm';
@@ -28,7 +29,7 @@ export default meta;
 export var Light = {
     args: {},
     render: function () {
-        return _jsx("div", __assign({ className: 'app__content' }, { children: _jsx(AddNewCommentForm, {}) }));
+        return _jsx("div", __assign({ className: 'app__content' }, { children: _jsx(AddNewCommentForm, { onSendComment: action('onSendComment') }) }));
     }
 };
 Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator];

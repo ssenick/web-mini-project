@@ -1,7 +1,26 @@
 .AddNewCommentForm {
+  .wrapper {
+    position: relative;
+  }
+
   .bottom {
     display: flex;
     justify-content: flex-end;
     padding-top: 10px;
+  }
+
+  &.isLoading {
+    .button,
+    .textarea {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 }

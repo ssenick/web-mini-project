@@ -2,7 +2,7 @@ import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoadi
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 describe('articleDetails.test', function () {
     var initialData = {
-        id: 1,
+        id: '1',
         title: 'Title',
         subtitle: 'Subtitle',
         img: 'https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg',

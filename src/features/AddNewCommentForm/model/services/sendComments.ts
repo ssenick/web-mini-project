@@ -19,7 +19,7 @@ Comment,
 undefined,
 ThunkConfig<string>
 >(
-  'addCommentForm/sendComment',
+  'addNewCommentForm/sendComment',
   async (_, thunkAPI) => {
     const { extra, rejectWithValue, getState, dispatch } = thunkAPI
     const userData = getUserAuthData(getState())

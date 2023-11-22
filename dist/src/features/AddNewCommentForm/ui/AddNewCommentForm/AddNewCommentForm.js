@@ -9,29 +9,42 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx } from "react/jsx-runtime";
-import { getAddNewCommentFormError, getAddNewCommentFormText } from 'features/AddNewCommentForm/model/selectors/addNewCommentFormSelectors';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { addNewCommentFormActions, addNewCommentFormReducer } from '../../model/slice/addNewCommentFormSlice';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Button, ButtonVariant } from 'shared/ui/Button/Button';
+import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints';
+import { TextArea } from 'shared/ui/TextArea/TextArea';
+import { getAddNewCommentFormError, getAddNewCommentFormIsLoading, getAddNewCommentFormText } from '../../model/selectors/addNewCommentFormSelectors';
+import { addNewCommentFormActions, addNewCommentFormReducer } from '../../model/slice/addNewCommentFormSlice';
 import cls from './AddNewCommentForm.module.scss';
-import { Input } from 'shared/ui/Input/Input';
 var reducers = {
     addCommentForm: addNewCommentFormReducer
 };
 var AddNewCommentForm = memo(function (_a) {
-    var className = _a.className;
+    var _b, _c;
+    var className = _a.className, onSendComment = _a.onSendComment;
     var t = useTranslation().t;
     var text = useSelector(getAddNewCommentFormText);
     var error = useSelector(getAddNewCommentFormError);
+    var isLoading = useSelector(getAddNewCommentFormIsLoading);
     var dispatch = useAppDispatch();
-    var onChange = useCallback(function (value) {
+    var onChangeCommentArea = useCallback(function (value) {
         dispatch(addNewCommentFormActions.setText(value));
     }, [dispatch]);
-    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers }, { children: _jsx("div", __assign({ className: classNames(cls.AddNewCommentForm, {}, [className]) }, { children: _jsx(Input, { className: cls.input, onChange: onChange, value: text, placeholder: t('Напишите отзыв') }) })) })));
+    var onSendHandler = useCallback(function () {
+        if (text) {
+            onSendComment(text || '');
+            onChangeCommentArea('');
+        }
+    }, [onSendComment, onChangeCommentArea, text]);
+    if (error) {
+        return (_jsx("div", __assign({ className: classNames(cls.AddNewCommentForm, (_b = {}, _b[cls.isLoading] = isLoading, _b), [className]) }, { children: t('что-то пошло не так') })));
+    }
+    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers }, { children: _jsxs("div", __assign({ className: classNames(cls.AddNewCommentForm, (_c = {}, _c[cls.isLoading] = isLoading, _c), [className]) }, { children: [_jsxs("div", __assign({ className: cls.wrapper }, { children: [_jsx(TextArea, { className: cls.textarea, onChange: onChangeCommentArea, value: text, placeholder: t('Напишите комментарий') }), isLoading && _jsx(LoaderPoints, { className: cls.loader })] })), _jsx("div", __assign({ className: cls.bottom }, { children: _jsx(Button, __assign({ onClick: onSendHandler, className: cls.button, variant: ButtonVariant.BACKGROUND }, { children: t('Отправить комментарий') })) }))] })) })));
 });
 export default AddNewCommentForm;
