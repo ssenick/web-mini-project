@@ -1,8 +1,9 @@
 import { memo, useCallback, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { getSidebarLinks } from 'widgets/Sidebar/model/selectors/getSidebarLinks'
 import cls from './Sidebar.module.scss'
 import { ButtonVariant, Button } from 'shared/ui/Button/Button'
-import { SidebarLinkList } from '../../model/items'
 import { SidebarLink } from 'widgets/Sidebar/ui/SidebarLink/SidebarLink'
 
 interface SidebarProps {
@@ -12,6 +13,7 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className, collapsedStorybook }: SidebarProps): JSX.Element => {
   const [collapsed, setCollapsed] = useState(collapsedStorybook || false)
+  const sidebarLinksList = useSelector(getSidebarLinks)
 
   const toggleCollapse = useCallback(() => {
     setCollapsed(!collapsed)
@@ -29,7 +31,7 @@ export const Sidebar = memo(({ className, collapsedStorybook }: SidebarProps): J
             </Button>
 
             <ul className={cls.list}>
-                {SidebarLinkList.map(link =>
+                {sidebarLinksList.map(link =>
                     <SidebarLink key={link.path} item={link} collapsed={collapsedStorybook || collapsed}/>
                 )}
             </ul>
