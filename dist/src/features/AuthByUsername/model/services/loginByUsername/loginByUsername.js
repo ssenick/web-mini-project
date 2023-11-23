@@ -58,8 +58,9 @@ export var loginByUsername = createAsyncThunk('login/loginByUsername', function 
                 localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
                 dispatch(userActions.setAuthData(data));
                 // лучше не использовать
-                if (extra.navigate && data)
-                    extra.navigate('/profile');
+                if (extra.navigate && data) {
+                    extra.navigate('/profile/' + data.id);
+                }
                 return [2 /*return*/, data];
             case 3:
                 e_1 = _a.sent();

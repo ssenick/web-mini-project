@@ -4,6 +4,11 @@ export var ArticleBlockType;
     ArticleBlockType["IMAGE"] = "IMAGE";
     ArticleBlockType["TEXT"] = "TEXT";
 })(ArticleBlockType || (ArticleBlockType = {}));
+export var ArticleView;
+(function (ArticleView) {
+    ArticleView["BIG"] = "BIG";
+    ArticleView["SMALL"] = "SMALL";
+})(ArticleView || (ArticleView = {}));
 export var ArticleType;
 (function (ArticleType) {
     ArticleType["IT"] = "IT";
