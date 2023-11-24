@@ -19,7 +19,8 @@ export const Avatar = memo((props: AvatarProps) => {
 
   const styles = useMemo(() => ({
     width: size || 100,
-    height: size || 100
+    height: size || 100,
+    flexBasis: size || 100
   }), [size])
 
   return (

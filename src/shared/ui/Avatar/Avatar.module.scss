@@ -1,6 +1,6 @@
 .Avatar {
   position: relative;
-  border-radius: 50%;
+  border-radius: var(--border-radius-circle);
   overflow: hidden;
   width: 100px;
   height: 100px;

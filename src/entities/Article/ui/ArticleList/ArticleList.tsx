@@ -16,16 +16,22 @@ export const ArticleList = memo((props: ArticleListProps) => {
     className,
     articles,
     isLoading,
-    view = ArticleView.SMALL
+    view = ArticleView.BIG
   } = props
 
   const renderArticles = (article: Article): JSX.Element => (
     <ArticleListItem article={article} view={view}/>
   )
-
+  if (isLoading) {
+    return (
+      <div>1111111</div>
+    )
+  }
   return (
         <div className={classNames(cls.ArticleList, {}, [className])}>
-          {articles.length && articles.map(renderArticles)}
+          <div className={cls.articles}>
+            {articles.length && articles.map(renderArticles)}
+          </div>
         </div>
   )
 })
