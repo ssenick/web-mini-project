@@ -10,7 +10,7 @@
   top: 33px;
   width: 13px;
   height: 13px;
-  border-radius: 50%;
+  border-radius: var(--border-radius-circle);
   background-color: var(--module-color);
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }

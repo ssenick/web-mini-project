@@ -1,7 +1,7 @@
 .CommentCart {
   padding: 12px 10px;
   background-color: var(--bg-color-comment);
-  border-radius: 5px;
+  border-radius: var(--border-radius-small);
 
   .grid {
     display: grid;

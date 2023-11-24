@@ -23,7 +23,7 @@
     background-color: var(--bg-module);
     max-width: 60vw;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: var(--border-radius-small);
 
     @media (max-width: 450px) {
       max-width: 90vw;
