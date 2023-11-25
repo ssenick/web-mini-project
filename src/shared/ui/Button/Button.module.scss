@@ -11,6 +11,13 @@
     opacity: 0.5;
     pointer-events: none;
   }
+
+  @media (any-hover: hover) {
+    &:hover {
+      animation: pulse 1s;
+      box-shadow: 0 0 0 1em transparent;
+    }
+  }
 }
 
 .clean {
@@ -96,4 +103,8 @@
 
 .squareL {
   font: var(--font-l);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--bg-module); }
 }

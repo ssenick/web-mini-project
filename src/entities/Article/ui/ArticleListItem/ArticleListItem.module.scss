@@ -105,6 +105,13 @@
     transition: transform var(--animation-time) ease 0s;
   }
 
+  .types p {
+    width: 95px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .createAtt {
     position: absolute;
     z-index: 1;
@@ -133,7 +140,7 @@
     }
 
     .image {
-      transform: scale(1.05);
+      transform: scale(1.01);
     }
   }
 }
