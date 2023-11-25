@@ -1,7 +1,8 @@
 import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem'
-import { memo } from 'react'
+import { memo, type ReactNode } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { type Article, ArticleView } from '../../model/types/article'
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
 import cls from './ArticleList.module.scss'
 
 interface ArticleListProps {
@@ -10,6 +11,12 @@ interface ArticleListProps {
   isLoading?: boolean
   view?: ArticleView
 }
+
+const getSkeletons = (view: ArticleView): ReactNode =>
+  new Array(view === ArticleView.SMALL ? 9 : 3)
+    .fill(0).map((item, index) => (
+          <ArticleListItemSkeleton view={view} key={index}/>
+    ))
 
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
@@ -24,7 +31,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
   )
   if (isLoading) {
     return (
-      <div>1111111</div>
+        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+          <div className={cls.articles}>
+              {getSkeletons(view)}
+          </div>
+        </div>
     )
   }
   return (

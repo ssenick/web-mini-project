@@ -18,7 +18,8 @@ export var Avatar = memo(function (props) {
     var className = props.className, src = props.src, _a = props.alt, alt = _a === void 0 ? 'Avatar image' : _a, size = props.size;
     var styles = useMemo(function () { return ({
         width: size || 100,
-        height: size || 100
+        height: size || 100,
+        flexBasis: size || 100
     }); }, [size]);
     return (_jsx("div", __assign({ "data-testid": 'avatar', style: styles, className: classNames(cls.Avatar, {}, [className]) }, { children: _jsx("img", { src: src || spareImage, alt: alt }) })));
 });

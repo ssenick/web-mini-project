@@ -10,6 +10,11 @@ var article = {
     img: Image,
     views: 1022,
     createdAt: '26.02.2023',
+    user: {
+        id: '1',
+        username: 'ssenick',
+        avatar: Image
+    },
     type: [
         'IT'
     ],
