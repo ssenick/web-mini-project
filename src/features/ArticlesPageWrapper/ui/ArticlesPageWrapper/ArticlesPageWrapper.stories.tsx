@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Theme } from 'app/povaiders/ThemeProvaider'
 import { ArticleBlockType, ArticleType, ArticleView } from 'entities/Article/model/types/article'
 import Image from 'shared/assets/test/image.jpg'
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
-
-import ArticlePage from './ArticlePage'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { Theme } from 'app/povaiders/ThemeProvaider'
+
+import { ArticlesPageWrapper } from './ArticlesPageWrapper'
+
 const articles = {
   1: {
     id: '1',
@@ -154,9 +155,10 @@ const articles = {
     ]
   }
 }
-const meta: Meta<typeof ArticlePage> = {
-  title: 'pages/ArticlePage',
-  component: ArticlePage,
+
+const meta: Meta<typeof ArticlesPageWrapper> = {
+  title: 'features/ArticlesPageWrapper',
+  component: ArticlesPageWrapper,
   parameters: {
     layout: 'fullscreen'
   },
@@ -168,10 +170,10 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Small: Story = {
+export const LightSmall: Story = {
   args: {}
 }
-Small.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+LightSmall.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
   articlePage: {
     entities: articles,
     isLoading: false,
@@ -180,14 +182,106 @@ Small.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
     ids: ['1', '2']
   }
 }), RouterDecorator]
-export const Big: Story = {
+
+export const DarkSmall: Story = {
   args: {}
 }
-Big.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+DarkSmall.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
   articlePage: {
     entities: articles,
     isLoading: false,
     error: '',
+    view: ArticleView.SMALL,
+    ids: ['1', '2']
+  }
+}), RouterDecorator]
+
+export const FunnySmall: Story = {
+  args: {}
+}
+FunnySmall.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
+  articlePage: {
+    entities: articles,
+    isLoading: false,
+    error: '',
+    view: ArticleView.SMALL,
+    ids: ['1', '2']
+  }
+}), RouterDecorator]
+
+export const LightBig: Story = {
+  args: {}
+}
+LightBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+  articlePage: {
+    entities: articles,
+    isLoading: false,
+    error: '',
+    view: ArticleView.BIG,
+    ids: ['1', '2']
+  }
+}), RouterDecorator]
+
+export const DarkBig: Story = {
+  args: {}
+}
+DarkBig.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+  articlePage: {
+    entities: articles,
+    isLoading: false,
+    error: '',
+    view: ArticleView.BIG,
+    ids: ['1', '2']
+  }
+}), RouterDecorator]
+
+export const FunnyBig: Story = {
+  args: {}
+}
+FunnyBig.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
+  articlePage: {
+    entities: articles,
+    isLoading: false,
+    error: '',
+    view: ArticleView.BIG,
+    ids: ['1', '2']
+  }
+}), RouterDecorator]
+
+export const IsLoadingSmall: Story = {
+  args: {}
+}
+IsLoadingSmall.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+  articlePage: {
+    entities: articles,
+    isLoading: true,
+    error: '',
+    view: ArticleView.SMALL,
+    ids: ['1', '2']
+  }
+}), RouterDecorator]
+
+export const IsLoadingBig: Story = {
+  args: {}
+}
+IsLoadingBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+  articlePage: {
+    entities: articles,
+    isLoading: true,
+    error: '',
+    view: ArticleView.BIG,
+    ids: ['1', '2']
+  }
+}), RouterDecorator]
+
+export const Error: Story = {
+  args: {}
+}
+Error.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+  articlePage: {
+    entities: articles,
+    isLoading: false,
+    error: 'error',
     view: ArticleView.BIG,
     ids: ['1', '2']
   }

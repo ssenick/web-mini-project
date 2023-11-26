@@ -3,6 +3,7 @@ import { type ArticleDetailsSchema } from 'entities/Article'
 import { type CounterSchema } from 'entities/Counter'
 import { type UserSchema } from 'entities/User'
 import { type ArticleDetailsCommentSchema } from 'features/ArticleCommentList'
+import { type ArticlePageWrapperSchema } from 'features/ArticlesPageWrapper'
 import { type LoginSchema } from 'features/AuthByUsername'
 import { type ProfileSchema } from 'entities/Profile'
 import { type AxiosInstance } from 'axios'
@@ -19,6 +20,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentSchema
   addCommentForm?: AddNewCommentFormSchema
+  articlePage?: ArticlePageWrapperSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
