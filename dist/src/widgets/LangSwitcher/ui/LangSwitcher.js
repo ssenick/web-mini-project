@@ -46,21 +46,50 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './LangSwitcher.module.scss';
-import { useTranslation } from 'react-i18next';
-import { ButtonSize, Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { LANGUAGE_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonSize, ButtonVariant } from 'shared/ui/Button/Button';
+import cls from './LangSwitcher.module.scss';
+var Languages;
+(function (Languages) {
+    Languages["RU"] = "ru";
+    Languages["EN"] = "en";
+})(Languages || (Languages = {}));
 export var LangSwitcher = memo(function (_a) {
     var className = _a.className, children = _a.children;
     var _b = useTranslation(), t = _b.t, i18n = _b.i18n;
     var toggle = function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')];
+        var _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _a = localStorage.getItem(LANGUAGE_LOCALSTORAGE_KEY);
+                    switch (_a) {
+                        case Languages.RU: return [3 /*break*/, 1];
+                        case Languages.EN: return [3 /*break*/, 3];
+                    }
+                    return [3 /*break*/, 5];
                 case 1:
-                    _a.sent();
-                    return [2 /*return*/];
+                    localStorage.setItem(LANGUAGE_LOCALSTORAGE_KEY, Languages.EN);
+                    return [4 /*yield*/, i18n.changeLanguage(i18n.language = Languages.EN)];
+                case 2:
+                    _b.sent();
+                    return [3 /*break*/, 7];
+                case 3:
+                    localStorage.setItem(LANGUAGE_LOCALSTORAGE_KEY, Languages.RU);
+                    return [4 /*yield*/, i18n.changeLanguage(i18n.language = Languages.RU)];
+                case 4:
+                    _b.sent();
+                    return [3 /*break*/, 7];
+                case 5:
+                    localStorage.setItem(LANGUAGE_LOCALSTORAGE_KEY, Languages.RU);
+                    return [4 /*yield*/, i18n.changeLanguage(i18n.language = Languages.RU)];
+                case 6:
+                    _b.sent();
+                    _b.label = 7;
+                case 7: return [2 /*return*/];
             }
         });
     }); };
