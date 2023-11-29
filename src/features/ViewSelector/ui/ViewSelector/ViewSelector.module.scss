@@ -1,0 +1,11 @@
+.ArticleViewSelector {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  .selected {
+    svg {
+      fill: var(--bg-module);
+    }
+  }
+}
