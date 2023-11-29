@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Theme } from 'app/povaiders/ThemeProvaider'
 import { ArticleBlockType, ArticleType, ArticleView } from 'entities/Article/model/types/article'
 import Image from 'shared/assets/test/image.jpg'
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 
 import ArticlePage from './ArticlePage'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { Theme } from 'app/povaiders/ThemeProvaider'
+
 const articles = {
   1: {
     id: '1',
@@ -184,6 +185,56 @@ export const Big: Story = {
   args: {}
 }
 Big.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+  articlePage: {
+    entities: articles,
+    isLoading: false,
+    error: '',
+    view: ArticleView.BIG,
+    ids: ['1', '2']
+  }
+}), RouterDecorator]
+
+export const SmallDark: Story = {
+  args: {}
+}
+SmallDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+  articlePage: {
+    entities: articles,
+    isLoading: false,
+    error: '',
+    view: ArticleView.SMALL,
+    ids: ['1', '2']
+  }
+}), RouterDecorator]
+export const BigDark: Story = {
+  args: {}
+}
+BigDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+  articlePage: {
+    entities: articles,
+    isLoading: false,
+    error: '',
+    view: ArticleView.BIG,
+    ids: ['1', '2']
+  }
+}), RouterDecorator]
+
+export const SmallFunny: Story = {
+  args: {}
+}
+SmallFunny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
+  articlePage: {
+    entities: articles,
+    isLoading: false,
+    error: '',
+    view: ArticleView.SMALL,
+    ids: ['1', '2']
+  }
+}), RouterDecorator]
+export const BigFunny: Story = {
+  args: {}
+}
+BigFunny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
   articlePage: {
     entities: articles,
     isLoading: false,

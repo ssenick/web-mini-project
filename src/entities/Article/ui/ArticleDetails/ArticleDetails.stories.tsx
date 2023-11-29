@@ -41,12 +41,32 @@ const data = {
     }
   ]
 }
+
 export const Light: Story = {
   args: {}
-
 }
 
 Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+  articleDetails: {
+    data
+  }
+}), RouterDecorator]
+
+export const Dark: Story = {
+  args: {}
+}
+
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+  articleDetails: {
+    data
+  }
+}), RouterDecorator]
+
+export const Funny: Story = {
+  args: {}
+}
+
+Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
   articleDetails: {
     data
   }

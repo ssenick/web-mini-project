@@ -43,3 +43,19 @@ Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
             data: data
         }
     }), RouterDecorator];
+export var Dark = {
+    args: {}
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+        articleDetails: {
+            data: data
+        }
+    }), RouterDecorator];
+export var Funny = {
+    args: {}
+};
+Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
+        articleDetails: {
+            data: data
+        }
+    }), RouterDecorator];

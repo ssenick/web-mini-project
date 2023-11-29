@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Theme } from 'app/povaiders/ThemeProvaider'
 import Image from 'shared/assets/test/image.jpg'
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { type Article, ArticleView } from '../../model/types/article'
 
@@ -74,12 +75,44 @@ export const Big: Story = {
     view: ArticleView.BIG
   }
 }
-Big.decorators = [ThemeDecorator(Theme.LIGHT)]
+Big.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
 
 export const Small: Story = {
+  args: {
+    article,
+    view: ArticleView.SMALL
+  }
+}
+Small.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
+
+export const BigDark: Story = {
   args: {
     article,
     view: ArticleView.BIG
   }
 }
-Small.decorators = [ThemeDecorator(Theme.LIGHT)]
+BigDark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]
+
+export const SmallDark: Story = {
+  args: {
+    article,
+    view: ArticleView.SMALL
+  }
+}
+SmallDark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]
+
+export const BigFunny: Story = {
+  args: {
+    article,
+    view: ArticleView.BIG
+  }
+}
+BigFunny.decorators = [ThemeDecorator(Theme.FUNNY), RouterDecorator]
+
+export const SmallFunny: Story = {
+  args: {
+    article,
+    view: ArticleView.SMALL
+  }
+}
+SmallFunny.decorators = [ThemeDecorator(Theme.FUNNY), RouterDecorator]
