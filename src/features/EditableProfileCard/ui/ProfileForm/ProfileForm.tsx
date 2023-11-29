@@ -75,7 +75,6 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
       dispatch(profileActions.updateAge(Number(value) || ''))
     }
   }, [dispatch])
-
   const onChangeUsername = useCallback((value?: string) => {
     dispatch(profileActions.updateUsername(value || ''))
   }, [dispatch])

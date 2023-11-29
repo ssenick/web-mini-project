@@ -64,7 +64,7 @@ export var loginByUsername = createAsyncThunk('login/loginByUsername', function 
                 return [2 /*return*/, data];
             case 3:
                 e_1 = _a.sent();
-                console.log(e_1);
+                console.log('error in loginByUsername', e_1);
                 return [2 /*return*/, rejectWithValue('error')];
             case 4: return [2 /*return*/];
         }
