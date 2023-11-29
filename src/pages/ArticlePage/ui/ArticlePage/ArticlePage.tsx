@@ -1,4 +1,5 @@
 import { ArticlesPageWrapper } from 'features/ArticlesPageWrapper'
+import { ArticlePageHeader } from 'pages/ArticlePage/ui/ArticlePageHeader/ArticlePageHeader'
 import { type FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -15,9 +16,10 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
   return (
 
             <div className={classNames(cls.ArticlePage, {}, [className])}>
-                <div className={cls.header}>
+                <div className={cls.title}>
                     <Text size={TextFontSize.L} title={t('Заголовок страницы')}/>
                 </div>
+                <ArticlePageHeader className={cls.header}/>
                 <ArticlesPageWrapper/>
             </div>
 

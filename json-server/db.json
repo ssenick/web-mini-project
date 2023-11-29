@@ -108,7 +108,8 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT","SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -180,7 +181,8 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -252,7 +254,9 @@
       "createdAt": "26.12.2021",
       "userId": "2",
       "type": [
-        "IT","SCIENCE","ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -264,7 +268,6 @@
             "Whether you're preparing for your first job interview or aiming to upskill in this ever-evolving tech landscape, GeeksforGeeks Courses are your key to success. "
           ]
         },
-
         {
           "id": "4",
           "type": "CODE",
@@ -300,7 +303,6 @@
           "type": "CODE",
           "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
         },
-
         {
           "id": "8",
           "type": "IMAGE",
@@ -326,7 +328,8 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -383,7 +386,9 @@
       "createdAt": "22.12.2020",
       "userId": "1",
       "type": [
-        "IT","SCIENCE","ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -395,7 +400,6 @@
             "Whether you're preparing for your first job interview or aiming to upskill in this ever-evolving tech landscape, GeeksforGeeks Courses are your key to success. "
           ]
         },
-
         {
           "id": "4",
           "type": "CODE",
@@ -431,7 +435,6 @@
           "type": "CODE",
           "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
         },
-
         {
           "id": "8",
           "type": "IMAGE",
@@ -530,7 +533,8 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT","SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -602,7 +606,8 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -674,7 +679,9 @@
       "createdAt": "26.12.2021",
       "userId": "2",
       "type": [
-        "IT","SCIENCE","ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -686,7 +693,6 @@
             "Whether you're preparing for your first job interview or aiming to upskill in this ever-evolving tech landscape, GeeksforGeeks Courses are your key to success. "
           ]
         },
-
         {
           "id": "4",
           "type": "CODE",
@@ -722,7 +728,6 @@
           "type": "CODE",
           "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
         },
-
         {
           "id": "8",
           "type": "IMAGE",
@@ -748,7 +753,8 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -805,7 +811,9 @@
       "createdAt": "22.12.2020",
       "userId": "1",
       "type": [
-        "IT","SCIENCE","ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -817,7 +825,6 @@
             "Whether you're preparing for your first job interview or aiming to upskill in this ever-evolving tech landscape, GeeksforGeeks Courses are your key to success. "
           ]
         },
-
         {
           "id": "4",
           "type": "CODE",
@@ -853,7 +860,6 @@
           "type": "CODE",
           "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
         },
-
         {
           "id": "8",
           "type": "IMAGE",
@@ -952,7 +958,8 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT","SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -1024,7 +1031,8 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -1096,7 +1104,9 @@
       "createdAt": "26.12.2021",
       "userId": "2",
       "type": [
-        "IT","SCIENCE","ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -1108,7 +1118,6 @@
             "Whether you're preparing for your first job interview or aiming to upskill in this ever-evolving tech landscape, GeeksforGeeks Courses are your key to success. "
           ]
         },
-
         {
           "id": "4",
           "type": "CODE",
@@ -1144,7 +1153,6 @@
           "type": "CODE",
           "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
         },
-
         {
           "id": "8",
           "type": "IMAGE",
@@ -1170,7 +1178,8 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -1227,7 +1236,9 @@
       "createdAt": "22.12.2020",
       "userId": "1",
       "type": [
-        "IT","SCIENCE","ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -1239,7 +1250,6 @@
             "Whether you're preparing for your first job interview or aiming to upskill in this ever-evolving tech landscape, GeeksforGeeks Courses are your key to success. "
           ]
         },
-
         {
           "id": "4",
           "type": "CODE",
@@ -1275,7 +1285,6 @@
           "type": "CODE",
           "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
         },
-
         {
           "id": "8",
           "type": "IMAGE",
@@ -1374,7 +1383,8 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT","SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -1446,7 +1456,8 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -1518,7 +1529,9 @@
       "createdAt": "26.12.2021",
       "userId": "2",
       "type": [
-        "IT","SCIENCE","ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -1530,7 +1543,6 @@
             "Whether you're preparing for your first job interview or aiming to upskill in this ever-evolving tech landscape, GeeksforGeeks Courses are your key to success. "
           ]
         },
-
         {
           "id": "4",
           "type": "CODE",
@@ -1566,7 +1578,6 @@
           "type": "CODE",
           "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
         },
-
         {
           "id": "8",
           "type": "IMAGE",
@@ -1592,7 +1603,8 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -1649,7 +1661,9 @@
       "createdAt": "22.12.2020",
       "userId": "1",
       "type": [
-        "IT","SCIENCE","ECONOMICS"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -1661,7 +1675,6 @@
             "Whether you're preparing for your first job interview or aiming to upskill in this ever-evolving tech landscape, GeeksforGeeks Courses are your key to success. "
           ]
         },
-
         {
           "id": "4",
           "type": "CODE",
@@ -1697,7 +1710,6 @@
           "type": "CODE",
           "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
         },
-
         {
           "id": "8",
           "type": "IMAGE",
@@ -1744,6 +1756,34 @@
       "articleId": "1",
       "userId": "1",
       "createdComment": "22.02.2023"
+    },
+    {
+      "articleId": "9",
+      "userId": "1",
+      "text": "super!",
+      "createdComment": "25.11.2023",
+      "id": "C6jc0nt"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": ")))))",
+      "createdComment": "25.11.2023",
+      "id": "N57gx3p"
+    },
+    {
+      "articleId": "20",
+      "userId": "1",
+      "text": "hi!",
+      "createdComment": "28.11.2023",
+      "id": "YcyLzhB"
+    },
+    {
+      "articleId": "22",
+      "userId": "1",
+      "text": "asda",
+      "createdComment": "28.11.2023",
+      "id": "hPrmZmA"
     }
   ],
   "users": [
@@ -1785,4 +1825,3 @@
     }
   ]
 }
-

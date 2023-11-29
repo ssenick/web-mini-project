@@ -1,13 +1,16 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import DateIcon from 'shared/assets/icons/date.svg'
 import ViewIcon from 'shared/assets/icons/view.svg'
+import { RoutPath } from 'shared/config/routeConfig'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
+import { Button, ButtonSize, ButtonVariant } from 'shared/ui/Button/Button'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text'
@@ -38,6 +41,10 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const isLoading = useSelector(getArticleDetailsIsLoading)
   const error = useSelector(getArticleDetailsError)
   const article = useSelector(getArticleDetailsData)
+  const navigate = useNavigate()
+  const onBackToList = useCallback(() => {
+    navigate(RoutPath.articles)
+  }, [navigate])
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block?.type) {
@@ -144,6 +151,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
           <div className={classNames(cls.ArticleDetails, {}, [className])}>
+              <Button className={cls.btnBack} onClick={onBackToList} size={ButtonSize.XS} variant={ButtonVariant.BORDER}>{t('Назад к списку')}</Button>
               {content}
           </div>
       </DynamicModuleLoader>

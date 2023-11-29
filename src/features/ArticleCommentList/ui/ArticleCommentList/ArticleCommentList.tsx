@@ -1,8 +1,8 @@
 import { CommentList } from 'entities/Comment'
-import { getArticleCommentsIsLoading } from 'features/ArticleCommentList/model/selectors/comments'
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import {
   fetchCommentsByArticleId
-} from 'features/ArticleCommentList/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'

@@ -9,13 +9,17 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx } from "react/jsx-runtime";
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { ArticlesPageWrapper } from 'features/ArticlesPageWrapper';
+import { ArticlePageHeader } from 'pages/ArticlePage/ui/ArticlePageHeader/ArticlePageHeader';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text, TextFontSize } from 'shared/ui/Text/Text';
 import cls from './ArticlePage.module.scss';
 var ArticlePage = function (_a) {
     var className = _a.className;
-    return (_jsx("div", __assign({ className: classNames(cls.ArticlePage, {}, [className]) }, { children: _jsx(ArticleList, { articles: [], isLoading: false }) })));
+    var t = useTranslation('articles').t;
+    return (_jsxs("div", __assign({ className: classNames(cls.ArticlePage, {}, [className]) }, { children: [_jsx("div", __assign({ className: cls.title }, { children: _jsx(Text, { size: TextFontSize.L, title: t('Заголовок страницы') }) })), _jsx(ArticlePageHeader, { className: cls.header }), _jsx(ArticlesPageWrapper, {})] })));
 };
 export default memo(ArticlePage);

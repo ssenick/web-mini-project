@@ -3,6 +3,7 @@ import { type StateSchema } from 'app/povaiders/StoreProvaider'
 import { type Article, ArticleView } from 'entities/Article'
 import { type ArticlePageWrapperSchema } from 'features/ArticlesPageWrapper'
 import { fetchArticlesList } from 'features/ArticlesPageWrapper/model/services/fetchArticlesList/fetchArticlesList'
+import { VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 
 const articlesAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id
@@ -24,6 +25,10 @@ export const articlesPageSlice = createSlice({
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
       state.view = action.payload
+      localStorage.setItem(VIEW_LOCALSTORAGE_KEY, action.payload)
+    },
+    initView: (state) => {
+      state.view = localStorage.getItem(VIEW_LOCALSTORAGE_KEY) as ArticleView
     }
   },
   extraReducers: (builder) => {

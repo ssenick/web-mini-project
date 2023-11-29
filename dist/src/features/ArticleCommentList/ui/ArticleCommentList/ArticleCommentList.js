@@ -11,8 +11,8 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { CommentList } from 'entities/Comment';
-import { getArticleCommentsIsLoading } from 'features/ArticleCommentList/model/selectors/comments';
-import { fetchCommentsByArticleId } from 'features/ArticleCommentList/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';

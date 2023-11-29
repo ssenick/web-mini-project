@@ -13,7 +13,7 @@ import {
   getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
-import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice'
+import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice'
 import cls from './ArticlesPageWrapper.module.scss'
 
 interface ArticlesPageWrapperProps {
@@ -33,6 +33,7 @@ export const ArticlesPageWrapper = memo(({ className }: ArticlesPageWrapperProps
 
   useInitialEffect(() => {
     void dispatch(fetchArticlesList())
+    dispatch(articlesPageActions.initView())
   })
   if (error) {
     return (
