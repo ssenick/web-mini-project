@@ -10,12 +10,12 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { ButtonVariant, Button } from 'shared/ui/Button/Button';
 import { Theme, useTheme } from 'app/povaiders/ThemeProvaider';
+import { memo } from 'react';
+import FunnyIcon from 'shared/assets/icons/funnyTheme.svg';
 import MoonIcon from 'shared/assets/icons/moon.svg';
 import SunIcon from 'shared/assets/icons/sun.svg';
-import FunnyIcon from 'shared/assets/icons/funnyTheme.svg';
-import { memo } from 'react';
+import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 export var ThemeSwitcher = memo(function (_a) {
     var className = _a.className, childrenStorybook = _a.childrenStorybook;
     var _b = useTheme(), theme = _b.theme, toggleTheme = _b.toggleTheme;

@@ -15,12 +15,14 @@ import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetai
 import { profileReducer } from 'entities/Profile';
 import { addNewCommentFormReducer } from 'features/AddNewCommentForm/model/slice/addNewCommentFormSlice';
 import { articleDetailsCommentsReducer } from 'features/ArticleCommentList/model/slice/articleDetailsCommentsSlice';
+import { articlesPageReducer } from 'features/ArticlesPageWrapper/model/slice/articlesPageSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 var defaultAsyncReducers = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     articleDetailsComments: articleDetailsCommentsReducer,
-    addCommentForm: addNewCommentFormReducer
+    addCommentForm: addNewCommentFormReducer,
+    articlePage: articlesPageReducer
 };
 export var StoreDecorator = function (initialState, asyncReducers) { return function (Story) { return (_jsx(StoreProvider, __assign({ initialState: initialState, asyncReducers: __assign(__assign({}, defaultAsyncReducers), asyncReducers) }, { children: Story() }))); }; };

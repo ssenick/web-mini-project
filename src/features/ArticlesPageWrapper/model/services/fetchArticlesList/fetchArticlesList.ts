@@ -14,6 +14,10 @@ export const fetchArticlesList = createAsyncThunk<Article[], undefined, ThunkCon
     const { extra, rejectWithValue } = thunkAPI
     try {
       const { data } = await extra.api.get<Article[]>('/articles', {
+        // headers: {
+        //   // это для косяк, хз как решить, без этого кода, api.ts не работает без перезагрузки страницы
+        //   authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY) || ''
+        // },
         params: {
           _expand: 'user'
         }

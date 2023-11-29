@@ -13,11 +13,16 @@ export const fetchProfileData = createAsyncThunk<Profile, string, ThunkConfig<st
   async (profileId, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI
     try {
-      const { data } = await extra.api.get<Profile>(`/profile/${profileId}`)
+      const { data } = await extra.api.get<Profile>(`/profile/${profileId}`, {
+        // headers: {
+        //   // это для косяк, хз как решить, без этого кода, api.ts не работает без перезагрузки страницы
+        //   authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY) || ''
+        // }
+      })
       checkData(data)
       return data
     } catch (e) {
-      console.log(e)
+      console.log('error in fetchProfileData', e)
       return rejectWithValue('error')
     }
   }

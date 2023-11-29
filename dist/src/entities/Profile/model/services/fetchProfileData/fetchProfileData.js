@@ -49,14 +49,19 @@ export var fetchProfileData = createAsyncThunk('profile/fetchProfileData', funct
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, extra.api.get("/profile/".concat(profileId))];
+                return [4 /*yield*/, extra.api.get("/profile/".concat(profileId), {
+                    // headers: {
+                    //   // это для косяк, хз как решить, без этого кода, api.ts не работает без перезагрузки страницы
+                    //   authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY) || ''
+                    // }
+                    })];
             case 2:
                 data = (_a.sent()).data;
                 checkData(data);
                 return [2 /*return*/, data];
             case 3:
                 e_1 = _a.sent();
-                console.log(e_1);
+                console.log('error in fetchProfileData', e_1);
                 return [2 /*return*/, rejectWithValue('error')];
             case 4: return [2 /*return*/];
         }
