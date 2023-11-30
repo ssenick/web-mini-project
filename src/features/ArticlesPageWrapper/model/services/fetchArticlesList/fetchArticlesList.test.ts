@@ -57,9 +57,13 @@ describe('fetchArticlesList test', () => {
       }
     ] as Article []
 
-    const thunk = new TestAsyncThunk(fetchArticlesList)
+    const thunk = new TestAsyncThunk(fetchArticlesList, {
+      articlePage: {
+        limit: 10
+      }
+    })
     thunk.api.get.mockReturnValue(Promise.resolve({ data: articles }))
-    const result = await thunk.callThunk(undefined)
+    const result = await thunk.callThunk({ page: 1 })
 
     expect(thunk.api.get).toHaveBeenCalled()
     // проверяем что статус запросса === fulfilled
@@ -69,9 +73,13 @@ describe('fetchArticlesList test', () => {
   })
   /// тест с ошибкой
   test('error ', async () => {
-    const thunk = new TestAsyncThunk(fetchArticlesList)
+    const thunk = new TestAsyncThunk(fetchArticlesList, {
+      articlePage: {
+        limit: 10
+      }
+    })
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }))
-    const result = await thunk.callThunk(undefined)
+    const result = await thunk.callThunk({ page: 1 })
 
     // проверяем что запрос был отправлен
     expect(thunk.api.get).toHaveBeenCalled()

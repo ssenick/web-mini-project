@@ -21,6 +21,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Text, TextFontSize } from 'shared/ui/Text/Text';
 import cls from './ArticleDetailsPage.module.scss';
+import { Page } from 'widgets/Page';
 var ArticleDetailsPage = function (_a) {
     var className = _a.className;
     var t = useTranslation('articleDetails').t;
@@ -33,8 +34,8 @@ var ArticleDetailsPage = function (_a) {
         return (_jsx("div", __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: _jsx(ArticleDetails, { id: '1' }) })));
     }
     if (!id) {
-        return (_jsx("div", __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: t('Статья не найдена') })));
+        return (_jsx(Page, __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: t('Статья не найдена') })));
     }
-    return (_jsxs("div", __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: [_jsx(ArticleDetails, { className: cls.article, id: id }), _jsx(Text, { className: cls.title, size: TextFontSize.L, title: "".concat(t('Комментарии'), ":") }), _jsx(AddNewCommentForm, { className: cls.form, onSendComment: onSendComment }), _jsx(ArticleCommentList, {})] })));
+    return (_jsxs(Page, __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: [_jsx(ArticleDetails, { className: cls.article, id: id }), _jsx(Text, { className: cls.title, size: TextFontSize.L, title: "".concat(t('Комментарии'), ":") }), _jsx(AddNewCommentForm, { className: cls.form, onSendComment: onSendComment }), _jsx(ArticleCommentList, {})] })));
 };
 export default memo(ArticleDetailsPage);

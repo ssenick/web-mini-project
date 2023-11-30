@@ -34,7 +34,6 @@ body {
 
   &__content {
     grid-area: content;
-    padding: 15px;
-    overflow: auto;
+    padding: 0 15px 15px;
   }
 }

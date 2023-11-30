@@ -16,10 +16,14 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextFontSize } from 'shared/ui/Text/Text';
+import { Page } from 'widgets/Page';
 import cls from './ArticlePage.module.scss';
 var ArticlePage = function (_a) {
     var className = _a.className;
     var t = useTranslation('articles').t;
-    return (_jsxs("div", __assign({ className: classNames(cls.ArticlePage, {}, [className]) }, { children: [_jsx("div", __assign({ className: cls.title }, { children: _jsx(Text, { size: TextFontSize.L, title: t('Заголовок страницы') }) })), _jsx(ArticlePageHeader, { className: cls.header }), _jsx(ArticlesPageWrapper, {})] })));
+    var callback = function () {
+        console.log('Article');
+    };
+    return (_jsxs(Page, __assign({ onScrollEnd: callback, className: classNames(cls.ArticlePage, {}, [className]) }, { children: [_jsx("div", __assign({ className: cls.title }, { children: _jsx(Text, { size: TextFontSize.L, title: t('Заголовок страницы') }) })), _jsx(ArticlePageHeader, { className: cls.header }), _jsx(ArticlesPageWrapper, {})] })));
 };
 export default memo(ArticlePage);

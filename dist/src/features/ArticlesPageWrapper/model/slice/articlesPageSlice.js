@@ -13,15 +13,25 @@ export var articlesPageSlice = createSlice({
         error: '',
         ids: [],
         entities: {},
-        view: ArticleView.SMALL
+        view: ArticleView.SMALL,
+        page: 1,
+        hasMore: true
     }),
     reducers: {
         setView: function (state, action) {
             state.view = action.payload;
             localStorage.setItem(VIEW_LOCALSTORAGE_KEY, action.payload);
         },
-        initView: function (state) {
-            state.view = localStorage.getItem(VIEW_LOCALSTORAGE_KEY);
+        // initView: (state) => {
+        //   state.view = localStorage.getItem(VIEW_LOCALSTORAGE_KEY) as ArticleView
+        // },
+        setPage: function (state, action) {
+            state.page = action.payload;
+        },
+        initialState: function (state) {
+            var view = localStorage.getItem(VIEW_LOCALSTORAGE_KEY);
+            state.view = view;
+            state.limit = view === ArticleView.SMALL ? 9 : 3;
         }
     },
     extraReducers: function (builder) {

@@ -11,7 +11,7 @@ interface AppRouterProps {
 
 export const AppRouter = memo(({ className }: AppRouterProps): JSX.Element => {
   return (
-        <div className={classNames('', {}, [className])}>
+        <main className={classNames('', {}, [className])}>
             <Suspense fallback={<PageLoader/>}>
                 <Routes>
                     {Object.values(routeConfig).map((el: AppRoutersProps) =>
@@ -22,6 +22,6 @@ export const AppRouter = memo(({ className }: AppRouterProps): JSX.Element => {
                     )}
                 </Routes>
             </Suspense>
-        </div>
+        </main>
   )
 })

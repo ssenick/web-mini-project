@@ -35,8 +35,10 @@ export var ArticlesPageWrapper = memo(function (_a) {
     var error = useSelector(getArticlesPageError);
     var view = useSelector(getArticlesPageView);
     useInitialEffect(function () {
-        void dispatch(fetchArticlesList());
-        dispatch(articlesPageActions.initView());
+        dispatch(articlesPageActions.initialState());
+        void dispatch(fetchArticlesList({
+            page: 1
+        }));
     });
     if (error) {
         return (_jsx(Text, { title: t('что-то пошло не так'), size: TextFontSize.XL, texAlign: TextAlign.CENTER }));

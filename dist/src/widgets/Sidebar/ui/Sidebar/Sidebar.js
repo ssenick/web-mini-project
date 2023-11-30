@@ -25,7 +25,7 @@ export var Sidebar = memo(function (_a) {
     var toggleCollapse = useCallback(function () {
         setCollapsed(!collapsed);
     }, [collapsed]);
-    return (_jsxs("aside", __assign({ "data-testid": 'sidebar', className: classNames(cls.Sidebar, (_b = {}, _b[cls.collapsed] = collapsed, _b), [className]) }, { children: [_jsxs(Button, __assign({ "data-testid": 'sidebar-toggle', variant: ButtonVariant.CLEAN, onClick: toggleCollapse, className: cls.burgerBtn }, { children: [_jsx("span", { className: cls.itemBtn }), _jsx("span", { className: cls.itemBtn }), _jsx("span", { className: cls.itemBtn })] })), _jsx("ul", __assign({ className: cls.list }, { children: sidebarLinksList.map(function (link) {
-                    return _jsx(SidebarLink, { item: link, collapsed: collapsedStorybook || collapsed }, link.path);
-                }) }))] })));
+    return (_jsxs("aside", __assign({ "data-testid": 'sidebar', className: classNames(cls.Sidebar, (_b = {}, _b[cls.collapsed] = collapsed, _b), [className]) }, { children: [_jsxs(Button, __assign({ "data-testid": 'sidebar-toggle', variant: ButtonVariant.CLEAN, onClick: toggleCollapse, className: cls.burgerBtn }, { children: [_jsx("span", { className: cls.itemBtn }), _jsx("span", { className: cls.itemBtn }), _jsx("span", { className: cls.itemBtn })] })), _jsx("menu", { children: _jsx("ul", __assign({ className: cls.list }, { children: sidebarLinksList.map(function (link) {
+                        return _jsx(SidebarLink, { item: link, collapsed: collapsedStorybook || collapsed }, link.path);
+                    }) })) })] })));
 });

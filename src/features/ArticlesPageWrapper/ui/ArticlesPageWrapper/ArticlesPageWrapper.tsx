@@ -32,9 +32,12 @@ export const ArticlesPageWrapper = memo(({ className }: ArticlesPageWrapperProps
   const view = useSelector(getArticlesPageView)
 
   useInitialEffect(() => {
-    void dispatch(fetchArticlesList())
-    dispatch(articlesPageActions.initView())
+    dispatch(articlesPageActions.initialState())
+    void dispatch(fetchArticlesList({
+      page: 1
+    }))
   })
+
   if (error) {
     return (
             <Text title={t('что-то пошло не так')} size={TextFontSize.XL} texAlign={TextAlign.CENTER}/>

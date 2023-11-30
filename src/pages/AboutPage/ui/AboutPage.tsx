@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback, useState } from 'react'
 import { Input } from 'shared/ui/Input/Input'
+import { Page } from 'widgets/Page'
 
 const AboutPage = memo((): JSX.Element => {
   const { t } = useTranslation('about')
@@ -11,10 +12,10 @@ const AboutPage = memo((): JSX.Element => {
   }, [])
 
   return (
-        <div>
+        <Page>
             {t('Заголовок страницы')}
             <Input value={value} onChange={inputOnChange}/>
-        </div>
+        </Page>
   )
 })
 

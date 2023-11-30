@@ -29,12 +29,14 @@ export const Sidebar = memo(({ className, collapsedStorybook }: SidebarProps): J
                 <span className={cls.itemBtn}></span>
                 <span className={cls.itemBtn}></span>
             </Button>
+            <menu>
+                <ul className={cls.list}>
+                    {sidebarLinksList.map(link =>
+                        <SidebarLink key={link.path} item={link} collapsed={collapsedStorybook || collapsed}/>
+                    )}
+                </ul>
+            </menu>
 
-            <ul className={cls.list}>
-                {sidebarLinksList.map(link =>
-                    <SidebarLink key={link.path} item={link} collapsed={collapsedStorybook || collapsed}/>
-                )}
-            </ul>
         </aside>
   )
 })

@@ -9,6 +9,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Text, TextFontSize } from 'shared/ui/Text/Text'
 import cls from './ArticleDetailsPage.module.scss'
+import { Page } from 'widgets/Page'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -32,18 +33,18 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   }
 
   if (!id) {
-    return (<div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+    return (<Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         {t('Статья не найдена')}
-    </div>)
+    </Page>)
   }
 
   return (
-        <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             <ArticleDetails className={cls.article} id={id}/>
             <Text className={cls.title} size={TextFontSize.L} title={`${t('Комментарии')}:`}/>
             <AddNewCommentForm className={cls.form} onSendComment={onSendComment}/>
             <ArticleCommentList/>
-        </div>
+        </Page>
   )
 }
 export default memo(ArticleDetailsPage)

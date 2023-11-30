@@ -1,0 +1,12 @@
+.Page {
+  height: calc(100vh - var(--height-header));
+  overflow: auto;
+  padding: 15px 0;
+
+  .trigger {
+    height: 1px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+  }
+}

@@ -18,7 +18,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { PageLoader } from 'widgets/PageLoader';
 export var AppRouter = memo(function (_a) {
     var className = _a.className;
-    return (_jsx("div", __assign({ className: classNames('', {}, [className]) }, { children: _jsx(Suspense, __assign({ fallback: _jsx(PageLoader, {}) }, { children: _jsx(Routes, { children: Object.values(routeConfig).map(function (el) {
+    return (_jsx("main", __assign({ className: classNames('', {}, [className]) }, { children: _jsx(Suspense, __assign({ fallback: _jsx(PageLoader, {}) }, { children: _jsx(Routes, { children: Object.values(routeConfig).map(function (el) {
                     return _jsx(Route, { path: el.path, element: el.authOnly ? _jsxs(RequireAuth, { children: [" ", el.element, " "] }) : el.element }, el.path);
                 }) }) })) })));
 });
