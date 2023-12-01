@@ -1,3 +1,15 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+import { jsx as _jsx } from "react/jsx-runtime";
 import { Theme } from 'app/povaiders/ThemeProvaider';
 import { ArticleBlockType, ArticleType, ArticleView } from 'entities/Article/model/types/article';
 import Image from 'shared/assets/test/image.jpg';
@@ -199,7 +211,8 @@ FunnySmall.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
         }
     }), RouterDecorator];
 export var LightBig = {
-    args: {}
+    args: {},
+    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticlesPageWrapper, {}) }))); }
 };
 LightBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
         articlePage: {
@@ -211,7 +224,8 @@ LightBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
         }
     }), RouterDecorator];
 export var DarkBig = {
-    args: {}
+    args: {},
+    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticlesPageWrapper, {}) }))); }
 };
 DarkBig.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
         articlePage: {
@@ -223,7 +237,8 @@ DarkBig.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
         }
     }), RouterDecorator];
 export var FunnyBig = {
-    args: {}
+    args: {},
+    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticlesPageWrapper, {}) }))); }
 };
 FunnyBig.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
         articlePage: {
@@ -247,7 +262,8 @@ IsLoadingSmall.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
         }
     }), RouterDecorator];
 export var IsLoadingBig = {
-    args: {}
+    args: {},
+    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticlesPageWrapper, {}) }))); }
 };
 IsLoadingBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
         articlePage: {

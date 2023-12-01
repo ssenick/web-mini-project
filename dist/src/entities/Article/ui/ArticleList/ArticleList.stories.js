@@ -199,27 +199,18 @@ export var Funny = {
 };
 Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator(), RouterDecorator];
 export var FunnyBig = {
-    args: {
-        isLoading: false,
-        view: ArticleView.BIG,
-        articles: articles
-    }
+    args: {},
+    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticleList, { articles: articles, view: ArticleView.BIG }) }))); }
 };
 FunnyBig.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator(), RouterDecorator];
 export var LightBig = {
-    args: {
-        isLoading: false,
-        view: ArticleView.BIG,
-        articles: articles
-    }
+    args: {},
+    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticleList, { articles: articles, view: ArticleView.BIG }) }))); }
 };
 LightBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator];
 export var DarkBig = {
-    args: {
-        isLoading: false,
-        view: ArticleView.BIG,
-        articles: articles
-    }
+    args: {},
+    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticleList, { articles: articles, view: ArticleView.BIG }) }))); }
 };
 DarkBig.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(), RouterDecorator];
 export var IsLoadingSmall = {
@@ -231,11 +222,7 @@ export var IsLoadingSmall = {
 };
 IsLoadingSmall.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator];
 export var IsLoadingBig = {
-    args: {
-        isLoading: true,
-        view: ArticleView.BIG,
-        articles: articles
-    },
-    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticleList, { articles: articles, isLoading: true }) }))); }
+    args: {},
+    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticleList, { articles: [], view: ArticleView.BIG, isLoading: true }) }))); }
 };
 IsLoadingBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator];

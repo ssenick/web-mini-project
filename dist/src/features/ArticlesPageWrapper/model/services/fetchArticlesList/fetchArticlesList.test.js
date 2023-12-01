@@ -100,7 +100,7 @@ describe('fetchArticlesList test', function () {
                         }
                     });
                     thunk.api.get.mockReturnValue(Promise.resolve({ data: articles }));
-                    return [4 /*yield*/, thunk.callThunk({ page: 1 })];
+                    return [4 /*yield*/, thunk.callThunk({})];
                 case 1:
                     result = _a.sent();
                     expect(thunk.api.get).toHaveBeenCalled();
@@ -124,7 +124,7 @@ describe('fetchArticlesList test', function () {
                         }
                     });
                     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-                    return [4 /*yield*/, thunk.callThunk({ page: 1 })
+                    return [4 /*yield*/, thunk.callThunk({})
                         // проверяем что запрос был отправлен
                     ];
                 case 1:

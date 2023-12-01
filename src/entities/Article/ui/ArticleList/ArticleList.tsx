@@ -15,7 +15,7 @@ interface ArticleListProps {
 }
 
 const getSkeletons = (view: ArticleView): ReactNode =>
-  new Array(view === ArticleView.SMALL ? 10 : 3)
+  new Array(view === ArticleView.SMALL ? 10 : 4)
     .fill(0).map((item, index) => (
           <ArticleListItemSkeleton view={view} key={index}/>
     ))
@@ -32,19 +32,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const renderArticles = (article: Article): JSX.Element => (
     <ArticleListItem key={article.id} article={article} view={view}/>
   )
-  if (isLoading) {
-    return (
+
+  return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
           <div className={cls.articles}>
-              {getSkeletons(view)}
-          </div>
-        </div>
-    )
-  }
-  return (
-        <div className={classNames(cls.ArticleList, {}, [className])}>
-          <div className={cls.articles}>
-            {articles.length > 0 ? articles.map(renderArticles) : <Text title={t('Нет статей')}/>}
+            {articles.length > 0 ? articles.map(renderArticles) : null}
+              {(!articles.length && !isLoading) && <Text title={t('Нет статей')}/>}
+              {isLoading && getSkeletons(view)}
           </div>
         </div>
   )

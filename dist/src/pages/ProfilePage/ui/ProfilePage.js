@@ -14,10 +14,11 @@ import { ProfileForm } from 'features/EditableProfileCard';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextFontSize } from 'shared/ui/Text/Text';
+import { Page } from 'widgets/Page';
 import cls from './ProfilePage.module.scss';
 var ProfilePage = function (_a) {
     var className = _a.className;
     var t = useTranslation('profile').t;
-    return (_jsxs("div", __assign({ className: classNames(cls.ProfilePage, {}, [className]) }, { children: [_jsx("div", __assign({ className: cls.header }, { children: _jsx(Text, { size: TextFontSize.L, title: t('Заголовок страницы') }) })), _jsx("div", __assign({ className: cls.content }, { children: _jsx(ProfileForm, {}) }))] })));
+    return (_jsxs(Page, __assign({ className: classNames(cls.ProfilePage, {}, [className]) }, { children: [_jsx("div", __assign({ className: cls.header }, { children: _jsx(Text, { size: TextFontSize.L, title: t('Заголовок страницы') }) })), _jsx("div", __assign({ className: cls.content }, { children: _jsx(ProfileForm, {}) }))] })));
 };
 export default ProfilePage;
