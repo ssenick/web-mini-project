@@ -5,7 +5,7 @@ import { ArticlePageHeader } from './ArticlePageHeader';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/povaiders/ThemeProvaider';
 var meta = {
-    title: 'pages/ArticlePageHeader',
+    title: 'pages/Article/ArticlePageHeader',
     component: ArticlePageHeader,
     parameters: {
         layout: 'fullscreen'

@@ -220,7 +220,10 @@ LightBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
             isLoading: false,
             error: '',
             view: ArticleView.BIG,
-            ids: ['1', '2']
+            ids: ['1', '2'],
+            page: 1,
+            hasMore: false,
+            limit: 2
         }
     }), RouterDecorator];
 export var DarkBig = {
@@ -233,7 +236,10 @@ DarkBig.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
             isLoading: false,
             error: '',
             view: ArticleView.BIG,
-            ids: ['1', '2']
+            ids: ['1', '2'],
+            page: 1,
+            hasMore: false,
+            limit: 2
         }
     }), RouterDecorator];
 export var FunnyBig = {
@@ -246,7 +252,10 @@ FunnyBig.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
             isLoading: false,
             error: '',
             view: ArticleView.BIG,
-            ids: ['1', '2']
+            ids: ['1', '2'],
+            page: 1,
+            hasMore: false,
+            limit: 2
         }
     }), RouterDecorator];
 export var IsLoadingSmall = {
@@ -254,11 +263,11 @@ export var IsLoadingSmall = {
 };
 IsLoadingSmall.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
         articlePage: {
-            entities: articles,
+            entities: {},
             isLoading: true,
             error: '',
             view: ArticleView.SMALL,
-            ids: ['1', '2']
+            ids: []
         }
     }), RouterDecorator];
 export var IsLoadingBig = {
@@ -267,11 +276,14 @@ export var IsLoadingBig = {
 };
 IsLoadingBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
         articlePage: {
-            entities: articles,
+            entities: {},
             isLoading: true,
             error: '',
             view: ArticleView.BIG,
-            ids: ['1', '2']
+            ids: [],
+            page: 1,
+            hasMore: false,
+            limit: 2
         }
     }), RouterDecorator];
 export var Error = {

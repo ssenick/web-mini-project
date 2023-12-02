@@ -14,8 +14,8 @@ import { useRef } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useInfinityScroll } from 'shared/lib/hooks/useInfinityScroll';
 import cls from './Page.module.scss';
-export var Page = function (_a) {
-    var className = _a.className, children = _a.children, onScrollEnd = _a.onScrollEnd;
+export var Page = function (props) {
+    var className = props.className, children = props.children, onScrollEnd = props.onScrollEnd;
     var wrapperRef = useRef();
     var triggerRef = useRef();
     useInfinityScroll({

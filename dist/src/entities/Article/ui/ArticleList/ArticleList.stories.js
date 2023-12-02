@@ -200,24 +200,24 @@ export var Funny = {
 Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator(), RouterDecorator];
 export var FunnyBig = {
     args: {},
-    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticleList, { articles: articles, view: ArticleView.BIG }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticleList, { articles: articles, isLoading: false, view: ArticleView.BIG }) }))); }
 };
 FunnyBig.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator(), RouterDecorator];
 export var LightBig = {
     args: {},
-    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticleList, { articles: articles, view: ArticleView.BIG }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticleList, { articles: articles, isLoading: false, view: ArticleView.BIG }) }))); }
 };
 LightBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator];
 export var DarkBig = {
     args: {},
-    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticleList, { articles: articles, view: ArticleView.BIG }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: 'app__content' }, { children: _jsx(ArticleList, { articles: articles, isLoading: false, view: ArticleView.BIG }) }))); }
 };
 DarkBig.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(), RouterDecorator];
 export var IsLoadingSmall = {
     args: {
         isLoading: true,
         view: ArticleView.SMALL,
-        articles: articles
+        articles: []
     }
 };
 IsLoadingSmall.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator];

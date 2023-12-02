@@ -153,7 +153,7 @@ var articles = {
     }
 };
 var meta = {
-    title: 'pages/ArticlePage',
+    title: 'pages/Article/ArticlePage',
     component: ArticlePage,
     parameters: {
         layout: 'fullscreen'
@@ -171,7 +171,10 @@ Small.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
             isLoading: false,
             error: '',
             view: ArticleView.SMALL,
-            ids: ['1', '2']
+            ids: ['1', '2'],
+            page: 1,
+            hasMore: false,
+            limit: 2
         }
     }), RouterDecorator];
 export var Big = {
@@ -183,7 +186,10 @@ Big.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
             isLoading: false,
             error: '',
             view: ArticleView.BIG,
-            ids: ['1', '2']
+            ids: ['1', '2'],
+            page: 1,
+            hasMore: false,
+            limit: 2
         }
     }), RouterDecorator];
 export var SmallDark = {
@@ -207,7 +213,10 @@ BigDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
             isLoading: false,
             error: '',
             view: ArticleView.BIG,
-            ids: ['1', '2']
+            ids: ['1', '2'],
+            page: 1,
+            hasMore: false,
+            limit: 2
         }
     }), RouterDecorator];
 export var SmallFunny = {
@@ -231,6 +240,9 @@ BigFunny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
             isLoading: false,
             error: '',
             view: ArticleView.BIG,
-            ids: ['1', '2']
+            ids: ['1', '2'],
+            page: 1,
+            hasMore: false,
+            limit: 2
         }
     }), RouterDecorator];

@@ -200,7 +200,7 @@ export const FunnyBig: Story = {
   },
   render: () => (
       <div className='app__content'>
-        <ArticleList articles={articles} view={ArticleView.BIG}/>
+        <ArticleList articles={articles} isLoading={false} view={ArticleView.BIG}/>
       </div>
   )
 }
@@ -211,7 +211,7 @@ export const LightBig: Story = {
   },
   render: () => (
       <div className='app__content'>
-        <ArticleList articles={articles} view={ArticleView.BIG}/>
+        <ArticleList articles={articles} isLoading={false} view={ArticleView.BIG}/>
       </div>
   )
 }
@@ -222,7 +222,7 @@ export const DarkBig: Story = {
   },
   render: () => (
       <div className='app__content'>
-        <ArticleList articles={articles} view={ArticleView.BIG}/>
+        <ArticleList articles={articles} isLoading={false} view={ArticleView.BIG}/>
       </div>
   )
 }

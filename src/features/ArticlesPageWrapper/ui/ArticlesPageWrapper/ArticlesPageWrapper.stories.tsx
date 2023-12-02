@@ -223,7 +223,10 @@ LightBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
     isLoading: false,
     error: '',
     view: ArticleView.BIG,
-    ids: ['1', '2']
+    ids: ['1', '2'],
+    page: 1,
+    hasMore: false,
+    limit: 2
   }
 }), RouterDecorator]
 
@@ -241,7 +244,10 @@ DarkBig.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
     isLoading: false,
     error: '',
     view: ArticleView.BIG,
-    ids: ['1', '2']
+    ids: ['1', '2'],
+    page: 1,
+    hasMore: false,
+    limit: 2
   }
 }), RouterDecorator]
 
@@ -259,7 +265,10 @@ FunnyBig.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
     isLoading: false,
     error: '',
     view: ArticleView.BIG,
-    ids: ['1', '2']
+    ids: ['1', '2'],
+    page: 1,
+    hasMore: false,
+    limit: 2
   }
 }), RouterDecorator]
 
@@ -290,7 +299,10 @@ IsLoadingBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
     isLoading: true,
     error: '',
     view: ArticleView.BIG,
-    ids: []
+    ids: [],
+    page: 1,
+    hasMore: false,
+    limit: 2
   }
 }), RouterDecorator]
 

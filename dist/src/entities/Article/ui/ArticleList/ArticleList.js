@@ -16,10 +16,10 @@ import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleView } from '../../model/types/article';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import cls from './ArticleList.module.scss';
 import { Text } from 'shared/ui/Text/Text';
+import cls from './ArticleList.module.scss';
 var getSkeletons = function (view) {
-    return new Array(view === ArticleView.SMALL ? 12 : 4)
+    return new Array(view === ArticleView.SMALL ? 9 : 4)
         .fill(0).map(function (item, index) { return (_jsx(ArticleListItemSkeleton, { view: view }, index)); });
 };
 export var ArticleList = memo(function (props) {

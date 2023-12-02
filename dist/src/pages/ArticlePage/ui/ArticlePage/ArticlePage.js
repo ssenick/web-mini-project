@@ -11,10 +11,12 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { ArticlesPageWrapper } from 'features/ArticlesPageWrapper';
+import { getArticlesPageIsLoading } from 'features/ArticlesPageWrapper/model/selectors/articlesPageSelectors';
 import { fetchNextArticlesPage } from 'features/ArticlesPageWrapper/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { ArticlePageHeader } from 'pages/ArticlePage/ui/ArticlePageHeader/ArticlePageHeader';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Text, TextFontSize } from 'shared/ui/Text/Text';
@@ -24,9 +26,14 @@ var ArticlePage = function (_a) {
     var className = _a.className;
     var t = useTranslation('articles').t;
     var dispatch = useAppDispatch();
+    var isLoadingArticles = useSelector(getArticlesPageIsLoading);
     var onLoadNextPart = useCallback(function () {
-        void dispatch(fetchNextArticlesPage());
-    }, [dispatch]);
+        if (__PROJECT__ !== 'storybook') {
+            if (!isLoadingArticles) {
+                void dispatch(fetchNextArticlesPage());
+            }
+        }
+    }, [dispatch, isLoadingArticles]);
     return (_jsxs(Page, __assign({ onScrollEnd: onLoadNextPart, className: classNames(cls.ArticlePage, {}, [className]) }, { children: [_jsx("div", __assign({ className: cls.title }, { children: _jsx(Text, { size: TextFontSize.L, title: t('Заголовок страницы') }) })), _jsx(ArticlePageHeader, { className: cls.header }), _jsx(ArticlesPageWrapper, {})] })));
 };
 export default memo(ArticlePage);
