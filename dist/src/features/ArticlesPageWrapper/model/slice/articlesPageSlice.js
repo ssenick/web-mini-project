@@ -31,7 +31,7 @@ export var articlesPageSlice = createSlice({
         initialState: function (state) {
             var view = localStorage.getItem(VIEW_LOCALSTORAGE_KEY);
             state.view = view;
-            state.limit = view === ArticleView.SMALL ? 10 : 4;
+            state.limit = view === ArticleView.SMALL ? 16 : 4;
         }
     },
     extraReducers: function (builder) {
@@ -43,7 +43,9 @@ export var articlesPageSlice = createSlice({
             .addCase(fetchArticlesList.fulfilled, function (state, action) {
             state.isLoading = false;
             articlesAdapter.addMany(state, action.payload);
-            state.hasMore = action.payload.length > 0;
+            if (state.limit) {
+                state.hasMore = action.payload.length >= state.limit;
+            }
         })
             .addCase(fetchArticlesList.rejected, function (state, action) {
             state.error = action.payload;

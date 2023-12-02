@@ -81,17 +81,17 @@
 }
 
 .SMALL {
-  width: 165px;
-  flex: 0 0 165px;
+  flex: 0 0 31%;
   padding: 8px;
   transition: box-shadow var(--animation-time) ease 0s;
   cursor: pointer;
   display: grid;
   row-gap: 8px;
+  min-width: 160px;
 
   .imageBlock {
     position: relative;
-    height: 153px;
+    padding-bottom: 100%;
   }
 
   .image {

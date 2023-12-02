@@ -4,8 +4,8 @@ import { memo, type ReactNode } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { type Article, ArticleView } from '../../model/types/article'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
-import cls from './ArticleList.module.scss'
 import { Text } from 'shared/ui/Text/Text'
+import cls from './ArticleList.module.scss'
 
 interface ArticleListProps {
   className?: string
@@ -15,7 +15,7 @@ interface ArticleListProps {
 }
 
 const getSkeletons = (view: ArticleView): ReactNode =>
-  new Array(view === ArticleView.SMALL ? 10 : 4)
+  new Array(view === ArticleView.SMALL ? 9 : 4)
     .fill(0).map((item, index) => (
           <ArticleListItemSkeleton view={view} key={index}/>
     ))

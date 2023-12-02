@@ -156,7 +156,7 @@ const articles = {
   }
 }
 const meta: Meta<typeof ArticlePage> = {
-  title: 'pages/ArticlePage',
+  title: 'pages/Article/ArticlePage',
   component: ArticlePage,
   parameters: {
     layout: 'fullscreen'

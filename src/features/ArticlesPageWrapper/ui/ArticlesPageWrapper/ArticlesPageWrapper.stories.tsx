@@ -268,11 +268,11 @@ export const IsLoadingSmall: Story = {
 }
 IsLoadingSmall.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
   articlePage: {
-    entities: articles,
+    entities: {},
     isLoading: true,
     error: '',
     view: ArticleView.SMALL,
-    ids: ['1', '2']
+    ids: []
   }
 }), RouterDecorator]
 
@@ -286,11 +286,11 @@ export const IsLoadingBig: Story = {
 }
 IsLoadingBig.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
   articlePage: {
-    entities: articles,
+    entities: {},
     isLoading: true,
     error: '',
     view: ArticleView.BIG,
-    ids: ['1', '2']
+    ids: []
   }
 }), RouterDecorator]
 

@@ -232,7 +232,7 @@ export const IsLoadingSmall: Story = {
   args: {
     isLoading: true,
     view: ArticleView.SMALL,
-    articles
+    articles: []
   }
 }
 IsLoadingSmall.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator]

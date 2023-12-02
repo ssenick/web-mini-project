@@ -10,11 +10,11 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { memo, useRef } from 'react';
+import { useRef } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useInfinityScroll } from 'shared/lib/hooks/useInfinityScroll';
 import cls from './Page.module.scss';
-export var Page = memo(function (_a) {
+export var Page = function (_a) {
     var className = _a.className, children = _a.children, onScrollEnd = _a.onScrollEnd;
     var wrapperRef = useRef();
     var triggerRef = useRef();
@@ -24,4 +24,4 @@ export var Page = memo(function (_a) {
         callback: onScrollEnd
     });
     return (_jsxs("section", __assign({ ref: wrapperRef, className: classNames(cls.Page, {}, [className]) }, { children: [children, _jsx("div", { className: cls.trigger, ref: triggerRef })] })));
-});
+};

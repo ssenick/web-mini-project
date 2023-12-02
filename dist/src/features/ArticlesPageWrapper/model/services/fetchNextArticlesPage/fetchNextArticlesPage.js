@@ -39,7 +39,7 @@ import { articlesPageActions } from 'features/ArticlesPageWrapper/model/slice/ar
 import { getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPageNum } from '../../selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-export var fetchNextArticlesPage = createAsyncThunk('articlesPage/fetchArticlesList', function (_, thunkAPI) { return __awaiter(void 0, void 0, void 0, function () {
+export var fetchNextArticlesPage = createAsyncThunk('articlesPage/fetchNextArticlesPage', function (_, thunkAPI) { return __awaiter(void 0, void 0, void 0, function () {
     var dispatch, getState, page, hasMore, isLoading;
     return __generator(this, function (_a) {
         dispatch = thunkAPI.dispatch, getState = thunkAPI.getState;

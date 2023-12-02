@@ -19,12 +19,12 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import cls from './ArticleList.module.scss';
 import { Text } from 'shared/ui/Text/Text';
 var getSkeletons = function (view) {
-    return new Array(view === ArticleView.SMALL ? 10 : 4)
+    return new Array(view === ArticleView.SMALL ? 12 : 4)
         .fill(0).map(function (item, index) { return (_jsx(ArticleListItemSkeleton, { view: view }, index)); });
 };
 export var ArticleList = memo(function (props) {
     var t = useTranslation('articles').t;
     var className = props.className, articles = props.articles, isLoading = props.isLoading, _a = props.view, view = _a === void 0 ? ArticleView.BIG : _a;
     var renderArticles = function (article) { return (_jsx(ArticleListItem, { article: article, view: view }, article.id)); };
-    return (_jsx("div", __assign({ className: classNames(cls.ArticleList, {}, [className]) }, { children: _jsxs("div", __assign({ className: cls.articles }, { children: [articles.length > 0 ? articles.map(renderArticles) : null, (!articles.length && !isLoading) && _jsx(Text, { title: t('Нет статей') }), isLoading && getSkeletons(view)] })) })));
+    return (_jsx("div", __assign({ className: classNames(cls.ArticleList, {}, [className, cls[view]]) }, { children: _jsxs("div", __assign({ className: cls.articles }, { children: [articles.length > 0 ? articles.map(renderArticles) : null, (!articles.length && !isLoading) && _jsx(Text, { title: t('Нет статей') }), isLoading && getSkeletons(view)] })) })));
 });
