@@ -1,4 +1,5 @@
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList'
+import { initArticlesPage } from 'features/ArticlesPageWrapper/model/services/initArticlesPage/initArticlesPage'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -12,8 +13,7 @@ import {
   getArticlesPageIsLoading,
   getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors'
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
-import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice'
+import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice'
 import cls from './ArticlesPageWrapper.module.scss'
 
 interface ArticlesPageWrapperProps {
@@ -32,10 +32,7 @@ export const ArticlesPageWrapper = memo(({ className }: ArticlesPageWrapperProps
   const view = useSelector(getArticlesPageView)
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initialState())
-    void dispatch(fetchArticlesList({
-      page: 1
-    }))
+    void dispatch(initArticlesPage())
   })
 
   if (error) {
@@ -44,7 +41,7 @@ export const ArticlesPageWrapper = memo(({ className }: ArticlesPageWrapperProps
     )
   }
   return (
-      <DynamicModuleLoader reducers={reducers}>
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
         <div className={classNames(cls.ArticlesPageWrapper, {}, [className])}>
             <ArticleList articles={articles} view={view} isLoading={isLoading}/>
         </div>

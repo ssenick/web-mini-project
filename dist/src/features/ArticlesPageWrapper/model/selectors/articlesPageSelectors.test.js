@@ -49,4 +49,12 @@ describe('articlesPageSelectors.test', function () {
         };
         expect(getArticlesPageHasMore(state)).toEqual(false);
     });
+    test('inited should return false', function () {
+        var state = {
+            articlePage: {
+                _inited: false
+            }
+        };
+        expect(getArticlesPageHasMore(state)).toEqual(false);
+    });
 });

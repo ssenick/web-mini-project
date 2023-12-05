@@ -1,5 +1,7 @@
+import { getUserAuthData } from 'entities/User'
 import { memo, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './LoginForm.module.scss'
 import { Input, InputVariant } from 'shared/ui/Input/Input'
@@ -30,6 +32,8 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   const isLoading = useSelector(getLoginIsLoading)
   const error = useSelector(getLoginError)
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+  const user = useSelector(getUserAuthData)
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value))
   }, [dispatch])
@@ -57,6 +61,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     }
   }, [onKeyDown])
 
+  useEffect(() => {
+    if (user) {
+      console.log(user)
+      navigate('/profile/' + user.id)
+    }
+  }, [navigate, user])
   return (
       <DynamicModuleLoader
           removeAfterUnmount

@@ -1,7 +1,7 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
 import { ArticleView } from 'entities/Article'
 import {
-  getArticlesPageError, getArticlesPageHasMore,
+  getArticlesPageError, getArticlesPageHasMore, getArticlesPageInited,
   getArticlesPageIsLoading, getArticlesPageLimit, getArticlesPageNum, getArticlesPageView
 } from './articlesPageSelectors'
 
@@ -53,5 +53,13 @@ describe('articlesPageSelectors.test', () => {
       }
     }
     expect(getArticlesPageHasMore(state as StateSchema)).toEqual(false)
+  })
+  test('inited should return false', () => {
+    const state: DeepPartial<StateSchema> = {
+      articlePage: {
+        _inited: false
+      }
+    }
+    expect(getArticlesPageInited(state as StateSchema)).toEqual(false)
   })
 })

@@ -46,8 +46,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { getUserAuthData } from 'entities/User';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './LoginForm.module.scss';
 import { Input, InputVariant } from 'shared/ui/Input/Input';
@@ -73,6 +75,8 @@ var LoginForm = memo(function (_a) {
     var isLoading = useSelector(getLoginIsLoading);
     var error = useSelector(getLoginError);
     var dispatch = useAppDispatch();
+    var navigate = useNavigate();
+    var user = useSelector(getUserAuthData);
     var onChangeUsername = useCallback(function (value) {
         dispatch(loginActions.setUsername(value));
     }, [dispatch]);
@@ -111,6 +115,12 @@ var LoginForm = memo(function (_a) {
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [onKeyDown]);
+    useEffect(function () {
+        if (user) {
+            console.log(user);
+            navigate('/profile/' + user.id);
+        }
+    }, [navigate, user]);
     return (_jsx(DynamicModuleLoader, __assign({ removeAfterUnmount: true, reducers: initialReducers }, { children: _jsxs("div", __assign({ className: classNames(cls.LoginForm, {}, [className]) }, { children: [_jsx(Text, { className: cls.title, size: TextFontSize.M, title: t('Авторизация') }), error && _jsx(Text, { className: cls.error, variant: TextVariant.ERROR, size: TextFontSize.XS, text: t('Пользователь не найдет или данные не верны') }), _jsxs("div", __assign({ className: cls.wrapper }, { children: [_jsx(Input, { placeholder: t('User name'), variant: InputVariant.INVERSE_BG, onChange: onChangeUsername, value: username, autofocus: true }), _jsx(Input, { type: 'password', placeholder: t('Password'), variant: InputVariant.INVERSE_BG, onChange: onChangePassword, value: password }), _jsx("div", __assign({ className: cls.loginBottom }, { children: _jsx(Button, __assign({ size: ButtonSize.M, variant: ButtonVariant.BORDER, onClick: onLoginClick, disabled: isLoading }, { children: t('Вход') })) }))] }))] })) })));
 });
 export default LoginForm;

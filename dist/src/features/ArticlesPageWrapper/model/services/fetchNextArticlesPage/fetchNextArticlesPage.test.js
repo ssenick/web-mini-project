@@ -37,10 +37,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import { fetchArticlesList } from 'features/ArticlesPageWrapper/model/services/fetchArticlesList/fetchArticlesList';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
-jest.mock('./fetchArticlesList/fetchArticlesList');
+jest.mock('../fetchArticlesList/fetchArticlesList.ts');
 describe('fetchNextArticlesPage test', function () {
     test('success', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var thunk, result;
+        var thunk;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -54,42 +54,11 @@ describe('fetchNextArticlesPage test', function () {
                             hasMore: true
                         }
                     });
-                    thunk.api.get.mockReturnValue(Promise.resolve({ data: articles }));
-                    return [4 /*yield*/, thunk.callThunk({})];
+                    return [4 /*yield*/, thunk.callThunk(undefined)];
                 case 1:
-                    result = _a.sent();
-                    expect(thunk.api.get).toHaveBeenCalled();
-                    // проверяем что статус запросса === fulfilled
-                    expect(result.meta.requestStatus).toBe('fulfilled');
-                    // проверяем что возвразает этот запрос
-                    expect(result.payload).toEqual(articles);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    /// тест с ошибкой
-    test('error ', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var thunk, result;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    thunk = new TestAsyncThunk(fetchArticlesList, {
-                        articlePage: {
-                            limit: 10
-                        }
-                    });
-                    thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-                    return [4 /*yield*/, thunk.callThunk({})
-                        // проверяем что запрос был отправлен
-                    ];
-                case 1:
-                    result = _a.sent();
-                    // проверяем что запрос был отправлен
-                    expect(thunk.api.get).toHaveBeenCalled();
-                    // проверяем что статус запросса === rejected
-                    expect(result.meta.requestStatus).toBe('rejected');
-                    // проверяем что возвразает этот запрос
-                    expect(result.payload).toBe('error');
+                    _a.sent();
+                    expect(thunk.dispatch).toBeCalledTimes(4);
+                    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
                     return [2 /*return*/];
             }
         });

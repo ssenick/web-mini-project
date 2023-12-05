@@ -19,9 +19,8 @@ import { DynamicModuleLoader } from 'shared/lib/components /DynamicModuleLoader/
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text';
-import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
+import { getArticlesPageError, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
+import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPageWrapper.module.scss';
 var reducers = {
     articlePage: articlesPageReducer
@@ -34,14 +33,13 @@ export var ArticlesPageWrapper = memo(function (_a) {
     var isLoading = useSelector(getArticlesPageIsLoading);
     var error = useSelector(getArticlesPageError);
     var view = useSelector(getArticlesPageView);
+    var inited = useSelector(getArticlesPageInited);
     useInitialEffect(function () {
-        dispatch(articlesPageActions.initialState());
-        void dispatch(fetchArticlesList({
-            page: 1
-        }));
+        if (!inited) {
+        }
     });
     if (error) {
         return (_jsx(Text, { title: t('что-то пошло не так'), size: TextFontSize.XL, texAlign: TextAlign.CENTER }));
     }
-    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers }, { children: _jsx("div", __assign({ className: classNames(cls.ArticlesPageWrapper, {}, [className]) }, { children: _jsx(ArticleList, { articles: articles, view: view, isLoading: isLoading }) })) })));
+    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: false }, { children: _jsx("div", __assign({ className: classNames(cls.ArticlesPageWrapper, {}, [className]) }, { children: _jsx(ArticleList, { articles: articles, view: view, isLoading: isLoading }) })) })));
 });
