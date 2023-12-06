@@ -11,6 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+import { initArticlesPage } from 'features/ArticlesPageWrapper/model/services/initArticlesPage/initArticlesPage';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -19,7 +20,7 @@ import { DynamicModuleLoader } from 'shared/lib/components /DynamicModuleLoader/
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text';
-import { getArticlesPageError, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
+import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPageWrapper.module.scss';
 var reducers = {
@@ -33,10 +34,8 @@ export var ArticlesPageWrapper = memo(function (_a) {
     var isLoading = useSelector(getArticlesPageIsLoading);
     var error = useSelector(getArticlesPageError);
     var view = useSelector(getArticlesPageView);
-    var inited = useSelector(getArticlesPageInited);
     useInitialEffect(function () {
-        if (!inited) {
-        }
+        void dispatch(initArticlesPage());
     });
     if (error) {
         return (_jsx(Text, { title: t('что-то пошло не так'), size: TextFontSize.XL, texAlign: TextAlign.CENTER }));

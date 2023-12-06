@@ -30,7 +30,10 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
   }, [dispatch, isLoadingArticles])
 
   return (
-            <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlePage, {}, [className])}>
+            <Page
+                onScrollEnd={onLoadNextPart}
+                scrollTrigger
+                className={classNames(cls.ArticlePage, {}, [className])}>
                 <div className={cls.title}>
                     <Text size={TextFontSize.L} title={t('Заголовок страницы')}/>
                 </div>

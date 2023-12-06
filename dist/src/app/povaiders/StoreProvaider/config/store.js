@@ -9,13 +9,14 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+import { scrollReducer } from 'features/ScrollSave';
 import { configureStore } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from './reducerManager';
 import { $api } from 'shared/api/api';
 export function createReduxStore(initialState, asyncReducers) {
-    var rootReducers = __assign(__assign({}, asyncReducers), { counter: counterReducer, user: userReducer });
+    var rootReducers = __assign(__assign({}, asyncReducers), { counter: counterReducer, user: userReducer, scrollSave: scrollReducer });
     var reducerManager = createReducerManager(rootReducers);
     var store = configureStore({
         reducer: reducerManager.reduce,

@@ -8,10 +8,12 @@ import { type AddNewCommentFormSchema } from 'features/AddNewCommentForm'
 import { type ArticleDetailsCommentSchema } from 'features/ArticleCommentList'
 import { type ArticlePageWrapperSchema } from 'features/ArticlesPageWrapper'
 import { type LoginSchema } from 'features/AuthByUsername'
+import { type ScrollSaveSchema } from 'features/ScrollSave'
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
+  scrollSave: ScrollSaveSchema
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema

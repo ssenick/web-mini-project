@@ -1,5 +1,5 @@
 import { ArticleView } from 'entities/Article';
-import { getArticlesPageError, getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPageLimit, getArticlesPageNum, getArticlesPageView } from './articlesPageSelectors';
+import { getArticlesPageError, getArticlesPageHasMore, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageLimit, getArticlesPageNum, getArticlesPageView } from './articlesPageSelectors';
 describe('articlesPageSelectors.test', function () {
     test('isLoading should return true', function () {
         var state = {
@@ -55,6 +55,6 @@ describe('articlesPageSelectors.test', function () {
                 _inited: false
             }
         };
-        expect(getArticlesPageHasMore(state)).toEqual(false);
+        expect(getArticlesPageInited(state)).toEqual(false);
     });
 });
