@@ -1,3 +1,5 @@
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import AboutPage from './AboutPage';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/povaiders/ThemeProvaider';
@@ -14,12 +16,12 @@ export default meta;
 export var Light = {
     args: {}
 };
-Light.decorators = [ThemeDecorator(Theme.LIGHT)];
+Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator];
 export var Dark = {
     args: {}
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(), RouterDecorator];
 export var Funny = {
     args: {}
 };
-Funny.decorators = [ThemeDecorator(Theme.FUNNY)];
+Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator(), RouterDecorator];

@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import { createAsyncThunk } from '@reduxjs/toolkit';
 function checkData(data) {
-    if (!data.length) {
+    if (data.length < 0) {
         throw new Error('missing data');
     }
 }

@@ -4,7 +4,7 @@ import { type ThunkConfig } from 'app/povaiders/StoreProvaider'
 import { type Comment } from 'entities/Comment'
 
 function checkData (data: Comment[]): void {
-  if (!data.length) {
+  if (data.length < 0) {
     throw new Error('missing data')
   }
 }

@@ -5,6 +5,7 @@ export function useThrottle (callback: (...args: any[]) => void, delay: number):
   const throttleTimeout = useRef<ReturnType<typeof setInterval> | null>(null)
   const throttledCallback = useCallback((...args: any[]) => {
     if (!throttleRef.current) {
+      // eslint-disable-next-line n/no-callback-literal
       callback(...args)
       throttleRef.current = true
       throttleTimeout.current = setTimeout(() => {
