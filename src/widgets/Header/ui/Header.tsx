@@ -61,7 +61,6 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
                 {(theme === Theme.DARK || theme === Theme.FUNNY) && <LogoWhiteIcon/>}
                 {theme === Theme.LIGHT && <LogoDarkIcon/>}
             </AppLink>
-            <div className={cls.title}> {t('Главная')}</div>
             <div className={cls.action}>
                 {/* кнопку темы и тд */}
                 <ThemeSwitcher/>

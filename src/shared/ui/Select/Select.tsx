@@ -1,10 +1,10 @@
-import { type ChangeEvent, memo, useMemo } from 'react'
+import { type ChangeEvent, useMemo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Text, TextFontSize } from 'shared/ui/Text/Text'
 import cls from './Select.module.scss'
 
-export interface SelectOption {
-  value: string
+export interface SelectOption<T extends string> {
+  value: T
   content: string
 }
 export enum SelectVariant {
@@ -12,17 +12,17 @@ export enum SelectVariant {
   INVERSE_BG = 'inverse-bg'
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string
   label?: string
   value?: string
-  options?: SelectOption[]
+  options?: Array<SelectOption<T>>
   readonly?: boolean
   variant?: SelectVariant
-  onChange?: (value: string) => void
+  onChange?: (value: T) => void
 }
 
-export const Select = memo((props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>): JSX.Element => {
   const {
     className,
     label,
@@ -41,7 +41,7 @@ export const Select = memo((props: SelectProps) => {
     )), [options])
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>): void => {
-    if (onChange) onChange(e.target.value)
+    if (onChange) onChange(e.target.value as T)
   }
 
   return (
@@ -52,4 +52,4 @@ export const Select = memo((props: SelectProps) => {
             </select>
         </div>
   )
-})
+}
