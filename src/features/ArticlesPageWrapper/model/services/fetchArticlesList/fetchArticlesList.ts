@@ -40,7 +40,7 @@ export const fetchArticlesList = createAsyncThunk<Article[], fetchArticlesListPr
           _page: page,
           _sort: sort,
           _order: order,
-          q: search
+          title_like: search
         }
       })
       checkData(data)
