@@ -1,12 +1,15 @@
 .ArticlePageHeader {
   .top {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
 
   .view {
     margin-left: auto;
+    padding-bottom: 4px;
   }
+
+  margin-bottom: 25px;
 }

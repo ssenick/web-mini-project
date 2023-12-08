@@ -1,1 +1,1 @@
-export { ArticleView } from './model/types/article';
+export { ArticleView, ArticleSortField } from './model/types/article';

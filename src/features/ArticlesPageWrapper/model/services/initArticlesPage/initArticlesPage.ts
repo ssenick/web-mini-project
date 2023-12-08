@@ -12,9 +12,7 @@ export const initArticlesPage = createAsyncThunk<Promise<void>, undefined, Thunk
 
     if (!inited) {
       dispatch(articlesPageActions.initialState())
-      void dispatch(fetchArticlesList({
-        page: 1
-      }))
+      void dispatch(fetchArticlesList({}))
     }
   }
 )

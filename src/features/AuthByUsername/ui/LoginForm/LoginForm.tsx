@@ -63,7 +63,6 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
 
   useEffect(() => {
     if (user) {
-      console.log(user)
       navigate('/profile/' + user.id)
     }
   }, [navigate, user])

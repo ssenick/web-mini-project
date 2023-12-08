@@ -34,6 +34,6 @@ var ArticlePage = function (_a) {
             }
         }
     }, [dispatch, isLoadingArticles]);
-    return (_jsxs(Page, __assign({ onScrollEnd: onLoadNextPart, scrollTrigger: true, className: classNames(cls.ArticlePage, {}, [className]) }, { children: [_jsx("div", __assign({ className: cls.title }, { children: _jsx(Text, { size: TextFontSize.L, title: t('Заголовок страницы') }) })), _jsx(ArticlePageHeader, { className: cls.header }), _jsx(ArticlesPageWrapper, {})] })));
+    return (_jsxs(Page, __assign({ onScrollEnd: onLoadNextPart, scrollTrigger: true, className: classNames(cls.ArticlePage, {}, [className]) }, { children: [_jsx("div", __assign({ className: cls.title }, { children: _jsx(Text, { size: TextFontSize.L, title: t('Заголовок страницы') }) })), _jsxs("div", __assign({ className: cls.content }, { children: [_jsx(ArticlePageHeader, { className: cls.header }), _jsx(ArticlesPageWrapper, {})] }))] })));
 };
 export default memo(ArticlePage);

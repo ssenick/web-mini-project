@@ -1,23 +1,19 @@
 .ArticleList {
-  display: grid;
-  justify-content: center;
-
   .articles {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     column-gap: 15px;
     row-gap: 20px;
     flex-wrap: wrap;
-    max-width: 705px;
-    justify-content: center;
   }
 
   &.BIG {
-    justify-content: stretch;
+    display: grid;
 
     .articles {
       display: grid;
+      grid-template-columns: 1fr;
       justify-content: stretch;
-      max-width: 705px;
       width: 100%;
       margin: 0 auto;
     }

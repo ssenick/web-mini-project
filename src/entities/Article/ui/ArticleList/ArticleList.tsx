@@ -1,10 +1,10 @@
-import { useTranslation } from 'react-i18next'
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { memo, type ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text'
 import { type Article, ArticleView } from '../../model/types/article'
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
-import { Text } from 'shared/ui/Text/Text'
 import cls from './ArticleList.module.scss'
 
 interface ArticleListProps {
@@ -30,16 +30,20 @@ export const ArticleList = memo((props: ArticleListProps) => {
   } = props
 
   const renderArticles = (article: Article): JSX.Element => (
-    <ArticleListItem key={article.id} article={article} view={view}/>
+    <ArticleListItem className={cls.article} key={article.id} article={article} view={view}/>
   )
 
   return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
           <div className={cls.articles}>
             {articles.length > 0 ? articles.map(renderArticles) : null}
-              {(!articles.length && !isLoading) && <Text title={t('Нет статей')}/>}
               {isLoading && getSkeletons(view)}
           </div>
+            {(!articles.length && !isLoading) &&
+               <Text
+                  size={TextFontSize.L}
+                  texAlign={TextAlign.CENTER}
+                  title={t('Нет статей')}/>}
         </div>
   )
 })

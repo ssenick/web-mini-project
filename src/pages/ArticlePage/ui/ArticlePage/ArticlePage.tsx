@@ -37,8 +37,11 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
                 <div className={cls.title}>
                     <Text size={TextFontSize.L} title={t('Заголовок страницы')}/>
                 </div>
-                <ArticlePageHeader className={cls.header}/>
-                <ArticlesPageWrapper/>
+                <div className={cls.content}>
+                    <ArticlePageHeader className={cls.header}/>
+                    <ArticlesPageWrapper/>
+                </div>
+
             </Page>
 
   )

@@ -45,9 +45,7 @@ export var initArticlesPage = createAsyncThunk('articlesPage/initArticlesPage', 
         inited = getArticlesPageInited(getState());
         if (!inited) {
             dispatch(articlesPageActions.initialState());
-            void dispatch(fetchArticlesList({
-                page: 1
-            }));
+            void dispatch(fetchArticlesList({}));
         }
         return [2 /*return*/];
     });

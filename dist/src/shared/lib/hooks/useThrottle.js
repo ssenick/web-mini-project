@@ -8,6 +8,7 @@ export function useThrottle(callback, delay) {
             args[_i] = arguments[_i];
         }
         if (!throttleRef.current) {
+            // eslint-disable-next-line n/no-callback-literal
             callback.apply(void 0, args);
             throttleRef.current = true;
             throttleTimeout.current = setTimeout(function () {

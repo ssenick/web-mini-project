@@ -10,6 +10,7 @@ export function useDebounce(callback, delay) {
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
+            // eslint-disable-next-line n/no-callback-literal
             callback.apply(void 0, args);
         }, delay);
     }, [callback, delay]);

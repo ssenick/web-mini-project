@@ -35,23 +35,26 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getArticlesPageLimit } from '../../selectors/articlesPageSelectors';
+import { getArticlesPageLimit, getArticlesPageNum, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort } from '../../selectors/articlesPageSelectors';
 function checkData(data) {
     if (!data.length) {
         throw new Error('missing data');
     }
 }
 export var fetchArticlesList = createAsyncThunk('articlesPage/fetchArticlesList', function (props, thunkAPI) { return __awaiter(void 0, void 0, void 0, function () {
-    var extra, rejectWithValue, getState, _a, page, limit, data, e_1;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
+    var extra, rejectWithValue, getState, limit, sort, order, search, page, data, e_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
                 extra = thunkAPI.extra, rejectWithValue = thunkAPI.rejectWithValue, getState = thunkAPI.getState;
-                _a = props.page, page = _a === void 0 ? 1 : _a;
                 limit = getArticlesPageLimit(getState());
-                _b.label = 1;
+                sort = getArticlesPageSort(getState());
+                order = getArticlesPageOrder(getState());
+                search = getArticlesPageSearch(getState());
+                page = getArticlesPageNum(getState());
+                _a.label = 1;
             case 1:
-                _b.trys.push([1, 3, , 4]);
+                _a.trys.push([1, 3, , 4]);
                 return [4 /*yield*/, extra.api.get('/articles', {
                         // headers: {
                         //   // это для косяк, хз как решить, без этого кода, api.ts не работает без перезагрузки страницы
@@ -60,15 +63,18 @@ export var fetchArticlesList = createAsyncThunk('articlesPage/fetchArticlesList'
                         params: {
                             _expand: 'user',
                             _limit: limit,
-                            _page: page
+                            _page: page,
+                            _sort: sort,
+                            _order: order,
+                            q: search
                         }
                     })];
             case 2:
-                data = (_b.sent()).data;
+                data = (_a.sent()).data;
                 checkData(data);
                 return [2 /*return*/, data];
             case 3:
-                e_1 = _b.sent();
+                e_1 = _a.sent();
                 console.log(e_1);
                 return [2 /*return*/, rejectWithValue('error')];
             case 4: return [2 /*return*/];

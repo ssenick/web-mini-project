@@ -1,5 +1,6 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { ArticleView } from 'entities/Article';
+import { ArticleSortField } from 'entities/Article/model/types/article';
 import { fetchArticlesList } from 'features/ArticlesPageWrapper/model/services/fetchArticlesList/fetchArticlesList';
 import { VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 var articlesAdapter = createEntityAdapter({
@@ -16,6 +17,9 @@ export var articlesPageSlice = createSlice({
         view: ArticleView.SMALL,
         page: 1,
         hasMore: true,
+        search: '',
+        sort: ArticleSortField.CREATED,
+        order: 'asc',
         _inited: false
     }),
     reducers: {
@@ -29,6 +33,15 @@ export var articlesPageSlice = createSlice({
         setPage: function (state, action) {
             state.page = action.payload;
         },
+        setSearch: function (state, action) {
+            state.search = action.payload;
+        },
+        setSort: function (state, action) {
+            state.sort = action.payload;
+        },
+        setOrder: function (state, action) {
+            state.order = action.payload;
+        },
         initialState: function (state) {
             var view = localStorage.getItem(VIEW_LOCALSTORAGE_KEY);
             state.view = view;
@@ -38,13 +51,21 @@ export var articlesPageSlice = createSlice({
     },
     extraReducers: function (builder) {
         builder
-            .addCase(fetchArticlesList.pending, function (state) {
+            .addCase(fetchArticlesList.pending, function (state, action) {
             state.error = undefined;
             state.isLoading = true;
+            if (action.meta.arg.replace) {
+                articlesAdapter.removeAll(state);
+            }
         })
             .addCase(fetchArticlesList.fulfilled, function (state, action) {
             state.isLoading = false;
-            articlesAdapter.addMany(state, action.payload);
+            if (action.meta.arg.replace) {
+                articlesAdapter.setAll(state, action.payload);
+            }
+            else {
+                articlesAdapter.addMany(state, action.payload);
+            }
             if (state.limit) {
                 state.hasMore = action.payload.length >= state.limit;
             }

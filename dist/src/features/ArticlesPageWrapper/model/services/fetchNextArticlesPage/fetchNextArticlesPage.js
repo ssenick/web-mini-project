@@ -48,7 +48,7 @@ export var fetchNextArticlesPage = createAsyncThunk('articlesPage/fetchNextArtic
         isLoading = getArticlesPageIsLoading(getState());
         if (hasMore && !isLoading) {
             dispatch(articlesPageActions.setPage(page + 1));
-            void dispatch(fetchArticlesList({ page: page + 1 }));
+            void dispatch(fetchArticlesList({}));
         }
         return [2 /*return*/];
     });
