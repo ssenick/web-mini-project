@@ -117,7 +117,6 @@ var LoginForm = memo(function (_a) {
     }, [onKeyDown]);
     useEffect(function () {
         if (user) {
-            console.log(user);
             navigate('/profile/' + user.id);
         }
     }, [navigate, user]);

@@ -15,12 +15,14 @@ import { initArticlesPage } from 'features/ArticlesPageWrapper/model/services/in
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text';
-import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
+import { getArticlesPageError, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPageWrapper.module.scss';
 var reducers = {
@@ -34,8 +36,21 @@ export var ArticlesPageWrapper = memo(function (_a) {
     var isLoading = useSelector(getArticlesPageIsLoading);
     var error = useSelector(getArticlesPageError);
     var view = useSelector(getArticlesPageView);
+    var sort = useSelector(getArticlesPageSort);
+    var order = useSelector(getArticlesPageOrder);
+    var search = useSelector(getArticlesPageSearch);
+    var inited = useSelector(getArticlesPageInited);
+    var searchParams = useSearchParams()[0];
     useInitialEffect(function () {
-        void dispatch(initArticlesPage());
+        void dispatch(initArticlesPage(searchParams));
+        if (inited) {
+            addQueryParams({
+                sort: sort,
+                order: order,
+                search: search
+            });
+        }
+        console.log('render in Page');
     });
     if (error) {
         return (_jsx(Text, { title: t('что-то пошло не так'), size: TextFontSize.XL, texAlign: TextAlign.CENTER }));

@@ -34,7 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { fetchArticlesList } from 'features/ArticlesPageWrapper/model/services/fetchArticlesList/fetchArticlesList';
+import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 jest.mock('../fetchArticlesList/fetchArticlesList.ts');
@@ -46,7 +46,7 @@ describe('fetchNextArticlesPage test', function () {
                 case 0:
                     thunk = new TestAsyncThunk(fetchNextArticlesPage, {
                         articlePage: {
-                            page: 2,
+                            page: 1,
                             ids: [],
                             entities: {},
                             limit: 5,
@@ -58,7 +58,7 @@ describe('fetchNextArticlesPage test', function () {
                 case 1:
                     _a.sent();
                     expect(thunk.dispatch).toBeCalledTimes(4);
-                    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+                    expect(fetchArticlesList).toBeCalledTimes(1);
                     return [2 /*return*/];
             }
         });

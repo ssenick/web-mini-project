@@ -3,14 +3,17 @@ import { initArticlesPage } from 'features/ArticlesPageWrapper/model/services/in
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+import { useSearchParams } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams'
 import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text'
+
 import {
-  getArticlesPageError,
-  getArticlesPageIsLoading,
+  getArticlesPageError, getArticlesPageInited,
+  getArticlesPageIsLoading, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort,
   getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors'
 import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice'
@@ -30,9 +33,17 @@ export const ArticlesPageWrapper = memo(({ className }: ArticlesPageWrapperProps
   const isLoading = useSelector(getArticlesPageIsLoading)
   const error = useSelector(getArticlesPageError)
   const view = useSelector(getArticlesPageView)
+  const sort = useSelector(getArticlesPageSort)
+  const order = useSelector(getArticlesPageOrder)
+  const search = useSelector(getArticlesPageSearch)
+  const inited = useSelector(getArticlesPageInited)
+  const [searchParams] = useSearchParams()
 
   useInitialEffect(() => {
-    void dispatch(initArticlesPage())
+    void dispatch(initArticlesPage(searchParams))
+    if (inited && __PROJECT__ !== 'storybook') {
+      addQueryParams({ sort, order, search })
+    }
   })
 
   if (error) {

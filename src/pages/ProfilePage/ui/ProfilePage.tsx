@@ -11,7 +11,6 @@ interface ProfilePageProps {
 
 const ProfilePage = ({ className }: ProfilePageProps): JSX.Element => {
   const { t } = useTranslation('profile')
-
   return (
           <Page className={classNames(cls.ProfilePage, {}, [className])}>
               <div className={cls.header}>

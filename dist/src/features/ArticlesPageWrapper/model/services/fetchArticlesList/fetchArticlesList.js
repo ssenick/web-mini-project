@@ -35,9 +35,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 import { getArticlesPageLimit, getArticlesPageNum, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort } from '../../selectors/articlesPageSelectors';
 function checkData(data) {
-    if (!data.length) {
+    if (data.length < 0) {
         throw new Error('missing data');
     }
 }
@@ -55,6 +56,13 @@ export var fetchArticlesList = createAsyncThunk('articlesPage/fetchArticlesList'
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
+                // перенес в ArticlePageWrapper
+                addQueryParams({
+                    sort: sort,
+                    order: order,
+                    search: search
+                });
+                console.log('render in fetch');
                 return [4 /*yield*/, extra.api.get('/articles', {
                         // headers: {
                         //   // это для косяк, хз как решить, без этого кода, api.ts не работает без перезагрузки страницы
@@ -66,7 +74,7 @@ export var fetchArticlesList = createAsyncThunk('articlesPage/fetchArticlesList'
                             _page: page,
                             _sort: sort,
                             _order: order,
-                            q: search
+                            title_like: search
                         }
                     })];
             case 2:

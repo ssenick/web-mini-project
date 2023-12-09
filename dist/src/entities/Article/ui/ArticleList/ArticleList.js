@@ -10,13 +10,13 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useTranslation } from 'react-i18next';
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text';
 import { ArticleView } from '../../model/types/article';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { Text } from 'shared/ui/Text/Text';
 import cls from './ArticleList.module.scss';
 var getSkeletons = function (view) {
     return new Array(view === ArticleView.SMALL ? 9 : 4)
@@ -25,6 +25,7 @@ var getSkeletons = function (view) {
 export var ArticleList = memo(function (props) {
     var t = useTranslation('articles').t;
     var className = props.className, articles = props.articles, isLoading = props.isLoading, _a = props.view, view = _a === void 0 ? ArticleView.BIG : _a;
-    var renderArticles = function (article) { return (_jsx(ArticleListItem, { article: article, view: view }, article.id)); };
-    return (_jsx("div", __assign({ className: classNames(cls.ArticleList, {}, [className, cls[view]]) }, { children: _jsxs("div", __assign({ className: cls.articles }, { children: [articles.length > 0 ? articles.map(renderArticles) : null, (!articles.length && !isLoading) && _jsx(Text, { title: t('Нет статей') }), isLoading && getSkeletons(view)] })) })));
+    var renderArticles = function (article) { return (_jsx(ArticleListItem, { className: cls.article, article: article, view: view }, article.id)); };
+    return (_jsxs("div", __assign({ className: classNames(cls.ArticleList, {}, [className, cls[view]]) }, { children: [_jsxs("div", __assign({ className: cls.articles }, { children: [articles.length > 0 ? articles.map(renderArticles) : null, isLoading && getSkeletons(view)] })), (!articles.length && !isLoading) &&
+                _jsx(Text, { size: TextFontSize.L, texAlign: TextAlign.CENTER, title: t('Нет статей') })] })));
 });

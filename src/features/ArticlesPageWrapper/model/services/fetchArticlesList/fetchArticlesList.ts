@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/povaiders/StoreProvaider'
 import { type Article } from 'entities/Article'
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams'
 import {
   getArticlesPageLimit,
   getArticlesPageNum,
@@ -29,6 +30,9 @@ export const fetchArticlesList = createAsyncThunk<Article[], fetchArticlesListPr
     const page = getArticlesPageNum(getState())
 
     try {
+      addQueryParams({
+        sort, order, search
+      })
       const { data } = await extra.api.get<Article[]>('/articles', {
         // headers: {
         //   // это для косяк, хз как решить, без этого кода, api.ts не работает без перезагрузки страницы
