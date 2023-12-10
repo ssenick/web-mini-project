@@ -1,12 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/povaiders/StoreProvaider'
 import { type Article } from 'entities/Article'
+import { ArticleType } from 'entities/Article/model/types/article'
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams'
 import {
   getArticlesPageLimit,
   getArticlesPageNum,
-  getArticlesPageOrder, getArticlesPageSearch,
-  getArticlesPageSort
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSort,
+  getArticlesPageType
 } from '../../selectors/articlesPageSelectors'
 
 interface fetchArticlesListProps {
@@ -14,7 +17,7 @@ interface fetchArticlesListProps {
 }
 
 function checkData (data: Article[]): void {
-  if (data.length < 0) {
+  if (!data) {
     throw new Error('missing data')
   }
 }
@@ -27,11 +30,12 @@ export const fetchArticlesList = createAsyncThunk<Article[], fetchArticlesListPr
     const sort = getArticlesPageSort(getState())
     const order = getArticlesPageOrder(getState())
     const search = getArticlesPageSearch(getState())
+    const type = getArticlesPageType(getState())
     const page = getArticlesPageNum(getState())
 
     try {
       addQueryParams({
-        sort, order, search
+        sort, order, search, type
       })
       const { data } = await extra.api.get<Article[]>('/articles', {
         // headers: {
@@ -44,7 +48,8 @@ export const fetchArticlesList = createAsyncThunk<Article[], fetchArticlesListPr
           _page: page,
           _sort: sort,
           _order: order,
-          title_like: search
+          title_like: search,
+          type_like: type === ArticleType.ALL ? undefined : type
         }
       })
       checkData(data)

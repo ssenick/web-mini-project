@@ -1,5 +1,6 @@
 import { ArticleView } from 'entities/Article';
-import { getArticlesPageError, getArticlesPageHasMore, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageLimit, getArticlesPageNum, getArticlesPageView } from './articlesPageSelectors';
+import { ArticleType } from 'entities/Article/model/types/article';
+import { getArticlesPageError, getArticlesPageHasMore, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageLimit, getArticlesPageNum, getArticlesPageType, getArticlesPageView } from './articlesPageSelectors';
 describe('articlesPageSelectors.test', function () {
     test('isLoading should return true', function () {
         var state = {
@@ -48,6 +49,14 @@ describe('articlesPageSelectors.test', function () {
             }
         };
         expect(getArticlesPageHasMore(state)).toEqual(false);
+    });
+    test('hasMore should return "ALL"', function () {
+        var state = {
+            articlePage: {
+                type: ArticleType.ALL
+            }
+        };
+        expect(getArticlesPageType(state)).toEqual(ArticleType.ALL);
     });
     test('inited should return false', function () {
         var state = {

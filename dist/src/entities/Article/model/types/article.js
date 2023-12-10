@@ -17,7 +17,8 @@ export var ArticleView;
 })(ArticleView || (ArticleView = {}));
 export var ArticleType;
 (function (ArticleType) {
+    ArticleType["ALL"] = "ALL";
     ArticleType["IT"] = "IT";
     ArticleType["SCIENCE"] = "SCIENCE";
-    ArticleType["ECONOMICS"] = "ECONOMICS ";
+    ArticleType["ECONOMICS"] = "ECONOMICS";
 })(ArticleType || (ArticleType = {}));

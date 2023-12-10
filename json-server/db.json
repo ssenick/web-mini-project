@@ -36,7 +36,8 @@
       "createdAt": "26.02.2023",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -181,7 +182,6 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT",
         "SCIENCE"
       ],
       "blocks": [
@@ -254,8 +254,6 @@
       "createdAt": "26.12.2021",
       "userId": "2",
       "type": [
-        "IT",
-        "SCIENCE",
         "ECONOMICS"
       ],
       "blocks": [
@@ -533,7 +531,6 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT",
         "SCIENCE"
       ],
       "blocks": [
@@ -606,8 +603,7 @@
       "createdAt": "26.02.2022",
       "userId": "2",
       "type": [
-        "IT",
-        "SCIENCE"
+        "IT"
       ],
       "blocks": [
         {
@@ -679,8 +675,6 @@
       "createdAt": "26.12.2021",
       "userId": "2",
       "type": [
-        "IT",
-        "SCIENCE",
         "ECONOMICS"
       ],
       "blocks": [

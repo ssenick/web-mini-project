@@ -1,8 +1,9 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
 import { ArticleView } from 'entities/Article'
+import { ArticleType } from 'entities/Article/model/types/article'
 import {
   getArticlesPageError, getArticlesPageHasMore, getArticlesPageInited,
-  getArticlesPageIsLoading, getArticlesPageLimit, getArticlesPageNum, getArticlesPageView
+  getArticlesPageIsLoading, getArticlesPageLimit, getArticlesPageNum, getArticlesPageType, getArticlesPageView
 } from './articlesPageSelectors'
 
 describe('articlesPageSelectors.test', () => {
@@ -53,6 +54,14 @@ describe('articlesPageSelectors.test', () => {
       }
     }
     expect(getArticlesPageHasMore(state as StateSchema)).toEqual(false)
+  })
+  test('hasMore should return "ALL"', () => {
+    const state: DeepPartial<StateSchema> = {
+      articlePage: {
+        type: ArticleType.ALL
+      }
+    }
+    expect(getArticlesPageType(state as StateSchema)).toEqual(ArticleType.ALL)
   })
   test('inited should return false', () => {
     const state: DeepPartial<StateSchema> = {

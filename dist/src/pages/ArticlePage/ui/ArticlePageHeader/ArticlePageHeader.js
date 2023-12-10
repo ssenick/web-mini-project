@@ -10,10 +10,11 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageView } from 'features/ArticlesPageWrapper/model/selectors/articlesPageSelectors';
+import { getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType, getArticlesPageView } from 'features/ArticlesPageWrapper/model/selectors/articlesPageSelectors';
 import { fetchArticlesList } from 'features/ArticlesPageWrapper/model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from 'features/ArticlesPageWrapper/model/slice/articlesPageSlice';
 import { ArticlesSortSelector } from 'features/ArticlesSortSelector';
+import { ArticleTypeTabs } from 'features/ArticleTypeTabs';
 import { ViewSelector } from 'features/ViewSelector';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -31,6 +32,7 @@ export var ArticlePageHeader = memo(function (_a) {
     var search = useSelector(getArticlesPageSearch);
     var sort = useSelector(getArticlesPageSort);
     var order = useSelector(getArticlesPageOrder);
+    var type = useSelector(getArticlesPageType);
     var fetchData = useCallback(function () {
         void dispatch(fetchArticlesList({ replace: true }));
     }, [dispatch]);
@@ -53,5 +55,10 @@ export var ArticlePageHeader = memo(function (_a) {
         dispatch(articlesPageActions.setPage(1));
         debounceFetchData();
     }, [dispatch, debounceFetchData]);
-    return (_jsxs("div", __assign({ className: classNames(cls.ArticlePageHeader, {}, [className]) }, { children: [_jsxs("div", __assign({ className: cls.top }, { children: [_jsx(ArticlesSortSelector, { sort: sort, order: order, search: search, onChangeOrder: onChangeOrder, onChangeSort: onChangeSort, onChangeSearch: onChangeSearch }), _jsx(ViewSelector, { className: cls.view, view: view, onViewClick: onChangeView })] })), _jsx("div", __assign({ className: cls.bottom }, { children: _jsx(Input, { className: cls.input, variant: InputVariant.INVERSE_BG, placeholder: t('Поиск'), value: search, onChange: onChangeSearch }) }))] })));
+    var onChangeTabs = useCallback(function (newTab) {
+        dispatch(articlesPageActions.setType(newTab));
+        dispatch(articlesPageActions.setPage(1));
+        fetchData();
+    }, [dispatch, fetchData]);
+    return (_jsxs("div", __assign({ className: classNames(cls.ArticlePageHeader, {}, [className]) }, { children: [_jsxs("div", __assign({ className: cls.top }, { children: [_jsx(ArticlesSortSelector, { sort: sort, order: order, search: search, onChangeOrder: onChangeOrder, onChangeSort: onChangeSort, onChangeSearch: onChangeSearch }), _jsx(ViewSelector, { className: cls.view, view: view, onViewClick: onChangeView })] })), _jsx("div", __assign({ className: cls.search }, { children: _jsx(Input, { className: cls.input, variant: InputVariant.INVERSE_BG, placeholder: t('Поиск'), value: search, onChange: onChangeSearch }) })), _jsx("div", __assign({ className: cls.bottom }, { children: _jsx(ArticleTypeTabs, { value: type, onChangeType: onChangeTabs }) }))] })));
 });

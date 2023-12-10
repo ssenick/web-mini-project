@@ -39,7 +39,7 @@ import { fetchArticlesList } from 'features/ArticlesPageWrapper/model/services/f
 import { articlesPageActions } from 'features/ArticlesPageWrapper/model/slice/articlesPageSlice';
 import { getArticlesPageInited } from '../../selectors/articlesPageSelectors';
 export var initArticlesPage = createAsyncThunk('articlesPage/initArticlesPage', function (searchParams, thunkAPI) { return __awaiter(void 0, void 0, void 0, function () {
-    var dispatch, getState, inited, orderFromURL, sortFromURL, searchFromURL;
+    var dispatch, getState, inited, orderFromURL, sortFromURL, searchFromURL, typeFromURL;
     return __generator(this, function (_a) {
         dispatch = thunkAPI.dispatch, getState = thunkAPI.getState;
         inited = getArticlesPageInited(getState());
@@ -47,12 +47,15 @@ export var initArticlesPage = createAsyncThunk('articlesPage/initArticlesPage', 
             orderFromURL = searchParams.get('order');
             sortFromURL = searchParams.get('sort');
             searchFromURL = searchParams.get('search');
+            typeFromURL = searchParams.get('type');
             if (orderFromURL)
                 dispatch(articlesPageActions.setOrder(orderFromURL));
             if (sortFromURL)
                 dispatch(articlesPageActions.setSort(sortFromURL));
             if (searchFromURL)
                 dispatch(articlesPageActions.setSearch(searchFromURL));
+            if (typeFromURL)
+                dispatch(articlesPageActions.setType(typeFromURL));
             dispatch(articlesPageActions.initialState());
             void dispatch(fetchArticlesList({}));
         }

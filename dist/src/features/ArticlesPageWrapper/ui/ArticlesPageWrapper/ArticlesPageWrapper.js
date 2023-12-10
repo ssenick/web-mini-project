@@ -43,14 +43,9 @@ export var ArticlesPageWrapper = memo(function (_a) {
     var searchParams = useSearchParams()[0];
     useInitialEffect(function () {
         void dispatch(initArticlesPage(searchParams));
-        if (inited) {
-            addQueryParams({
-                sort: sort,
-                order: order,
-                search: search
-            });
+        if (inited && __PROJECT__ !== 'storybook') {
+            addQueryParams({ sort: sort, order: order, search: search });
         }
-        console.log('render in Page');
     });
     if (error) {
         return (_jsx(Text, { title: t('что-то пошло не так'), size: TextFontSize.XL, texAlign: TextAlign.CENTER }));

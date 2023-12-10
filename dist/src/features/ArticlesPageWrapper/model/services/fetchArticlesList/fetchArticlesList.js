@@ -35,15 +35,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { ArticleType } from 'entities/Article/model/types/article';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
-import { getArticlesPageLimit, getArticlesPageNum, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort } from '../../selectors/articlesPageSelectors';
+import { getArticlesPageLimit, getArticlesPageNum, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType } from '../../selectors/articlesPageSelectors';
 function checkData(data) {
-    if (data.length < 0) {
+    if (!data) {
         throw new Error('missing data');
     }
 }
 export var fetchArticlesList = createAsyncThunk('articlesPage/fetchArticlesList', function (props, thunkAPI) { return __awaiter(void 0, void 0, void 0, function () {
-    var extra, rejectWithValue, getState, limit, sort, order, search, page, data, e_1;
+    var extra, rejectWithValue, getState, limit, sort, order, search, type, page, data, e_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -52,17 +53,17 @@ export var fetchArticlesList = createAsyncThunk('articlesPage/fetchArticlesList'
                 sort = getArticlesPageSort(getState());
                 order = getArticlesPageOrder(getState());
                 search = getArticlesPageSearch(getState());
+                type = getArticlesPageType(getState());
                 page = getArticlesPageNum(getState());
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                // перенес в ArticlePageWrapper
                 addQueryParams({
                     sort: sort,
                     order: order,
-                    search: search
+                    search: search,
+                    type: type
                 });
-                console.log('render in fetch');
                 return [4 /*yield*/, extra.api.get('/articles', {
                         // headers: {
                         //   // это для косяк, хз как решить, без этого кода, api.ts не работает без перезагрузки страницы
@@ -74,7 +75,8 @@ export var fetchArticlesList = createAsyncThunk('articlesPage/fetchArticlesList'
                             _page: page,
                             _sort: sort,
                             _order: order,
-                            title_like: search
+                            title_like: search,
+                            type_like: type === ArticleType.ALL ? undefined : type
                         }
                     })];
             case 2:

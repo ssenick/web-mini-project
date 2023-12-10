@@ -1,6 +1,6 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
 import { ArticleView } from 'entities/Article'
-import { ArticleSortField } from 'entities/Article/model/types/article'
+import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article'
 import { type SortOrder } from 'shared/types'
 
 export const getArticlesPageIsLoading = (state: StateSchema): boolean => state.articlePage?.isLoading || false
@@ -12,4 +12,5 @@ export const getArticlesPageHasMore = (state: StateSchema): boolean => state.art
 export const getArticlesPageOrder = (state: StateSchema): SortOrder => state.articlePage?.order ?? 'asc'
 export const getArticlesPageSearch = (state: StateSchema): string => state.articlePage?.search ?? ''
 export const getArticlesPageSort = (state: StateSchema): ArticleSortField => state.articlePage?.sort ?? ArticleSortField.CREATED
+export const getArticlesPageType = (state: StateSchema): ArticleType => state.articlePage?.type ?? ArticleType.ALL
 export const getArticlesPageInited = (state: StateSchema): boolean => state.articlePage?._inited ?? false

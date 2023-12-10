@@ -1,13 +1,16 @@
 import { type ArticleSortField, type ArticleView } from 'entities/Article'
+import { type ArticleType } from 'entities/Article/model/types/article'
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageSort,
+  getArticlesPageType,
   getArticlesPageView
 } from 'features/ArticlesPageWrapper/model/selectors/articlesPageSelectors'
 import { fetchArticlesList } from 'features/ArticlesPageWrapper/model/services/fetchArticlesList/fetchArticlesList'
 import { articlesPageActions } from 'features/ArticlesPageWrapper/model/slice/articlesPageSlice'
 import { ArticlesSortSelector } from 'features/ArticlesSortSelector'
+import { ArticleTypeTabs } from 'features/ArticleTypeTabs'
 
 import { ViewSelector } from 'features/ViewSelector'
 import { memo, useCallback } from 'react'
@@ -32,6 +35,7 @@ export const ArticlePageHeader = memo(({ className }: ArticlePageHeaderProps) =>
   const search = useSelector(getArticlesPageSearch)
   const sort = useSelector(getArticlesPageSort)
   const order = useSelector(getArticlesPageOrder)
+  const type = useSelector(getArticlesPageType)
 
   const fetchData = useCallback(() => {
     void dispatch(fetchArticlesList({ replace: true }))
@@ -61,9 +65,14 @@ export const ArticlePageHeader = memo(({ className }: ArticlePageHeaderProps) =>
     debounceFetchData()
   }, [dispatch, debounceFetchData])
 
+  const onChangeTabs = useCallback((newTab: ArticleType) => {
+    dispatch(articlesPageActions.setType(newTab))
+    dispatch(articlesPageActions.setPage(1))
+    fetchData()
+  }, [dispatch, fetchData])
   return (
         <div className={classNames(cls.ArticlePageHeader, {}, [className])}>
-            <div className={cls.top}>
+          <div className={cls.top}>
                 <ArticlesSortSelector
                     sort={sort}
                     order={order}
@@ -74,7 +83,7 @@ export const ArticlePageHeader = memo(({ className }: ArticlePageHeaderProps) =>
                 />
                 <ViewSelector className={cls.view} view={view} onViewClick={onChangeView}/>
             </div>
-          <div className={cls.bottom}>
+          <div className={cls.search}>
             <Input
                 className={cls.input}
                 variant={InputVariant.INVERSE_BG}
@@ -82,6 +91,9 @@ export const ArticlePageHeader = memo(({ className }: ArticlePageHeaderProps) =>
                 value={search}
                 onChange={onChangeSearch}
             />
+          </div>
+          <div className={cls.bottom}>
+              <ArticleTypeTabs value={type} onChangeType={onChangeTabs}/>
           </div>
         </div>
   )
