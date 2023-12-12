@@ -23,9 +23,10 @@ var getSkeletons = function (view) {
         .fill(0).map(function (item, index) { return (_jsx(ArticleListItemSkeleton, { view: view }, index)); });
 };
 export var ArticleList = memo(function (props) {
+    var _a;
     var t = useTranslation('articles').t;
-    var className = props.className, articles = props.articles, isLoading = props.isLoading, _a = props.view, view = _a === void 0 ? ArticleView.BIG : _a;
+    var className = props.className, articles = props.articles, isLoading = props.isLoading, _b = props.view, view = _b === void 0 ? ArticleView.BIG : _b, slider = props.slider;
     var renderArticles = function (article) { return (_jsx(ArticleListItem, { className: cls.article, article: article, view: view }, article.id)); };
-    return (_jsxs("div", __assign({ className: classNames(cls.ArticleList, {}, [className, cls[view]]) }, { children: [_jsxs("div", __assign({ className: cls.articles }, { children: [articles.length > 0 ? articles.map(renderArticles) : null, isLoading && getSkeletons(view)] })), (!articles.length && !isLoading) &&
+    return (_jsxs("div", __assign({ className: classNames(cls.ArticleList, (_a = {}, _a[cls.slider] = slider, _a), [className, cls[view]]) }, { children: [_jsxs("div", __assign({ className: cls.articles }, { children: [articles.length > 0 ? articles.map(renderArticles) : null, isLoading && getSkeletons(view)] })), (!articles.length && !isLoading) &&
                 _jsx(Text, { size: TextFontSize.L, texAlign: TextAlign.CENTER, title: t('Нет статей') })] })));
 });

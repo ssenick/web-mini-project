@@ -34,5 +34,20 @@ body {
 
   &__content {
     grid-area: content;
+    overflow: hidden;
   }
+}
+
+*::-webkit-scrollbar {
+  width: 12px;               /* ширина scrollbar */
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--card-bg);        /* цвет дорожки */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--bg-module);    /* цвет плашки */
+  border-radius: 20px;       /* закругления плашки */
 }

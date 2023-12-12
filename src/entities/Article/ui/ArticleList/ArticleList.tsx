@@ -12,6 +12,7 @@ interface ArticleListProps {
   articles: Article[]
   isLoading?: boolean
   view?: ArticleView
+  slider?: boolean
 }
 
 const getSkeletons = (view: ArticleView): ReactNode =>
@@ -26,7 +27,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
     className,
     articles,
     isLoading,
-    view = ArticleView.BIG
+    view = ArticleView.BIG,
+    slider
   } = props
 
   const renderArticles = (article: Article): JSX.Element => (
@@ -34,7 +36,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   )
 
   return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <div className={classNames(cls.ArticleList, { [cls.slider]: slider }, [className, cls[view]])}>
           <div className={cls.articles}>
             {articles.length > 0 ? articles.map(renderArticles) : null}
               {isLoading && getSkeletons(view)}

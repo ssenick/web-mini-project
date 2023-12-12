@@ -2,6 +2,7 @@ import { ArticleDetails } from 'entities/Article/ui/ArticleDetails/ArticleDetail
 import { AddNewCommentForm } from 'features/AddNewCommentForm'
 import { addCommentForArticle } from 'features/AddNewCommentForm/model/services/addCommentForArticle'
 import { ArticleCommentList } from 'features/ArticleCommentList'
+import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList'
 import { type FC, memo, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -41,6 +42,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   return (
         <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             <ArticleDetails className={cls.article} id={id}/>
+            <ArticleRecommendationsList/>
             <Text className={cls.title} size={TextFontSize.L} title={`${t('Комментарии')}:`}/>
             <AddNewCommentForm className={cls.form} onSendComment={onSendComment}/>
             <ArticleCommentList/>

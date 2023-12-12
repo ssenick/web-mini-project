@@ -1,8 +1,8 @@
 import { action } from '@storybook/addon-actions';
-import { ArticleType } from 'entities/Article/model/types/article';
-import { Tabs } from './Tabs';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/povaiders/ThemeProvaider';
+import { ArticleType } from 'entities/Article/model/types/article';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Tabs } from './Tabs';
 var typeTabs = [
     { value: ArticleType.ALL, content: 'Все' },
     { value: ArticleType.IT, content: 'Айти' },

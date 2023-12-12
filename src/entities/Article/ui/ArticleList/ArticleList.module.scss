@@ -18,4 +18,20 @@
       margin: 0 auto;
     }
   }
+
+  &.slider {
+    width: 100% !important;
+    overflow: hidden;
+
+    .articles {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: auto;
+      padding-bottom: 10px;
+    }
+
+    .article {
+      min-width: 200px;
+    }
+  }
 }

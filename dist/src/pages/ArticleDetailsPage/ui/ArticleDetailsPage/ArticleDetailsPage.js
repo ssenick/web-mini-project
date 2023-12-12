@@ -14,6 +14,7 @@ import { ArticleDetails } from 'entities/Article/ui/ArticleDetails/ArticleDetail
 import { AddNewCommentForm } from 'features/AddNewCommentForm';
 import { addCommentForArticle } from 'features/AddNewCommentForm/model/services/addCommentForArticle';
 import { ArticleCommentList } from 'features/ArticleCommentList';
+import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import { memo, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -36,6 +37,6 @@ var ArticleDetailsPage = function (_a) {
     if (!id) {
         return (_jsx(Page, __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: t('Статья не найдена') })));
     }
-    return (_jsxs(Page, __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: [_jsx(ArticleDetails, { className: cls.article, id: id }), _jsx(Text, { className: cls.title, size: TextFontSize.L, title: "".concat(t('Комментарии'), ":") }), _jsx(AddNewCommentForm, { className: cls.form, onSendComment: onSendComment }), _jsx(ArticleCommentList, {})] })));
+    return (_jsxs(Page, __assign({ className: classNames(cls.ArticleDetailsPage, {}, [className]) }, { children: [_jsx(ArticleDetails, { className: cls.article, id: id }), _jsx(ArticleRecommendationsList, {}), _jsx(Text, { className: cls.title, size: TextFontSize.L, title: "".concat(t('Комментарии'), ":") }), _jsx(AddNewCommentForm, { className: cls.form, onSendComment: onSendComment }), _jsx(ArticleCommentList, {})] })));
 };
 export default memo(ArticleDetailsPage);

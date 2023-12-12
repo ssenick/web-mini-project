@@ -5,6 +5,9 @@ import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetai
 import { profileReducer } from 'entities/Profile'
 import { addNewCommentFormReducer } from 'features/AddNewCommentForm/model/slice/addNewCommentFormSlice'
 import { articleDetailsCommentsReducer } from 'features/ArticleCommentList/model/slice/articleDetailsCommentsSlice'
+import {
+  articleDetailsRecommendationsListReducer
+} from 'features/ArticleRecommendationsList/model/slice/articleRecommendationsListSlice'
 import { articlesPageReducer } from 'features/ArticlesPageWrapper/model/slice/articlesPageSlice'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
 
@@ -13,6 +16,7 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsRecommendations: articleDetailsRecommendationsListReducer,
   addCommentForm: addNewCommentFormReducer,
   articlePage: articlesPageReducer
 }

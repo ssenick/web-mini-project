@@ -18,7 +18,6 @@ export function useDebounce(callback, delay) {
         return function () {
             if (timer.current) {
                 clearTimeout(timer.current);
-                console.log('cansel');
             }
         };
     }, []);
