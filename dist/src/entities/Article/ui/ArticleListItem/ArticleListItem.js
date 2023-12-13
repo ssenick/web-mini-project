@@ -24,7 +24,7 @@ import { Text, TextFontSize } from 'shared/ui/Text/Text';
 import { ArticleBlockType, ArticleView } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 export var ArticleListItem = memo(function (props) {
-    var className = props.className, article = props.article, view = props.view;
+    var className = props.className, article = props.article, view = props.view, target = props.target;
     var t = useTranslation().t;
     var navigate = useNavigate();
     // functional

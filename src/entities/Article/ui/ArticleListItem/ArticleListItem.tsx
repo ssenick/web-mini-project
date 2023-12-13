@@ -1,35 +1,33 @@
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
-import { memo, useCallback } from 'react'
+import { type HTMLAttributeAnchorTarget, memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
 import IconEye from 'shared/assets/icons/view.svg'
 import { RoutPath } from 'shared/config/routeConfig'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Button, ButtonSize, ButtonVariant } from 'shared/ui/Button/Button'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { Text, TextFontSize } from 'shared/ui/Text/Text'
 import { type Article, ArticleBlockType, type ArticleTextBlock, ArticleView } from '../../model/types/article'
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import cls from './ArticleListItem.module.scss'
 
 interface ArticleListItemProps {
   className?: string
   article: Article
   view: ArticleView
+  target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const {
     className,
     article,
-    view
+    view,
+    target
   } = props
+
   const { t } = useTranslation()
-  const navigate = useNavigate()
-  // functional
-  const onOpenArticle = useCallback(() => {
-    navigate(RoutPath.articles_details + article.id)
-  }, [navigate, article.id])
 
   // Rendering
   const types_component = <Text className={cls.types} text={article.type.join(', ')} size={TextFontSize.SXS}/>
@@ -71,11 +69,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 }
             </div>
             <div className={cls.bottom}>
-                <Button
-                    onClick={onOpenArticle}
-                    size={ButtonSize.M}
-                    variant={ButtonVariant.BORDER}
-                >{t('Читать далее')}</Button>
+                <AppLink to={RoutPath.articles_details + article.id} target={target}>
+                    <Button
+                        size={ButtonSize.M}
+                        variant={ButtonVariant.BORDER}
+                    >{t('Читать далее')}</Button>
+                </AppLink>
+
                 {views}
             </div>
         </article>
@@ -83,7 +83,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   }
 
   return (
-        <article onClick={onOpenArticle} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+        <AppLink
+            to={RoutPath.articles_details + article.id}
+            target={target}
+            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
           <div className={cls.imageBlock}>
             <img className={cls.image} src={article.img} alt="article image"/>
             <Text className={cls.createAtt} text={article.createdAt} size={TextFontSize.XS} />
@@ -96,6 +99,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
               </div>
           </div>
           <Text title={article.title} className={cls.title} />
-        </article>
+        </AppLink>
   )
 })

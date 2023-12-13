@@ -1,4 +1,4 @@
-import { memo, type ReactNode } from 'react'
+import { type HTMLAttributeAnchorTarget, memo, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text'
@@ -13,6 +13,7 @@ interface ArticleListProps {
   isLoading?: boolean
   view?: ArticleView
   slider?: boolean
+  target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeletons = (view: ArticleView): ReactNode =>
@@ -28,11 +29,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
     articles,
     isLoading,
     view = ArticleView.BIG,
-    slider
+    slider,
+    target
   } = props
 
   const renderArticles = (article: Article): JSX.Element => (
-    <ArticleListItem className={cls.article} key={article.id} article={article} view={view}/>
+    <ArticleListItem className={cls.article} key={article.id} article={article} view={view} target={target}/>
   )
 
   return (

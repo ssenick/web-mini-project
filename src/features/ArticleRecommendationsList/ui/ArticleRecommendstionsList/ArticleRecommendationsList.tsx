@@ -49,6 +49,7 @@ export const ArticleRecommendationsList = memo(({ className }: ArticleRecommenda
                       articles={recommendations}
                       isLoading={isLoading}
                       view={ArticleView.SMALL}
+                      target={'_blank'}
                       slider
                   />
                 : <Text title={t('что-то пошло не так')} size={TextFontSize.L} texAlign={TextAlign.CENTER}/> }

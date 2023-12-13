@@ -1,5 +1,5 @@
 import { memo, type ReactNode } from 'react'
-import { type LinkProps, NavLink } from 'react-router-dom'
+import { Link, type LinkProps } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './AppLink.module.scss'
 
@@ -25,12 +25,12 @@ export const AppLink = memo((props: AppLinkProps): JSX.Element => {
   } = props
 
   return (
-        <NavLink
+        <Link
             to={to}
             className={classNames(cls.AppLink, { [cls.noActive]: noActive }, [className, cls[variant]])}
             {...otherProps}
         >
             {children}
-        </NavLink>
+        </Link>
   )
 })
