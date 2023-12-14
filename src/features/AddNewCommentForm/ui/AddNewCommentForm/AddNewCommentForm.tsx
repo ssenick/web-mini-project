@@ -6,6 +6,7 @@ import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components /D
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
 import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints'
+import { Text, TextFontSize } from 'shared/ui/Text/Text'
 import { TextArea } from 'shared/ui/TextArea/TextArea'
 import { getAddNewCommentFormError, getAddNewCommentFormIsLoading, getAddNewCommentFormText } from '../../model/selectors/addNewCommentFormSelectors'
 import { addNewCommentFormActions, addNewCommentFormReducer } from '../../model/slice/addNewCommentFormSlice'
@@ -49,6 +50,7 @@ const AddNewCommentForm = memo(({ className, onSendComment }: AddNewCommentFormP
   return (
       <DynamicModuleLoader reducers={reducers}>
           <div className={classNames(cls.AddNewCommentForm, { [cls.isLoading]: isLoading }, [className])}>
+              <Text className={cls.title} size={TextFontSize.L} title={`${t('Комментарии')}:`}/>
               <div className={cls.wrapper}>
                   <TextArea className={cls.textarea} onChange={onChangeCommentArea} value={text} placeholder={t('Напишите комментарий')}/>
                   {isLoading && <LoaderPoints className={cls.loader}/>}

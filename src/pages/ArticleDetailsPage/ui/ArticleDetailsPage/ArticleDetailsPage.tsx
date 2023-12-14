@@ -4,13 +4,13 @@ import { addCommentForArticle } from 'features/AddNewCommentForm/model/services/
 import { ArticleCommentList } from 'features/ArticleCommentList'
 import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList'
 import { type FC, memo, useCallback } from 'react'
-import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { Text, TextFontSize } from 'shared/ui/Text/Text'
-import cls from './ArticleDetailsPage.module.scss'
 import { Page } from 'widgets/Page'
+import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader'
+import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -34,18 +34,22 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   }
 
   if (!id) {
-    return (<Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        {t('Статья не найдена')}
-    </Page>)
+    return (
+        <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            {t('Статья не найдена')}
+        </Page>
+    )
   }
 
   return (
         <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            <ArticleDetails className={cls.article} id={id}/>
-            <ArticleRecommendationsList/>
-            <Text className={cls.title} size={TextFontSize.L} title={`${t('Комментарии')}:`}/>
-            <AddNewCommentForm className={cls.form} onSendComment={onSendComment}/>
-            <ArticleCommentList/>
+            <div className={cls.wrapper}>
+                <ArticleDetailsHeader/>
+                <ArticleDetails id={id}/>
+                <ArticleRecommendationsList/>
+                <AddNewCommentForm onSendComment={onSendComment}/>
+                <ArticleCommentList/>
+            </div>
         </Page>
   )
 }

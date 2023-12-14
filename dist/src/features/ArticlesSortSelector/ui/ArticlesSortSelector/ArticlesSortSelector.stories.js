@@ -2,7 +2,7 @@ import { ArticlesSortSelector } from './ArticlesSortSelector';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/povaiders/ThemeProvaider';
 var meta = {
-    title: 'shared/ArticlesSortSelector',
+    title: 'features/ArticlesSortSelector',
     component: ArticlesSortSelector,
     parameters: {
         layout: 'fullscreen'

@@ -1,4 +1,13 @@
 .AddNewCommentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  .title {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--primary-color);
+  }
+
   .wrapper {
     position: relative;
   }
@@ -6,7 +15,6 @@
   .bottom {
     display: flex;
     justify-content: flex-end;
-    padding-top: 10px;
   }
 
   &.isLoading {

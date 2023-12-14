@@ -2,6 +2,7 @@
   cursor: pointer;
   transition: border-left var(--animation-time) ease 0s;
   border-left: 2px solid transparent;
+  box-shadow: 0 0 0 1em transparent;
 
   &:global.active {
     border-left: 2px solid var(--primary-color);
@@ -14,4 +15,24 @@
 
 .clean {
   padding: 0;
+}
+
+.border {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1.5px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (any-hover: hover) {
+    &:hover {
+      animation: pulse-primary 1s;
+      box-shadow: 0 0 0 1em transparent;
+    }
+  }
+}
+
+@keyframes pulse-primary {
+  0% { box-shadow: 0 0 0 0 var(--primary-color); }
 }

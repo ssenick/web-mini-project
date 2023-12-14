@@ -6,9 +6,49 @@
   padding: 65px 20px 20px;
   overflow: hidden;
   border-radius: 0 var(--border-radius-small) var(--border-radius-small) 0;
+  display: flex;
+  flex-direction: column;
+
+  .createBtn {
+    margin-top: auto;
+    transition:
+      margin var(--animation-time),
+      opacity var(--animation-time);
+    overflow: hidden;
+    white-space: nowrap;
+
+    span {
+      margin-left: 10px;
+      overflow: hidden;
+      transition:
+        margin var(--animation-time),
+        opacity var(--animation-time);
+    }
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+
+    path,
+    rect {
+      fill: var(--primary-color);
+    }
+  }
 
   &.collapsed {
     width: var(--sidebar-width-collapsed);
+
+    .createBtn {
+      padding: 3px 5px;
+
+      span {
+        margin: 0;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
   }
 }
 

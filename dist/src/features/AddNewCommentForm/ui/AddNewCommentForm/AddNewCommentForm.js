@@ -18,6 +18,7 @@ import { DynamicModuleLoader } from 'shared/lib/components /DynamicModuleLoader/
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints';
+import { Text, TextFontSize } from 'shared/ui/Text/Text';
 import { TextArea } from 'shared/ui/TextArea/TextArea';
 import { getAddNewCommentFormError, getAddNewCommentFormIsLoading, getAddNewCommentFormText } from '../../model/selectors/addNewCommentFormSelectors';
 import { addNewCommentFormActions, addNewCommentFormReducer } from '../../model/slice/addNewCommentFormSlice';
@@ -45,6 +46,6 @@ var AddNewCommentForm = memo(function (_a) {
     if (error) {
         return (_jsx("div", __assign({ className: classNames(cls.AddNewCommentForm, (_b = {}, _b[cls.isLoading] = isLoading, _b), [className]) }, { children: t('что-то пошло не так') })));
     }
-    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers }, { children: _jsxs("div", __assign({ className: classNames(cls.AddNewCommentForm, (_c = {}, _c[cls.isLoading] = isLoading, _c), [className]) }, { children: [_jsxs("div", __assign({ className: cls.wrapper }, { children: [_jsx(TextArea, { className: cls.textarea, onChange: onChangeCommentArea, value: text, placeholder: t('Напишите комментарий') }), isLoading && _jsx(LoaderPoints, { className: cls.loader })] })), _jsx("div", __assign({ className: cls.bottom }, { children: _jsx(Button, __assign({ onClick: onSendHandler, className: cls.button, variant: ButtonVariant.BACKGROUND }, { children: t('Отправить комментарий') })) }))] })) })));
+    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers }, { children: _jsxs("div", __assign({ className: classNames(cls.AddNewCommentForm, (_c = {}, _c[cls.isLoading] = isLoading, _c), [className]) }, { children: [_jsx(Text, { className: cls.title, size: TextFontSize.L, title: "".concat(t('Комментарии'), ":") }), _jsxs("div", __assign({ className: cls.wrapper }, { children: [_jsx(TextArea, { className: cls.textarea, onChange: onChangeCommentArea, value: text, placeholder: t('Напишите комментарий') }), isLoading && _jsx(LoaderPoints, { className: cls.loader })] })), _jsx("div", __assign({ className: cls.bottom }, { children: _jsx(Button, __assign({ onClick: onSendHandler, className: cls.button, variant: ButtonVariant.BACKGROUND }, { children: t('Отправить комментарий') })) }))] })) })));
 });
 export default AddNewCommentForm;

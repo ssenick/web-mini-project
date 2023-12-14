@@ -22,7 +22,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { memo } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 export var AppLinkVariant;
@@ -32,5 +32,5 @@ export var AppLinkVariant;
 export var AppLink = memo(function (props) {
     var _a;
     var to = props.to, className = props.className, children = props.children, noActive = props.noActive, _b = props.variant, variant = _b === void 0 ? AppLinkVariant.CLEAN : _b, otherProps = __rest(props, ["to", "className", "children", "noActive", "variant"]);
-    return (_jsx(NavLink, __assign({ to: to, className: classNames(cls.AppLink, (_a = {}, _a[cls.noActive] = noActive, _a), [className, cls[variant]]) }, otherProps, { children: children })));
+    return (_jsx(Link, __assign({ to: to, className: classNames(cls.AppLink, (_a = {}, _a[cls.noActive] = noActive, _a), [className, cls[variant]]) }, otherProps, { children: children })));
 });

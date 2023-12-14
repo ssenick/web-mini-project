@@ -1,6 +1,7 @@
 var _a, _b;
 import { jsx as _jsx } from "react/jsx-runtime";
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticleEditPage } from "pages/ArticleEditPage";
 import { ArticlePage } from 'pages/ArticlePage';
 import { HomePage } from 'pages/HomePage';
 import { AboutPage } from 'pages/AboutPage';
@@ -13,6 +14,8 @@ export var AppRoutes;
     AppRoutes["PROFILE"] = "profile";
     AppRoutes["ARTICLES"] = "articles";
     AppRoutes["ARTICLE_DETAILS"] = "articles_details";
+    AppRoutes["ARTICLE_CREATE"] = "articles_create";
+    AppRoutes["ARTICLE_EDIT"] = "articles_edit";
     // last
     AppRoutes["NOT_FOUND"] = "notFound";
 })(AppRoutes || (AppRoutes = {}));
@@ -21,6 +24,8 @@ export var RoutPath = (_a = {},
     _a[AppRoutes.ABOUT] = '/about',
     _a[AppRoutes.PROFILE] = '/profile/',
     _a[AppRoutes.ARTICLES] = '/articles',
+    _a[AppRoutes.ARTICLE_CREATE] = '/articles/new',
+    _a[AppRoutes.ARTICLE_EDIT] = '/articles/',
     _a[AppRoutes.ARTICLE_DETAILS] = '/articles/',
     // last
     _a[AppRoutes.NOT_FOUND] = '*',
@@ -47,6 +52,16 @@ export var routeConfig = (_b = {},
     _b[AppRoutes.ARTICLE_DETAILS] = {
         path: RoutPath.articles_details + ':id',
         element: _jsx(ArticleDetailsPage, {}),
+        authOnly: true
+    },
+    _b[AppRoutes.ARTICLE_CREATE] = {
+        path: RoutPath.articles_create,
+        element: _jsx(ArticleEditPage, {}),
+        authOnly: true
+    },
+    _b[AppRoutes.ARTICLE_EDIT] = {
+        path: RoutPath.articles_edit + ':id' + '/edit',
+        element: _jsx(ArticleEditPage, {}),
         authOnly: true
     },
     // last

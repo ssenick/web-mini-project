@@ -38,6 +38,6 @@ export var ArticleRecommendationsList = memo(function (_a) {
         void dispatch(fetchArticleRecommendations());
     });
     return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers }, { children: _jsxs("div", __assign({ className: classNames(cls.ArticleRecommendationsList, {}, [className]) }, { children: [_jsx(Text, { title: t('Рекомендуем'), size: TextFontSize.L, className: cls.title }), !error
-                    ? _jsx(ArticleList, { className: cls.recommendations, articles: recommendations, isLoading: isLoading, view: ArticleView.SMALL, slider: true })
+                    ? _jsx(ArticleList, { className: cls.recommendations, articles: recommendations, isLoading: isLoading, view: ArticleView.SMALL, target: '_blank', slider: true })
                     : _jsx(Text, { title: t('что-то пошло не так'), size: TextFontSize.L, texAlign: TextAlign.CENTER })] })) })));
 });

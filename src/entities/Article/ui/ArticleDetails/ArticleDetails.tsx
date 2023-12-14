@@ -1,16 +1,13 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import DateIcon from 'shared/assets/icons/date.svg'
 import ViewIcon from 'shared/assets/icons/view.svg'
-import { RoutPath } from 'shared/config/routeConfig'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
-import { Button, ButtonSize, ButtonVariant } from 'shared/ui/Button/Button'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text'
@@ -41,10 +38,6 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const isLoading = useSelector(getArticleDetailsIsLoading)
   const error = useSelector(getArticleDetailsError)
   const article = useSelector(getArticleDetailsData)
-  const navigate = useNavigate()
-  const onBackToList = useCallback(() => {
-    navigate(RoutPath.articles)
-  }, [navigate])
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block?.type) {
@@ -82,11 +75,17 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     content = (
         <>
             <div className={cls.header}>
+                <Skeleton className={cls.header__title} width={'38%'} height={40} border={'5px'}/>
                 <div className={cls.header__avatar}>
-                    <Skeleton width={100} height={100} border={'50%'}/>
+                    <Skeleton width={30} height={30} border={'50%'}/>
+                    <Skeleton width={70} height={30} border={'5px'}/>
                 </div>
+                <div className={cls.header__image}>
+                    <Skeleton className={cls.header__img} width={'100%'} height={'100%'} border={'5px'}/>
+                </div>
+
                 <div className={cls.header__content}>
-                    <Skeleton className={cls.header__title} width={'38%'} height={40} border={'5px'}/>
+
                     <Skeleton className={cls.header__subtitle} width={'38%'} height={30} border={'5px'}/>
                     <div className={cls.header__block}>
                         <Skeleton className={cls.header__subtitle} width={'11%'} height={23} border={'5px'}/>
@@ -117,14 +116,19 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     content = (
         <>
             <div className={cls.header}>
+                <Text className={cls.header__title}
+                      size={TextFontSize.XL}
+                      title={article?.title}
+                />
                 <div className={cls.header__avatar}>
-                    <Avatar size={120} className={cls.avatar} src={article?.img}/>
+                    <Avatar size={30} className={cls.avatar} src={article?.user.avatar}/>
+                    <Text title={article?.user.username}/>
                 </div>
+                <div className={cls.header__image}>
+                    <img className={cls.header__img} src={article?.img} alt="Article image"/>
+                </div>
+
                 <div className={cls.header__content}>
-                    <Text className={cls.header__title}
-                          size={TextFontSize.XL}
-                          title={article?.title}
-                    />
                     <Text className={cls.header__subtitle} size={TextFontSize.XL} text={article?.subtitle}/>
                     <div className={cls.header__block}>
                         <Icon Svg={ViewIcon} className={cls.header__icon}/>
@@ -151,7 +155,6 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
           <div className={classNames(cls.ArticleDetails, {}, [className])}>
-              <Button className={cls.btnBack} onClick={onBackToList} size={ButtonSize.XS} variant={ButtonVariant.BORDER}>{t('Назад к списку')}</Button>
               {content}
           </div>
       </DynamicModuleLoader>

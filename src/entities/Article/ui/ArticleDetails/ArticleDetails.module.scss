@@ -1,18 +1,34 @@
 .ArticleDetails {
   min-height: 100%;
-
-  .btnBack {
-    margin-bottom: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 
   .header {
-    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .header__image {
+    position: relative;
+    padding-bottom: 25%;
+  }
+
+  .header__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
   }
 
   .header__avatar {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 7px;
+    margin-bottom: 10px;
   }
 
   .header__content {
@@ -32,9 +48,9 @@
     height: 20px;
   }
 
-  .block {
-    &:not(:last-child) {
-      margin-bottom: 30px;
-    }
+  .article {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
   }
 }

@@ -25,8 +25,8 @@ var getSkeletons = function (view) {
 export var ArticleList = memo(function (props) {
     var _a;
     var t = useTranslation('articles').t;
-    var className = props.className, articles = props.articles, isLoading = props.isLoading, _b = props.view, view = _b === void 0 ? ArticleView.BIG : _b, slider = props.slider;
-    var renderArticles = function (article) { return (_jsx(ArticleListItem, { className: cls.article, article: article, view: view }, article.id)); };
+    var className = props.className, articles = props.articles, isLoading = props.isLoading, _b = props.view, view = _b === void 0 ? ArticleView.BIG : _b, slider = props.slider, target = props.target;
+    var renderArticles = function (article) { return (_jsx(ArticleListItem, { className: cls.article, article: article, view: view, target: target }, article.id)); };
     return (_jsxs("div", __assign({ className: classNames(cls.ArticleList, (_a = {}, _a[cls.slider] = slider, _a), [className, cls[view]]) }, { children: [_jsxs("div", __assign({ className: cls.articles }, { children: [articles.length > 0 ? articles.map(renderArticles) : null, isLoading && getSkeletons(view)] })), (!articles.length && !isLoading) &&
                 _jsx(Text, { size: TextFontSize.L, texAlign: TextAlign.CENTER, title: t('Нет статей') })] })));
 });

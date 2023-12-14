@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
 
 const meta: Meta<typeof ArticlesSortSelector> = {
-  title: 'shared/ArticlesSortSelector',
+  title: 'features/ArticlesSortSelector',
   component: ArticlesSortSelector,
   parameters: {
     layout: 'fullscreen'

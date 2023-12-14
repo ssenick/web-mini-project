@@ -5,6 +5,7 @@ import cls from './AppLink.module.scss'
 
 export enum AppLinkVariant {
   CLEAN = 'clean',
+  BORDER = 'border',
 }
 
 interface AppLinkProps extends LinkProps {
