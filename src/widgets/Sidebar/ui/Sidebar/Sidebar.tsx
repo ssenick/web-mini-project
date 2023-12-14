@@ -1,3 +1,4 @@
+import { getUserAuthData } from 'entities/User'
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -19,6 +20,7 @@ interface SidebarProps {
 export const Sidebar = memo(({ className, collapsedStorybook }: SidebarProps): JSX.Element => {
   const { t } = useTranslation()
   const [collapsed, setCollapsed] = useState(collapsedStorybook || false)
+  const isAuth = useSelector(getUserAuthData)
   const sidebarLinksList = useSelector(getSidebarLinks)
 
   const toggleCollapse = useCallback(() => {
@@ -42,10 +44,14 @@ export const Sidebar = memo(({ className, collapsedStorybook }: SidebarProps): J
                     )}
                 </ul>
             </nav>
-            <AppLink to={RoutPath.articles_create} variant={AppLinkVariant.BORDER} className={cls.createBtn}>
-               <Icon Svg={CreateIcon} className={cls.icon}/>
-                <span>{t('Создать статью')}</span>
-            </AppLink>
+            {
+                isAuth &&
+                <AppLink to={RoutPath.articles_create} variant={AppLinkVariant.BORDER} className={cls.createBtn}>
+                  <Icon Svg={CreateIcon} className={cls.icon}/>
+                  <span>{t('Создать статью')}</span>
+               </AppLink>
+            }
+
         </aside>
   )
 })
