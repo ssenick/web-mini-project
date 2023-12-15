@@ -10,7 +10,8 @@ export default ({config}: { config: webpack.Configuration }) => {
         html: "",
         build: "",
         src: path.resolve(__dirname, "..", "..", 'src'),
-
+        locales:'',
+        buildLocales:''
     }
     config.performance={
         hints: false,
