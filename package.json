@@ -8,7 +8,7 @@
     "start:dev:server": "node ./json-server/index.js",
     "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
     "start:all": "concurrently \"npm start\" \"npm run start:dev:server\" \"npm run storybook\"",
-    "build": "webpack --env mode=production apiUrl=https://product-public-server-1ntr0ijv7-ssenicks-projects.vercel.app",
+    "build": "webpack --env mode=production apiUrl=https://product-public-server.vercel.app",
     "build:dev": "webpack --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
