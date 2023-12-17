@@ -2,6 +2,7 @@
   "extends": "stylelint-config-standard-scss",
   "rules": {
     "selector-class-pattern": null,
+    "scss/double-slash-comment-whitespace-inside":  "off",
     "selector-pseudo-class-no-unknown": [
       true,
       {
