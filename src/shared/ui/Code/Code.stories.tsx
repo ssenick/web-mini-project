@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>
 export const Light: Story = {
   args: {},
   render: (args) => (
-      <div className="app__content">
+      <div className="app__content storybook">
       <Code text={
         'const meta: Meta<typeof Code> = {\n' +
           '  title: \'shared/Code\',\n' +

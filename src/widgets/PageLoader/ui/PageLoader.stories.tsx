@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>
 
 export const Light: Story = {
   render: (args) => (
-        <div className="app__content">
+        <div className="app__content storybook">
             <PageLoader/>
         </div>
   )
@@ -29,7 +29,7 @@ Light.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const Dark: Story = {
   render: (args) => (
-        <div className="app__content">
+        <div className="app__content storybook">
             <PageLoader/>
         </div>
   )
@@ -38,7 +38,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const Funny: Story = {
   render: (args) => (
-        <div className="app__content">
+        <div className="app__content storybook">
             <PageLoader/>
         </div>
   )

@@ -1,6 +1,9 @@
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList'
+import {
+  fetchNextArticlesPage
+} from 'features/ArticlesPageWrapper/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 import { initArticlesPage } from 'features/ArticlesPageWrapper/model/services/initArticlesPage/initArticlesPage'
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
@@ -39,6 +42,14 @@ export const ArticlesPageWrapper = memo(({ className }: ArticlesPageWrapperProps
   const inited = useSelector(getArticlesPageInited)
   const [searchParams] = useSearchParams()
 
+  const onLoadNextPart = useCallback(() => {
+    if (__PROJECT__ !== 'storybook') {
+      if (!isLoading) {
+        void dispatch(fetchNextArticlesPage())
+      }
+    }
+  }, [dispatch, isLoading])
+
   useInitialEffect(() => {
     void dispatch(initArticlesPage(searchParams))
     if (inited && __PROJECT__ !== 'storybook') {
@@ -54,7 +65,7 @@ export const ArticlesPageWrapper = memo(({ className }: ArticlesPageWrapperProps
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
         <div className={classNames(cls.ArticlesPageWrapper, {}, [className])}>
-            <ArticleList articles={articles} view={view} isLoading={isLoading}/>
+            <ArticleList onLoadNextPart={onLoadNextPart} articles={articles} view={view} isLoading={isLoading}/>
         </div>
       </DynamicModuleLoader>
   )

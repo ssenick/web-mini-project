@@ -4,7 +4,7 @@ import ArticleEditPage from './ArticleEditPage';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/povaiders/ThemeProvaider';
 var meta = {
-    title: 'shared/ArticleEditPage',
+    title: 'pages/ArticleEditPage',
     component: ArticleEditPage,
     parameters: {
         layout: 'fullscreen'

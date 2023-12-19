@@ -1,7 +1,8 @@
-import { type HTMLAttributeAnchorTarget, memo } from 'react'
+import { type HTMLAttributeAnchorTarget, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import IconEye from 'shared/assets/icons/view.svg'
 import { RoutPath } from 'shared/config/routeConfig'
+import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstorage'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
@@ -17,6 +18,7 @@ interface ArticleListItemProps {
   article: Article
   view: ArticleView
   target?: HTMLAttributeAnchorTarget
+  index?: number
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -24,10 +26,15 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     className,
     article,
     view,
-    target
+    target,
+    index
   } = props
 
   const { t } = useTranslation()
+
+  const setArticleIndex = useCallback(() => {
+    sessionStorage.setItem(ARTICLE_LIST_ITEM_INDEX, JSON.stringify(index))
+  }, [index])
 
   // Rendering
   const types_component = <Text className={cls.types} text={article.type.join(', ')} size={TextFontSize.SXS}/>
@@ -69,7 +76,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 }
             </div>
             <div className={cls.bottom}>
-                <AppLink to={RoutPath.articles_details + article.id} target={target}>
+                <AppLink onClick={setArticleIndex} to={RoutPath.articles_details + article.id} target={target}>
                     <Button
                         size={ButtonSize.M}
                         variant={ButtonVariant.BORDER}
@@ -84,6 +91,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   return (
         <AppLink
+            onClick={setArticleIndex}
             to={RoutPath.articles_details + article.id}
             target={target}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>

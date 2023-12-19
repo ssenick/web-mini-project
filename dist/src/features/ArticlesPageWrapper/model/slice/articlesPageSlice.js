@@ -49,7 +49,7 @@ export var articlesPageSlice = createSlice({
         initialState: function (state) {
             var view = localStorage.getItem(VIEW_LOCALSTORAGE_KEY);
             state.view = view;
-            state.limit = view === ArticleView.SMALL ? 10 : 4;
+            state.limit = view === ArticleView.SMALL ? 9 : 4;
             state._inited = true;
         }
     },

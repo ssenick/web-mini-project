@@ -79,7 +79,7 @@ Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
 export const IsLoading: Story = {
   args: {},
   render: () => (
-      <div className="app__content">
+      <div className="app__content storybook">
         <ArticleDetails id={'1'}/>
       </div>
   )

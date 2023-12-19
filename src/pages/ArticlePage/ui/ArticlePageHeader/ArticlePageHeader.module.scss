@@ -1,12 +1,12 @@
 .ArticlePageHeader {
   display: grid;
-  gap: 20px;
+  gap: 15px;
 
   .top {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 20px;
+    gap: 15px;
   }
 
   .view {
@@ -14,5 +14,5 @@
     padding-bottom: 4px;
   }
 
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }

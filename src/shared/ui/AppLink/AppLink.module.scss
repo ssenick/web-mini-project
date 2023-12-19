@@ -17,6 +17,18 @@
   padding: 0;
 }
 
+.withIcon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--primary-color);
+  }
+}
+
 .border {
   padding: 5px 10px;
   border-radius: 5px;
@@ -31,6 +43,22 @@
       box-shadow: 0 0 0 1em transparent;
     }
   }
+}
+
+.squareXS {
+  font: var(--font-xs);
+}
+
+.squareSM {
+  font: var(--font-sm);
+}
+
+.squareM {
+  font: var(--font-m);
+}
+
+.squareL {
+  font: var(--font-l);
 }
 
 @keyframes pulse-primary {

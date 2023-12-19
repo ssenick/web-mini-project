@@ -11,16 +11,14 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Page } from 'widgets/Page';
 import cls from './ArticleEditPage.module.scss';
 var ArticleEditPage = memo(function (_a) {
     var className = _a.className;
-    var t = useTranslation().t;
     var id = useParams().id;
     var isEdit = Boolean(id);
-    return (_jsx(Page, __assign({ className: classNames(cls.ArticleEditPage, {}, [className]) }, { children: isEdit ? "DA ".concat(id, "ID") : 'NOOO' })));
+    return (_jsx(Page, __assign({ className: classNames(cls.ArticleEditPage, {}, [className]) }, { children: isEdit ? "DA ".concat(id, "ID") : 'CREATE' })));
 });
 export default ArticleEditPage;

@@ -1,7 +1,7 @@
 var _a, _b;
 import { jsx as _jsx } from "react/jsx-runtime";
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
-import { ArticleEditPage } from "pages/ArticleEditPage";
+import { ArticleEditPage } from 'pages/ArticleEditPage';
 import { ArticlePage } from 'pages/ArticlePage';
 import { HomePage } from 'pages/HomePage';
 import { AboutPage } from 'pages/AboutPage';

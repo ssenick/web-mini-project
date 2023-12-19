@@ -20,6 +20,8 @@ export default (function (_a) {
         html: "",
         build: "",
         src: path.resolve(__dirname, "..", "..", 'src'),
+        locales: '',
+        buildLocales: ''
     };
     config.performance = {
         hints: false,

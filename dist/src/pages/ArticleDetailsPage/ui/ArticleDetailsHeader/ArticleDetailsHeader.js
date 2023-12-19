@@ -19,19 +19,17 @@ import { useNavigate } from 'react-router-dom';
 import EditIcon from 'shared/assets/icons/edit.svg';
 import { RoutPath } from 'shared/config/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonSize, ButtonVariant } from 'shared/ui/Button/Button';
 import cls from './ArticleDetailsHeader.module.scss';
 export var ArticleDetailsHeader = memo(function (_a) {
     var className = _a.className;
     var t = useTranslation('articleDetails').t;
-    var navigate = useNavigate();
     var canEdit = useSelector(getCanEditArticle);
     var article = useSelector(getArticleDetailsData);
-    var onBackToList = useCallback(function () {
-        navigate(RoutPath.articles);
+    var navigate = useNavigate();
+    var goBackToArticles = useCallback(function () {
+        navigate(RoutPath.articles, { replace: true, state: 'articleDetails' });
     }, [navigate]);
-    var onEditArticle = useCallback(function () {
-        navigate("".concat(RoutPath.articles_edit).concat(article === null || article === void 0 ? void 0 : article.id, "/edit"));
-    }, [navigate, article]);
-    return (_jsxs("div", __assign({ className: classNames(cls.ArticleDetailsHeader, {}, [className]) }, { children: [_jsx(Button, __assign({ className: cls.btnBack, onClick: onBackToList, size: ButtonSize.XS, variant: ButtonVariant.BORDER }, { children: t('Назад к списку') })), canEdit && _jsxs(Button, __assign({ className: cls.btnEdit, onClick: onEditArticle, size: ButtonSize.XS, withIcon: true, variant: ButtonVariant.BORDER }, { children: [t('Редактировать'), _jsx(EditIcon, {})] }))] })));
+    return (_jsxs("div", __assign({ className: classNames(cls.ArticleDetailsHeader, {}, [className]) }, { children: [_jsx(Button, __assign({ className: cls.btnBack, variant: ButtonVariant.BORDER, size: ButtonSize.XS, onClick: goBackToArticles }, { children: t('Назад к списку') })), canEdit && _jsxs(AppLink, __assign({ to: "".concat(RoutPath.articles_edit).concat(article === null || article === void 0 ? void 0 : article.id, "/edit"), className: cls.btnEdit, withIcon: true, variant: AppLinkVariant.BORDER }, { children: [t('Редактировать'), _jsx(EditIcon, {})] }))] })));
 });

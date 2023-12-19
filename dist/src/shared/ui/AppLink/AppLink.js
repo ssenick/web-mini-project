@@ -28,9 +28,17 @@ import cls from './AppLink.module.scss';
 export var AppLinkVariant;
 (function (AppLinkVariant) {
     AppLinkVariant["CLEAN"] = "clean";
+    AppLinkVariant["BORDER"] = "border";
 })(AppLinkVariant || (AppLinkVariant = {}));
+export var AppLinkSize;
+(function (AppLinkSize) {
+    AppLinkSize["XS"] = "squareXS";
+    AppLinkSize["SM"] = "squareSM";
+    AppLinkSize["M"] = "squareM";
+    AppLinkSize["L"] = "squareL";
+})(AppLinkSize || (AppLinkSize = {}));
 export var AppLink = memo(function (props) {
     var _a;
-    var to = props.to, className = props.className, children = props.children, noActive = props.noActive, _b = props.variant, variant = _b === void 0 ? AppLinkVariant.CLEAN : _b, otherProps = __rest(props, ["to", "className", "children", "noActive", "variant"]);
-    return (_jsx(Link, __assign({ to: to, className: classNames(cls.AppLink, (_a = {}, _a[cls.noActive] = noActive, _a), [className, cls[variant]]) }, otherProps, { children: children })));
+    var to = props.to, className = props.className, children = props.children, noActive = props.noActive, _b = props.size, size = _b === void 0 ? AppLinkSize.XS : _b, _c = props.variant, variant = _c === void 0 ? AppLinkVariant.CLEAN : _c, withIcon = props.withIcon, otherProps = __rest(props, ["to", "className", "children", "noActive", "size", "variant", "withIcon"]);
+    return (_jsx(Link, __assign({ to: to, className: classNames(cls.AppLink, (_a = {}, _a[cls.noActive] = noActive, _a[cls.withIcon] = withIcon, _a), [className, cls[variant], cls[size]]) }, otherProps, { children: children })));
 });

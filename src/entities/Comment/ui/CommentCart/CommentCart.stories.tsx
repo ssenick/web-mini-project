@@ -33,7 +33,7 @@ type Story = StoryObj<typeof meta>
 export const Light: Story = {
   args: {},
   render: () => (
-      <div className="app__content">
+      <div className="app__content storybook">
         <CommentCart comment={comment} isLoading={false}/>
       </div>
   )
@@ -43,7 +43,7 @@ Light.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator]
 export const Dark: Story = {
   args: {},
   render: () => (
-      <div className="app__content">
+      <div className="app__content storybook">
         <CommentCart comment={comment} isLoading={false}/>
       </div>
   )
@@ -53,7 +53,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator]
 export const Funny: Story = {
   args: {},
   render: () => (
-      <div className="app__content">
+      <div className="app__content storybook">
         <CommentCart comment={comment} isLoading={false}/>
       </div>
   )
@@ -63,7 +63,7 @@ Funny.decorators = [ThemeDecorator(Theme.FUNNY), RouterDecorator]
 export const IsLoading: Story = {
   args: {},
   render: () => (
-        <div className="app__content">
+        <div className="app__content storybook">
             <CommentCart comment={comment} isLoading={true}/>
         </div>
   )

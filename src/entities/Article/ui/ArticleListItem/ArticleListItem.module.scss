@@ -44,7 +44,7 @@
 
   .imageBlock {
     position: relative;
-    padding-bottom: 40%;
+    padding-bottom: 35%;
   }
 
   .image {
@@ -82,7 +82,7 @@
 
 .SMALL {
   padding: 8px;
-  transition: box-shadow var(--animation-time) ease 0s;
+  transition: background-color var(--animation-time) ease 0s;
   cursor: pointer;
   display: grid;
   row-gap: 8px;
@@ -132,7 +132,7 @@
   }
 
   &:hover {
-    box-shadow: 0 2px 10px 0 var(--skeleton-shadow);
+    background-color: var(--bg-module);
 
     .createAtt {
       opacity: 1;

@@ -3,8 +3,14 @@
   align-items: center;
   gap: 5px;
 
+  svg,
+  path {
+    width: 22px;
+  }
+
   .selected {
-    svg {
+    svg,
+    path {
       fill: var(--bg-module);
     }
   }

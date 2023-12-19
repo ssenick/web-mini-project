@@ -35,7 +35,12 @@ body {
   &__content {
     grid-area: content;
     overflow: hidden;
+    display: grid;
   }
+}
+
+.storybook {
+  align-items: start;
 }
 
 *::-webkit-scrollbar {
