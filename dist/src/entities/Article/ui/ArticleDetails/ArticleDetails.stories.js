@@ -78,7 +78,7 @@ Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
     }), RouterDecorator];
 export var IsLoading = {
     args: {},
-    render: function () { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(ArticleDetails, { id: '1' }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: "app__content storybook" }, { children: _jsx(ArticleDetails, { id: '1' }) }))); }
 };
 IsLoading.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
         articleDetails: {

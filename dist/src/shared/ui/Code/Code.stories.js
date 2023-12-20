@@ -25,7 +25,7 @@ var meta = {
 export default meta;
 export var Light = {
     args: {},
-    render: function (args) { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(Code, { text: 'const meta: Meta<typeof Code> = {\n' +
+    render: function (args) { return (_jsx("div", __assign({ className: "app__content storybook" }, { children: _jsx(Code, { text: 'const meta: Meta<typeof Code> = {\n' +
                 '  title: \'shared/Code\',\n' +
                 '  component: Code,\n' +
                 '  parameters: {\n' +

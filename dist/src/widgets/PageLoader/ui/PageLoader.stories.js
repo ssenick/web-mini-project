@@ -24,14 +24,14 @@ var meta = {
 };
 export default meta;
 export var Light = {
-    render: function (args) { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(PageLoader, {}) }))); }
+    render: function (args) { return (_jsx("div", __assign({ className: "app__content storybook" }, { children: _jsx(PageLoader, {}) }))); }
 };
 Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 export var Dark = {
-    render: function (args) { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(PageLoader, {}) }))); }
+    render: function (args) { return (_jsx("div", __assign({ className: "app__content storybook" }, { children: _jsx(PageLoader, {}) }))); }
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 export var Funny = {
-    render: function (args) { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(PageLoader, {}) }))); }
+    render: function (args) { return (_jsx("div", __assign({ className: "app__content storybook" }, { children: _jsx(PageLoader, {}) }))); }
 };
 Funny.decorators = [ThemeDecorator(Theme.FUNNY)];

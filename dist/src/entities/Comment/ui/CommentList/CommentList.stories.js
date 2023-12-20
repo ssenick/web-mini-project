@@ -49,26 +49,26 @@ var meta = {
 export default meta;
 export var Light = {
     args: {},
-    render: function () { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentList, { comments: comments, isLoading: false }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: "app__content storybook" }, { children: _jsx(CommentList, { comments: comments, isLoading: false }) }))); }
 };
 Light.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator];
 export var Dark = {
     args: {},
-    render: function () { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentList, { comments: comments, isLoading: false }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: "app__content storybook" }, { children: _jsx(CommentList, { comments: comments, isLoading: false }) }))); }
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator];
 export var Funny = {
     args: {},
-    render: function () { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentList, { comments: comments, isLoading: false }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: "app__content storybook" }, { children: _jsx(CommentList, { comments: comments, isLoading: false }) }))); }
 };
 Funny.decorators = [ThemeDecorator(Theme.FUNNY), RouterDecorator];
 export var IsLoading = {
     args: {},
-    render: function () { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentList, { comments: comments, isLoading: true }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: "app__content storybook" }, { children: _jsx(CommentList, { comments: comments, isLoading: true }) }))); }
 };
 IsLoading.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator];
 export var NotComments = {
     args: {},
-    render: function () { return (_jsx("div", __assign({ className: "app__content" }, { children: _jsx(CommentList, { comments: [], isLoading: false }) }))); }
+    render: function () { return (_jsx("div", __assign({ className: "app__content storybook" }, { children: _jsx(CommentList, { comments: [], isLoading: false }) }))); }
 };
 NotComments.decorators = [ThemeDecorator(Theme.LIGHT), RouterDecorator];
