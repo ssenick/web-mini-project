@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { type Article, ArticleBlockType, ArticleType, ArticleView } from 'entities/Article/model/types/article'
+import { type Article, ArticleBlockType, ArticleType, ArticleView } from '../../model/types/article'
 import Image from 'shared/assets/test/image.jpg'
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'

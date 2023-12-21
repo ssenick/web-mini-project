@@ -2,7 +2,7 @@ import { type StateSchema } from 'app/povaiders/StoreProvaider'
 import {
   getAddNewCommentFormError,
   getAddNewCommentFormIsLoading, getAddNewCommentFormText
-} from 'features/AddNewCommentForm/model/selectors/addNewCommentFormSelectors'
+} from './addNewCommentFormSelectors'
 
 describe('addNewCommentFormSelectors.test', () => {
   test('isLoading should return true', () => {

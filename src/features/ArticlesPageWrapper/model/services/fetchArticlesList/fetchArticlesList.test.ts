@@ -1,5 +1,5 @@
 import { type Article } from 'entities/Article'
-import { fetchArticlesList } from 'features/ArticlesPageWrapper/model/services/fetchArticlesList/fetchArticlesList'
+import { fetchArticlesList } from './fetchArticlesList'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 
 describe('fetchArticlesList test', () => {

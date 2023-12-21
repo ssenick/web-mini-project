@@ -1,5 +1,5 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
-import { getProfileReadonly } from 'entities/Profile'
+import { getProfileReadonly } from '../../..'
 
 describe('getProfileReadonly', () => {
   test('should return false', () => {

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/povaiders/StoreProvaider'
-import { articlesPageActions } from 'features/ArticlesPageWrapper/model/slice/articlesPageSlice'
+import { articlesPageActions } from '../../slice/articlesPageSlice'
 import {
   getArticlesPageHasMore,
   getArticlesPageIsLoading,

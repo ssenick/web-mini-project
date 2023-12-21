@@ -1,5 +1,5 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
-import { getProfileIsLoading } from 'entities/Profile'
+import { getProfileIsLoading } from '../../..'
 
 describe('getProfileIsLoading.test', () => {
   test('should return false', () => {

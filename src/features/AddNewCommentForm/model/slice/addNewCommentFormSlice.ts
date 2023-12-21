@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { addCommentForArticle } from 'features/AddNewCommentForm/model/services/addCommentForArticle'
+import { addCommentForArticle } from '../services/addCommentForArticle'
 import { type AddNewCommentFormSchema } from '../types/addNewCommentForm'
 
 const initialState: AddNewCommentFormSchema = {

@@ -42,7 +42,8 @@ module.exports = {
       "react",
       "i18next",
       '@typescript-eslint',
-      "react-hooks"
+      "react-hooks",
+      "ulbi-tv-plugin"
       // '@typescript-eslint',
    ],
    "rules": {
@@ -64,7 +65,8 @@ module.exports = {
       "react-hooks/exhaustive-deps": 'error', // Checks effect dependencies,
       "@typescript-eslint/no-dynamic-delete": 'off',
       "@typescript-eslint/consistent-type-assertions": "warn",
-      "@typescript-eslint/no-explicit-any": "warn"
+      "@typescript-eslint/no-explicit-any": "warn",
+      "ulbi-tv-plugin/path-checker": "error"
 
    },
    globals: {

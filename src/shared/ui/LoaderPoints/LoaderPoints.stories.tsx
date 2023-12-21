@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
-import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints'
+import { LoaderPoints } from './LoaderPoints'
 
 const meta: Meta<typeof LoaderPoints> = {
   title: 'shared/LoaderPoints',

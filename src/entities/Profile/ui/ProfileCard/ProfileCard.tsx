@@ -1,6 +1,6 @@
 import { CountrySelect, type Country } from 'entities/Country'
 import { type Currency, CurrencySelect } from 'entities/Currency'
-import { type Profile } from 'entities/Profile'
+import { type Profile } from '../..'
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'

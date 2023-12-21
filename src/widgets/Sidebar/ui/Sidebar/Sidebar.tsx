@@ -8,8 +8,8 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
 import { Icon } from 'shared/ui/Icon/Icon'
-import { getSidebarLinks } from 'widgets/Sidebar/model/selectors/getSidebarLinks'
-import { SidebarLink } from 'widgets/Sidebar/ui/SidebarLink/SidebarLink'
+import { getSidebarLinks } from '../../model/selectors/getSidebarLinks'
+import { SidebarLink } from '../SidebarLink/SidebarLink'
 import cls from './Sidebar.module.scss'
 
 interface SidebarProps {

@@ -1,7 +1,7 @@
 import type React from 'react'
 import { useState, type InputHTMLAttributes, useCallback, memo, useMemo } from 'react'
 import { classNames, type Mods } from 'shared/lib/classNames/classNames'
-import { Text, TextFontSize } from 'shared/ui/Text/Text'
+import { Text, TextFontSize } from '../Text/Text'
 import cls from './Input.module.scss'
 
 export enum InputVariant {

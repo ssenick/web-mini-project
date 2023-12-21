@@ -3,14 +3,14 @@ import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList'
 import {
   getArticleRecommendationsListError,
   getArticleRecommendationsListIsLoading
-} from 'features/ArticleRecommendationsList'
+} from '../..'
 import {
   fetchArticleRecommendations
-} from 'features/ArticleRecommendationsList/model/services/feachArticleRecommendations'
+} from '../../model/services/feachArticleRecommendations'
 import {
   articleDetailsRecommendationsListReducer,
   getArticleRecommendations
-} from 'features/ArticleRecommendationsList/model/slice/articleRecommendationsListSlice'
+} from '../../model/slice/articleRecommendationsListSlice'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'

@@ -1,10 +1,10 @@
 import { createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
 import { type Article } from 'entities/Article'
-import { type ArticleDetailsRecommendationsListSchema } from 'features/ArticleRecommendationsList'
+import { type ArticleDetailsRecommendationsListSchema } from '../..'
 import {
   fetchArticleRecommendations
-} from 'features/ArticleRecommendationsList/model/services/feachArticleRecommendations'
+} from '../services/feachArticleRecommendations'
 
 const recommendationsAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id

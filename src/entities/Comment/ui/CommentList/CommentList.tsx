@@ -1,4 +1,4 @@
-import { CommentCart } from 'entities/Comment/ui/CommentCart/CommentCart'
+import { CommentCart } from '../CommentCart/CommentCart'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'

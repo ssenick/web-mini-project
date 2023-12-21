@@ -1,5 +1,5 @@
 import { ArticlesPageWrapper } from 'features/ArticlesPageWrapper'
-import { ArticlePageHeader } from 'pages/ArticlePage/ui/ArticlePageHeader/ArticlePageHeader'
+import { ArticlePageHeader } from '../ArticlePageHeader/ArticlePageHeader'
 import { type FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'

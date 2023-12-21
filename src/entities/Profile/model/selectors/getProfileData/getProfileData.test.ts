@@ -1,7 +1,7 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
 import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
-import { getProfileData } from 'entities/Profile'
+import { getProfileData } from '../../..'
 
 describe('getProfileData.test', () => {
   const profileDate = {
