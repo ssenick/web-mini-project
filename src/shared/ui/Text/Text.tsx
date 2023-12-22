@@ -20,6 +20,17 @@ export enum TextFontSize {
   XL = 'sizeXL'
 }
 
+type HeaderTypeText = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+
+const mapSizeToHeaderTag: Record<TextFontSize, HeaderTypeText> = {
+  [TextFontSize.SXS]: 'h6',
+  [TextFontSize.XS]: 'h5',
+  [TextFontSize.SM]: 'h4',
+  [TextFontSize.M]: 'h3',
+  [TextFontSize.L]: 'h2',
+  [TextFontSize.XL]: 'h1'
+}
+
 interface TextProps {
   className?: string
   title?: string
@@ -38,10 +49,11 @@ export const Text = memo((props: TextProps): JSX.Element => {
     size = TextFontSize.M,
     texAlign = TextAlign.LEFT
   } = props
+  const HeaderTag = mapSizeToHeaderTag[size]
 
   return (
         <div className={classNames(cls.Text, { }, [className, cls[variant], cls[size], cls[texAlign]])}>
-            {title && <p className={cls.title}>{title}</p>}
+            {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
             {text && <p className={cls.text}>{text}</p>}
         </div>
   )
