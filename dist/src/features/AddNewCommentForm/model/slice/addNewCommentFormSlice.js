@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addCommentForArticle } from 'features/AddNewCommentForm/model/services/addCommentForArticle';
+import { addCommentForArticle } from '../services/addCommentForArticle';
 var initialState = {
     text: '',
     error: '',

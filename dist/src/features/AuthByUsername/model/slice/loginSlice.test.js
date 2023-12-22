@@ -1,4 +1,4 @@
-import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
+import { loginActions, loginReducer } from './loginSlice';
 describe('loginSlice.test', function () {
     test('test set username', function () {
         var state = {

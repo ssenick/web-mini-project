@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { Button, ButtonVariant } from 'shared/ui/Button/Button';
+import { Button, ButtonVariant } from './Button';
 import { render, screen } from '@testing-library/react';
 describe('Button', function () {
     test('Test render', function () {

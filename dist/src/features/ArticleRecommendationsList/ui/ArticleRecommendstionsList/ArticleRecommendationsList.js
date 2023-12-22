@@ -12,9 +12,9 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { ArticleView } from 'entities/Article';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
-import { getArticleRecommendationsListError, getArticleRecommendationsListIsLoading } from 'features/ArticleRecommendationsList';
-import { fetchArticleRecommendations } from 'features/ArticleRecommendationsList/model/services/feachArticleRecommendations';
-import { articleDetailsRecommendationsListReducer, getArticleRecommendations } from 'features/ArticleRecommendationsList/model/slice/articleRecommendationsListSlice';
+import { getArticleRecommendationsListError, getArticleRecommendationsListIsLoading } from '../..';
+import { fetchArticleRecommendations } from '../../model/services/feachArticleRecommendations';
+import { articleDetailsRecommendationsListReducer, getArticleRecommendations } from '../../model/slice/articleRecommendationsListSlice';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';

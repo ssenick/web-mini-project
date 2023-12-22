@@ -1,6 +1,6 @@
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/povaiders/ThemeProvaider';
-import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints';
+import { LoaderPoints } from './LoaderPoints';
 var meta = {
     title: 'shared/LoaderPoints',
     component: LoaderPoints,

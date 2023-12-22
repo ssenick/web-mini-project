@@ -1,4 +1,4 @@
-import { getProfileIsLoading } from 'entities/Profile';
+import { getProfileIsLoading } from '../../..';
 describe('getProfileIsLoading.test', function () {
     test('should return false', function () {
         var state = {

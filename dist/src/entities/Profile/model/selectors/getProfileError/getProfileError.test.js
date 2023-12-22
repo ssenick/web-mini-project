@@ -1,4 +1,4 @@
-import { getProfileError } from 'entities/Profile';
+import { getProfileError } from '../getProfileError/getProfileError';
 import { ValidateProfileErrors } from '../../types/profile';
 describe('getProfileError.test', function () {
     var errors = [

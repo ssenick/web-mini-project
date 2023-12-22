@@ -1,6 +1,6 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { getProfileForm } from 'entities/Profile';
+import { getProfileForm } from '../../..';
 describe('getProfileData.test', function () {
     var profileForm = {
         first: 'Ruslan',

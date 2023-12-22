@@ -3,6 +3,10 @@
   gap: 20px;
   width: 100%;
 
+  .header {
+    min-height: 32px;
+  }
+
   .header,
   .bottom {
     display: flex;

@@ -35,8 +35,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchArticlesList } from 'features/ArticlesPageWrapper/model/services/fetchArticlesList/fetchArticlesList';
-import { articlesPageActions } from 'features/ArticlesPageWrapper/model/slice/articlesPageSlice';
+import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
+import { articlesPageActions } from '../../slice/articlesPageSlice';
 import { getArticlesPageInited } from '../../selectors/articlesPageSelectors';
 export var initArticlesPage = createAsyncThunk('articlesPage/initArticlesPage', function (searchParams, thunkAPI) { return __awaiter(void 0, void 0, void 0, function () {
     var dispatch, getState, inited, orderFromURL, sortFromURL, searchFromURL, typeFromURL;

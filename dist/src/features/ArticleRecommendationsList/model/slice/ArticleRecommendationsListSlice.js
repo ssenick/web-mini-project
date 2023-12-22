@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { fetchArticleRecommendations } from 'features/ArticleRecommendationsList/model/services/feachArticleRecommendations';
+import { fetchArticleRecommendations } from '../services/feachArticleRecommendations';
 var recommendationsAdapter = createEntityAdapter({
     selectId: function (article) { return article.id; }
 });

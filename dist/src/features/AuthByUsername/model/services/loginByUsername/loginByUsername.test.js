@@ -34,7 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import { loginByUsername } from './loginByUsername';
 import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 describe('loginByUsername.test', function () {

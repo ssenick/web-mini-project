@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { fetchProfileData, updateProfileData } from 'entities/Profile';
+import { fetchProfileData, updateProfileData } from '../..';
 import { profileActions, profileReducer } from './profileSlice';
 import { ValidateProfileErrors } from '../types/profile';
 describe('profileSlice.test', function () {

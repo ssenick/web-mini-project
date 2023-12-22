@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { fireEvent, screen } from '@testing-library/react';
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
-import { Sidebar } from 'widgets/Sidebar';
+import { Sidebar } from '../..';
 describe('Sidebar', function () {
     var initialState = {
         user: {

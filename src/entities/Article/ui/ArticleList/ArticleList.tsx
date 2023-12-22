@@ -31,7 +31,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const {
     className,
     articles,
-    isLoading,
+    isLoading = true,
     view = ArticleView.BIG,
     slider,
     target,
@@ -51,9 +51,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const SkeletonsSmall = memo(() => {
     if (isLoading) {
       return (
-        <div className={cls.skeletons}>
-          {getSkeletons(ArticleView.SMALL)}
-        </div>
+            <div className={cls.articles}>
+              {getSkeletons(ArticleView.SMALL)}
+            </div>
       )
     }
     return null
@@ -61,7 +61,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const SkeletonsBig = memo(() => {
     if (isLoading) {
       return (
-          <div className={cls.skeletons}>
+          <div className={cls.articles}>
             {getSkeletons(ArticleView.BIG)}
           </div>
       )
@@ -93,28 +93,40 @@ export const ArticleList = memo((props: ArticleListProps) => {
         <div ref={refList}
              className={classNames(cls.ArticleList,
                { [cls.slider]: slider }, [className, cls[view]])}>
-          {view === ArticleView.BIG && <Virtuoso
-                  style={{ height: '100%' }}
-                  data={articles}
-                  itemContent={renderArticles}
-                  endReached={onLoadNextPart}
-                  initialTopMostItemIndex={ articleIndex }
-                  components ={{ Footer: SkeletonsBig }}
-              />
-          }
-          {view === ArticleView.SMALL &&
-             <VirtuosoGrid
-              ref={refVirtuosoGrid}
-              totalCount={articles.length}
-              listClassName={cls.articles}
-              data={articles}
-              initialTopMostItemIndex={articleIndex}
-              endReached={onLoadNextPart}
-              itemContent={renderArticles}
-              components={{
-                Footer: SkeletonsSmall
-              }}
-          />
+          {!slider
+            ? <>
+                {view === ArticleView.BIG && <Virtuoso
+                    style={{ height: '100%' }}
+                    data={articles}
+                    itemContent={renderArticles}
+                    endReached={onLoadNextPart}
+                    initialTopMostItemIndex={ articleIndex }
+                    components ={{ Footer: SkeletonsBig }}
+                />
+                }
+                {view === ArticleView.SMALL &&
+                    <VirtuosoGrid
+                        ref={refVirtuosoGrid}
+                        totalCount={articles.length}
+                        listClassName={cls.articles}
+                        data={articles}
+                        initialTopMostItemIndex={articleIndex}
+                        endReached={onLoadNextPart}
+                        itemContent={renderArticles}
+                        components={{
+                          Footer: SkeletonsSmall
+                        }}
+                    />
+                }
+              </>
+            : <div className={cls.articles}>
+                {articles.length > 0
+                  ? articles.map((article, index) => (
+                    renderArticles(index, article)
+                  ))
+                  : null}
+                  {isLoading && getSkeletons(view)}
+              </div>
           }
 
             {/* {articles.length > 0 ? articles.map(renderArticles) : null} */}

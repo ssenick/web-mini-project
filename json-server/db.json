@@ -1752,6 +1752,41 @@
       "text": "asdfsd",
       "createdComment": "12.12.2023",
       "id": "2CLzEJY"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "asdfsf",
+      "createdComment": "21.12.2023",
+      "id": "XUS_QZG"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "sdfsdfds",
+      "createdComment": "21.12.2023",
+      "id": "_DRg-qm"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "asdfasda",
+      "createdComment": "21.12.2023",
+      "id": "oxb2CZV"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "asda",
+      "createdComment": "21.12.2023",
+      "id": "CocwPOv"
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "text": "Asdd",
+      "createdComment": "21.12.2023",
+      "id": "Ol5qdPe"
     }
   ],
   "users": [
@@ -1771,7 +1806,7 @@
   "profile": [
     {
       "id": "1",
-      "first": "Ruslan1",
+      "first": "Ruslan",
       "lastname": "Senchenko",
       "age": 33,
       "currency": "USD",

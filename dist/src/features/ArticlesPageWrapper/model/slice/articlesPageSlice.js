@@ -1,7 +1,7 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { ArticleView } from 'entities/Article';
 import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
-import { fetchArticlesList } from 'features/ArticlesPageWrapper/model/services/fetchArticlesList/fetchArticlesList';
+import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 var articlesAdapter = createEntityAdapter({
     selectId: function (article) { return article.id; }
@@ -49,7 +49,7 @@ export var articlesPageSlice = createSlice({
         initialState: function (state) {
             var view = localStorage.getItem(VIEW_LOCALSTORAGE_KEY);
             state.view = view;
-            state.limit = view === ArticleView.SMALL ? 9 : 4;
+            state.limit = view === ArticleView.BIG ? 9 : 12;
             state._inited = true;
         }
     },

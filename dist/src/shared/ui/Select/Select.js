@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, TextFontSize } from 'shared/ui/Text/Text';
+import { Text, TextFontSize } from '../Text/Text';
 import cls from './Select.module.scss';
 export var SelectVariant;
 (function (SelectVariant) {

@@ -1,5 +1,5 @@
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { ArticleBlockType, ArticleType } from '../types/article';
 describe('articleDetails.test', function () {
     var initialData = {
         id: '1',

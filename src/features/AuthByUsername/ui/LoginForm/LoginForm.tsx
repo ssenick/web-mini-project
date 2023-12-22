@@ -15,7 +15,7 @@ import { getLoginIsLoading } from '../../model/selectros/getLoginIsLoading/getLo
 import { getLoginError } from '../../model/selectros/getLoginError/getLoginError'
 import { Text, TextFontSize, TextVariant } from 'shared/ui/Text/Text'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader'
+import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 export interface LoginFormProps {
   className?: string

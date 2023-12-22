@@ -1,4 +1,4 @@
-import { getAddNewCommentFormError, getAddNewCommentFormIsLoading, getAddNewCommentFormText } from 'features/AddNewCommentForm/model/selectors/addNewCommentFormSelectors';
+import { getAddNewCommentFormError, getAddNewCommentFormIsLoading, getAddNewCommentFormText } from './addNewCommentFormSelectors';
 describe('addNewCommentFormSelectors.test', function () {
     test('isLoading should return true', function () {
         var state = {

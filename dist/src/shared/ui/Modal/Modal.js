@@ -13,7 +13,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
-import { Portal } from 'shared/ui/Portal/Portal';
+import { Portal } from '../Portal/Portal';
 export var Modal = function (props) {
     var className = props.className, children = props.children, isOpen = props.isOpen, onClose = props.onClose, lazy = props.lazy, isCloseModal = props.isCloseModal;
     var _a = useState(false), isClosing = _a[0], setIsClosing = _a[1];

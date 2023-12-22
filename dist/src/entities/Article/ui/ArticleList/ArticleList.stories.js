@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { ArticleBlockType, ArticleType, ArticleView } from 'entities/Article/model/types/article';
+import { ArticleBlockType, ArticleType, ArticleView } from '../../model/types/article';
 import Image from 'shared/assets/test/image.jpg';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';

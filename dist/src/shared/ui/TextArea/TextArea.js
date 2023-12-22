@@ -23,7 +23,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { memo, useCallback, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, TextFontSize } from 'shared/ui/Text/Text';
+import { Text, TextFontSize } from '../Text/Text';
 import cls from './TextArea.module.scss';
 export var TextArea = memo(function (props) {
     var className = props.className, value = props.value, onChange = props.onChange, readonly = props.readonly, label = props.label, otherProps = __rest(props, ["className", "value", "onChange", "readonly", "label"]);

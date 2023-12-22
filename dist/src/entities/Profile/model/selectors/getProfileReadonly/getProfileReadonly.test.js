@@ -1,4 +1,4 @@
-import { getProfileReadonly } from 'entities/Profile';
+import { getProfileReadonly } from '../../..';
 describe('getProfileReadonly', function () {
     test('should return false', function () {
         var state = {

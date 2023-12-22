@@ -1,6 +1,6 @@
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/povaiders/ThemeProvaider';
-import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
+import { AppLink, AppLinkVariant } from './AppLink';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 var meta = {
     title: 'shared/AppLink',

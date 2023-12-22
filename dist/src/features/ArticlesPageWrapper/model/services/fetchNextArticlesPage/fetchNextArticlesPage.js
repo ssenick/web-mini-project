@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { articlesPageActions } from 'features/ArticlesPageWrapper/model/slice/articlesPageSlice';
+import { articlesPageActions } from '../../slice/articlesPageSlice';
 import { getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPageNum } from '../../selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type

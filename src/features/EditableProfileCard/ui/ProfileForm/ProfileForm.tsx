@@ -1,7 +1,8 @@
 import { type Country } from 'entities/Country'
 import { type Currency } from 'entities/Currency'
 import {
-  fetchProfileData, getProfileData,
+  fetchProfileData,
+  getProfileData,
   getProfileError,
   getProfileForm,
   getProfileIsLoading,
@@ -19,7 +20,7 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import EditIcon from 'shared/assets/icons/edit.svg'
 import { classNames, type Mods } from 'shared/lib/classNames/classNames'
-import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader'
+import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
@@ -101,44 +102,46 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
         <div className={classNames(cls.ProfileForm, mods, [className])}>
+
+              <div className={cls.header}>
+                {canEdit &&
+                <>
+                  {!readonly
+                    ? <Button onClick={onCancelEdit} withIcon variant={ButtonVariant.BORDER_ERROR}>
+                        {t('Отменить')}
+                      </Button>
+                    : <Button onClick={onEdit} withIcon variant={ButtonVariant.BORDER}>
+                        {t('Редактировать')}
+                        <EditIcon/>
+                      </Button>
+                  }
+                </>
+                }
+              </div>
+
+          <div className={cls.form}>
+            <ProfileCard
+                className={cls.card}
+                data={formData}
+                readonly={readonly}
+                error = { error}
+                isLoading={isLoading}
+                onChangeFirstName={onChangeFirstName}
+                onChangeLastName={onChangeLastName}
+                onChangeAge={onChangeAge}
+                onChangeUsername={onChangeUsername}
+                onChangeAvatar={onChangeAvatar}
+                onChangeCurrency={onChangeCurrency}
+                onChangeCountry={onChangeCountry}
+            />
+          </div>
+          <div className={cls.bottom}>
             {canEdit &&
-               <div className={cls.header}>
-                   {!readonly
-                     ? <Button onClick={onCancelEdit} withIcon variant={ButtonVariant.BORDER_ERROR}>
-                           {t('Отменить')}
-                       </Button>
-                     : <Button onClick={onEdit} withIcon variant={ButtonVariant.BORDER}>
-                           {t('Редактировать')}
-                           <EditIcon/>
-                       </Button>
-                   }
-               </div>
+                <Button onClick={onSaveEdit} className={cls.btnSave} variant={ButtonVariant.BACKGROUND}>
+                  {t('Сохранить')}
+                </Button>
             }
-
-            <div className={cls.form}>
-                <ProfileCard
-                      className={cls.card}
-                      data={formData}
-                      readonly={readonly}
-                      error = { error}
-                      isLoading={isLoading}
-                      onChangeFirstName={onChangeFirstName}
-                      onChangeLastName={onChangeLastName}
-                      onChangeAge={onChangeAge}
-                      onChangeUsername={onChangeUsername}
-                      onChangeAvatar={onChangeAvatar}
-                      onChangeCurrency={onChangeCurrency}
-                      onChangeCountry={onChangeCountry}
-                />
-            </div>
-           <div className={cls.bottom}>
-               {canEdit &&
-                  <Button onClick={onSaveEdit} className={cls.btnSave} variant={ButtonVariant.BACKGROUND}>
-                      {t('Сохранить')}
-                  </Button>
-               }
-
-            </div>
+          </div>
         </div>
       </DynamicModuleLoader>
   )

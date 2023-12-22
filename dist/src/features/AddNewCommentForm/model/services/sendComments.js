@@ -37,8 +37,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails';
 import { getUserAuthData } from 'entities/User';
-import { getAddNewCommentFormText } from 'features/AddNewCommentForm/model/selectors/addNewCommentFormSelectors';
-import { addNewCommentFormActions } from 'features/AddNewCommentForm/model/slice/addNewCommentFormSlice';
+import { getAddNewCommentFormText } from '../selectors/addNewCommentFormSelectors';
+import { addNewCommentFormActions } from '../slice/addNewCommentFormSlice';
 import { getDate } from 'shared/lib/func/getDate';
 function checkData(data) {
     if (!data) {

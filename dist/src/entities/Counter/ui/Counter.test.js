@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
-import { Counter } from 'entities/Counter';
+import { Counter } from '..';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 describe('Counter.test', function () {

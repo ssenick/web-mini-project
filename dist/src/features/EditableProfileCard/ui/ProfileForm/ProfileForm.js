@@ -22,6 +22,7 @@ import { DynamicModuleLoader } from 'shared/lib/components /DynamicModuleLoader/
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
+import { HStack, VStack } from 'shared/ui/Stack';
 import cls from './ProfileForm.module.scss';
 var reducers = {
     profile: profileReducer
@@ -84,9 +85,10 @@ export var ProfileForm = memo(function (_a) {
             _a[cls.readonly] = readonly,
             _a);
     }, [error, isLoading, readonly]);
-    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsxs("div", __assign({ className: classNames(cls.ProfileForm, mods, [className]) }, { children: [canEdit &&
-                    _jsx("div", __assign({ className: cls.header }, { children: !readonly
+    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsxs(VStack, __assign({ gap: '20', className: classNames(cls.ProfileForm, mods, [className]) }, { children: [canEdit
+                    ? _jsx(HStack, __assign({ gap: '10', wrap: true, justify: 'end', className: cls.header }, { children: !readonly
                             ? _jsx(Button, __assign({ onClick: onCancelEdit, withIcon: true, variant: ButtonVariant.BORDER_ERROR }, { children: t('Отменить') }))
-                            : _jsxs(Button, __assign({ onClick: onEdit, withIcon: true, variant: ButtonVariant.BORDER }, { children: [t('Редактировать'), _jsx(EditIcon, {})] })) })), _jsx("div", __assign({ className: cls.form }, { children: _jsx(ProfileCard, { className: cls.card, data: formData, readonly: readonly, error: error, isLoading: isLoading, onChangeFirstName: onChangeFirstName, onChangeLastName: onChangeLastName, onChangeAge: onChangeAge, onChangeUsername: onChangeUsername, onChangeAvatar: onChangeAvatar, onChangeCurrency: onChangeCurrency, onChangeCountry: onChangeCountry }) })), _jsx("div", __assign({ className: cls.bottom }, { children: canEdit &&
+                            : _jsxs(Button, __assign({ onClick: onEdit, withIcon: true, variant: ButtonVariant.BORDER }, { children: [t('Редактировать'), _jsx(EditIcon, {})] })) }))
+                    : _jsx(HStack, { gap: '10', wrap: true, justify: 'end', className: cls.header }), _jsx("div", __assign({ className: cls.form }, { children: _jsx(ProfileCard, { className: cls.card, data: formData, readonly: readonly, error: error, isLoading: isLoading, onChangeFirstName: onChangeFirstName, onChangeLastName: onChangeLastName, onChangeAge: onChangeAge, onChangeUsername: onChangeUsername, onChangeAvatar: onChangeAvatar, onChangeCurrency: onChangeCurrency, onChangeCountry: onChangeCountry }) })), _jsx(HStack, __assign({ gap: '10', wrap: true, justify: 'end', className: cls.bottom }, { children: canEdit &&
                         _jsx(Button, __assign({ onClick: onSaveEdit, className: cls.btnSave, variant: ButtonVariant.BACKGROUND }, { children: t('Сохранить') })) }))] })) })));
 });

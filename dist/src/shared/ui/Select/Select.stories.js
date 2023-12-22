@@ -1,6 +1,6 @@
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/povaiders/ThemeProvaider';
-import { Select, SelectVariant } from 'shared/ui/Select/Select';
+import { Select, SelectVariant } from './Select';
 var meta = {
     title: 'shared/Select',
     component: Select,

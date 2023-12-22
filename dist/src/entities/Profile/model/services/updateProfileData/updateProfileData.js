@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getProfileForm } from 'entities/Profile';
+import { getProfileForm } from '../../..';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 import { ValidateProfileErrors } from '../../types/profile';
 function checkData(data) {

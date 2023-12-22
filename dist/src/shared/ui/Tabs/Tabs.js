@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonSize, ButtonVariant } from 'shared/ui/Button/Button';
+import { Button, ButtonSize, ButtonVariant } from '../Button/Button';
 import cls from './Tabs.module.scss';
 export var Tabs = memo(function (props) {
     var className = props.className, tabs = props.tabs, value = props.value, onTabClick = props.onTabClick;
