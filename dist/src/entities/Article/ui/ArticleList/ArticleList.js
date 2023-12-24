@@ -56,13 +56,13 @@ export var ArticleList = memo(function (props) {
                     : null, isLoading && getSkeletons(view), (!articles.length && !isLoading) &&
                     _jsx(Text, { size: TextFontSize.L, texAlign: TextAlign.CENTER, title: t('Нет статей') })] })));
     }
-    return (_jsxs("div", __assign({ ref: refList, className: classNames(cls.ArticleList, (_b = {}, _b[cls.slider] = slider, _b), [className, cls[view]]) }, { children: [slider
-                ?
-                    _jsxs(_Fragment, { children: [view === ArticleView.BIG && _jsx(Virtuoso, { style: { height: '100%' }, data: articles, itemContent: renderArticles, endReached: onLoadNextPart, initialTopMostItemIndex: articleIndex, components: { Footer: SkeletonsBig } }), view === ArticleView.SMALL &&
-                                _jsx(VirtuosoGrid, { ref: refVirtuosoGrid, totalCount: articles.length, listClassName: cls.articles, data: articles, initialTopMostItemIndex: articleIndex, endReached: onLoadNextPart, itemContent: renderArticles, components: {
-                                        Footer: SkeletonsSmall
-                                    } })] })
-                :
-                    _jsxs(_Fragment, { children: [articles.length > 0 ? articles.map(renderArticles) : null, isLoading && getSkeletons(view)] }), (!articles.length && !isLoading) &&
+    return (_jsxs("div", __assign({ ref: refList, className: classNames(cls.ArticleList, (_b = {}, _b[cls.slider] = slider, _b), [className, cls[view]]) }, { children: [!slider
+                ? _jsxs(_Fragment, { children: [view === ArticleView.BIG && _jsx(Virtuoso, { style: { height: '100%' }, data: articles, itemContent: renderArticles, endReached: onLoadNextPart, initialTopMostItemIndex: articleIndex, components: { Footer: SkeletonsBig } }), view === ArticleView.SMALL &&
+                            _jsx(VirtuosoGrid, { ref: refVirtuosoGrid, totalCount: articles.length, listClassName: cls.articles, data: articles, initialTopMostItemIndex: articleIndex, endReached: onLoadNextPart, itemContent: renderArticles, components: {
+                                    Footer: SkeletonsSmall
+                                } })] })
+                : _jsxs("div", __assign({ className: cls.articles }, { children: [articles.length > 0
+                            ? articles.map(function (article, index) { return (renderArticles(index, article)); })
+                            : null, isLoading && getSkeletons(view)] })), (!articles.length && !isLoading) &&
                 _jsx(Text, { size: TextFontSize.L, texAlign: TextAlign.CENTER, title: t('Нет статей') })] })));
 });

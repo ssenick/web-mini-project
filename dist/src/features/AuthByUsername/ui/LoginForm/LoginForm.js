@@ -51,7 +51,6 @@ import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { VStack } from 'shared/ui/Stack';
 import cls from './LoginForm.module.scss';
 import { Input, InputVariant } from 'shared/ui/Input/Input';
 import { Button, ButtonSize, ButtonVariant } from 'shared/ui/Button/Button';
@@ -64,7 +63,7 @@ import { getLoginIsLoading } from '../../model/selectros/getLoginIsLoading/getLo
 import { getLoginError } from '../../model/selectros/getLoginError/getLoginError';
 import { Text, TextFontSize, TextVariant } from 'shared/ui/Text/Text';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { DynamicModuleLoader } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 var initialReducers = {
     loginForm: loginReducer
 };
@@ -121,6 +120,6 @@ var LoginForm = memo(function (_a) {
             navigate('/profile/' + user.id);
         }
     }, [navigate, user]);
-    return (_jsx(DynamicModuleLoader, __assign({ removeAfterUnmount: true, reducers: initialReducers }, { children: _jsxs("div", __assign({ className: classNames(cls.LoginForm, {}, [className]) }, { children: [_jsx(Text, { className: cls.title, size: TextFontSize.M, title: t('Авторизация') }), error && _jsx(Text, { className: cls.error, variant: TextVariant.ERROR, size: TextFontSize.XS, text: t('Пользователь не найдет или данные не верны') }), _jsxs(VStack, __assign({ gap: '15', align: 'start' }, { children: [_jsx(Input, { placeholder: t('User name'), variant: InputVariant.INVERSE_BG, onChange: onChangeUsername, value: username, autofocus: true }), _jsx(Input, { type: 'password', placeholder: t('Password'), variant: InputVariant.INVERSE_BG, onChange: onChangePassword, value: password }), _jsx("div", __assign({ className: cls.loginBottom }, { children: _jsx(Button, __assign({ size: ButtonSize.M, variant: ButtonVariant.BORDER, onClick: onLoginClick, disabled: isLoading }, { children: t('Вход') })) }))] }))] })) })));
+    return (_jsx(DynamicModuleLoader, __assign({ removeAfterUnmount: true, reducers: initialReducers }, { children: _jsxs("div", __assign({ className: classNames(cls.LoginForm, {}, [className]) }, { children: [_jsx(Text, { className: cls.title, size: TextFontSize.M, title: t('Авторизация') }), error && _jsx(Text, { className: cls.error, variant: TextVariant.ERROR, size: TextFontSize.XS, text: t('Пользователь не найдет или данные не верны') }), _jsxs("div", __assign({ className: cls.wrapper }, { children: [_jsx(Input, { placeholder: t('User name'), variant: InputVariant.INVERSE_BG, onChange: onChangeUsername, value: username, autofocus: true }), _jsx(Input, { type: 'password', placeholder: t('Password'), variant: InputVariant.INVERSE_BG, onChange: onChangePassword, value: password }), _jsx("div", __assign({ className: cls.loginBottom }, { children: _jsx(Button, __assign({ size: ButtonSize.M, variant: ButtonVariant.BORDER, onClick: onLoginClick, disabled: isLoading }, { children: t('Вход') })) }))] }))] })) })));
 });
 export default LoginForm;

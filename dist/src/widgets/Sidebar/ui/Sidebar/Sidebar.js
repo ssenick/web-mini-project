@@ -20,7 +20,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
-import { VStack } from 'shared/ui/Stack';
 import { getSidebarLinks } from '../../model/selectors/getSidebarLinks';
 import { SidebarLink } from '../SidebarLink/SidebarLink';
 import cls from './Sidebar.module.scss';
@@ -34,7 +33,7 @@ export var Sidebar = memo(function (_a) {
     var toggleCollapse = useCallback(function () {
         setCollapsed(!collapsed);
     }, [collapsed]);
-    return (_jsxs(VStack, __assign({ gap: '20', role: 'aside', "data-testid": 'sidebar', className: classNames(cls.Sidebar, (_b = {}, _b[cls.collapsed] = collapsed, _b), [className]) }, { children: [_jsxs(Button, __assign({ "data-testid": 'sidebar-toggle', variant: ButtonVariant.CLEAN, onClick: toggleCollapse, className: cls.burgerBtn }, { children: [_jsx("span", { className: cls.itemBtn }), _jsx("span", { className: cls.itemBtn }), _jsx("span", { className: cls.itemBtn })] })), _jsx("nav", { children: _jsx(VStack, __assign({ role: 'ul', gap: '10' }, { children: sidebarLinksList.map(function (link) {
+    return (_jsxs("aside", __assign({ "data-testid": 'sidebar', className: classNames(cls.Sidebar, (_b = {}, _b[cls.collapsed] = collapsed, _b), [className]) }, { children: [_jsxs(Button, __assign({ "data-testid": 'sidebar-toggle', variant: ButtonVariant.CLEAN, onClick: toggleCollapse, className: cls.burgerBtn }, { children: [_jsx("span", { className: cls.itemBtn }), _jsx("span", { className: cls.itemBtn }), _jsx("span", { className: cls.itemBtn })] })), _jsx("nav", { children: _jsx("ul", __assign({ className: cls.list }, { children: sidebarLinksList.map(function (link) {
                         return _jsx(SidebarLink, { item: link, collapsed: collapsedStorybook || collapsed }, link.path);
                     }) })) }), isAuth &&
                 _jsxs(AppLink, __assign({ to: RoutPath.articles_create, variant: AppLinkVariant.BORDER, className: cls.createBtn }, { children: [_jsx(Icon, { Svg: CreateIcon, className: cls.icon }), _jsx("span", { children: t('Создать статью') })] }))] })));

@@ -23,7 +23,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { Input, InputVariant } from 'shared/ui/Input/Input';
-import { HStack, VStack } from 'shared/ui/Stack';
 import cls from './ArticlePageHeader.module.scss';
 export var ArticlePageHeader = memo(function (_a) {
     var className = _a.className;
@@ -61,5 +60,5 @@ export var ArticlePageHeader = memo(function (_a) {
         dispatch(articlesPageActions.setPage(1));
         fetchData();
     }, [dispatch, fetchData]);
-    return (_jsxs(VStack, __assign({ gap: '15', className: classNames(cls.ArticlePageHeader, {}, [className]) }, { children: [_jsxs(HStack, __assign({ align: 'end', justify: 'between', gap: '15' }, { children: [_jsx(ArticlesSortSelector, { sort: sort, order: order, search: search, onChangeOrder: onChangeOrder, onChangeSort: onChangeSort, onChangeSearch: onChangeSearch }), _jsx(ViewSelector, { className: cls.view, view: view, onViewClick: onChangeView })] })), _jsx("div", __assign({ className: cls.search }, { children: _jsx(Input, { className: cls.input, variant: InputVariant.INVERSE_BG, placeholder: t('Поиск'), value: search, onChange: onChangeSearch }) })), _jsx("div", __assign({ className: cls.bottom }, { children: _jsx(ArticleTypeTabs, { value: type, onChangeType: onChangeTabs }) }))] })));
+    return (_jsxs("div", __assign({ className: classNames(cls.ArticlePageHeader, {}, [className]) }, { children: [_jsxs("div", __assign({ className: cls.top }, { children: [_jsx(ArticlesSortSelector, { sort: sort, order: order, search: search, onChangeOrder: onChangeOrder, onChangeSort: onChangeSort, onChangeSearch: onChangeSearch }), _jsx(ViewSelector, { className: cls.view, view: view, onViewClick: onChangeView })] })), _jsx("div", __assign({ className: cls.search }, { children: _jsx(Input, { className: cls.input, variant: InputVariant.INVERSE_BG, placeholder: t('Поиск'), value: search, onChange: onChangeSearch }) })), _jsx("div", __assign({ className: cls.bottom }, { children: _jsx(ArticleTypeTabs, { value: type, onChangeType: onChangeTabs }) }))] })));
 });

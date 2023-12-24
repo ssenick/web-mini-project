@@ -23,7 +23,6 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useCallback, memo, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { HStack } from '../Stack/HStack/HStack';
 import { Text, TextFontSize } from '../Text/Text';
 import cls from './Input.module.scss';
 export var InputVariant;
@@ -51,5 +50,5 @@ export var Input = memo(function (props) {
             _a[cls.readonly] = readonly,
             _a);
     }, [isFocus, readonly]);
-    return (_jsx(HStack, __assign({ "data-testid": 'input-wrapper', className: classNames(cls.inputWrapper, mods, [className, cls[variant]]) }, { children: _jsxs("label", { children: [label && _jsx(Text, { size: TextFontSize.SXS, title: label, className: cls.label }), _jsx("input", __assign({ "data-testid": 'input', value: value, onChange: onChangeHandler, type: type, onFocus: onFocus, onBlur: onBlur, readOnly: readonly }, otherProps, { autoFocus: autofocus }))] }) })));
+    return (_jsx("div", __assign({ "data-testid": 'input-wrapper', className: classNames(cls.inputWrapper, mods, [className, cls[variant]]) }, { children: _jsxs("label", { children: [label && _jsx(Text, { size: TextFontSize.SXS, title: label, className: cls.label }), _jsx("input", __assign({ "data-testid": 'input', value: value, onChange: onChangeHandler, type: type, onFocus: onFocus, onBlur: onBlur, readOnly: readonly }, otherProps, { autoFocus: autofocus }))] }) })));
 });

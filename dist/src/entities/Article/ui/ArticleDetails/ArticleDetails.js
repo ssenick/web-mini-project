@@ -16,7 +16,7 @@ import { useSelector } from 'react-redux';
 import DateIcon from 'shared/assets/icons/date.svg';
 import ViewIcon from 'shared/assets/icons/view.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader } from 'shared/lib/components /DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Avatar } from 'shared/ui/Avatar/Avatar';

@@ -31,6 +31,7 @@ var directionClasses = {
 };
 var gapClasses = {
     4: cls.gap4,
+    5: cls.gap5,
     8: cls.gap8,
     10: cls.gap10,
     15: cls.gap15,
