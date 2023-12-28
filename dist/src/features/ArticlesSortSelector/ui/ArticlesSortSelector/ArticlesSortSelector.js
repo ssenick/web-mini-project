@@ -11,10 +11,10 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { ArticleSortField } from 'entities/Article/model/types/article';
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Select, SelectVariant } from 'shared/ui/Select/Select';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import cls from './ArticlesSortSelector.module.scss';
 export var ArticlesSortSelector = memo(function (props) {
     var className = props.className, sort = props.sort, order = props.order, onChangeOrder = props.onChangeOrder, onChangeSort = props.onChangeSort;
@@ -43,5 +43,11 @@ export var ArticlesSortSelector = memo(function (props) {
             content: t('Просмотрам')
         }
     ]; }, [t]);
-    return (_jsxs("div", __assign({ className: classNames(cls.ArticlesSortSelector, {}, [className]) }, { children: [_jsx(Select, { className: cls.sort, label: "".concat(t('Сортировать по'), ":"), options: sortOptions, value: sort, onChange: onChangeSort, variant: SelectVariant.INVERSE_BG }), _jsx(Select, { className: cls.order, label: "".concat(t('Расположить по'), ":"), options: orderOptions, value: order, onChange: onChangeOrder, variant: SelectVariant.INVERSE_BG })] })));
+    var onChangeSortHandler = useCallback(function (value) {
+        onChangeSort === null || onChangeSort === void 0 ? void 0 : onChangeSort(value);
+    }, [onChangeSort]);
+    var onChangeOrderHandler = useCallback(function (value) {
+        onChangeOrder === null || onChangeOrder === void 0 ? void 0 : onChangeOrder(value);
+    }, [onChangeOrder]);
+    return (_jsxs("div", __assign({ className: classNames(cls.ArticlesSortSelector, {}, [className]) }, { children: [_jsx(ListBox, { className: cls.sort, label: "".concat(t('Сортировать по'), ":"), items: sortOptions, value: sort, contentTitle: true, onChange: onChangeSortHandler }), _jsx(ListBox, { className: cls.order, label: "".concat(t('Расположить по'), ":"), items: orderOptions, value: order, contentTitle: true, onChange: onChangeOrderHandler })] })));
 });

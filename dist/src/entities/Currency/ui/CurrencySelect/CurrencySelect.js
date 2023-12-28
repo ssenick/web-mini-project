@@ -1,8 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Select, SelectVariant } from 'shared/ui/Select/Select';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Currency } from '../../model/type/currency';
 var options = [
     { value: Currency.CAD, content: Currency.CAD },
@@ -16,5 +15,15 @@ export var CurrencySelect = memo(function (props) {
     var onChangeHandler = useCallback(function (value) {
         onChange === null || onChange === void 0 ? void 0 : onChange(value);
     }, [onChange]);
-    return (_jsx(Select, { className: classNames('', {}, [className]), options: options, label: t('Валюта'), variant: SelectVariant.INVERSE_BG, readonly: readonly, onChange: onChangeHandler, value: value }));
+    return (_jsx(ListBox, { className: className, onChange: onChangeHandler, value: value, label: t('Валюта'), items: options, readonly: readonly })
+    // <Select
+    //     className={classNames('', {}, [className])}
+    //     options={options}
+    //     label={t('Валюта')}
+    //     variant={SelectVariant.INVERSE_BG}
+    //     readonly={readonly}
+    //     onChange={onChangeHandler}
+    //     value={value}
+    // />
+    );
 });

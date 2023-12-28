@@ -18,6 +18,7 @@ interface ListBoxProps<T extends string> {
   value?: string
   label?: string
   defaultValue?: string
+  contentTitle?: boolean
   onChange: (value: T) => void
   readonly?: boolean
 }
@@ -29,9 +30,11 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
     value,
     defaultValue,
     readonly,
+    contentTitle,
     label,
     onChange
   } = props
+  const foundItemContent = (items?.find(item => item.value === (value ?? defaultValue))?.content) || value
 
   return (
       <VStack gap={'5'}>
@@ -44,12 +47,15 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
               className={classNames(cls.ListBox, {}, [className])}
           >
               <HListbox.Button className={cls.button} >
-                  {({ open }) => (
-                      <>
-                          {value ?? defaultValue}
-                          <ArrowIcon className={classNames('', { [cls.open]: open }, [])}/>
-                      </>
-                  )}
+                  {({ open }) => {
+                    const arrowIcon = <ArrowIcon className={classNames('', { [cls.open]: open }, [])}/>
+                    return (
+                        <>
+                          {contentTitle ? foundItemContent : value ?? defaultValue}
+                          {arrowIcon}
+                        </>
+                    )
+                  }}
 
               </HListbox.Button>
                 <HListbox.Options className={cls.options}>

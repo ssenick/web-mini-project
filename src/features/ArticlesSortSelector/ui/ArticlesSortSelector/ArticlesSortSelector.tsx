@@ -1,9 +1,9 @@
 import { ArticleSortField } from 'entities/Article/model/types/article'
-import { memo, useMemo } from 'react'
+import { memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { type SortOrder } from 'shared/types'
-import { Select, type SelectOption, SelectVariant } from 'shared/ui/Select/Select'
+import { ListBox, type ListBoxItem } from 'shared/ui/ListBox/ListBox'
 import cls from './ArticlesSortSelector.module.scss'
 
 interface ArticlesSortSelectorProps {
@@ -27,7 +27,7 @@ export const ArticlesSortSelector = memo((props: ArticlesSortSelectorProps) => {
   } = props
   const { t } = useTranslation()
 
-  const orderOptions = useMemo<Array<SelectOption<SortOrder>>>(() => [
+  const orderOptions = useMemo<Array<ListBoxItem<SortOrder>>>(() => [
     {
       value: 'asc',
       content: t('Возрастанию')
@@ -38,7 +38,7 @@ export const ArticlesSortSelector = memo((props: ArticlesSortSelectorProps) => {
     }
   ], [t])
 
-  const sortOptions = useMemo<Array<SelectOption<ArticleSortField>>>(() => [
+  const sortOptions = useMemo<Array<ListBoxItem<ArticleSortField>>>(() => [
     {
       value: ArticleSortField.TITLE,
       content: t('Названию')
@@ -53,23 +53,31 @@ export const ArticlesSortSelector = memo((props: ArticlesSortSelectorProps) => {
     }
   ], [t])
 
+  const onChangeSortHandler = useCallback((value: string) => {
+    onChangeSort?.(value as ArticleSortField)
+  }, [onChangeSort])
+
+  const onChangeOrderHandler = useCallback((value: string) => {
+    onChangeOrder?.(value as SortOrder)
+  }, [onChangeOrder])
+
   return (
         <div className={classNames(cls.ArticlesSortSelector, {}, [className])}>
-          <Select
+          <ListBox
               className={cls.sort}
               label={`${t('Сортировать по')}:`}
-              options={sortOptions}
+              items={sortOptions}
               value={sort}
-              onChange={onChangeSort}
-              variant={SelectVariant.INVERSE_BG}
+              contentTitle
+              onChange={onChangeSortHandler}
           />
-          <Select
+          <ListBox
               className={cls.order}
               label={`${t('Расположить по')}:`}
-              options={orderOptions}
+              items={orderOptions}
               value={order}
-              onChange={onChangeOrder}
-              variant={SelectVariant.INVERSE_BG}
+              contentTitle
+              onChange={onChangeOrderHandler}
           />
         </div>
   )

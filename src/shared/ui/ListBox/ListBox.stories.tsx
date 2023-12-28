@@ -6,10 +6,10 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
 
 const options = [
-  { value: Currency.CAD, content: Currency.CAD },
-  { value: Currency.EUR, content: Currency.EUR },
-  { value: Currency.USD, content: Currency.USD },
-  { value: Currency.UAH, content: Currency.UAH }
+  { value: Currency.CAD, content: 'Canada CAD' },
+  { value: Currency.EUR, content: 'Euro EUR' },
+  { value: Currency.USD, content: 'Dollars USA' },
+  { value: Currency.UAH, content: 'Ukraine UAH' }
 ]
 const meta: Meta<typeof ListBox> = {
   title: 'shared/ListBox',
@@ -56,3 +56,12 @@ export const LightWithSelectValue: Story = {
   }
 }
 LightWithSelectValue.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const LightWithContentTitle: Story = {
+  args: {
+    items: options,
+    value: Currency.USD,
+    contentTitle: true
+  }
+}
+LightWithContentTitle.decorators = [ThemeDecorator(Theme.LIGHT)]
