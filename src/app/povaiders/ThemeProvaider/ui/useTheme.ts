@@ -4,27 +4,27 @@ import { Theme, ThemeContext } from './ThemeContext'
 
 interface UseThemeResult {
   theme: Theme
-  toggleTheme: () => void
+  toggleTheme: (newTheme: Theme) => void
 }
 
 export function useTheme (): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext)
 
-  const toggleTheme = (): void => {
-    let newTheme: Theme
-    switch (theme) {
-      case Theme.LIGHT:
-        newTheme = Theme.DARK
-        break
-      case Theme.DARK:
-        newTheme = Theme.FUNNY
-        break
-      case Theme.FUNNY:
-        newTheme = Theme.LIGHT
-        break
-      default:
-        newTheme = Theme.LIGHT
-    }
+  const toggleTheme = (newTheme: Theme): void => {
+    // let newTheme: Theme
+    // switch (theme) {
+    //   case Theme.LIGHT:
+    //     newTheme = Theme.DARK
+    //     break
+    //   case Theme.DARK:
+    //     newTheme = Theme.FUNNY
+    //     break
+    //   case Theme.FUNNY:
+    //     newTheme = Theme.LIGHT
+    //     break
+    //   default:
+    //     newTheme = Theme.LIGHT
+    // }
     setTheme?.(newTheme)
     // document.body.className = newTheme
     localStorage.setItem(THEME_LOCALSTORAGE_KEY, newTheme)

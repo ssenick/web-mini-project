@@ -6,6 +6,11 @@ import { VStack } from '../Stack'
 import { Text, TextFontSize } from '../Text/Text'
 import cls from './ListBox.module.scss'
 
+export enum ListBoxVariant {
+  STANDARD = 'standard',
+  THEME_ICON = 'icon',
+}
+
 export interface ListBoxItem<T extends string> {
   value: T
   content: ReactNode
@@ -15,12 +20,15 @@ export interface ListBoxItem<T extends string> {
 interface ListBoxProps<T extends string> {
   className?: string
   items?: Array<ListBoxItem<T>>
+  variant?: ListBoxVariant
   value?: string
   label?: string
   defaultValue?: string
   contentTitle?: boolean
   onChange: (value: T) => void
   readonly?: boolean
+  icon?: boolean
+  test?: string
 }
 
 export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
@@ -28,18 +36,22 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
     className,
     items,
     value,
+    variant = ListBoxVariant.STANDARD,
     defaultValue,
     readonly,
     contentTitle,
     label,
+    test,
+    icon,
     onChange
   } = props
   const foundItemContent = (items?.find(item => item.value === (value ?? defaultValue))?.content) || value
 
   return (
-      <VStack gap={'5'}>
+      <VStack gap={'5'} className={classNames(cls.ListBox, {}, [className, cls[variant]])}>
           {label && <Text className={cls.label} size={TextFontSize.SXS} title={label}/>}
           <HListbox
+              data-testid={test}
               value={value}
               onChange={onChange}
               disabled={readonly}
@@ -52,7 +64,7 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
                     return (
                         <>
                           {contentTitle ? foundItemContent : value ?? defaultValue}
-                          {arrowIcon}
+                          {!icon && arrowIcon}
                         </>
                     )
                   }}

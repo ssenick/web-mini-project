@@ -3,10 +3,10 @@ import { ListBox } from './ListBox';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/povaiders/ThemeProvaider';
 var options = [
-    { value: Currency.CAD, content: Currency.CAD },
-    { value: Currency.EUR, content: Currency.EUR },
-    { value: Currency.USD, content: Currency.USD },
-    { value: Currency.UAH, content: Currency.UAH }
+    { value: Currency.CAD, content: 'Canada CAD' },
+    { value: Currency.EUR, content: 'Euro EUR' },
+    { value: Currency.USD, content: 'Dollars USA' },
+    { value: Currency.UAH, content: 'Ukraine UAH' }
 ];
 var meta = {
     title: 'shared/ListBox',
@@ -53,4 +53,4 @@ export var LightWithContentTitle = {
         contentTitle: true
     }
 };
-LightWithSelectValue.decorators = [ThemeDecorator(Theme.LIGHT)];
+LightWithContentTitle.decorators = [ThemeDecorator(Theme.LIGHT)];

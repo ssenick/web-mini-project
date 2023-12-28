@@ -71,3 +71,41 @@
     }
   }
 }
+
+.icon {
+  gap: 0;
+
+  .ListBox {
+    .button {
+      padding: 5px 10px;
+      height: auto;
+      background-color: transparent;
+      opacity: 1;
+
+      svg {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        path {
+          fill: context-fill;
+        }
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    .item {
+      padding: 5px 10px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+}
