@@ -1,5 +1,6 @@
 import { Listbox as HListbox } from '@headlessui/react'
-import { Fragment, memo, type ReactNode } from 'react'
+import { Fragment, memo, type ReactNode, useState } from 'react'
+import { usePopper } from 'react-popper'
 import { classNames } from 'shared/lib/classNames/classNames'
 import ArrowIcon from '../../assets/icons/arrow_down.svg'
 import { VStack } from '../Stack'
@@ -45,6 +46,13 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
     icon,
     onChange
   } = props
+
+  const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>(null)
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null)
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    modifiers: [{ name: 'flip', options: { padding: 10, fallbackPlacements: ['top', 'bottom'] } }]
+  })
+
   const foundItemContent = (items?.find(item => item.value === (value ?? defaultValue))?.content) || value
 
   return (
@@ -58,7 +66,7 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
               as={'div'}
               className={classNames(cls.ListBox, {}, [className])}
           >
-              <HListbox.Button className={cls.button} >
+              <HListbox.Button className={cls.button} ref={setReferenceElement}>
                   {({ open }) => {
                     const arrowIcon = <ArrowIcon className={classNames('', { [cls.open]: open }, [])}/>
                     return (
@@ -70,7 +78,8 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
                   }}
 
               </HListbox.Button>
-                <HListbox.Options className={cls.options}>
+                <HListbox.Options as={'div'} className={cls.options} style={styles.popper} {...attributes.popper} ref={setPopperElement} >
+                  <ul className={cls.list}>
                     {items?.map((item) => (
                         <HListbox.Option
                             key={item.value}
@@ -78,17 +87,19 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
                             disabled={item.disabled}
                             as={Fragment}
                         >
-                            {({ active, selected }) => (
-                                <li
-                                    className={classNames(cls.item,
-                                      { [cls.active]: active, [cls.selected]: selected, [cls.disabled]: item.disabled },
-                                      [])}
-                                >
-                                    {item.content}
-                                </li>
-                            )}
+                          {({ active, selected }) => (
+                              <li
+                                  className={classNames(cls.item,
+                                    { [cls.active]: active, [cls.selected]: selected, [cls.disabled]: item.disabled },
+                                    [])}
+                              >
+                                {item.content}
+                              </li>
+                          )}
                         </HListbox.Option>
                     ))}
+                  </ul>
+
                 </HListbox.Options>
           </HListbox>
       </VStack>

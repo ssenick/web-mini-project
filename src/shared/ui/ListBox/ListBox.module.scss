@@ -41,22 +41,27 @@
         fill: var(--primary-color);
       }
     }
+
+    @media (any-hover: hover) {
+      &:hover {
+        animation: pulse 1s;
+        box-shadow: 0 0 0 1em transparent;
+      }
+    }
   }
 
   .options {
-    position: absolute;
+    padding: 10px 0;
+    position: relative;
     z-index: 100;
-    top: calc(100% + 7px);
     min-width: 100%;
-    left: 0;
+  }
+
+  .list {
     background-color: var(--bg-input-inverse);
     border-radius: var(--border-radius-small);
     cursor: pointer;
     overflow: hidden;
-  }
-
-  .list {
-    padding-top: 10px;
   }
 
   .item {
@@ -108,4 +113,8 @@
       }
     }
   }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--bg-module); }
 }
