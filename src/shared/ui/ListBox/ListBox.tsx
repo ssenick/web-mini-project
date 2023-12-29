@@ -50,7 +50,8 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
   const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>(null)
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null)
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    modifiers: [{ name: 'flip', options: { padding: 10, fallbackPlacements: ['top', 'bottom'] } }]
+    modifiers: [{ name: 'flip', options: { padding: 10, fallbackPlacements: ['top', 'bottom'] } },
+      { name: 'offset', options: { offset: [0, 10] } }]
   })
 
   const foundItemContent = (items?.find(item => item.value === (value ?? defaultValue))?.content) || value
@@ -78,8 +79,7 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
                   }}
 
               </HListbox.Button>
-                <HListbox.Options as={'div'} className={cls.options} style={styles.popper} {...attributes.popper} ref={setPopperElement} >
-                  <ul className={cls.list}>
+                <HListbox.Options className={cls.options} style={styles.popper} {...attributes.popper} ref={setPopperElement} >
                     {items?.map((item) => (
                         <HListbox.Option
                             key={item.value}
@@ -98,8 +98,6 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
                           )}
                         </HListbox.Option>
                     ))}
-                  </ul>
-
                 </HListbox.Options>
           </HListbox>
       </VStack>

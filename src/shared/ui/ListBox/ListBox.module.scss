@@ -51,17 +51,19 @@
   }
 
   .options {
-    padding: 10px 0;
-    position: relative;
+    position: absolute;
     z-index: 100;
+    top: calc(100% + 7px);
     min-width: 100%;
-  }
-
-  .list {
+    left: 0;
     background-color: var(--bg-input-inverse);
     border-radius: var(--border-radius-small);
     cursor: pointer;
     overflow: hidden;
+  }
+
+  .list {
+    padding-top: 10px;
   }
 
   .item {
