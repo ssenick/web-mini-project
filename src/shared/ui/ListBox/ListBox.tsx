@@ -28,7 +28,7 @@ interface ListBoxProps<T extends string> {
   contentTitle?: boolean
   onChange: (value: T) => void
   readonly?: boolean
-  icon?: boolean
+  onlyIcon?: boolean
   test?: string
 }
 
@@ -43,7 +43,7 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
     contentTitle,
     label,
     test,
-    icon,
+    onlyIcon,
     onChange
   } = props
 
@@ -65,7 +65,6 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
               onChange={onChange}
               disabled={readonly}
               as={'div'}
-              className={classNames(cls.ListBox, {}, [className])}
           >
               <HListbox.Button className={cls.button} ref={setReferenceElement}>
                   {({ open }) => {
@@ -73,7 +72,7 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
                     return (
                         <>
                           {contentTitle ? foundItemContent : value ?? defaultValue}
-                          {!icon && arrowIcon}
+                          {!onlyIcon && arrowIcon}
                         </>
                     )
                   }}

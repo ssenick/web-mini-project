@@ -25,7 +25,7 @@ export var ThemeSwitcher = memo(function (_a) {
     var handlerThemeChange = function (value) {
         toggleTheme === null || toggleTheme === void 0 ? void 0 : toggleTheme(value);
     };
-    return (_jsx(ListBox, { test: 'themSwitcherBtn', icon: true, value: theme, contentTitle: true, variant: ListBoxVariant.THEME_ICON, onChange: handlerThemeChange, items: orderOptions })
+    return (_jsx(ListBox, { test: 'themSwitcherBtn', onlyIcon: true, value: theme, contentTitle: true, variant: ListBoxVariant.THEME_ICON, onChange: handlerThemeChange, items: orderOptions })
     // <Button data-testid='themSwitcherBtn' variant={ButtonVariant.THEME_ICON} onClick={toggleTheme} className={className}>
     //     {(childrenStorybook || theme === Theme.DARK) && <FunnyIcon /> }
     //     {(childrenStorybook || theme === Theme.FUNNY) && <SunIcon /> }

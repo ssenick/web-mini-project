@@ -19,10 +19,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoginIcon from 'shared/assets/icons/login.svg';
 import LogoWhiteIcon from 'shared/assets/icons/logo-w.svg';
 import LogoDarkIcon from 'shared/assets/icons/logo.svg';
-import LogoutIcon from 'shared/assets/icons/logout.svg';
+import { RoutPath } from 'shared/config/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Text, TextVariant } from "shared/ui/Text/Text";
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import cls from './Header.module.scss';
@@ -62,6 +64,9 @@ export var Header = memo(function (_a) {
         }
     }, [userAuth, error]);
     return (_jsxs("header", __assign({ className: classNames(cls.Header, {}, [className]) }, { children: [_jsxs(AppLink, __assign({ className: cls.logo, noActive: true, to: '/', variant: AppLinkVariant.CLEAN }, { children: [(theme === Theme.DARK || theme === Theme.FUNNY) && _jsx(LogoWhiteIcon, {}), theme === Theme.LIGHT && _jsx(LogoDarkIcon, {})] })), _jsxs("div", __assign({ className: cls.action }, { children: [_jsx(ThemeSwitcher, {}), _jsx(LangSwitcher, {}), _jsx(Button, __assign({ onClick: onThrow, variant: ButtonVariant.BACKGROUND }, { children: t('ошибка') })), userAuth
-                        ? _jsxs(Button, __assign({ onClick: onLogout, className: cls.login, variant: ButtonVariant.BACKGROUND, withIcon: true }, { children: [t('Выход'), _jsx(LogoutIcon, {})] }))
+                        ? _jsx(Dropdown, { trigger: 'CLICK', items: [
+                                { content: t('Профиль'), href: RoutPath.profile + userAuth.id },
+                                { content: _jsx(Text, { variant: TextVariant.ERROR, text: t('Выход') }), onClick: onLogout }
+                            ] })
                         : _jsxs(Button, __assign({ onClick: onShowModal, className: cls.login, variant: ButtonVariant.BACKGROUND, withIcon: true }, { children: [_jsx(LoginIcon, {}), t('Вход')] }))] })), _jsx(LoginModal, { isOpen: isAuthModal, onClose: onCloseModal, isCloseModal: isCloseModal })] })));
 });

@@ -67,7 +67,7 @@
   }
 
   .item {
-    padding: 5px 15px;
+    padding: 5px 10px;
 
     &.active {
       background-color: var(--bg-module);
@@ -77,12 +77,10 @@
       font-weight: 700;
     }
   }
-}
 
-.icon {
-  gap: 0;
+  &.icon {
+    gap: 0;
 
-  .ListBox {
     .button {
       padding: 5px 10px;
       height: auto;

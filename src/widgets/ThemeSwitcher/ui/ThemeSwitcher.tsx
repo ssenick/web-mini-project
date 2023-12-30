@@ -34,7 +34,7 @@ export const ThemeSwitcher = memo(({ className, childrenStorybook }: ThemeSwitch
   return (
       <ListBox
           test={'themSwitcherBtn'}
-          icon
+          onlyIcon
           value={theme}
           contentTitle
           variant={ListBoxVariant.THEME_ICON}

@@ -20,6 +20,7 @@ interface AppLinkProps extends LinkProps {
   children?: ReactNode
   size?: AppLinkSize
   withIcon?: boolean
+  disabled?: boolean
 }
 
 export const AppLink = memo((props: AppLinkProps): JSX.Element => {
@@ -30,6 +31,7 @@ export const AppLink = memo((props: AppLinkProps): JSX.Element => {
     noActive,
     size = AppLinkSize.XS,
     variant = AppLinkVariant.CLEAN,
+    disabled,
     withIcon,
     ...otherProps
   } = props
@@ -37,7 +39,7 @@ export const AppLink = memo((props: AppLinkProps): JSX.Element => {
   return (
         <Link
             to={to}
-            className={classNames(cls.AppLink, { [cls.noActive]: noActive, [cls.withIcon]: withIcon },
+            className={classNames(cls.AppLink, { [cls.noActive]: noActive, [cls.withIcon]: withIcon, [cls.disabled]: disabled },
               [className, cls[variant], cls[size]])}
             {...otherProps}
         >

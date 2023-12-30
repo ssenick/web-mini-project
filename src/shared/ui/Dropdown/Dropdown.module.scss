@@ -1,0 +1,42 @@
+.Dropdown {
+  position: relative;
+
+  .button {
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+  }
+
+  .list {
+    position: absolute;
+    z-index: 100;
+    min-width: 100%;
+    background-color: var(--bg-input-inverse);
+    border-radius: var(--border-radius-small);
+    overflow: hidden;
+    display: grid;
+    box-shadow: var(--box-shadow);
+  }
+
+  .content {
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding: 5px 15px;
+    font: var(--font-xs);
+    font-weight: 500;
+    color: inherit;
+
+    &:disabled {
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    &.active {
+      background-color: var(--bg-module);
+    }
+  }
+}

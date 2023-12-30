@@ -1,14 +1,37 @@
 .item {
+  position: relative;
   display: block;
   overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background: var(--bg-gradient-link);
+    transition: all var(--animation-time) ease 0s;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .link {
+  position: relative;
   padding: 5px !important;
   flex: 1 1 auto;
   display: inline-flex;
   align-items: center;
   font-weight: 500;
+  cursor: pointer;
 
   svg {
     width: 18px;
