@@ -87,7 +87,3 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
         </header>
   )
 })
-//     <Button onClick={onLogout} className={cls.login} variant={ButtonVariant.BACKGROUND} withIcon={true}>
-//     {t('Выход')}
-// <LogoutIcon/>
-// </Button>
