@@ -30,7 +30,7 @@
     font-weight: 500;
     color: inherit;
 
-    &:disabled {
+    &.disabled {
       pointer-events: none;
       opacity: 0.8;
     }

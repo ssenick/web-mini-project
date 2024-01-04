@@ -2,8 +2,8 @@ import { Menu } from '@headlessui/react'
 import { memo, type ReactNode, useState } from 'react'
 import { usePopper } from 'react-popper'
 import { type To } from 'react-router'
+import { Link } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { AppLink } from '../AppLink/AppLink'
 import cls from './Dropdown.module.scss'
 
 export interface DropdownItem {
@@ -43,14 +43,14 @@ export const Dropdown = memo((props: DropdownProps) => {
                     if (item.href) {
                       return (
                           <Menu.Item key={index} disabled={item.disabled}>
-                              {({ active }: { active: boolean }): ReactNode => (
-                                <AppLink
+                              {({ active }) => (
+                                <Link
                                     to={item.href as To}
-                                    disabled={item.disabled}
-                                    className={classNames(cls.content, { [cls.active]: active })}
+                                    className={classNames(cls.content,
+                                      { [cls.active]: active, [cls.disabled]: item.disabled })}
                                 >
                                     {item.content}
-                                </AppLink>
+                                </Link>
                               )}
                           </Menu.Item>
                       )
@@ -58,12 +58,12 @@ export const Dropdown = memo((props: DropdownProps) => {
 
                     return (
                         <Menu.Item key={index} disabled={item.disabled}>
-                            {({ active }: { active: boolean }): ReactNode => (
+                            {({ active }) => (
                                 <button
                                     type="button"
-                                    disabled={item.disabled}
                                     onClick={item.onClick}
-                                    className={classNames(cls.content, { [cls.active]: active })}
+                                    className={classNames(cls.content,
+                                      { [cls.active]: active, [cls.disabled]: item.disabled })}
                                 >
                                     {item.content}
                                 </button>
