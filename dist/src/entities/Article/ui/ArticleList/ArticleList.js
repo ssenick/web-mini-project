@@ -51,9 +51,9 @@ export var ArticleList = memo(function (props) {
         return null;
     });
     if (__PROJECT__ === 'storybook') {
-        return (_jsxs("div", __assign({ ref: refList, className: classNames(cls.ArticleList, (_a = {}, _a[cls.slider] = slider, _a), [className, cls[view]]) }, { children: [articles.length > 0
+        return (_jsxs("div", __assign({ ref: refList, className: classNames(cls.ArticleList, (_a = {}, _a[cls.slider] = slider, _a), [className, cls[view]]) }, { children: [(articles === null || articles === void 0 ? void 0 : articles.length) > 0
                     ? articles.map(function (article, index) { return (_jsx(ArticleListItem, { className: cls.article, index: index, article: article, view: view, target: target }, article.id)); })
-                    : null, isLoading && getSkeletons(view), (!articles.length && !isLoading) &&
+                    : null, isLoading && getSkeletons(view), (!(articles === null || articles === void 0 ? void 0 : articles.length) && !isLoading) &&
                     _jsx(Text, { size: TextFontSize.L, texAlign: TextAlign.CENTER, title: t('Нет статей') })] })));
     }
     return (_jsxs("div", __assign({ ref: refList, className: classNames(cls.ArticleList, (_b = {}, _b[cls.slider] = slider, _b), [className, cls[view]]) }, { children: [!slider
@@ -61,8 +61,8 @@ export var ArticleList = memo(function (props) {
                             _jsx(VirtuosoGrid, { ref: refVirtuosoGrid, totalCount: articles.length, listClassName: cls.articles, data: articles, initialTopMostItemIndex: articleIndex, endReached: onLoadNextPart, itemContent: renderArticles, components: {
                                     Footer: SkeletonsSmall
                                 } })] })
-                : _jsxs("div", __assign({ className: cls.articles }, { children: [articles.length > 0
+                : _jsxs("div", __assign({ className: cls.articles }, { children: [(articles === null || articles === void 0 ? void 0 : articles.length) > 0
                             ? articles.map(function (article, index) { return (renderArticles(index, article)); })
-                            : null, isLoading && getSkeletons(view)] })), (!articles.length && !isLoading) &&
+                            : null, isLoading && getSkeletons(view)] })), (!(articles === null || articles === void 0 ? void 0 : articles.length) && !isLoading) &&
                 _jsx(Text, { size: TextFontSize.L, texAlign: TextAlign.CENTER, title: t('Нет статей') })] })));
 });

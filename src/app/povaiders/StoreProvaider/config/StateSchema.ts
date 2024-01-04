@@ -6,22 +6,22 @@ import { type ProfileSchema } from 'entities/Profile'
 import { type UserSchema } from 'entities/User'
 import { type AddNewCommentFormSchema } from 'features/AddNewCommentForm'
 import { type ArticleDetailsCommentSchema } from 'features/ArticleCommentList'
-import { type ArticleDetailsRecommendationsListSchema } from 'features/ArticleRecommendationsList'
 import { type ArticlePageWrapperSchema } from 'features/ArticlesPageWrapper'
 import { type LoginSchema } from 'features/AuthByUsername'
 import { type ScrollSaveSchema } from 'features/ScrollSave'
+import { type rtkApi } from 'shared/api/rtkApi'
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
   scrollSave: ScrollSaveSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentSchema
-  articleDetailsRecommendations?: ArticleDetailsRecommendationsListSchema
   addCommentForm?: AddNewCommentFormSchema
   articlePage?: ArticlePageWrapperSchema
 }

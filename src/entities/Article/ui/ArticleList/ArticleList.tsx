@@ -73,19 +73,20 @@ export const ArticleList = memo((props: ArticleListProps) => {
       <div ref={refList}
            className={classNames(cls.ArticleList,
              { [cls.slider]: slider }, [className, cls[view]])}>
+        <div className={cls.articles}>
+          {articles?.length > 0
+            ? articles.map((article, index) => (
+              <ArticleListItem className={cls.article} index={index} key={article.id} article={article} view={view} target={target}/>
+            ))
+            : null}
 
-        {articles.length > 0
-          ? articles.map((article, index) => (
-            <ArticleListItem className={cls.article} index={index} key={article.id} article={article} view={view} target={target}/>
-          ))
-          : null}
-
-          {isLoading && getSkeletons(view)}
-        {(!articles.length && !isLoading) &&
-            <Text
-                size={TextFontSize.L}
-                texAlign={TextAlign.CENTER}
-                title={t('Нет статей')}/>}
+            {isLoading && getSkeletons(view)}
+            {(!articles?.length && !isLoading) &&
+                <Text
+                    size={TextFontSize.L}
+                    texAlign={TextAlign.CENTER}
+                    title={t('Нет статей')}/>}
+        </div>
       </div>
     )
   }
@@ -120,7 +121,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 }
               </>
             : <div className={cls.articles}>
-                {articles.length > 0
+                {articles?.length > 0
                   ? articles.map((article, index) => (
                     renderArticles(index, article)
                   ))
@@ -132,7 +133,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             {/* {articles.length > 0 ? articles.map(renderArticles) : null} */}
 
             {/*   {isLoading && getSkeletons(view)} */}
-            {(!articles.length && !isLoading) &&
+            {(!articles?.length && !isLoading) &&
                <Text
                   size={TextFontSize.L}
                   texAlign={TextAlign.CENTER}
