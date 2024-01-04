@@ -41,9 +41,9 @@ const AddNewCommentForm = memo(({ className, onSendComment }: AddNewCommentFormP
 
   if (error) {
     return (
-            <div className={classNames(cls.AddNewCommentForm, { [cls.isLoading]: isLoading }, [className])}>
-                {t('что-то пошло не так')}
-            </div>
+        <div className={classNames(cls.AddNewCommentForm, { [cls.isLoading]: isLoading }, [className])}>
+            {t('что-то пошло не так')}
+        </div>
     )
   }
 

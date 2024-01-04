@@ -7,7 +7,7 @@ const HomePage = memo((): JSX.Element => {
   const { t } = useTranslation('home')
 
   return (
-        <Page>
+        <Page >
             {t('Заголовок страницы')}
             <div >
                 <Counter/>

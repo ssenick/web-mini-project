@@ -46,8 +46,15 @@ export const ArticleList = memo((props: ArticleListProps) => {
       : 0
   })
   const renderArticles = (index: number, article: Article): JSX.Element => (
-    <ArticleListItem className={cls.article} index={index} key={article.id} article={article} view={view} target={target}/>
+    <ArticleListItem
+        className={cls.article}
+        index={index}
+        key={article.id}
+        article={article}
+        view={view}
+        target={target}/>
   )
+
   const SkeletonsSmall = memo(() => {
     if (isLoading) {
       return (
@@ -68,6 +75,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
     return null
   })
+
   if (__PROJECT__ === 'storybook') {
     return (
       <div ref={refList}
@@ -103,6 +111,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     endReached={onLoadNextPart}
                     initialTopMostItemIndex={ articleIndex }
                     components ={{ Footer: SkeletonsBig }}
+                    atTopStateChange={(atTop) => {
+                      console.log(atTop)
+                    }}
                 />
                 }
                 {view === ArticleView.SMALL &&
@@ -116,6 +127,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         itemContent={renderArticles}
                         components={{
                           Footer: SkeletonsSmall
+                        }}
+                        atTopStateChange={(atTop) => {
+                          console.log(atTop)
                         }}
                     />
                 }

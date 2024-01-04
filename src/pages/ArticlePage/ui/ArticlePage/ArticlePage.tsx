@@ -15,18 +15,16 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
   const { t } = useTranslation('articles')
 
   return (
-            <section
-                className={classNames(cls.ArticlePage, {}, [className])}>
-                <div className={cls.title}>
-                    <Text size={TextFontSize.L} title={t('Заголовок страницы')}/>
-                </div>
-                <div className={cls.content}>
-                    <ArticlePageHeader className={cls.header}/>
-                    <ArticlesPageWrapper className={cls.wrapper}/>
-                </div>
-
-            </section>
-
+        <section
+            className={classNames(cls.ArticlePage, {}, [className])}>
+            <div className={cls.title}>
+                <Text size={TextFontSize.L} title={t('Заголовок страницы')}/>
+            </div>
+            <div className={cls.content}>
+                <ArticlePageHeader className={cls.header}/>
+                <ArticlesPageWrapper className={cls.wrapper}/>
+            </div>
+        </section>
   )
 }
 
