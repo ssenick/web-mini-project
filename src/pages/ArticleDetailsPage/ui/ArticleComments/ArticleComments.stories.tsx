@@ -71,4 +71,6 @@ Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
 export const LightNoComments: Story = {
   args: {}
 }
-LightNoComments.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator]
+LightNoComments.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+  articleDetailsComments: comments
+}), RouterDecorator]

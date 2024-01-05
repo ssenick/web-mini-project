@@ -5,18 +5,6 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import Avatar from 'shared/assets/test/image.jpg'
 import { ArticleCommentList } from './ArticleCommentList'
-
-const meta: Meta<typeof ArticleCommentList> = {
-  title: 'features/ArticleCommentList',
-  component: ArticleCommentList,
-  parameters: {
-    layout: 'fullscreen'
-  },
-  // tags: ['autodocs'],
-  argTypes: {}
-
-}
-export default meta
 const comments = {
   ids: ['1', '2'],
   isLoading: false,
@@ -44,13 +32,26 @@ const comments = {
     }
   }
 }
+
+const meta: Meta<typeof ArticleCommentList> = {
+  title: 'features/ArticleCommentList',
+  component: ArticleCommentList,
+  parameters: {
+    layout: 'fullscreen'
+  },
+  // tags: ['autodocs'],
+  argTypes: {}
+
+}
+export default meta
+
 type Story = StoryObj<typeof meta>
 
 export const Light: Story = {
   args: {},
   render: () => (
       <div className={'app__content'}>
-          <ArticleCommentList/>
+          <ArticleCommentList />
       </div>
   )
 }
@@ -62,15 +63,11 @@ export const Dark: Story = {
   args: {},
   render: () => (
       <div className={'app__content'}>
-        <ArticleCommentList/>
+        <ArticleCommentList />
       </div>
   )
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-  articleDetailsComments: comments
-}), RouterDecorator]
-
-Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
   articleDetailsComments: comments
 }), RouterDecorator]
 
@@ -82,6 +79,19 @@ export const Funny: Story = {
       </div>
   )
 }
+
 Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator({
   articleDetailsComments: comments
+}), RouterDecorator]
+
+export const LightIsLoading: Story = {
+  args: {},
+  render: () => (
+      <div className={'app__content'}>
+        <ArticleCommentList />
+      </div>
+  )
+}
+LightIsLoading.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+  articleDetailsComments: { ...comments, isLoading: true }
 }), RouterDecorator]
