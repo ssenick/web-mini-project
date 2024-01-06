@@ -137,6 +137,7 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
               <div className={cls.column}>
                 <div className={cls.inputWithError}>
                   <Input
+                      data-testid={'ProfileCard.NameInput'}
                       className={cls.input}
                       label={t('Имя')}
                       onChange={onChangeFirstName}
@@ -144,6 +145,7 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                       variant={InputVariant.INVERSE_BG}
                       value={data?.first}/>
                   {errorFirstname && <Text
+                      data-testid={'ProfileCard.NameInput.Error'}
                       className={cls.errorInput}
                       variant={TextVariant.ERROR}
                       size={TextFontSize.SXS}
@@ -152,6 +154,7 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                 </div>
                 <div className={cls.inputWithError}>
                   <Input
+                      data-testid={'ProfileCard.LastNameInput'}
                       className={cls.input}
                       label={t('Фамилия')}
                       onChange={onChangeLastName}
@@ -159,6 +162,7 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                       variant={InputVariant.INVERSE_BG}
                       value={data?.lastname}/>
                   {errorLastname && <Text
+                      data-testid={'ProfileCard.LastNameInput.Error'}
                       className={cls.errorInput}
                       variant={TextVariant.ERROR}
                       size={TextFontSize.SXS}
@@ -167,6 +171,7 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                 </div>
                 <div className={cls.inputWithError}>
                   <Input
+                      data-testid={'ProfileCard.AgeInput'}
                       className={cls.age}
                       label={t('Возраст')}
                       onChange={onChangeAge}
@@ -174,6 +179,7 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                       variant={InputVariant.INVERSE_BG}
                       value={data?.age}/>
                   {errorAge && <Text
+                      data-testid={'ProfileCard.AgeInput.Error'}
                       className={cls.errorInput}
                       variant={TextVariant.ERROR}
                       size={TextFontSize.SXS}
@@ -193,6 +199,7 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
               <div className={cls.column}>
                 <div className={cls.inputWithError}>
                   <Input
+                      data-testid={'ProfileCard.UsernameInput'}
                       className={cls.username}
                       label={t('Имя пользователя')}
                       onChange={onChangeUsername}
@@ -200,6 +207,7 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                       variant={InputVariant.INVERSE_BG}
                       value={data?.username}/>
                   {errorUsername && <Text
+                      data-testid={'ProfileCard.UsernameInput.Error'}
                       className={cls.errorInput}
                       variant={TextVariant.ERROR}
                       size={TextFontSize.SXS}
@@ -207,6 +215,7 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                   }
                 </div>
                 <Input
+                    data-testid={'ProfileCard.AvatarInput'}
                     className={cls.avatar}
                     label={t('Ссылка на аватар')}
                     onChange={onChangeAvatar}

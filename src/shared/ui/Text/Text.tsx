@@ -38,6 +38,8 @@ interface TextProps {
   variant?: TextVariant
   size?: TextFontSize
   texAlign?: TextAlign
+
+  'data-testid'?: string
 }
 
 export const Text = memo((props: TextProps): JSX.Element => {
@@ -47,14 +49,15 @@ export const Text = memo((props: TextProps): JSX.Element => {
     text,
     variant = TextVariant.NORMAL,
     size = TextFontSize.M,
-    texAlign = TextAlign.LEFT
+    texAlign = TextAlign.LEFT,
+    'data-testid': dataTestId = 'Text'
   } = props
   const HeaderTag = mapSizeToHeaderTag[size]
 
   return (
         <div className={classNames(cls.Text, { }, [className, cls[variant], cls[size], cls[texAlign]])}>
-            {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
-            {text && <p className={cls.text}>{text}</p>}
+            {title && <HeaderTag data-testid={`${dataTestId}.Header`} className={cls.title}>{title}</HeaderTag>}
+            {text && <p data-testid={`${dataTestId}.Paragraph`} className={cls.text}>{text}</p>}
         </div>
   )
 })

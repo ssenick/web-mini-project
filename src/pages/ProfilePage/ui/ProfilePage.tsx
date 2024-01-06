@@ -20,9 +20,7 @@ const ProfilePage = ({ className }: ProfilePageProps): JSX.Element => {
                       <ProfileForm/>
                   </div>
               </VStack>
-
           </Page>
-
   )
 }
 export default ProfilePage

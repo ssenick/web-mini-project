@@ -107,10 +107,18 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
                 {canEdit &&
                 <>
                   {!readonly
-                    ? <Button onClick={onCancelEdit} withIcon variant={ButtonVariant.BORDER_ERROR}>
+                    ? <Button
+                          data-testid={'ProfileForm.CancelButton'}
+                          onClick={onCancelEdit}
+                          withIcon
+                          variant={ButtonVariant.BORDER_ERROR}>
                         {t('Отменить')}
                       </Button>
-                    : <Button onClick={onEdit} withIcon variant={ButtonVariant.BORDER}>
+                    : <Button
+                          data-testid={'ProfileForm.EditButton'}
+                          onClick={onEdit}
+                          withIcon
+                          variant={ButtonVariant.BORDER}>
                         {t('Редактировать')}
                         <EditIcon/>
                       </Button>
@@ -137,7 +145,11 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
           </div>
           <div className={cls.bottom}>
             {canEdit &&
-                <Button onClick={onSaveEdit} className={cls.btnSave} variant={ButtonVariant.BACKGROUND}>
+                <Button
+                    data-testid={'ProfileForm.SaveButton'}
+                    onClick={onSaveEdit}
+                    className={cls.btnSave}
+                    variant={ButtonVariant.BACKGROUND}>
                   {t('Сохранить')}
                 </Button>
             }
