@@ -8,6 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useDebounce } from 'shared/lib/hooks/useDebounce'
 import { useInfinityScroll } from 'shared/lib/hooks/useInfinityScroll'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
+import { Text, TextFontSize } from 'shared/ui/Text/Text'
 import cls from './Page.module.scss'
 
 interface PageProps {
@@ -15,6 +16,7 @@ interface PageProps {
   scrollTrigger?: boolean
   children: ReactNode
   onScrollEnd?: () => void
+  title?: string
 }
 
 export const Page: FC<PageProps> = (props) => {
@@ -22,6 +24,7 @@ export const Page: FC<PageProps> = (props) => {
     className,
     children,
     onScrollEnd,
+    title,
     scrollTrigger = false
   } = props
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
@@ -61,6 +64,7 @@ export const Page: FC<PageProps> = (props) => {
             ref={wrapperRef}
             onScroll={onScroll}
             className={classNames(cls.Page, {}, [className])}>
+            {title && <Text title={title} className={cls.title} size={TextFontSize.L}/>}
             {children}
             <div className={cls.trigger} ref={triggerRef}></div>
         </section>

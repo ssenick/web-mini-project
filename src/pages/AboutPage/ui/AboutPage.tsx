@@ -12,8 +12,7 @@ const AboutPage = memo((): JSX.Element => {
   }, [])
 
   return (
-        <Page>
-            {t('Заголовок страницы')}
+        <Page title={t('Заголовок страницы')}>
             <Input value={value} onChange={inputOnChange}/>
         </Page>
   )
