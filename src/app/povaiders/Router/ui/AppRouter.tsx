@@ -18,7 +18,7 @@ export const AppRouter = memo(({ className }: AppRouterProps): JSX.Element => {
                         <Route
                             key={el.path}
                             path={el.path}
-                            element={el.authOnly ? <RequireAuth> {el.element} </RequireAuth> : el.element}/>
+                            element={el.authOnly ? <RequireAuth roles={el.roles}> {el.element} </RequireAuth> : el.element}/>
                     )}
                 </Routes>
             </Suspense>

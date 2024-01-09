@@ -1864,6 +1864,20 @@
       "text": "no",
       "createdComment": "04.01.2024",
       "id": "Ed8MeRB"
+    },
+    {
+      "articleId": "18",
+      "userId": "3",
+      "text": "Fuuu",
+      "createdComment": "08.01.2024",
+      "id": "_0kXBiw"
+    },
+    {
+      "articleId": "6",
+      "userId": "3",
+      "text": "fuu",
+      "createdComment": "08.01.2024",
+      "id": "vJmMzWQ"
     }
   ],
   "users": [
@@ -1871,13 +1885,30 @@
       "id": "1",
       "username": "admin",
       "password": "123",
+      "roles": [
+        "ADMIN",
+        "MANAGER",
+        "USER"
+      ],
       "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
+      "avatar": "https://klike.net/uploads/posts/2019-03/1551512888_2.jpg"
     }
   ],
   "profile": [
@@ -1902,6 +1933,17 @@
       "city": "Sumy",
       "username": "sse441aa",
       "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
+    },
+    {
+      "id": "3",
+      "first": "Raccon",
+      "lastname": "Stinky",
+      "age": 46,
+      "currency": "USD",
+      "country": "Canada",
+      "city": "Calgary",
+      "username": "Fuu",
+      "avatar": "https://klike.net/uploads/posts/2019-03/1551512888_2.jpg"
     }
   ]
 }

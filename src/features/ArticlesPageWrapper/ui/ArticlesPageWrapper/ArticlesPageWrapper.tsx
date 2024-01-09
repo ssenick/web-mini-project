@@ -1,8 +1,4 @@
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList'
-import {
-  fetchNextArticlesPage
-} from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
-import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -15,10 +11,16 @@ import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams'
 import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text'
 
 import {
-  getArticlesPageError, getArticlesPageInited,
-  getArticlesPageIsLoading, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort,
+  getArticlesPageError,
+  getArticlesPageInited,
+  getArticlesPageIsLoading,
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSort,
   getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors'
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice'
 import cls from './ArticlesPageWrapper.module.scss'
 
@@ -27,6 +29,7 @@ interface ArticlesPageWrapperProps {
 }
 const reducers: ReducersList = {
   articlePage: articlesPageReducer
+
 }
 
 export const ArticlesPageWrapper = memo(({ className }: ArticlesPageWrapperProps) => {

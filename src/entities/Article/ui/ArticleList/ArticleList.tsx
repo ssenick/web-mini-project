@@ -21,7 +21,7 @@ interface ArticleListProps {
 }
 
 const getSkeletons = (view: ArticleView): ReactNode =>
-  new Array(view === ArticleView.BIG ? 3 : 12)
+  new Array(view === ArticleView.BIG ? 3 : 6)
     .fill(0).map((item, index) => (
           <ArticleListItemSkeleton view={view} key={index}/>
     ))
@@ -65,6 +65,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
     return null
   })
+
   const SkeletonsBig = memo(() => {
     if (isLoading) {
       return (
@@ -108,12 +109,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     style={{ height: '100%' }}
                     data={articles}
                     itemContent={renderArticles}
-                    endReached={onLoadNextPart}
+                    // endReached={onLoadNextPart}
                     initialTopMostItemIndex={ articleIndex }
                     components ={{ Footer: SkeletonsBig }}
                     atTopStateChange={(atTop) => {
                       console.log(atTop)
                     }}
+                    atBottomStateChange={onLoadNextPart}
                 />
                 }
                 {view === ArticleView.SMALL &&
@@ -123,7 +125,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         listClassName={cls.articles}
                         data={articles}
                         initialTopMostItemIndex={articleIndex}
-                        endReached={onLoadNextPart}
+                        // endReached={onLoadNextPart}
                         itemContent={renderArticles}
                         components={{
                           Footer: SkeletonsSmall
@@ -131,6 +133,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         atTopStateChange={(atTop) => {
                           console.log(atTop)
                         }}
+                        atBottomStateChange={onLoadNextPart}
                     />
                 }
               </>

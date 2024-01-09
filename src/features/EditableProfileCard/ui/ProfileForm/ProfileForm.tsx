@@ -14,7 +14,7 @@ import {
 } from 'entities/Profile'
 import { getUserAuthData } from 'entities/User'
 
-import { memo, useCallback, useMemo } from 'react'
+import { memo, useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -22,7 +22,7 @@ import EditIcon from 'shared/assets/icons/edit.svg'
 import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
+// import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
 import cls from './ProfileForm.module.scss'
 
@@ -45,10 +45,12 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
   const dispatch = useAppDispatch()
   const readonly = useSelector(getProfileReadonly)
   const { id } = useParams<{ id: string }>()
-  useInitialEffect(() => {
+  // useInitialEffect(() => {
+  //   if (id) void dispatch(fetchProfileData(id))
+  // })
+  useEffect(() => {
     if (id) void dispatch(fetchProfileData(id))
-  })
-
+  }, [id, dispatch])
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false))
   }, [dispatch])

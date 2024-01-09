@@ -1,5 +1,5 @@
 import { Theme, useTheme } from 'app/povaiders/ThemeProvaider'
-import { getUserAuthData, userActions } from 'entities/User'
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User'
 import { LoginModal } from 'features/AuthByUsername'
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -13,9 +13,13 @@ import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
 import { Dropdown, type DropdownItem } from 'shared/ui/Dropdown/Dropdown'
+import { Icon } from 'shared/ui/Icon/Icon'
 import { Text, TextVariant } from 'shared/ui/Text/Text'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
+import AdminIcon from 'shared/assets/icons/admin.svg'
+import ProfileIcon from 'shared/assets/icons/profile.svg'
+import LogoutIcon from 'shared/assets/icons/logout.svg'
 import cls from './Header.module.scss'
 
 interface HeaderProps {
@@ -29,6 +33,8 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
   const [isAuthModal, setIsAuthModal] = useState(false)
   const [isCloseModal, setIsCloseModal] = useState(false)
   const userAuth = useSelector(getUserAuthData)
+  const isAdmin = useSelector(isUserAdmin)
+  const isManager = useSelector(isUserManager)
   const dispatch = useDispatch()
 
   const onCloseModal = useCallback((): void => {
@@ -47,6 +53,8 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
     // }
   }, [dispatch])
 
+  const isAdminPanelIsAvailable = isAdmin || isManager
+
   useEffect(() => {
     if (userAuth) {
       setIsCloseModal(true)
@@ -59,9 +67,28 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
   }, [userAuth, error])
 
   const DropDawnItems: DropdownItem[] = useMemo(() => ([
-    { content: t('Профиль'), href: RoutPath.profile + userAuth?.id },
-    { content: <Text variant={TextVariant.ERROR} text={t('Выход')}/>, onClick: onLogout }
-  ]), [userAuth, onLogout, t])
+    ...(isAdminPanelIsAvailable
+      ? [{
+          content: <span className={cls.item}>
+                      <Icon className={cls.icon} Svg={AdminIcon}/>{t('Админ панель')}
+                    </span>,
+          href: RoutPath.admin_panel
+        }]
+      : []),
+    {
+      content: <span className={cls.item}>
+                  <Icon className={cls.icon} Svg={ProfileIcon}/>{t('Профиль')}
+                </span>,
+      href: RoutPath.profile + userAuth?.id
+    },
+    {
+      content: <span className={cls.item}>
+                  <Icon className={classNames(cls.icon, {}, [cls.red])}
+                        Svg={LogoutIcon}/><Text variant={TextVariant.ERROR} text={t('Выход')}/>
+                </span>,
+      onClick: onLogout
+    }
+  ]), [userAuth, onLogout, t, isAdminPanelIsAvailable])
 
   return (
         <header className={classNames(cls.Header, {}, [className])}>

@@ -28,3 +28,19 @@
 .themeBtn {
   background-color: red;
 }
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+
+  &.red {
+    fill: var(--error-secondary);
+  }
+}

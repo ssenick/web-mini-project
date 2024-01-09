@@ -12,7 +12,6 @@ interface ArticlePageProps {
 
 const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
   const { t } = useTranslation('articles')
-
   return (
         <Page
             title={t('Заголовок страницы')}
