@@ -1878,6 +1878,13 @@
       "text": "fuu",
       "createdComment": "08.01.2024",
       "id": "vJmMzWQ"
+    },
+    {
+      "articleId": "2",
+      "userId": "3",
+      "text": "Dno...",
+      "createdComment": "09.01.2024",
+      "id": "zi_iQ7H"
     }
   ],
   "users": [
@@ -1914,11 +1921,11 @@
   "profile": [
     {
       "id": "1",
-      "first": "Ruslan",
+      "first": "Ruslan1`",
       "lastname": "Senchenko",
       "age": 33,
-      "currency": "UAH",
-      "country": "Slovakia",
+      "currency": "CAD",
+      "country": "Canada",
       "city": "Sumy",
       "username": "ssenick",
       "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"

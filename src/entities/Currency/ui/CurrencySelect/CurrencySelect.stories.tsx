@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Currency } from '../..'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
 import { CurrencySelect } from './CurrencySelect'
@@ -17,15 +18,21 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Light: Story = {
-  args: {}
+  args: {
+    value: Currency.UAH
+  }
 }
 Light.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const Dark: Story = {
-  args: {}
+  args: {
+    value: Currency.UAH
+  }
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
 export const Funny: Story = {
-  args: {}
+  args: {
+    value: Currency.UAH
+  }
 }
 Funny.decorators = [ThemeDecorator(Theme.FUNNY)]

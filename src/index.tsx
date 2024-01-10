@@ -1,12 +1,17 @@
 import { ErrorBoundary } from 'app/povaiders/ErrorBoundary'
 import { StoreProvider } from 'app/povaiders/StoreProvaider'
 import { ThemeProvider } from 'app/povaiders/ThemeProvaider'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './app/App'
 import './shared/config/i18n/i18n'
 
-render(
+const container = document.getElementById('root')
+if (!container) throw new Error('Failed to mount the application, check the container!')
+
+const root = createRoot(container)
+
+root.render(
     <BrowserRouter>
         <StoreProvider>
             <ErrorBoundary>
@@ -14,7 +19,6 @@ render(
                     <App/>
                 </ThemeProvider>
             </ErrorBoundary>
-            </StoreProvider>
-        </BrowserRouter>,
-    document.getElementById('root')
+        </StoreProvider>
+    </BrowserRouter>
 )
