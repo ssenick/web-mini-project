@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { type Article, ArticleBlockType, ArticleType, ArticleView } from '../../model/types/article'
+import { Theme } from 'app/povaiders/ThemeProvaider'
 import Image from 'shared/assets/test/image.jpg'
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
-
-import { ArticleList } from './ArticleList'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { Theme } from 'app/povaiders/ThemeProvaider'
+
+import { ArticleBlockType, ArticleType, ArticleView } from '../../model/consts/articleConsts'
+import { type Article } from '../../model/types/article'
+import { ArticleList } from './ArticleList'
 const articles = [
   {
     id: '1',

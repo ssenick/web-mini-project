@@ -1,6 +1,7 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
+
+import { ValidateProfileErrors } from '../../consts/profileConsts'
 import { getProfileError } from '../getProfileError/getProfileError'
-import { ValidateProfileErrors } from '../../types/profile'
 
 describe('getProfileError.test', () => {
   const errors: ValidateProfileErrors[] = [

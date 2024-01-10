@@ -3,6 +3,7 @@ import { type FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Page } from 'widgets/Page'
+
 import { ArticlePageHeader } from '../ArticlePageHeader/ArticlePageHeader'
 import cls from './ArticlePage.module.scss'
 

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Theme } from 'app/povaiders/ThemeProvaider'
 import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
-import { ValidateProfileErrors } from '../../model/types/profile'
-
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { Theme } from 'app/povaiders/ThemeProvaider'
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
-import { ProfileCard } from './ProfileCard'
 import avatarImage from 'shared/assets/test/image.jpg'
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+
+import { ValidateProfileErrors } from '../../model/consts/profileConsts'
+import { ProfileCard } from './ProfileCard'
 const meta: Meta<typeof ProfileCard> = {
   title: 'entities/ProfileCard',
   component: ProfileCard,

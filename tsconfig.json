@@ -12,15 +12,15 @@
     "paths": {
       "*": ["./src/*"]
     },
-
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS",
+      "module": "CommonJS"
 //      "strictNullChecks": true
-    },
+    }
   },
   "include": [
     "./config/jest/setupTests.ts",

@@ -5,6 +5,7 @@ import ArticlesIcon from 'shared/assets/icons/articles.svg'
 import HomeIcon from 'shared/assets/icons/home.svg'
 import ProfileIcon from 'shared/assets/icons/profile.svg'
 import { RoutPath } from 'shared/config/routeConfig'
+
 import { type SidebarLinkType } from '../types/sidebar'
 
 export const getSidebarLinks = createSelector(

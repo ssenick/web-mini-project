@@ -1,8 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/povaiders/StoreProvaider'
+
 import { getProfileForm } from '../../..'
+import { ValidateProfileErrors } from '../../consts/profileConsts'
+import { type Profile } from '../../types/profile'
 import { validateProfileData } from '../validateProfileData/validateProfileData'
-import { type Profile, ValidateProfileErrors } from '../../types/profile'
 
 function checkData (data: Profile): void {
   if (!data) {

@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Page } from 'widgets/Page'
+
 import { ArticleComments } from '../ArticleComments/ArticleComments'
 import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader'
 import cls from './ArticleDetailsPage.module.scss'

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ArticleType } from 'entities/Article/model/types/article'
+import { Theme } from 'app/povaiders/ThemeProvaider'
+import { ArticleType } from 'entities/Article/model/consts/articleConsts'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 
 import { ArticleTypeTabs } from './ArticleTypeTabs'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { Theme } from 'app/povaiders/ThemeProvaider'
 
 const meta: Meta<typeof ArticleTypeTabs> = {
   title: 'features/ArticleTypeTabs',

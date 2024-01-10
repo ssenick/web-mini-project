@@ -1,3 +1,5 @@
+import './styles/index.scss'
+
 import { AppRouter } from 'app/povaiders/Router'
 import { getUserInited, userActions } from 'entities/User'
 import { Suspense, useEffect, useMemo } from 'react'
@@ -6,7 +8,6 @@ import { useMediaQuery } from 'react-responsive'
 import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 import { Header } from 'widgets/Header'
 import { Sidebar } from 'widgets/Sidebar'
-import './styles/index.scss'
 
 const App = (): JSX.Element => {
   const dispatch = useDispatch()

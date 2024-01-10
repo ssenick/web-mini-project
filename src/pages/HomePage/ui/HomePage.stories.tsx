@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Theme } from 'app/povaiders/ThemeProvaider'
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 
 import HomePage from './HomePage'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { Theme } from 'app/povaiders/ThemeProvaider'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 
 const meta: Meta<typeof HomePage> = {
   title: 'pages/HomePage',

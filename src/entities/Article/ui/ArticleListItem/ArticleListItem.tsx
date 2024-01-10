@@ -9,7 +9,9 @@ import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Button, ButtonSize, ButtonVariant } from 'shared/ui/Button/Button'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { Text, TextFontSize } from 'shared/ui/Text/Text'
-import { type Article, ArticleBlockType, type ArticleTextBlock, ArticleView } from '../../model/types/article'
+
+import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts'
+import { type Article, type ArticleTextBlock } from '../../model/types/article'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import cls from './ArticleListItem.module.scss'
 

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Theme } from 'app/povaiders/ThemeProvaider'
 import { Currency } from 'entities/Currency'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 
 import { ListBox } from './ListBox'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { Theme } from 'app/povaiders/ThemeProvaider'
 
 const options = [
   { value: Currency.CAD, content: 'Canada CAD' },

@@ -2,6 +2,7 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { VStack } from 'shared/ui/Stack'
 import { ErrorMessage } from 'widgets/ErrorMessage'
+
 import cls from './ErrorPage.module.scss'
 
 interface ErrorPageProps {

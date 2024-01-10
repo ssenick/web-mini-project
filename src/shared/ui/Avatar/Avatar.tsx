@@ -1,5 +1,6 @@
 import { memo, useMemo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
+
 import cls from './Avatar.module.scss'
 
 interface AvatarProps {

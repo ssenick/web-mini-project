@@ -1,8 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue'
 import { useCallback } from 'react'
-import { counterActions } from '../model/slice/counterSlice'
+import { useDispatch, useSelector } from 'react-redux'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
+
+import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue'
+import { counterActions } from '../model/slice/counterSlice'
 
 export const Counter = (): JSX.Element => {
   const dispatch = useDispatch()

@@ -1,6 +1,7 @@
 import type React from 'react'
 import { type InputHTMLAttributes, memo, useCallback, useMemo, useState } from 'react'
 import { classNames, type Mods } from 'shared/lib/classNames/classNames'
+
 import { Text, TextFontSize } from '../Text/Text'
 import cls from './TextArea.module.scss'
 

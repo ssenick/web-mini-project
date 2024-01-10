@@ -1,4 +1,5 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
+
 import { getLoginPassword } from './getLoginPassword'
 
 describe('getLoginPassword.test', () => {

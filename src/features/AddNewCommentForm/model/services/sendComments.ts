@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/povaiders/StoreProvaider'
 import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails'
-
 import { type Comment } from 'entities/Comment'
 import { getUserAuthData } from 'entities/User'
+import { getDate } from 'shared/lib/func/getDate'
+
 import { getAddNewCommentFormText } from '../selectors/addNewCommentFormSelectors'
 import { addNewCommentFormActions } from '../slice/addNewCommentFormSlice'
-import { getDate } from 'shared/lib/func/getDate'
 
 function checkData (data: Comment): void {
   if (!data) {

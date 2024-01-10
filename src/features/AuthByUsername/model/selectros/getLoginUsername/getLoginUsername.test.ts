@@ -1,4 +1,5 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
+
 import { getLoginUsername } from './getLoginUsername'
 
 describe('getLoginUsername.test', () => {

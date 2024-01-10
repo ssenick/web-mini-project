@@ -1,6 +1,7 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
 import { ArticleView } from 'entities/Article'
-import { ArticleType } from 'entities/Article/model/types/article'
+import { ArticleType } from 'entities/Article/model/consts/articleConsts'
+
 import {
   getArticlesPageError, getArticlesPageHasMore, getArticlesPageInited,
   getArticlesPageIsLoading, getArticlesPageLimit, getArticlesPageNum, getArticlesPageType, getArticlesPageView

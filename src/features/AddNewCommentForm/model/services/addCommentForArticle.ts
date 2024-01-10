@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/povaiders/StoreProvaider'
 import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails'
-
 import { type Comment } from 'entities/Comment'
 import { getUserAuthData } from 'entities/User'
 import {

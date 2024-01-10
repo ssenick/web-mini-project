@@ -1,6 +1,5 @@
-import { CountrySelect, type Country } from 'entities/Country'
+import { type Country, CountrySelect } from 'entities/Country'
 import { type Currency, CurrencySelect } from 'entities/Currency'
-import { type Profile } from '../..'
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -8,7 +7,9 @@ import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Input, InputVariant } from 'shared/ui/Input/Input'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Text, TextAlign, TextFontSize, TextVariant } from 'shared/ui/Text/Text'
-import { ValidateProfileErrors } from '../../model/types/profile'
+
+import { type Profile } from '../..'
+import { ValidateProfileErrors } from '../../model/consts/profileConsts'
 import cls from './ProfileCard.module.scss'
 
 interface ProfileCardProps {

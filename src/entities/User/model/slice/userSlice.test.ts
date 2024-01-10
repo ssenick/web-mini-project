@@ -1,6 +1,7 @@
+import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
+
 import { type User, type UserSchema } from '../types/user'
 import { userActions, userReducer } from './userSlice'
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 
 describe('userSlice.test', () => {
   const userData: User = {

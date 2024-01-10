@@ -13,7 +13,6 @@ import {
   updateProfileData
 } from 'entities/Profile'
 import { getUserAuthData } from 'entities/User'
-
 import { memo, useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -24,6 +23,7 @@ import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/Dy
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 // import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
+
 import cls from './ProfileForm.module.scss'
 
 const reducers: ReducersList = {

@@ -2,6 +2,7 @@ import { Listbox as HListbox } from '@headlessui/react'
 import { Fragment, memo, type ReactNode, useState } from 'react'
 import { usePopper } from 'react-popper'
 import { classNames } from 'shared/lib/classNames/classNames'
+
 import ArrowIcon from '../../assets/icons/arrow_down.svg'
 import { VStack } from '../Stack'
 import { Text, TextFontSize } from '../Text/Text'

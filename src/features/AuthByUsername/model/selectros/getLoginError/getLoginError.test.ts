@@ -1,4 +1,5 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
+
 import { getLoginError } from './getLoginError'
 
 describe('getLoginError.test', () => {

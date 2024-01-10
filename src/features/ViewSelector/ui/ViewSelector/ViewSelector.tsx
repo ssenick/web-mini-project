@@ -5,6 +5,7 @@ import TiledIcon from 'shared/assets/icons/fe_tiled.svg'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonSize } from 'shared/ui/Button/Button'
 import { Icon } from 'shared/ui/Icon/Icon'
+
 import cls from './ViewSelector.module.scss'
 
 interface ArticleViewSelectorProps {

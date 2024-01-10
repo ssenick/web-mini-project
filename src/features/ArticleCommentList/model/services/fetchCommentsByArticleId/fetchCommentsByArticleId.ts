@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/povaiders/StoreProvaider'
-
 import { type Comment } from 'entities/Comment'
 
 function checkData (data: Comment[]): void {

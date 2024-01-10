@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Theme } from 'app/povaiders/ThemeProvaider'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 
 import { ErrorMessage } from './ErrorMessage'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { Theme } from 'app/povaiders/ThemeProvaider'
 const args = {
   title: 'упс',
   description: 'Что то не так',

@@ -1,7 +1,7 @@
-import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator'
-import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator'
-import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator'
 import { Theme } from '../../src/app/povaiders/ThemeProvaider'
+import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator'
+import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator'
+import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator'
 
 export const preview = {
   decorators: [

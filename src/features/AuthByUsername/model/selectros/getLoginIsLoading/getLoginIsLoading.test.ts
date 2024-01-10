@@ -1,4 +1,5 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
+
 import { getLoginIsLoading } from './getLoginIsLoading'
 
 describe('getLoginIsLoading.test', () => {

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import { Header } from './Header'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'app/povaiders/ThemeProvaider'
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+
+import { Header } from './Header'
 
 const meta: Meta<typeof Header> = {
   title: 'widgets/Header',

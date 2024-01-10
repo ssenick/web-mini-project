@@ -9,6 +9,7 @@ import { useDebounce } from 'shared/lib/hooks/useDebounce'
 import { useInfinityScroll } from 'shared/lib/hooks/useInfinityScroll'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { Text, TextFontSize } from 'shared/ui/Text/Text'
+
 import cls from './Page.module.scss'
 
 interface PageProps {

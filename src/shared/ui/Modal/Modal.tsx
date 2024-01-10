@@ -1,8 +1,9 @@
 import type React from 'react'
-import { useState, type ReactNode, useRef, useEffect, useCallback, useMemo } from 'react'
+import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { classNames, type Mods } from 'shared/lib/classNames/classNames'
-import cls from './Modal.module.scss'
+
 import { Portal } from '../Portal/Portal'
+import cls from './Modal.module.scss'
 
 interface ModalProps {
   className?: string

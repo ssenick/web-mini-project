@@ -1,4 +1,5 @@
-import { type Profile, ValidateProfileErrors } from '../../types/profile'
+import { ValidateProfileErrors } from '../../consts/profileConsts'
+import { type Profile } from '../../types/profile'
 
 export const validateProfileData = (profile?: Profile): ValidateProfileErrors[] => {
   if (!profile) return [ValidateProfileErrors.NO_DATA]

@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ArticleBlockType, ArticleType } from '../../model/types/article'
+import { Theme } from 'app/povaiders/ThemeProvaider'
+import AvatarImage from 'shared/assets/test/image.jpg'
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
-import AvatarImage from 'shared/assets/test/image.jpg'
-import { ArticleDetails } from './ArticleDetails'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { Theme } from 'app/povaiders/ThemeProvaider'
+
+import { ArticleBlockType, ArticleType } from '../../model/consts/articleConsts'
+import { ArticleDetails } from './ArticleDetails'
 
 const meta: Meta<typeof ArticleDetails> = {
   title: 'entities/ArticleDetails',

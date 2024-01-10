@@ -2,9 +2,10 @@ import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import CopyIcon from 'shared/assets/icons/copy.svg'
 import { classNames } from 'shared/lib/classNames/classNames'
+
+import { Button, ButtonVariant } from '../Button/Button'
 import { Icon } from '../Icon/Icon'
 import { Text, TextFontSize } from '../Text/Text'
-import { Button, ButtonVariant } from '../Button/Button'
 import cls from './Code.module.scss'
 
 interface CodeProps {

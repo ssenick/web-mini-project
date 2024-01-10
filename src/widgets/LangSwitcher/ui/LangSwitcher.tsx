@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { LANGUAGE_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonSize, ButtonVariant } from 'shared/ui/Button/Button'
+
 import cls from './LangSwitcher.module.scss'
 
 interface LangSwitcherProps {

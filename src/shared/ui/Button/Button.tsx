@@ -1,6 +1,7 @@
+import { type ButtonHTMLAttributes, memo, type ReactNode } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
+
 import cls from './Button.module.scss'
-import { memo, type ButtonHTMLAttributes, type ReactNode } from 'react'
 
 export enum ButtonVariant {
   CLEAN = 'clean',

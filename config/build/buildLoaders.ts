@@ -1,7 +1,8 @@
 import type webpack from 'webpack'
-import { type BuildOptions } from './types/config'
+
 import { buildScssLoader } from './loaders/buildScssLoader'
 import { buildSvgLoader } from './loaders/buildSvgLoader'
+import { type BuildOptions } from './types/config'
 
 export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const fileLoader = {

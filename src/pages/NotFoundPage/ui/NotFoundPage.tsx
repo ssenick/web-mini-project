@@ -1,8 +1,9 @@
+import { memo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { VStack } from 'shared/ui/Stack'
+
 import cls from './NotFoundPage.module.scss'
-import { useTranslation } from 'react-i18next'
-import { memo } from 'react'
 
 interface NotFoundPageProps {
   className?: string

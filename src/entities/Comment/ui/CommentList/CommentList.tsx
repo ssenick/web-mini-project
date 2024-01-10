@@ -1,9 +1,10 @@
-import { CommentCart } from '../CommentCart/CommentCart'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Text, TextAlign } from 'shared/ui/Text/Text'
+
 import { type Comment } from '../../model/types/comment'
+import { CommentCart } from '../CommentCart/CommentCart'
 import cls from './CommentList.module.scss'
 
 interface CommentListProps {

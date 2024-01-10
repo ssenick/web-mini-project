@@ -1,5 +1,5 @@
 import { type ArticleSortField, type ArticleView } from 'entities/Article'
-import { type ArticleType } from 'entities/Article/model/types/article'
+import { type ArticleType } from 'entities/Article/model/consts/articleConsts'
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
@@ -11,7 +11,6 @@ import { fetchArticlesList } from 'features/ArticlesPageWrapper/model/services/f
 import { articlesPageActions } from 'features/ArticlesPageWrapper/model/slice/articlesPageSlice'
 import { ArticlesSortSelector } from 'features/ArticlesSortSelector'
 import { ArticleTypeTabs } from 'features/ArticleTypeTabs'
-
 import { ViewSelector } from 'features/ViewSelector'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'

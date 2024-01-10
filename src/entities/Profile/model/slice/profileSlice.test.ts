@@ -1,8 +1,10 @@
 import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
+
 import { fetchProfileData, updateProfileData } from '../..'
+import { ValidateProfileErrors } from '../consts/profileConsts'
+import { type ProfileSchema } from '../types/profile'
 import { profileActions, profileReducer } from './profileSlice'
-import { type ProfileSchema, ValidateProfileErrors } from '../types/profile'
 
 describe('profileSlice.test', () => {
   const data = {

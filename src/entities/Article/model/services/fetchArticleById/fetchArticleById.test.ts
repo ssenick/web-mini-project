@@ -1,6 +1,7 @@
-import { fetchArticleById } from './fetchArticleById'
-import { ArticleBlockType, ArticleType } from './../../types/article'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
+
+import { ArticleBlockType, ArticleType } from '../../consts/articleConsts'
+import { fetchArticleById } from './fetchArticleById'
 
 describe('fetchArticleById.test', () => {
   const initialData = {

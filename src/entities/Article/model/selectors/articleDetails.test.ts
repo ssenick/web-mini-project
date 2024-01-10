@@ -1,6 +1,7 @@
 import { type StateSchema } from 'app/povaiders/StoreProvaider'
+
+import { ArticleBlockType, ArticleType } from '../consts/articleConsts'
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails'
-import { ArticleBlockType, ArticleType } from '../types/article'
 
 describe('articleDetails.test', () => {
   const initialData = {

@@ -3,8 +3,9 @@ import { Theme } from 'app/povaiders/ThemeProvaider'
 import Image from 'shared/assets/test/image.jpg'
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { type Article, ArticleView } from '../../model/types/article'
 
+import { ArticleView } from '../..'
+import { type Article } from '../../model/types/article'
 import { ArticleListItem } from './ArticleListItem'
 
 const article = {
@@ -55,6 +56,7 @@ const article = {
     }
   ]
 } as Article
+
 const meta: Meta<typeof ArticleListItem> = {
   title: 'entities/ArticleListItem',
   component: ArticleListItem,

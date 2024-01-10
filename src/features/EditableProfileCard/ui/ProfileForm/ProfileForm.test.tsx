@@ -1,11 +1,12 @@
-import userEvent from '@testing-library/user-event'
 import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
-import { profileReducer, type Profile } from 'entities/Profile'
-import { ProfileForm } from '../..'
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender'
+import { type Profile, profileReducer } from 'entities/Profile'
 import { $api } from 'shared/api/api'
+import { componentRender } from 'shared/lib/tests/componentRender/componentRender'
+
+import { ProfileForm } from '../..'
 
 const profile: Profile = {
   id: '1',

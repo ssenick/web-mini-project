@@ -1,5 +1,6 @@
-import { Button, ButtonVariant } from './Button'
 import { render, screen } from '@testing-library/react'
+
+import { Button, ButtonVariant } from './Button'
 
 describe('Button', () => {
   test('Test render', () => {

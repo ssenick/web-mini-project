@@ -1,6 +1,7 @@
 import { memo, type ReactNode } from 'react'
 import { Link, type LinkProps } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
+
 import cls from './AppLink.module.scss'
 
 export enum AppLinkVariant {
@@ -13,6 +14,7 @@ export enum AppLinkSize {
   M = 'squareM',
   L = 'squareL',
 }
+
 interface AppLinkProps extends LinkProps {
   className?: string
   variant?: AppLinkVariant
@@ -39,7 +41,8 @@ export const AppLink = memo((props: AppLinkProps): JSX.Element => {
   return (
         <Link
             to={to}
-            className={classNames(cls.AppLink, { [cls.noActive]: noActive, [cls.withIcon]: withIcon, [cls.disabled]: disabled },
+            className={classNames(cls.AppLink,
+              { [cls.noActive]: noActive, [cls.withIcon]: withIcon, [cls.disabled]: disabled },
               [className, cls[variant], cls[size]])}
             {...otherProps}
         >

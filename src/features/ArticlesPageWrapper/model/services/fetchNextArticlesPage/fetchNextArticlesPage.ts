@@ -1,11 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/povaiders/StoreProvaider'
-import { articlesPageActions } from '../../slice/articlesPageSlice'
+
 import {
   getArticlesPageHasMore,
   getArticlesPageIsLoading,
   getArticlesPageNum
 } from '../../selectors/articlesPageSelectors'
+import { articlesPageActions } from '../../slice/articlesPageSlice'
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type

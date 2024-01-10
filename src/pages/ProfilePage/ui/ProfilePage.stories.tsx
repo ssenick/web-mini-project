@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Theme } from 'app/povaiders/ThemeProvaider'
 import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
 import Avatar from 'shared/assets/test/image.jpg'
-import ProfilePage from './ProfilePage'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { Theme } from 'app/povaiders/ThemeProvaider'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+
+import ProfilePage from './ProfilePage'
 
 const meta: Meta<typeof ProfilePage> = {
   title: 'pages/ProfilePage',
