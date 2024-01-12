@@ -1952,5 +1952,39 @@
       "username": "Fuu",
       "avatar": "https://klike.net/uploads/posts/2019-03/1551512888_2.jpg"
     }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Notification 1",
+      "description": "Some event happened",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Notification 2",
+      "description": "Some event happened",
+      "userId": "1",
+      "href": "http://localhost:8080/admin"
+    },
+    {
+      "id": "3",
+      "title": "Notification 3",
+      "description": "Some event happened",
+      "userId": "1",
+      "href": "http://localhost:8080/admin"
+    },
+    {
+      "id": "4",
+      "title": "Notification 4",
+      "description": "Some event happened",
+      "userId": "1"
+    },
+    {
+      "id": "5",
+      "title": "Notification 1",
+      "description": "Some event happened",
+      "userId": "2"
+    }
   ]
 }

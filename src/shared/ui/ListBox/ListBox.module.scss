@@ -58,8 +58,8 @@
     left: 0;
     background-color: var(--bg-input-inverse);
     border-radius: var(--border-radius-small);
-    cursor: pointer;
     overflow: hidden;
+    box-shadow: var(--box-shadow);
   }
 
   .list {

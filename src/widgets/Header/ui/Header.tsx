@@ -101,8 +101,8 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
                 {/* кнопку темы и тд */}
                 <ThemeSwitcher/>
                 <LangSwitcher/>
-                <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>{ t('ошибка')}</Button>
 
+                <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>{ t('ошибка')}</Button>
                 {
                     userAuth
                       ? <Dropdown items={DropDawnItems} trigger={<Avatar size={30} src={userAuth.avatar}/>} />

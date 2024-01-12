@@ -37,7 +37,7 @@ type Story = StoryObj<typeof meta>
 export const Light: Story = {
   args: {
     items: dropDownItems,
-    trigger: <button>1111</button>
+    trigger: 'CLICK'
   }
 }
 Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator]

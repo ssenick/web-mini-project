@@ -1,0 +1,21 @@
+.NotificationItem {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+
+  .title {
+    position: relative;
+    padding-left: 15px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--error-primary);
+    }
+  }
+}

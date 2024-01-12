@@ -5,7 +5,7 @@ import cls from './Card.module.scss'
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string
-  children: ReactNode
+  children?: ReactNode
 }
 
 export const Card: FC<CardProps> = ({ className, children }) => {

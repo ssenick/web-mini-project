@@ -1,0 +1,17 @@
+.Popover {
+  position: relative;
+
+  .trigger {
+    cursor: pointer;
+  }
+
+  .panel {
+    position: absolute;
+    z-index: 100;
+    top: calc(100% + 7px);
+    left: 0;
+    width: 300px;
+    overflow: hidden;
+    padding: 10px 15px;
+  }
+}
