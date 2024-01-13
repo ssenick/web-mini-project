@@ -11,7 +11,7 @@
     top: calc(100% + 7px);
     left: 0;
     width: 300px;
-    overflow: hidden;
+    border-radius: var(--border-radius-small);
     padding: 10px 15px;
   }
 }

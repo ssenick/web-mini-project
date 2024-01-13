@@ -1,6 +1,7 @@
 import { Theme, useTheme } from 'app/povaiders/ThemeProvaider'
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User'
 import { LoginModal } from 'features/AuthByUsername'
+import { NotificationButton } from 'features/NotificationButton'
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -103,6 +104,7 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
                 <LangSwitcher/>
 
                 <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>{ t('ошибка')}</Button>
+                <NotificationButton/>
                 {
                     userAuth
                       ? <Dropdown items={DropDawnItems} trigger={<Avatar size={30} src={userAuth.avatar}/>} />

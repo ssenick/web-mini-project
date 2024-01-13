@@ -1,3 +1,7 @@
 .NotificationList {
   position: relative;
+
+  .skeleton {
+    background: var(--bg-color-comment);
+  }
 }

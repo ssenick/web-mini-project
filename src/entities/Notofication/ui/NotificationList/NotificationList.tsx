@@ -22,7 +22,7 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
                max
                className={classNames(cls.NotificationList, {}, [className])}>
                {new Array(3).fill(0).map((item, i) =>
-                   <Skeleton key={i} width={'100%'} height={20} />
+                   <Skeleton className={cls.skeleton} key={i} width={'100%'} border={'5px'} height={70} />
                )}
            </VStack>
     )
@@ -33,9 +33,9 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
             gap={'15'}
             max
             className={classNames(cls.NotificationList, {}, [className])}>
-            {data?.map(item =>
-                <NotificationItem key={item.id} item={item}/>
-            )}
+              {data?.map(item =>
+                  <NotificationItem key={item.id} item={item}/>
+              )}
         </VStack>
   )
 })

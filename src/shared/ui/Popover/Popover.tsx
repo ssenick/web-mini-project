@@ -37,7 +37,7 @@ export const Popover = memo((props: PopoverProps) => {
               className={cls.panel}
               style={styles.popper} {...attributes.popper} ref={setPopperElement}
           >
-              {children}
+                  {children}
           </HPopover.Panel>
       </HPopover>
   )

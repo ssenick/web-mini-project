@@ -2,6 +2,7 @@
   display: grid;
   gap: 8px;
   width: 100%;
+  transition: background-color var(--animation-time) ease 0s;
 
   .title {
     position: relative;
@@ -16,6 +17,18 @@
       height: 8px;
       border-radius: 50%;
       background-color: var(--error-primary);
+    }
+  }
+}
+
+.link {
+  display: block;
+
+  @media (any-hover: hover) {
+    &:hover {
+      .NotificationItem {
+        background-color: var(--bg-module);
+      }
     }
   }
 }

@@ -1,0 +1,28 @@
+.NotificationButton {
+  .trigger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    background-color: var(--bg-input-inverse);
+    border-radius: var(--border-radius-small);
+    padding: 10px 5px 10px 10px;
+  }
+
+  .list {
+    min-height: 150px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 5px;
+
+    &::-webkit-scrollbar {
+      width: 5px;               /* ширина scrollbar */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;       /* закругления плашки */
+    }
+  }
+}
