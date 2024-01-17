@@ -1,8 +1,23 @@
 .NotificationButton {
   .trigger {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .count {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 13px;
+    height: 13px;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    background-color: var(--error-primary);
+    padding: 2px;
   }
 
   .content {
