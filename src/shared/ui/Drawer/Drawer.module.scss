@@ -1,0 +1,81 @@
+.Drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 101;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--animation-time) ease 0s;
+  pointer-events: none;
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: end;
+    background-color: var(--overlay-color);
+  }
+
+  .wrapper {
+    display: grid;
+    position: relative;
+    width: 100%;
+    height: 75%;
+    background-color: var(--bg-module);
+    border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
+    padding: 35px 5px;
+    transform: translate(0, 100%);
+    transition: transform var(--animation-time) ease var(--animation-time);
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      height: 5px;
+      width: 10%;
+      background-color: var(--bg-color);
+    }
+  }
+
+  .content {
+    display: grid;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100px;
+    padding: 0 5px;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--bg-color-comment);
+    }
+  }
+
+  &.isOpen {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    .wrapper {
+      transform: translate(0, 0);
+    }
+  }
+
+  &.isClosing {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all var(--animation-time) ease var(--animation-time);
+
+    .wrapper {
+      transform: translate(0, 100%);
+      transition: transform var(--animation-time) ease 0ms;
+    }
+  }
+}
