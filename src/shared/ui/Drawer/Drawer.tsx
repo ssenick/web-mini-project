@@ -1,4 +1,4 @@
-import { memo, type ReactNode, useMemo } from 'react'
+import { type ReactNode, useMemo } from 'react'
 import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 import { useModal } from 'shared/lib/hooks/useModal'
 
@@ -13,7 +13,7 @@ interface DrawerProps {
   lazy?: boolean
 }
 
-export const Drawer = memo((props: DrawerProps) => {
+export const Drawer = (props: DrawerProps) => {
   const {
     className,
     children,
@@ -54,4 +54,4 @@ export const Drawer = memo((props: DrawerProps) => {
           </div>
       </Portal>
   )
-})
+}
