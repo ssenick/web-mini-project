@@ -13,7 +13,7 @@ interface DrawerProps {
   lazy?: boolean
 }
 
-export const Drawer = (props: DrawerProps) => {
+export const Drawer = (props: DrawerProps): JSX.Element | null => {
   const {
     className,
     children,
