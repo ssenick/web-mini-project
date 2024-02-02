@@ -106,6 +106,10 @@
   font: var(--font-l);
 }
 
+.max {
+  width: 100%;
+}
+
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 var(--bg-module); }
 }

@@ -1,5 +1,4 @@
-import { memo, Suspense } from 'react'
-import { LoaderPoints } from 'shared/ui/LoaderPoints/LoaderPoints'
+import { memo } from 'react'
 import { Modal } from 'shared/ui/Modal/Modal'
 
 import { LoginFormAsync } from '../LoginForm/LoginFormAsync'
@@ -20,9 +19,7 @@ export const LoginModal = memo(({ className, isOpen, onClose, isCloseModal }: Lo
             lazy
             isCloseModal={isCloseModal}
         >
-          <Suspense fallback={<LoaderPoints />}>
             <LoginFormAsync />
-          </Suspense>
         </Modal>
   )
 })

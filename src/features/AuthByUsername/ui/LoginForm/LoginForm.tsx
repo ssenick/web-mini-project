@@ -20,13 +20,14 @@ import cls from './LoginForm.module.scss'
 
 export interface LoginFormProps {
   className?: string
+  max?: boolean
 }
 
 const initialReducers: ReducersList = {
   loginForm: loginReducer
 }
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, max }: LoginFormProps) => {
   const { t } = useTranslation()
   const username = useSelector(getLoginUsername)
   const password = useSelector(getLoginPassword)
@@ -94,8 +95,9 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
                     onChange={onChangePassword}
                     value={password}
                 />
-                <div className={cls.loginBottom}>
+                <div className={classNames(cls.loginBottom, { [cls.max]: max }, [])}>
                     <Button
+                        max
                         size={ButtonSize.M}
                         variant={ButtonVariant.BORDER}
                         onClick={onLoginClick}

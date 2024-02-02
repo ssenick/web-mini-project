@@ -1,8 +1,10 @@
 import { Theme, useTheme } from 'app/povaiders/ThemeProvaider'
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User'
 import { LoginModal } from 'features/AuthByUsername'
+import { LoginFormAsync } from 'features/AuthByUsername/ui/LoginForm/LoginFormAsync'
 import { NotificationButton } from 'features/NotificationButton'
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
+import { BrowserView, MobileView } from 'react-device-detect'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import AdminIcon from 'shared/assets/icons/admin.svg'
@@ -16,6 +18,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
+import { Drawer } from 'shared/ui/Drawer/Drawer'
 import { Dropdown, type DropdownItem } from 'shared/ui/Dropdown/Dropdown'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { Text, TextVariant } from 'shared/ui/Text/Text'
@@ -38,7 +41,15 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
   const isAdmin = useSelector(isUserAdmin)
   const isManager = useSelector(isUserManager)
   const dispatch = useDispatch()
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
+  const onCloseDrawer = useCallback(() => {
+    setIsDrawerOpen(false)
+  }, [])
+
+  const onOpenDrawer = useCallback(() => {
+    setIsDrawerOpen(true)
+  }, [])
   const onCloseModal = useCallback((): void => {
     setIsAuthModal(false)
   }, [])
@@ -60,13 +71,14 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
   useEffect(() => {
     if (userAuth) {
       setIsCloseModal(true)
+      onCloseDrawer()
     } else {
       setIsCloseModal(false)
     }
     if (error) {
       throw new Error()
     }
-  }, [userAuth, error])
+  }, [userAuth, error, onCloseDrawer])
 
   const DropDawnItems: DropdownItem[] = useMemo(() => ([
     ...(isAdminPanelIsAvailable
@@ -92,6 +104,13 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
     }
   ]), [userAuth, onLogout, t, isAdminPanelIsAvailable])
 
+  const trigger = (
+       <Button className={cls.login} onClick={onOpenDrawer} variant={ButtonVariant.BACKGROUND} withIcon={true}>
+           <LoginIcon/>
+           {t('Вход')}
+       </Button>
+  )
+
   return (
         <header className={classNames(cls.Header, {}, [className])}>
             <AppLink className={cls.logo} noActive to='/' variant={AppLinkVariant.CLEAN}>
@@ -109,13 +128,24 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
                             <NotificationButton/>
                             <Dropdown items={DropDawnItems} trigger={<Avatar size={30} src={userAuth.avatar}/>} />
                         </>
-                      : <Button onClick={onShowModal} className={cls.login} variant={ButtonVariant.BACKGROUND} withIcon={true}>
-                            <LoginIcon/>
-                            {t('Вход')}
-                        </Button>
+                      : <>
+                            <BrowserView>
+                                <Button onClick={onShowModal} className={cls.login} variant={ButtonVariant.BACKGROUND} withIcon={true}>
+                                    <LoginIcon/>
+                                    {t('Вход')}
+                                </Button>
+                            </BrowserView>
+                            <MobileView>
+                                {trigger}
+                                <Drawer isOpen={isDrawerOpen} onClose={onCloseDrawer} >
+                                    <LoginFormAsync max />
+                                </Drawer>
+                            </MobileView>
+                        </>
                 }
             </div>
              <LoginModal isOpen={isAuthModal} onClose={onCloseModal} isCloseModal={isCloseModal} />
+
         </header>
   )
 })

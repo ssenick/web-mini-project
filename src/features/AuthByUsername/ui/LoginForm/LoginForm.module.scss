@@ -8,6 +8,10 @@
   .loginBottom {
     display: flex;
     justify-content: flex-end;
+
+    &.max {
+      justify-content: stretch;
+    }
   }
 
   .title {

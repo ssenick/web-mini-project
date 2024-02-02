@@ -5,10 +5,8 @@
   top: 0;
   bottom: 0;
   z-index: 101;
-  opacity: 0;
-  visibility: hidden;
   transition: opacity var(--animation-time) ease 0s;
-  pointer-events: none;
+  will-change: transform;
 
   .overlay {
     position: absolute;
@@ -22,15 +20,14 @@
   }
 
   .wrapper {
-    display: grid;
+    display: grid !important;
     position: relative;
     width: 100%;
-    height: 75%;
+    height: calc(90% + 30px);
+    will-change: transform;
     background-color: var(--bg-module);
     border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
     padding: 35px 5px;
-    transform: translate(0, 100%);
-    transition: transform var(--animation-time) ease var(--animation-time);
     overflow: hidden;
 
     &::before {
@@ -54,28 +51,6 @@
 
     &::-webkit-scrollbar-thumb {
       background-color: var(--bg-color-comment);
-    }
-  }
-
-  &.isOpen {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-
-    .wrapper {
-      transform: translate(0, 0);
-    }
-  }
-
-  &.isClosing {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: all var(--animation-time) ease var(--animation-time);
-
-    .wrapper {
-      transform: translate(0, 100%);
-      transition: transform var(--animation-time) ease 0ms;
     }
   }
 }
