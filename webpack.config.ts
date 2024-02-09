@@ -1,4 +1,4 @@
-import type webpack from 'webpack'
+import  webpack = require('webpack')
 import { buildWebpackConfig } from './config/build/buildWebpackConfig'
 import { type BuildEnv, type BuildPaths } from './config/build/types/config'
 
