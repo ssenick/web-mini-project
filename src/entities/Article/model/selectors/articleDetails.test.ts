@@ -1,4 +1,4 @@
-import { type StateSchema } from 'app/povaiders/StoreProvaider'
+import { type StateSchema } from '@/app/povaiders/StoreProvaider'
 
 import { ArticleBlockType, ArticleType } from '../consts/articleConsts'
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails'

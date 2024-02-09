@@ -1,7 +1,8 @@
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Input } from 'shared/ui/Input/Input'
-import { Page } from 'widgets/Page'
+
+import { Input } from '@/shared/ui/Input/Input'
+import { Page } from '@/widgets/Page'
 
 const AboutPage = memo((): JSX.Element => {
   const { t } = useTranslation('about')

@@ -1,10 +1,11 @@
-import { ArticleDetails } from 'entities/Article/ui/ArticleDetails/ArticleDetails'
-import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList'
 import { type FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Page } from 'widgets/Page'
+
+import { ArticleDetails } from '@/entities/Article/ui/ArticleDetails/ArticleDetails'
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Page } from '@/widgets/Page'
 
 import { ArticleComments } from '../ArticleComments/ArticleComments'
 import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader'

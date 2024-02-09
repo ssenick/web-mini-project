@@ -1,6 +1,7 @@
 import { memo } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Button, ButtonVariant } from 'shared/ui/Button/Button'
+
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button'
 
 import cls from './ErrorMessage.module.scss'
 

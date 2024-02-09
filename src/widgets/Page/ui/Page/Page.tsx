@@ -1,14 +1,15 @@
-import { type StateSchema } from 'app/povaiders/StoreProvaider'
-import { getScrollSaveByPath, scrollActions } from 'features/ScrollSave'
 import { type FC, type MutableRefObject, type ReactNode, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { useDebounce } from 'shared/lib/hooks/useDebounce'
-import { useInfinityScroll } from 'shared/lib/hooks/useInfinityScroll'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
-import { Text, TextFontSize } from 'shared/ui/Text/Text'
+
+import { type StateSchema } from '@/app/povaiders/StoreProvaider'
+import { getScrollSaveByPath, scrollActions } from '@/features/ScrollSave'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { useDebounce } from '@/shared/lib/hooks/useDebounce'
+import { useInfinityScroll } from '@/shared/lib/hooks/useInfinityScroll'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
+import { Text, TextFontSize } from '@/shared/ui/Text/Text'
 
 import cls from './Page.module.scss'
 

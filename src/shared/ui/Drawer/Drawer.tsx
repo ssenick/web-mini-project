@@ -1,7 +1,8 @@
 import { a, config, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { type ReactNode, useCallback, useEffect } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 import { Portal } from '../Portal/Portal'
 import cls from './Drawer.module.scss'

@@ -1,9 +1,10 @@
-import { Theme, useTheme } from 'app/povaiders/ThemeProvaider'
 import { memo, type ReactNode, useMemo } from 'react'
-import FunnyIcon from 'shared/assets/icons/funnyTheme.svg'
-import MoonIcon from 'shared/assets/icons/moon.svg'
-import SunIcon from 'shared/assets/icons/sun.svg'
-import { ListBox, type ListBoxItem, ListBoxVariant } from 'shared/ui/ListBox/ListBox'
+
+import { Theme, useTheme } from '@/app/povaiders/ThemeProvaider'
+import FunnyIcon from '@/shared/assets/icons/funnyTheme.svg'
+import MoonIcon from '@/shared/assets/icons/moon.svg'
+import SunIcon from '@/shared/assets/icons/sun.svg'
+import { ListBox, type ListBoxItem, ListBoxVariant } from '@/shared/ui/ListBox/ListBox'
 
 interface ThemeSwitcherProps {
   className?: string

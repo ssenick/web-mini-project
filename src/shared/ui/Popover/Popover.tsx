@@ -1,7 +1,8 @@
 import { Popover as HPopover } from '@headlessui/react'
 import { memo, type ReactNode, useState } from 'react'
 import { usePopper } from 'react-popper'
-import { classNames } from 'shared/lib/classNames/classNames'
+
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 import cls from './Popover.module.scss'
 

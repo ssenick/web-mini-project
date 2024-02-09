@@ -1,4 +1,4 @@
-import { type StateSchema } from 'app/povaiders/StoreProvaider'
+import { type StateSchema } from '@/app/povaiders/StoreProvaider'
 
 import { type Profile } from '../../types/profile'
 

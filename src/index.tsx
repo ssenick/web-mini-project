@@ -1,10 +1,11 @@
 import './shared/config/i18n/i18n'
 
-import { ErrorBoundary } from 'app/povaiders/ErrorBoundary'
-import { StoreProvider } from 'app/povaiders/StoreProvaider'
-import { ThemeProvider } from 'app/povaiders/ThemeProvaider'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+
+import { ErrorBoundary } from '@/app/povaiders/ErrorBoundary'
+import { StoreProvider } from '@/app/povaiders/StoreProvaider'
+import { ThemeProvider } from '@/app/povaiders/ThemeProvaider'
 
 import App from './app/App'
 

@@ -1,5 +1,6 @@
 import { type ChangeEvent, useMemo } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 import { Text, TextFontSize } from '../Text/Text'
 import cls from './Select.module.scss'

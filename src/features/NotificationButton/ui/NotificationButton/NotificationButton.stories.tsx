@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Theme } from 'app/povaiders/ThemeProvaider'
-import { type Notification } from 'entities/Notofication'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+
+import { Theme } from '@/app/povaiders/ThemeProvaider'
+import { type Notification } from '@/entities/Notofication'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
 
 import { NotificationButton } from './NotificationButton'
 const items: Notification = {

@@ -1,6 +1,7 @@
 import { createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type StateSchema } from 'app/povaiders/StoreProvaider'
-import { type Comment } from 'entities/Comment'
+
+import { type StateSchema } from '@/app/povaiders/StoreProvaider'
+import { type Comment } from '@/entities/Comment'
 
 import {
   fetchCommentsByArticleId

@@ -1,5 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit'
-import { type StateSchema } from 'app/povaiders/StoreProvaider'
+
+import { type StateSchema } from '@/app/povaiders/StoreProvaider'
 
 import { UserRole } from '../consts/userConsts'
 

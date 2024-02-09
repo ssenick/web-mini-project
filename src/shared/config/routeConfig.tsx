@@ -1,14 +1,15 @@
-import { UserRole } from 'entities/User'
-import { AboutPage } from 'pages/AboutPage'
-import { AdminPage } from 'pages/AdminPage'
-import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
-import { ArticleEditPage } from 'pages/ArticleEditPage'
-import { ArticlePage } from 'pages/ArticlePage'
-import { ForbiddenPage } from 'pages/ForbiddenPage'
-import { HomePage } from 'pages/HomePage'
-import { NotFoundPage } from 'pages/NotFoundPage'
-import { ProfilePage } from 'pages/ProfilePage'
 import { type RouteProps } from 'react-router-dom'
+
+import { UserRole } from '@/entities/User'
+import { AboutPage } from '@/pages/AboutPage'
+import { AdminPage } from '@/pages/AdminPage'
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage'
+import { ArticleEditPage } from '@/pages/ArticleEditPage'
+import { ArticlePage } from '@/pages/ArticlePage'
+import { ForbiddenPage } from '@/pages/ForbiddenPage'
+import { HomePage } from '@/pages/HomePage'
+import { NotFoundPage } from '@/pages/NotFoundPage'
+import { ProfilePage } from '@/pages/ProfilePage'
 
 export type AppRoutersProps = RouteProps & {
   authOnly?: boolean

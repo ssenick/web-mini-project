@@ -1,25 +1,26 @@
-import { type ArticleSortField, type ArticleView } from 'entities/Article'
-import { type ArticleType } from 'entities/Article/model/consts/articleConsts'
+import { memo, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
+
+import { type ArticleSortField, type ArticleView } from '@/entities/Article'
+import { type ArticleType } from '@/entities/Article/model/consts/articleConsts'
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageSort,
   getArticlesPageType,
   getArticlesPageView
-} from 'features/ArticlesPageWrapper/model/selectors/articlesPageSelectors'
-import { fetchArticlesList } from 'features/ArticlesPageWrapper/model/services/fetchArticlesList/fetchArticlesList'
-import { articlesPageActions } from 'features/ArticlesPageWrapper/model/slice/articlesPageSlice'
-import { ArticlesSortSelector } from 'features/ArticlesSortSelector'
-import { ArticleTypeTabs } from 'features/ArticleTypeTabs'
-import { ViewSelector } from 'features/ViewSelector'
-import { memo, useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { useDebounce } from 'shared/lib/hooks/useDebounce'
-import { type SortOrder } from 'shared/types'
-import { Input, InputVariant } from 'shared/ui/Input/Input'
+} from '@/features/ArticlesPageWrapper/model/selectors/articlesPageSelectors'
+import { fetchArticlesList } from '@/features/ArticlesPageWrapper/model/services/fetchArticlesList/fetchArticlesList'
+import { articlesPageActions } from '@/features/ArticlesPageWrapper/model/slice/articlesPageSlice'
+import { ArticlesSortSelector } from '@/features/ArticlesSortSelector'
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs'
+import { ViewSelector } from '@/features/ViewSelector'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { useDebounce } from '@/shared/lib/hooks/useDebounce'
+import { type SortOrder } from '@/shared/types'
+import { Input, InputVariant } from '@/shared/ui/Input/Input'
 
 import cls from './ArticlePageHeader.module.scss'
 

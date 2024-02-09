@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Theme } from 'app/povaiders/ThemeProvaider'
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/consts/articleConsts'
-import AvatarImage from 'shared/assets/test/image.jpg'
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+
+import { Theme } from '@/app/povaiders/ThemeProvaider'
+import { ArticleBlockType, ArticleType } from '@/entities/Article/model/consts/articleConsts'
+import AvatarImage from '@/shared/assets/test/image.jpg'
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
 
 import ArticleDetailsPage from './ArticleDetailsPage'
 

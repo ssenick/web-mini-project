@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Theme } from 'app/povaiders/ThemeProvaider'
-import Icon from 'shared/assets/test/image.jpg'
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+
+import { Theme } from '@/app/povaiders/ThemeProvaider'
+import Icon from '@/shared/assets/test/image.jpg'
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
 
 import { CommentCart } from './CommentCart'
 

@@ -1,9 +1,10 @@
-import { RequireAuth } from 'app/povaiders/Router/ui/RequireAuth'
 import { memo, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { type AppRoutersProps, routeConfig } from 'shared/config/routeConfig'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { PageLoader } from 'widgets/PageLoader'
+
+import { RequireAuth } from '@/app/povaiders/Router/ui/RequireAuth'
+import { type AppRoutersProps, routeConfig } from '@/shared/config/routeConfig'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { PageLoader } from '@/widgets/PageLoader'
 
 interface AppRouterProps {
   className?: string

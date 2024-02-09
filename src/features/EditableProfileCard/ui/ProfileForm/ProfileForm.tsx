@@ -1,5 +1,10 @@
-import { type Country } from 'entities/Country'
-import { type Currency } from 'entities/Currency'
+import { memo, useCallback, useEffect, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+
+import { type Country } from '@/entities/Country'
+import { type Currency } from '@/entities/Currency'
 import {
   fetchProfileData,
   getProfileData,
@@ -11,18 +16,14 @@ import {
   ProfileCard,
   profileReducer,
   updateProfileData
-} from 'entities/Profile'
-import { getUserAuthData } from 'entities/User'
-import { memo, useCallback, useEffect, useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import EditIcon from 'shared/assets/icons/edit.svg'
-import { classNames, type Mods } from 'shared/lib/classNames/classNames'
-import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+} from '@/entities/Profile'
+import { getUserAuthData } from '@/entities/User'
+import EditIcon from '@/shared/assets/icons/edit.svg'
+import { classNames, type Mods } from '@/shared/lib/classNames/classNames'
+import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 // import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
-import { Button, ButtonVariant } from 'shared/ui/Button/Button'
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button'
 
 import cls from './ProfileForm.module.scss'
 

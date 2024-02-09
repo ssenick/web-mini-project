@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react'
-import LogoIcon from 'shared/assets/icons/logo.svg'
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender'
+
+import LogoIcon from '@/shared/assets/icons/logo.svg'
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
 
 // import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation'
 // import { MemoryRouter } from 'react-router-dom'

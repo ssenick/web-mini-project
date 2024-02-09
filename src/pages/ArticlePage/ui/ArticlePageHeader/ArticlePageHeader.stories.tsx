@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Theme } from 'app/povaiders/ThemeProvaider'
-import { ArticleView } from 'entities/Article'
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+
+import { Theme } from '@/app/povaiders/ThemeProvaider'
+import { ArticleView } from '@/entities/Article'
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
 
 import { ArticlePageHeader } from './ArticlePageHeader'
 

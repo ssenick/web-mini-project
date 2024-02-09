@@ -1,10 +1,11 @@
-import { AddNewCommentForm } from 'features/AddNewCommentForm'
-import { addCommentForArticle } from 'features/AddNewCommentForm/model/services/addCommentForArticle'
-import { ArticleCommentList } from 'features/ArticleCommentList'
 import { memo, useCallback } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { VStack } from 'shared/ui/Stack'
+
+import { AddNewCommentForm } from '@/features/AddNewCommentForm'
+import { addCommentForArticle } from '@/features/AddNewCommentForm/model/services/addCommentForArticle'
+import { ArticleCommentList } from '@/features/ArticleCommentList'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { VStack } from '@/shared/ui/Stack'
 
 interface ArticleCommentsProps {
   className?: string

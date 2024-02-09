@@ -1,14 +1,15 @@
-import { getCanEditArticle } from 'entities/Article'
-import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import EditIcon from 'shared/assets/icons/edit.svg'
-import { RoutPath } from 'shared/config/routeConfig'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink'
-import { Button, ButtonSize, ButtonVariant } from 'shared/ui/Button/Button'
+
+import { getCanEditArticle } from '@/entities/Article'
+import { getArticleDetailsData } from '@/entities/Article/model/selectors/articleDetails'
+import EditIcon from '@/shared/assets/icons/edit.svg'
+import { RoutPath } from '@/shared/config/routeConfig'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink/AppLink'
+import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/Button/Button'
 
 import cls from './ArticleDetailsHeader.module.scss'
 

@@ -1,9 +1,10 @@
-import { Counter } from 'entities/Counter'
 import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, ButtonVariant } from 'shared/ui/Button/Button'
-import { Drawer } from 'shared/ui/Drawer/Drawer'
-import { Page } from 'widgets/Page'
+
+import { Counter } from '@/entities/Counter'
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button'
+import { Drawer } from '@/shared/ui/Drawer/Drawer'
+import { Page } from '@/widgets/Page'
 
 const HomePage = memo((): JSX.Element => {
   const { t } = useTranslation('home')

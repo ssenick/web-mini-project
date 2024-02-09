@@ -2,9 +2,10 @@ import { type HTMLAttributeAnchorTarget, memo, type ReactNode, useRef, useState 
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 import { Virtuoso, VirtuosoGrid, type VirtuosoGridHandle } from 'react-virtuoso'
-import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstorage'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text'
+
+import { ARTICLE_LIST_ITEM_INDEX } from '@/shared/const/localstorage'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Text, TextAlign, TextFontSize } from '@/shared/ui/Text/Text'
 
 import { ArticleView } from '../../model/consts/articleConsts'
 import { type Article } from '../../model/types/article'

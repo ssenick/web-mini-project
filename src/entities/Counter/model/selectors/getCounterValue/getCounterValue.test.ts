@@ -1,4 +1,4 @@
-import { type StateSchema } from 'app/povaiders/StoreProvaider'
+import { type StateSchema } from '@/app/povaiders/StoreProvaider'
 
 import { getCounterValue } from './getCounterValue'
 

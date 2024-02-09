@@ -1,12 +1,13 @@
 import './styles/index.scss'
 
-import { AppRouter } from 'app/povaiders/Router'
-import { getUserInited, userActions } from 'entities/User'
 import { Suspense, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Header } from 'widgets/Header'
-import { Sidebar } from 'widgets/Sidebar'
+
+import { AppRouter } from '@/app/povaiders/Router'
+import { getUserInited, userActions } from '@/entities/User'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Header } from '@/widgets/Header'
+import { Sidebar } from '@/widgets/Sidebar'
 
 const App = (): JSX.Element => {
   const dispatch = useDispatch()

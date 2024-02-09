@@ -1,9 +1,10 @@
-import { ArticleView } from 'entities/Article'
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Text, TextAlign, TextFontSize } from 'shared/ui/Text/Text'
+
+import { ArticleView } from '@/entities/Article'
+import { ArticleList } from '@/entities/Article/ui/ArticleList/ArticleList'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Text, TextAlign, TextFontSize } from '@/shared/ui/Text/Text'
 
 import { useGetArticleRecommendationListQuery } from '../../api/articleRecommendationsList'
 import cls from './ArticleRecommendationsList.module.scss'

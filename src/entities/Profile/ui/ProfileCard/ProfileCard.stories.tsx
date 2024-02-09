@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Theme } from 'app/povaiders/ThemeProvaider'
-import { Country } from 'entities/Country'
-import { Currency } from 'entities/Currency'
-import avatarImage from 'shared/assets/test/image.jpg'
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+
+import { Theme } from '@/app/povaiders/ThemeProvaider'
+import { Country } from '@/entities/Country'
+import { Currency } from '@/entities/Currency'
+import avatarImage from '@/shared/assets/test/image.jpg'
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
 
 import { ValidateProfileErrors } from '../../model/consts/profileConsts'
 import { ProfileCard } from './ProfileCard'

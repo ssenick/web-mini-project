@@ -33,6 +33,10 @@ export default ({config}: { config: webpack.Configuration }) => {
         return rule
     })
     config!.module!.rules!.push(buildSvgLoader())
+    config!.resolve!.alias = {
+        ...config!.resolve!.alias,
+        '@': paths.src
+    }
 
 
     return config

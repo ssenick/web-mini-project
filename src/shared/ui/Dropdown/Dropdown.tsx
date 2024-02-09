@@ -3,7 +3,8 @@ import { memo, type ReactNode, useState } from 'react'
 import { usePopper } from 'react-popper'
 import { type To } from 'react-router'
 import { Link } from 'react-router-dom'
-import { classNames } from 'shared/lib/classNames/classNames'
+
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 import cls from './Dropdown.module.scss'
 

@@ -1,5 +1,6 @@
 import { memo, type ReactNode, useCallback } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 import { Button, ButtonSize, ButtonVariant } from '../Button/Button'
 import cls from './Tabs.module.scss'

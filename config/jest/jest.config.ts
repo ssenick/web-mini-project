@@ -53,6 +53,7 @@ export default {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     '^axios$': require.resolve('axios'),
+    "^@/(.*)$": "<rootDir>/src/$1"
   },
   "reporters": [
     "default",
