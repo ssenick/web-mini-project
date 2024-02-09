@@ -16,22 +16,21 @@ interface AnimationContextPayload {
 const AnimationContext = createContext<AnimationContextPayload>({})
 
 // Обе либы зависят друг от друга
-const getAsyncAnimationModules = async () => {
+const getAsyncAnimationModules = async (): Promise<[SpringType, GestureType]> => {
   return await Promise.all([
     import('@react-spring/web'),
     import('@use-gesture/react')
   ])
 }
 
-export const useAnimationLibs = () => {
+export const useAnimationLibs = (): Required<AnimationContextPayload> => {
   return useContext(AnimationContext) as Required<AnimationContextPayload>
 }
 
-export const AnimationProvider = ({ children }: { children: ReactNode }) => {
+export const AnimationProvider = ({ children }: { children: ReactNode }): JSX.Element => {
   const SpringRef = useRef<SpringType>()
   const GestureRef = useRef<GestureType>()
   const [isLoaded, setIsLoaded] = useState(false)
-
   useEffect(() => {
     void getAsyncAnimationModules().then(([Spring, Gesture]) => {
       SpringRef.current = Spring

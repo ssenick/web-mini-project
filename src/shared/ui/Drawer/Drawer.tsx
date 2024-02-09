@@ -9,7 +9,7 @@ import cls from './Drawer.module.scss'
 
 interface DrawerProps {
   className?: string
-  children: ReactNode
+  children?: ReactNode
   isOpen?: boolean
   onClose?: () => void
   lazy?: boolean
@@ -23,6 +23,7 @@ export const Drawer = (props: DrawerProps): JSX.Element | null => {
     isOpen,
     onClose
   } = props
+  // const { Spring, Gesture } = useAnimationLibs()
   const [{ y }, api] = useSpring(() => ({ y: height }))
 
   const openDrawer = useCallback(() => {
@@ -85,3 +86,20 @@ export const Drawer = (props: DrawerProps): JSX.Element | null => {
         </Portal>
   )
 }
+// const DrawerAsync = (props: DrawerProps): JSX.Element | null => {
+//   const { isLoaded } = useAnimationLibs()
+//
+//   if (!isLoaded) {
+//     return null
+//   }
+//
+//   return <DrawerContent {...props} />
+// }
+//
+// export const Drawer = (props: DrawerProps): JSX.Element => {
+//   return (
+//       <AnimationProvider>
+//         <DrawerAsync {...props} />
+//       </AnimationProvider>
+//   )
+// }
