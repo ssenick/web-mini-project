@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
 import { ArticleDetails } from '@/entities/Article/ui/ArticleDetails/ArticleDetails'
+import { ArticleRating } from '@/features/ArticleRating'
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Page } from '@/widgets/Page'
@@ -40,6 +41,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
             <div className={cls.wrapper}>
                 <ArticleDetailsHeader/>
                 <ArticleDetails id={id}/>
+                <ArticleRating articleId={id}/>
                 <ArticleRecommendationsList/>
                 <ArticleComments id={id}/>
             </div>

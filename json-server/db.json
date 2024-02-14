@@ -2029,6 +2029,32 @@
       "rate": 3,
       "feedback": "",
       "id": "bcPnbbZ"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 4,
+      "feedback": "good!",
+      "id": "ZDvx7HS"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 4,
+      "id": "qI3ubmo"
+    },
+    {
+      "userId": "2",
+      "articleId": "6",
+      "rate": 5,
+      "feedback": "ok!",
+      "id": "cEWQO9w"
+    },
+    {
+      "userId": "2",
+      "articleId": "14",
+      "rate": 3,
+      "id": "c2o5Jpd"
     }
   ],
   "profile-ratings": [
