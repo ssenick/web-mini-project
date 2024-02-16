@@ -22,7 +22,6 @@ const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
     articleId: articleId ?? '',
     userId: userData?.id ?? ''
   })
-  console.log(isLoading)
   const [rateArticleMutation] = useRateArticle()
 
   const handlerRateArticle = useCallback((startCunt: number, feedback?: string) => {
