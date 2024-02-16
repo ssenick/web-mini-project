@@ -85,6 +85,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-storybook": "^0.6.13",
     "eslint-plugin-ulbi-tv-plugin": "^0.0.10",
+    "eslint-plugin-unused-imports": "^3.1.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "globby": "^14.0.0",

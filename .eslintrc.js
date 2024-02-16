@@ -10,7 +10,7 @@ module.exports = {
       "plugin:i18next/recommended",
       "plugin:storybook/recommended",
       "plugin:@typescript-eslint/recommended",
-      "plugin:react-hooks/recommended"
+      "plugin:react-hooks/recommended",
    ],
    // "parser": '@typescript-eslint/parser',
 
@@ -44,10 +44,22 @@ module.exports = {
       '@typescript-eslint',
       "react-hooks",
       "ulbi-tv-plugin",
-      "simple-import-sort"
+      "simple-import-sort",
+      "unused-imports"
       // '@typescript-eslint',
    ],
    "rules": {
+      "no-unused-vars": "off",
+      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-vars": [
+         "warn",
+         {
+            "vars": "all",
+            "varsIgnorePattern": "^_",
+            "args": "after-used",
+            "argsIgnorePattern": "^_"
+         }
+      ],
       "react/no-deprecated": "off",
       "@typescript-eslint/strict-boolean-expressions": "off",
       "@typescript-eslint/prefer-nullish-coalescing": "off",
@@ -68,7 +80,9 @@ module.exports = {
       "@typescript-eslint/consistent-type-assertions": "warn",
       "@typescript-eslint/no-explicit-any": "warn",
       "ulbi-tv-plugin/path-checker": ["error", { alias: '@'}],
-               "ulbi-tv-plugin/public-api-imports": ["error", { alias: '@'}],
+      "ulbi-tv-plugin/public-api-imports": ["error",
+         { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.story.*', 'StoreDecorator.tsx']}
+      ],
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error"
 
