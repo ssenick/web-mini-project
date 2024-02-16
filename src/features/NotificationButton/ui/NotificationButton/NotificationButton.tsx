@@ -1,8 +1,7 @@
 import { memo, useCallback, useState } from 'react'
 import { BrowserView, MobileView } from 'react-device-detect'
 
-import { NotificationList } from '@/entities/Notofication'
-import { useGetNotificationsQuery } from '@/entities/Notofication/api/notificationApi'
+import { NotificationList, useGetNotificationsQuery } from '@/entities/Notofication'
 import NotificationIcon from '@/shared/assets/icons/notification.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button, ButtonVariant } from '@/shared/ui/Button/Button'

@@ -68,6 +68,7 @@ module.exports = {
       "@typescript-eslint/consistent-type-assertions": "warn",
       "@typescript-eslint/no-explicit-any": "warn",
       "ulbi-tv-plugin/path-checker": ["error", { alias: '@'}],
+               "ulbi-tv-plugin/public-api-imports": ["error", { alias: '@'}],
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error"
 

@@ -2,7 +2,7 @@ import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Counter } from '@/entities/Counter'
-import { Rating } from '@/entities/Rating/ui/Rating/Rating'
+import { Rating } from '@/entities/Rating'
 import { Button, ButtonVariant } from '@/shared/ui/Button/Button'
 import { Drawer } from '@/shared/ui/Drawer/Drawer'
 import { StarRating } from '@/shared/ui/StarRating/StarRating'

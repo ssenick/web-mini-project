@@ -2,7 +2,7 @@ import { type FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
-import { ArticleDetails } from '@/entities/Article/ui/ArticleDetails/ArticleDetails'
+import { ArticleDetails } from '@/entities/Article'
 import { ArticleRating } from '@/features/ArticleRating'
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
 import { classNames } from '@/shared/lib/classNames/classNames'

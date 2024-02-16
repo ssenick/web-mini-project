@@ -1,7 +1,6 @@
 import { memo, useCallback } from 'react'
 
-import { AddNewCommentForm } from '@/features/AddNewCommentForm'
-import { addCommentForArticle } from '@/features/AddNewCommentForm/model/services/addCommentForArticle'
+import { addCommentForArticle, AddNewCommentForm } from '@/features/AddNewCommentForm'
 import { ArticleCommentList } from '@/features/ArticleCommentList'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'

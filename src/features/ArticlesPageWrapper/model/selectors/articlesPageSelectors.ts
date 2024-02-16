@@ -1,6 +1,5 @@
 import { type StateSchema } from '@/app/povaiders/StoreProvaider'
-import { ArticleView } from '@/entities/Article'
-import { ArticleSortField, ArticleType } from '@/entities/Article/model/consts/articleConsts'
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article'
 import { type SortOrder } from '@/shared/types'
 
 export const getArticlesPageIsLoading = (state: StateSchema): boolean => state.articlePage?.isLoading || false

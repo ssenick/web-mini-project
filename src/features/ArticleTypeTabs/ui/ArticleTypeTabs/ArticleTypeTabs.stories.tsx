@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Theme } from '@/app/povaiders/ThemeProvaider'
-import { ArticleType } from '@/entities/Article/model/consts/articleConsts'
+import { ArticleType } from '@/entities/Article'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
 
 import { ArticleTypeTabs } from './ArticleTypeTabs'

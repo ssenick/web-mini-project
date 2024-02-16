@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Theme } from '@/app/povaiders/ThemeProvaider'
-import { ArticleBlockType, ArticleType, ArticleView } from '@/entities/Article/model/consts/articleConsts'
+import { ArticleBlockType, ArticleType, ArticleView } from '@/entities/Article'
 import Image from '@/shared/assets/test/image.jpg'
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator'

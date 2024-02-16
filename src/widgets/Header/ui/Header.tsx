@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { Theme, useTheme } from '@/app/povaiders/ThemeProvaider'
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User'
-import { LoginModal } from '@/features/AuthByUsername'
-import { LoginFormAsync } from '@/features/AuthByUsername/ui/LoginForm/LoginFormAsync'
+import { LoginForm, LoginModal } from '@/features/AuthByUsername'
 import { NotificationButton } from '@/features/NotificationButton'
 import AdminIcon from '@/shared/assets/icons/admin.svg'
 import LoginIcon from '@/shared/assets/icons/login.svg'
@@ -138,7 +137,7 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
                             <MobileView>
                                 {trigger}
                                 <Drawer isOpen={isDrawerOpen} onClose={onCloseDrawer} >
-                                    <LoginFormAsync max />
+                                    <LoginForm max />
                                 </Drawer>
                             </MobileView>
                         </>

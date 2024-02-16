@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Theme } from '@/app/povaiders/ThemeProvaider'
-import { ArticleType } from '@/entities/Article/model/consts/articleConsts'
+import { ArticleType } from '@/entities/Article'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
 
 import { Tabs } from './Tabs'

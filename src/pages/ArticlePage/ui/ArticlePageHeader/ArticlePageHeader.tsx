@@ -2,17 +2,14 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
-import { type ArticleSortField, type ArticleView } from '@/entities/Article'
-import { type ArticleType } from '@/entities/Article/model/consts/articleConsts'
+import { type ArticleSortField, type ArticleType, type ArticleView } from '@/entities/Article'
 import {
-  getArticlesPageOrder,
+  articlesPageActions, fetchArticlesList, getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageSort,
   getArticlesPageType,
   getArticlesPageView
-} from '@/features/ArticlesPageWrapper/model/selectors/articlesPageSelectors'
-import { fetchArticlesList } from '@/features/ArticlesPageWrapper/model/services/fetchArticlesList/fetchArticlesList'
-import { articlesPageActions } from '@/features/ArticlesPageWrapper/model/slice/articlesPageSlice'
+} from '@/features/ArticlesPageWrapper'
 import { ArticlesSortSelector } from '@/features/ArticlesSortSelector'
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs'
 import { ViewSelector } from '@/features/ViewSelector'
