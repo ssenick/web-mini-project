@@ -24,14 +24,16 @@ const articleRatingApi = rtkApi.injectEndpoints({
             articleId
           }
         }
-      }
+      },
+      providesTags: result => ['Rating']
     }),
     rateArticle: build.mutation<undefined, RateArticle>({
       query: (arg) => ({
         url: '/article-ratings',
         method: 'POST',
         body: arg
-      })
+      }),
+      invalidatesTags: ['Rating']
     })
   })
 })

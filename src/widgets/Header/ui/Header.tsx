@@ -143,7 +143,7 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
                         </>
                 }
             </div>
-             <LoginModal isOpen={isAuthModal} onClose={onCloseModal} isCloseModal={isCloseModal} />
+            <LoginModal isOpen={isAuthModal} onClose={onCloseModal} isCloseModal={isCloseModal} />
 
         </header>
   )

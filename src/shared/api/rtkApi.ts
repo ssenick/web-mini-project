@@ -16,5 +16,6 @@ export const rtkApi = createApi({
       return headers
     }
   }),
+  tagTypes: ['Rating'],
   endpoints: (builder) => ({})
 })

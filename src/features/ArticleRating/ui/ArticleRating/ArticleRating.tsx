@@ -22,11 +22,12 @@ const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
     articleId: articleId ?? '',
     userId: userData?.id ?? ''
   })
+
   const [rateArticleMutation] = useRateArticle()
 
-  const handlerRateArticle = useCallback((startCunt: number, feedback?: string) => {
+  const handlerRateArticle = useCallback(async (startCunt: number, feedback?: string) => {
     try {
-      void rateArticleMutation({
+      await rateArticleMutation({
         userId: userData?.id ?? '',
         articleId,
         rate: startCunt,
@@ -37,12 +38,12 @@ const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
     }
   }, [rateArticleMutation, articleId, userData?.id])
 
-  const onAccept = useCallback((startCunt: number, feedback?: string) => {
-    handlerRateArticle(startCunt, feedback)
+  const onAccept = useCallback(async (startCunt: number, feedback?: string) => {
+    await handlerRateArticle(startCunt, feedback)
   }, [handlerRateArticle])
 
-  const onCancel = useCallback((startCunt: number) => {
-    handlerRateArticle(startCunt)
+  const onCancel = useCallback(async (startCunt: number) => {
+    await handlerRateArticle(startCunt)
   }, [handlerRateArticle])
 
   if (isLoading) {
@@ -50,19 +51,6 @@ const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
         <Skeleton width={'100%'} height={126} border={'5px'}/>
     )
   }
-  // if (__PROJECT__ === 'storybook') {
-  //   return (
-  //     <Rating
-  //         onCancel={onCancel}
-  //         onAccept={onAccept}
-  //         className={classNames(cls.ArticleRating, {}, [className])}
-  //         rate={rate ?? 0}
-  //         title={t('Оцените эту статью')}
-  //         feedbackTitle={t('Оставьте свой отзыв о статье')}
-  //         hasFeedback
-  //     />
-  //   )
-  // }
   const rating = data?.[0]
   return (
         <Rating
