@@ -1994,6 +1994,13 @@
       "feedback": "Хорошая статья",
       "userId": "1",
       "articleId": "1"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 4,
+      "feedback": "ok!",
+      "id": "H1Os_zo"
     }
   ],
   "profile-ratings": [
