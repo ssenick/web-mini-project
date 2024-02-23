@@ -13,6 +13,7 @@ interface ModalProps {
   onClose?: () => void
   lazy?: boolean
   isCloseModal?: boolean
+  animationDelay?: number
 }
 
 export const Modal = (props: ModalProps): JSX.Element | null => {
@@ -22,7 +23,8 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
     isOpen,
     onClose,
     lazy,
-    isCloseModal
+    isCloseModal,
+    animationDelay = 1000
   } = props
   const {
     isMounted,
@@ -33,7 +35,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
     onClose,
     isOpen,
     isCloseModal,
-    animationDelay: 1000
+    animationDelay
   })
 
   //
