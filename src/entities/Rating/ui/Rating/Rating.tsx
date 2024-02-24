@@ -32,11 +32,11 @@ export const Rating = memo((props: RatingProps) => {
     hasFeedback,
     onCancel,
     onAccept,
-    rate
+    rate = 0
   } = props
   const { t } = useTranslation()
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [startsCount, setStartsCount] = useState(rate || 0)
+  const [startsCount, setStartsCount] = useState(rate)
   const [feedback, setFeedback] = useState('')
 
   const onSelectStars = useCallback((selectedStartCount: number) => {
@@ -92,7 +92,7 @@ export const Rating = memo((props: RatingProps) => {
                 <StarRating size={50} selectedStarts={startsCount} onSelect={onSelectStars} />
             </VStack>
             <BrowserView>
-                <Modal isOpen={isModalOpen} lazy>
+                 <Modal isOpen={isModalOpen} onClose={cancelHandler} lazy>
                     {modalContent}
                 </Modal>
             </BrowserView>

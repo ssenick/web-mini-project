@@ -46,7 +46,6 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
   const onCloseDrawer = useCallback(() => {
     setIsDrawerOpen(false)
   }, [])
-
   const onOpenDrawer = useCallback(() => {
     setIsDrawerOpen(true)
   }, [])

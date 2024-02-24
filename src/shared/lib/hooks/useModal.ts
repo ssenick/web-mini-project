@@ -40,11 +40,6 @@ export function useModal (props: UseModalProps) {
   }, [closeHandler])
 
   useEffect(() => {
-    if (isOpen) setIsMounted(true)
-    return () => { setIsMounted(false) }
-  }, [isOpen])
-
-  useEffect(() => {
     if (isCloseModal) {
       closeHandler()
     }
@@ -52,12 +47,15 @@ export function useModal (props: UseModalProps) {
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounted(true)
       document.body.classList.add('lock')
       window.addEventListener('keydown', onKeyDown)
     }
+
     return () => {
       if (timeRef.current) clearTimeout(timeRef.current)
       window.removeEventListener('keydown', onKeyDown)
+      setIsMounted(false)
     }
   }, [isOpen, onKeyDown])
 
