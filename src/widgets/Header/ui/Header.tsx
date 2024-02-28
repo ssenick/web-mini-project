@@ -13,7 +13,7 @@ import LogoDarkIcon from '@/shared/assets/icons/logo.svg'
 import LogoWhiteIcon from '@/shared/assets/icons/logo-w.svg'
 import LogoutIcon from '@/shared/assets/icons/logout.svg'
 import ProfileIcon from '@/shared/assets/icons/profile.svg'
-import { RoutPath } from '@/shared/config/routeConfig'
+import { getRouteAdmin, getRouteProfile } from '@/shared/config/routeConfig'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink/AppLink'
 import { Avatar } from '@/shared/ui/Avatar/Avatar'
@@ -85,14 +85,14 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
           content: <span className={cls.item}>
                       <Icon className={cls.icon} Svg={AdminIcon}/>{t('Админ панель')}
                     </span>,
-          href: RoutPath.admin_panel
+          href: getRouteAdmin()
         }]
       : []),
     {
       content: <span className={cls.item}>
                   <Icon className={cls.icon} Svg={ProfileIcon}/>{t('Профиль')}
                 </span>,
-      href: RoutPath.profile + userAuth?.id
+      href: getRouteProfile(userAuth?.id ?? '')
     },
     {
       content: <span className={cls.item}>

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 import { getUserAuthData } from '@/entities/User'
 import CreateIcon from '@/shared/assets/icons/create.svg'
-import { RoutPath } from '@/shared/config/routeConfig'
+import { getRouteArticlesCreate } from '@/shared/config/routeConfig'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink/AppLink'
 import { Button, ButtonVariant } from '@/shared/ui/Button/Button'
@@ -48,7 +48,7 @@ export const Sidebar = memo(({ className, collapsedStorybook }: SidebarProps): J
             </nav>
             {
                 isAuth &&
-                <AppLink to={RoutPath.articles_create} variant={AppLinkVariant.BORDER} className={cls.createBtn}>
+                <AppLink to={getRouteArticlesCreate()} variant={AppLinkVariant.BORDER} className={cls.createBtn}>
                   <Icon Svg={CreateIcon} className={cls.icon}/>
                   <span>{t('Создать статью')}</span>
                </AppLink>

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { getArticleDetailsData, getCanEditArticle } from '@/entities/Article'
 import EditIcon from '@/shared/assets/icons/edit.svg'
-import { RoutPath } from '@/shared/config/routeConfig'
+import { getRouteArticles, getRouteArticlesEdit } from '@/shared/config/routeConfig'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink/AppLink'
 import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/Button/Button'
@@ -22,7 +22,7 @@ export const ArticleDetailsHeader = memo(({ className }: ArticleDetailsHeaderPro
   const article = useSelector(getArticleDetailsData)
   const navigate = useNavigate()
   const goBackToArticles = useCallback(() => {
-    navigate(RoutPath.articles, { replace: true, state: 'articleDetails' })
+    navigate(getRouteArticles(), { replace: true, state: 'articleDetails' })
   }, [navigate])
 
   return (
@@ -36,7 +36,7 @@ export const ArticleDetailsHeader = memo(({ className }: ArticleDetailsHeaderPro
             {t('Назад к списку')}
           </Button>
             {canEdit && <AppLink
-               to={`${RoutPath.articles_edit}${article?.id}/edit`}
+               to={getRouteArticlesEdit(article?.id ?? '')}
                className={cls.btnEdit}
                withIcon
                variant={AppLinkVariant.BORDER}

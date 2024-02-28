@@ -1,6 +1,6 @@
 import { memo } from 'react'
 
-import { RoutPath } from '@/shared/config/routeConfig'
+import { getRouteProfile } from '@/shared/config/routeConfig'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
 import { Avatar } from '@/shared/ui/Avatar/Avatar'
@@ -44,7 +44,7 @@ export const CommentCart = memo((props: CommentCartProps) => {
   }
   return (
         <div className={classNames(cls.CommentCart, {}, [className])}>
-          <AppLink to={`${RoutPath.profile}${comment.user.id}`} className={cls.grid}>
+          <AppLink to={getRouteProfile(comment.user.id)} className={cls.grid}>
               {comment.user.avatar
                 ? <Avatar className={cls.avatar} src={comment.user.avatar} size={35}/>
                 : <Avatar className={cls.avatar} size={35} src={''}/>}

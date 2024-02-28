@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
-import { RoutPath } from '@/shared/config/routeConfig'
+import { getRouteMain } from '@/shared/config/routeConfig'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { ErrorMessage } from '@/widgets/ErrorMessage'
 import { Page } from '@/widgets/Page'
@@ -17,7 +17,7 @@ const ForbiddenPage = (props: ForbiddenPageProps): JSX.Element => {
   const navigate = useNavigate()
   const { t } = useTranslation('forbidden')
   const moveToMainPage = (): void => {
-    navigate(RoutPath.main)
+    navigate(getRouteMain())
   }
   return (
       <Page

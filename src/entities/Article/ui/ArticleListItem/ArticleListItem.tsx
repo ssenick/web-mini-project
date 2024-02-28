@@ -2,7 +2,7 @@ import { type HTMLAttributeAnchorTarget, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import IconEye from '@/shared/assets/icons/view.svg'
-import { RoutPath } from '@/shared/config/routeConfig'
+import { getRouteArticlesDetails } from '@/shared/config/routeConfig'
 import { ARTICLE_LIST_ITEM_INDEX } from '@/shared/const/localstorage'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
@@ -79,7 +79,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 }
             </div>
             <div className={cls.bottom}>
-                <AppLink onClick={setArticleIndex} to={RoutPath.articles_details + article.id} target={target}>
+                <AppLink onClick={setArticleIndex} to={getRouteArticlesDetails(article.id)} target={target}>
                     <Button
                         size={ButtonSize.M}
                         variant={ButtonVariant.BORDER}
@@ -95,7 +95,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   return (
         <AppLink
             onClick={setArticleIndex}
-            to={RoutPath.articles_details + article.id}
+            to={getRouteArticlesDetails(article.id)}
             target={target}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
           <div className={cls.imageBlock}>
