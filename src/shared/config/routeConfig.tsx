@@ -39,20 +39,6 @@ export const getRouteArticlesDetails = (id: string): string => `/articles/${id}`
 export const getRouteAdmin = (): string => '/admin'
 export const getRouteForbidden = (): string => '/forbidden'
 
-// export const RoutPath: Record<AppRoutes, string> = {
-//   [AppRoutes.MAIN]: '/',
-//   [AppRoutes.ABOUT]: '/about',
-//   [AppRoutes.PROFILE]: '/profile/',
-//   [AppRoutes.ARTICLES]: '/articles',
-//   [AppRoutes.ARTICLE_CREATE]: '/articles/new',
-//   [AppRoutes.ARTICLE_EDIT]: '/articles/',
-//   [AppRoutes.ARTICLE_DETAILS]: '/articles/', // + :id
-//   [AppRoutes.ADMIN_PANEL]: '/admin',
-//   [AppRoutes.FORBIDDEN]: '/forbidden',
-//   // last
-//   [AppRoutes.NOT_FOUND]: '*'
-// }
-
 export const routeConfig: Record<AppRoutes, AppRoutersProps> = {
   [AppRoutes.MAIN]: {
     path: getRouteMain(),
