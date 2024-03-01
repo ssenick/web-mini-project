@@ -1,35 +1,63 @@
-import { useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useCallback, useState } from 'react'
 
-import { Button, ButtonVariant } from '@/shared/ui/Button/Button'
+import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/Button/Button'
+import { Input } from '@/shared/ui/Input/Input'
+import { HStack, VStack } from '@/shared/ui/Stack'
+import { Text } from '@/shared/ui/Text/Text'
 
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue'
-import { counterActions } from '../model/slice/counterSlice'
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue'
+import { useCounterActions } from '../model/slice/counterSlice'
 
 export const Counter = (): JSX.Element => {
-  const dispatch = useDispatch()
-  const counterValue = useSelector(getCounterValue)
+  // было
+  // const dispatch = useDispatch()
+  // const counterValue = useSelector(getCounterValue)
+  const [inputValue, setInputValue] = useState(0)
+  const counterValue = useCounterValue()
+  const { decrement, increment, add } = useCounterActions()
 
-  const increment = useCallback(() => {
-    dispatch(counterActions.increment())
-  }, [dispatch])
-
-  const decrement = useCallback(() => {
-    dispatch(counterActions.decrement())
-  }, [dispatch])
+  const onChangeInput = useCallback((value: string) => {
+    const newValue = Number(value) ? Number(value) : undefined
+    newValue && setInputValue(newValue)
+  }, [])
+  const handlerIncrement = useCallback(() => {
+    increment()
+  }, [increment])
+  const handlerDecrement = useCallback(() => {
+    decrement()
+  }, [decrement])
+  const handlerAdd = useCallback(() => {
+    add(inputValue)
+  }, [add, inputValue])
+  // было
+  // const increment = useCallback(() => {
+  //   dispatch(counterActions.increment())
+  // }, [dispatch])
+  //
+  // const decrement = useCallback(() => {
+  //   dispatch(counterActions.decrement())
+  // }, [dispatch])
 
   return (
-        <div data-testid='counter'>
-          <h1 data-testid='value'>
-            {counterValue}
-          </h1>
+        <VStack gap={'15'} data-testid='counter'>
+            <Text data-testid='value' title={counterValue.toString()} />
+            <VStack gap={'15'}>
+                <HStack gap={'10'}>
+                    <Button data-testid='btn-increment' variant={ButtonVariant.BACKGROUND} onClick={handlerIncrement}>
+                        +1
+                    </Button>
+                    <Button data-testid='btn-decrement' variant={ButtonVariant.BACKGROUND} onClick={handlerDecrement}>
+                        -1
+                    </Button>
+                </HStack>
+                <HStack gap={'10'}>
+                    <Input value={inputValue} onChange={onChangeInput}/>
+                    <Button data-testid='btn-add' variant={ButtonVariant.BACKGROUND} size={ButtonSize.M} onClick={handlerAdd}>
+                        ++
+                    </Button>
+                </HStack>
+            </VStack>
 
-          <Button data-testid='btn-increment' variant={ButtonVariant.BACKGROUND} onClick={increment}>
-            +1
-          </Button>
-          <Button data-testid='btn-decrement' variant={ButtonVariant.BACKGROUND} onClick={decrement}>
-            -1
-          </Button>
-        </div>
+        </VStack>
   )
 }

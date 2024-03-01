@@ -11,7 +11,7 @@ describe('Counter.test', () => {
       {
         initialState: { counter: { value: 10 } }
       })
-    expect(screen.getByTestId('value')).toHaveTextContent('10')
+    expect(screen.getByTestId('value.Header')).toHaveTextContent('10')
   })
   test('increment', async () => {
     componentRender(<Counter/>,
@@ -19,7 +19,7 @@ describe('Counter.test', () => {
         initialState: { counter: { value: 10 } }
       })
     await userEvent.click(screen.getByTestId('btn-increment'))
-    expect(screen.getByTestId('value')).toHaveTextContent('11')
+    expect(screen.getByTestId('value.Header')).toHaveTextContent('11')
   })
   test('decrement', async () => {
     componentRender(<Counter/>,
@@ -27,6 +27,6 @@ describe('Counter.test', () => {
         initialState: { counter: { value: 10 } }
       })
     await userEvent.click(screen.getByTestId('btn-decrement'))
-    expect(screen.getByTestId('value')).toHaveTextContent('9')
+    expect(screen.getByTestId('value.Header')).toHaveTextContent('9')
   })
 })
