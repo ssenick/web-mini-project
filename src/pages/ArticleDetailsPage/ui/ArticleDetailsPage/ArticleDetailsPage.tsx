@@ -37,7 +37,8 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   }
 
   return (
-        <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        <Page data-testid={'ArticleDetailsPage'}
+            className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             <div className={cls.wrapper}>
                 <ArticleDetailsHeader/>
                 <ArticleDetails id={id}/>

@@ -13,7 +13,7 @@ interface NotFoundPageProps {
 export const NotFoundPage = memo(({ className }: NotFoundPageProps): JSX.Element => {
   const { t } = useTranslation('notFound')
   return (
-        <VStack align={'center'} justify={'center'}
+        <VStack data-testid={'NotFoundPage'} align={'center'} justify={'center'}
                 className={classNames(cls.NotFoundPage, {}, [className])} >
             <VStack align={'center'} justify={'center'}
                 className={cls.container} data-text='404'>

@@ -13,7 +13,9 @@ const HomePage = memo((): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-        <Page title={t('Заголовок страницы')}>
+        <Page
+            data-testid={'HomePage'}
+            title={t('Заголовок страницы')}>
             <div >
                 <Counter/>
                 <Button variant={ButtonVariant.BACKGROUND} onClick={() => { setIsOpen(true) }}>212122121</Button>

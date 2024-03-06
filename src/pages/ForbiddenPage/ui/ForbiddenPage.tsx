@@ -21,6 +21,7 @@ const ForbiddenPage = (props: ForbiddenPageProps): JSX.Element => {
   }
   return (
       <Page
+          data-testid={'ForbiddenPage'}
           title={t('Заголовок страницы')}
           className={classNames(cls.ForbiddenPage, {}, [className])}>
           <div className={cls.content}>

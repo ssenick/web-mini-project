@@ -13,7 +13,7 @@ const AboutPage = memo((): JSX.Element => {
   }, [])
 
   return (
-        <Page title={t('Заголовок страницы')}>
+        <Page data-testid={'AboutPage'} title={t('Заголовок страницы')}>
             <Input value={value} onChange={inputOnChange}/>
         </Page>
   )

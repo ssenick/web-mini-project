@@ -14,6 +14,7 @@ const AdminPage = ({ className }: AdminPageProps): JSX.Element => {
 
   return (
       <Page
+          data-testid={'AdminPage'}
           title={t('Заголовок страницы')}
           className={classNames(cls.AdminPage, {}, [className])}>
           {/* eslint-disable-next-line i18next/no-literal-string */}

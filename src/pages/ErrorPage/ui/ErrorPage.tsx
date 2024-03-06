@@ -16,7 +16,7 @@ export const ErrorPage = memo(({ className }: ErrorPageProps) => {
     location.reload()
   }, [])
   return (
-      <VStack className={cls.ErrorPage}>
+      <VStack data-testid={'ErrorPage'} className={cls.ErrorPage}>
         <ErrorMessage
             title={t('упс')}
             description={t('что-то пошло не так')}

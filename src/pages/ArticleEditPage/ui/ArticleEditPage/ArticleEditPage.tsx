@@ -14,7 +14,9 @@ const ArticleEditPage = memo(({ className }: ArticleEditPageProps) => {
   const { id } = useParams<{ id: string }>()
   const isEdit = Boolean(id)
   return (
-        <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
+        <Page
+            data-testid={'ArticleEditPage'}
+            className={classNames(cls.ArticleEditPage, {}, [className])}>
             {isEdit ? `DA ${id} id` : 'CREATE'}
         </Page>
   )

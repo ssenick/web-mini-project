@@ -13,7 +13,9 @@ interface ProfilePageProps {
 const ProfilePage = ({ className }: ProfilePageProps): JSX.Element => {
   const { t } = useTranslation('profile')
   return (
-          <Page title={t('Заголовок страницы')}
+          <Page
+              data-testid={'ProfilePage'}
+              title={t('Заголовок страницы')}
               className={classNames(cls.ProfilePage, {}, [className])}>
               <div className={cls.content}>
                   <ProfileForm/>

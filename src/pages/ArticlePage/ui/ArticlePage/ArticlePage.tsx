@@ -16,6 +16,7 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
   const { t } = useTranslation('articles')
   return (
         <Page
+            data-testid={'ArticlePage'}
             title={t('Заголовок страницы')}
             className={classNames(cls.ArticlePage, {}, [className])}>
             <div className={cls.content}>

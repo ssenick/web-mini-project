@@ -1,6 +1,7 @@
 import { memo, type ReactNode } from 'react'
 
 import { classNames, type Mods } from '@/shared/lib/classNames/classNames'
+import { type TestProps } from '@/shared/types'
 
 import cls from './Flex.module.scss'
 
@@ -39,7 +40,7 @@ const gapClasses: Record<FlexGap, string> = {
   30: cls.gap30
 }
 
-export interface FlexProps {
+export interface FlexProps extends TestProps {
   className?: string
   children?: ReactNode
   justify?: FlexJustify
@@ -88,7 +89,7 @@ export const Flex = memo((props: FlexProps) => {
 
   const Tag = tagByRole[role]
   return (
-        <Tag className={classNames(cls.Flex, mods, classes)}>
+        <Tag data-testid={props['data-testid'] ?? 'Flex'} className={classNames(cls.Flex, mods, classes)}>
           {children}
         </Tag>
   )
