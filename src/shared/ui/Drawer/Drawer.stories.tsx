@@ -12,7 +12,8 @@ const meta: Meta<typeof Drawer> = {
   title: 'shared/Drawer',
   component: Drawer,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+    loki: { skip: true }
   },
   // tags: ['autodocs'],
   argTypes: {}

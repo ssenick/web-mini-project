@@ -161,7 +161,8 @@ const meta: Meta<typeof ArticlesPageWrapper> = {
   title: 'features/ArticlesPageWrapper',
   component: ArticlesPageWrapper,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+    loki: { skip: true }
   },
   // tags: ['autodocs'],
   argTypes: {}

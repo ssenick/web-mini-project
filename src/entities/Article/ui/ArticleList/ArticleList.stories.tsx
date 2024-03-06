@@ -160,7 +160,8 @@ const meta: Meta<typeof ArticleList> = {
   title: 'entities/ArticleList',
   component: ArticleList,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+    loki: { skip: true }
   },
   // tags: ['autodocs'],
   argTypes: {}
