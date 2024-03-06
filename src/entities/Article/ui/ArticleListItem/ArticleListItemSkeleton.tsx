@@ -34,7 +34,7 @@ export const ArticleListItemSkeleton = memo(({ className, view }: ArticleListIte
                 <div className={cls.bottom}>
                     <Skeleton width={100} height={30} border={'5px'}/>
                     <div className={cls.viewWrapper}>
-                        <Skeleton className={cls.createAtt} width={40} height={18} border={'5px'}/>
+                        <Skeleton className={cls.createAtt} width={30} height={18} border={'5px'}/>
                     </div>
                 </div>
             </article>

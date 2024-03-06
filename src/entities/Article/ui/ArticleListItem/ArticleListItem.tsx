@@ -1,14 +1,17 @@
 import { type HTMLAttributeAnchorTarget, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import ErrorImage from '@/shared/assets/icons/errorImage.svg'
 import IconEye from '@/shared/assets/icons/view.svg'
 import { getRouteArticlesDetails } from '@/shared/config/routeConfig'
 import { ARTICLE_LIST_ITEM_INDEX } from '@/shared/const/localstorage'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { AppImage } from '@/shared/ui/AppImage/AppImage'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
 import { Avatar } from '@/shared/ui/Avatar/Avatar'
 import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/Button/Button'
 import { Icon } from '@/shared/ui/Icon/Icon'
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
 import { Text, TextFontSize } from '@/shared/ui/Text/Text'
 
 import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts'
@@ -42,9 +45,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   // Rendering
   const types_component = <Text className={cls.types} text={article.type.join(', ')} size={TextFontSize.SXS}/>
   const createdAt_component = <Text className={cls.createAtt} text={article.createdAt} size={TextFontSize.XS} />
+  const errorImage = <Icon className={cls.image} Svg={ErrorImage} width={'100%'} height={'100%'}/>
   const imageBlock_component = (
       <div className={cls.imageBlock}>
-          <img className={cls.image} src={article.img} alt="article image"/>
+          {/* <img className={cls.image} src={article.img} alt="article image"/> */}
+          <AppImage
+              className={cls.image}
+              src={article.img}
+              alt={'article image'}
+              fallback={<Skeleton width={'100%'} height={'100%'} />}
+              errorFallback={errorImage}
+          />
       </div>
   )
   const views = (
@@ -85,7 +96,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         variant={ButtonVariant.BORDER}
                     >{t('Читать далее')}</Button>
                 </AppLink>
-
                 {views}
             </div>
         </article>
@@ -99,7 +109,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             target={target}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
           <div className={cls.imageBlock}>
-            <img className={cls.image} src={article.img} alt="article image"/>
+            {/* <img className={cls.image} src={article.img} alt="article image"/> */}
+              <AppImage
+                  className={cls.image}
+                  src={article.img}
+                  alt={'article image'}
+                  errorFallback={errorImage}
+                  fallback={<Skeleton width={'100%'} height={'100%'}/>}
+              />
             <Text className={cls.createAtt} text={article.createdAt} size={TextFontSize.XS} />
           </div>
           <div className={cls.info}>

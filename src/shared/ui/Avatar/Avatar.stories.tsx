@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Theme } from '@/app/povaiders/ThemeProvaider'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
 
+import Image from '../../assets/test/image.jpg'
 import { Avatar } from './Avatar'
 
 const meta: Meta<typeof Avatar> = {
@@ -11,16 +12,26 @@ const meta: Meta<typeof Avatar> = {
   parameters: {
     layout: 'fullscreen'
   },
-  argTypes: {}
+  argTypes: {},
+  args: {
+    size: 35,
+    src: Image
+  }
 }
 export default meta
 
 type Story = StoryObj<typeof meta>
 
 export const Clean: Story = {
-  args: {}
 }
 Clean.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const NotAvatarImage: Story = {
+  args: {
+    src: ''
+  }
+}
+NotAvatarImage.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const CleanDark: Story = {
   args: {}
@@ -32,16 +43,15 @@ export const Funny: Story = {
 }
 Funny.decorators = [ThemeDecorator(Theme.FUNNY)]
 
-export const Small: Story = {
+export const Big: Story = {
   args: {
-    size: 50
+    size: 100
   }
 }
-Small.decorators = [ThemeDecorator(Theme.LIGHT)]
+Big.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const Alt: Story = {
   args: {
-    size: 50,
     alt: 'Image BOOOO'
   }
 }

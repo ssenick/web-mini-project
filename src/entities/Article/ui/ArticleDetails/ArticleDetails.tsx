@@ -8,6 +8,7 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
+import { AppImage } from '@/shared/ui/AppImage/AppImage'
 import { Avatar } from '@/shared/ui/Avatar/Avatar'
 import { Icon } from '@/shared/ui/Icon/Icon'
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
@@ -128,7 +129,14 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
                     <Text title={article?.user.username}/>
                 </div>
                 <div className={cls.header__image}>
-                    <img className={cls.header__img} src={article?.img} alt="Article image"/>
+                    {/* <img className={cls.header__img} src={article?.img} alt="Article image"/> */}
+                    <AppImage
+                        className={cls.header__img}
+                        src={article?.img}
+                        alt="Article image"
+                        fallback={<Skeleton className={cls.header__img}
+                        />}
+                    />
                 </div>
 
                 <div className={cls.header__content}>
