@@ -86,8 +86,8 @@ jobs:
       - name: Move loki report
         run: mv .loki reports/
         if: always()
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v4.0.0
         if: always()
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
