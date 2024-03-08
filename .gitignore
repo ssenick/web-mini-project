@@ -3,5 +3,5 @@
 node_modules
 .idea
 /storybook-static
-/reports
+/reports/unit
 
