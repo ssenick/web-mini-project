@@ -80,11 +80,11 @@ jobs:
       - name: unit testing
         run: npm run test:unit
         if: always()
-      - name: Move loki report
-        run: mv .loki reports/
-        if: always()
       - name: Generate HTML report
         run: npm run test:ui:report
+        if: always()
+      - name: Move loki report
+        run: mv .loki reports/
         if: always()
       - name: Setup Pages
         uses: actions/configure-pages@v2
