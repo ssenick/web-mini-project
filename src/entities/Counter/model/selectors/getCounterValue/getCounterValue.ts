@@ -1,4 +1,4 @@
-import { buildSelector } from '@/shared/lib/store/buildSelector'
+import { buildSelector } from '@/shared/lib/store/buildSelector';
 
 // было
 // export const getCounterValue = createSelector(
@@ -6,4 +6,4 @@ import { buildSelector } from '@/shared/lib/store/buildSelector'
 //   (counter: CounterSchema) => counter.value
 // )
 
-export const [useCounterValue, getCounterValue] = buildSelector((state) => state.counter.value)
+export const [useCounterValue, getCounterValue] = buildSelector((state) => state.counter.value);

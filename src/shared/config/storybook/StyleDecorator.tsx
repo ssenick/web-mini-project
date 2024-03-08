@@ -1,5 +1,5 @@
-import '@/app/styles/index.scss'
+import '@/app/styles/index.scss';
 
-import { type Decorator } from '@storybook/react'
+import { type Decorator } from '@storybook/react';
 
-export const StyleDecorator: Decorator = (Story) => Story()
+export const StyleDecorator: Decorator = (Story) => Story();

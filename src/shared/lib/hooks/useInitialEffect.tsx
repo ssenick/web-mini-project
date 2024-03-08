@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 
-export function useInitialEffect (callback: () => void): void {
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      callback()
-    }
-    // eslint-disable-next-line
-  }, [])
+export function useInitialEffect(callback: () => void): void {
+   useEffect(() => {
+      if (__PROJECT__ !== 'storybook') {
+         callback();
+      }
+      // eslint-disable-next-line
+   }, []);
 }

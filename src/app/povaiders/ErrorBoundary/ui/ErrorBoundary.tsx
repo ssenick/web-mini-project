@@ -1,39 +1,39 @@
-import React, { type ErrorInfo, type ReactNode } from 'react'
+import React, { type ErrorInfo, type ReactNode } from 'react';
 
-import { ErrorPage } from '@/pages/ErrorPage'
+import { ErrorPage } from '@/pages/ErrorPage';
 
 interface ErrorBoundaryProps {
-  children?: ReactNode
+   children?: ReactNode;
 }
 
 interface ErrorBoundaryState {
-  hasError: boolean
+   hasError: boolean;
 }
 
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor (props: ErrorBoundaryProps) {
-    super(props)
-    this.state = { hasError: false }
-  }
+   constructor(props: ErrorBoundaryProps) {
+      super(props);
+      this.state = { hasError: false };
+   }
 
-  static getDerivedStateFromError (error: Error): ErrorBoundaryState {
-    console.log(error)
-    return { hasError: true }
-  }
+   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+      console.log(error);
+      return { hasError: true };
+   }
 
-  componentDidCatch (error: Error, errorInfo: ErrorInfo): void {
-    console.log(error, errorInfo)
-  }
+   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+      console.log(error, errorInfo);
+   }
 
-  render (): React.ReactNode {
-    const { hasError } = this.state
-    const { children } = this.props
+   render(): React.ReactNode {
+      const { hasError } = this.state;
+      const { children } = this.props;
 
-    if (hasError) {
-      // You can render any custom fallback UI
-      return <ErrorPage/>
-    }
+      if (hasError) {
+         // You can render any custom fallback UI
+         return <ErrorPage />;
+      }
 
-    return children
-  }
+      return children;
+   }
 }

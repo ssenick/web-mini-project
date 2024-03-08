@@ -1,4 +1,4 @@
-export type SortOrder = 'asc' | 'desc'
+export type SortOrder = 'asc' | 'desc';
 export interface TestProps {
-  'data-testid'?: string
+   'data-testid'?: string;
 }

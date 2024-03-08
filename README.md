@@ -31,7 +31,8 @@
 - `npm run test:ui:html` -Generating HTML report for screenshot tests
 - `npm run storybook` - Running Storybook
 - `npm run storybook:build` - Assembling a storybook build
-- `npm run prepare` - precommit hooks
+- `npm run prepare` - Precommit hooks
+- `npm run prettier` - Format all files with Prettier
 - `npm run generate:slice` - Script for generating FSD slices
 
 ----
@@ -82,6 +83,15 @@ This plugin includes three rules:
 - `npm run lint:ts:fix` -  Fixes TypeScript files using the linter.
 - `npm run lint:scss` - Checks SCSS files using the style linter.
 - `npm run lint:scss:fix` - Fixes SCSS files using the style linter.
+
+--------
+
+## Prettier
+
+The project utilizes Prettier for .ts,.tsx,.json files. File configuration`.prettierrc`
+
+##### Running Prettier
+- `npm run prettier` -  Format all files with Prettier
 
 ----
 ## Storybook

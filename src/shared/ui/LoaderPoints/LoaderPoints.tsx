@@ -1,20 +1,20 @@
-import { memo } from 'react'
+import { memo } from 'react';
 
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-import cls from './LoaderPoints.module.scss'
+import cls from './LoaderPoints.module.scss';
 
 interface LoaderPointsProps {
-  className?: string
+   className?: string;
 }
 
 export const LoaderPoints = memo(({ className }: LoaderPointsProps): JSX.Element => {
-  return (
-        <div className={classNames(cls.LoaderPoints, {}, [className])}>
-            <div/>
-            <div/>
-            <div/>
-            <div/>
-        </div>
-  )
-})
+   return (
+      <div className={classNames(cls.LoaderPoints, {}, [className])}>
+         <div />
+         <div />
+         <div />
+         <div />
+      </div>
+   );
+});

@@ -1,77 +1,84 @@
-import type React from 'react'
-import { type InputHTMLAttributes, memo, useCallback, useMemo, useState } from 'react'
+import type React from 'react';
+import { type InputHTMLAttributes, memo, useCallback, useMemo, useState } from 'react';
 
-import { classNames, type Mods } from '@/shared/lib/classNames/classNames'
+import { classNames, type Mods } from '@/shared/lib/classNames/classNames';
 
-import { Text, TextFontSize } from '../Text/Text'
-import cls from './Input.module.scss'
+import { Text, TextFontSize } from '../Text/Text';
+import cls from './Input.module.scss';
 
 export enum InputVariant {
-  NORMAL = '',
-  INVERSE_BG = 'inverse-bg'
+   NORMAL = '',
+   INVERSE_BG = 'inverse-bg',
 }
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
 
 interface InputProps extends HTMLInputProps {
-  className?: string
-  variant?: InputVariant
-  value?: string | number
-  onChange?: (value: string) => void
-  autofocus?: boolean
-  readonly?: boolean
-  label?: string
+   className?: string;
+   variant?: InputVariant;
+   value?: string | number;
+   onChange?: (value: string) => void;
+   autofocus?: boolean;
+   readonly?: boolean;
+   label?: string;
 }
 
 export const Input = memo((props: InputProps): JSX.Element => {
-  const {
-    className,
-    value,
-    onChange,
-    type = 'text',
-    variant = InputVariant.NORMAL,
-    autofocus,
-    readonly,
-    label,
-    ...otherProps
-  } = props
-  const [isFocus, setIsFocus] = useState(false)
+   const {
+      className,
+      value,
+      onChange,
+      type = 'text',
+      variant = InputVariant.NORMAL,
+      autofocus,
+      readonly,
+      label,
+      ...otherProps
+   } = props;
+   const [isFocus, setIsFocus] = useState(false);
 
-  const onChangeHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value)
-  }, [onChange])
+   const onChangeHandler = useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+         onChange?.(e.target.value);
+      },
+      [onChange],
+   );
 
-  const onFocus = useCallback(() => {
-    if (!readonly) setIsFocus(true)
-  }, [readonly])
+   const onFocus = useCallback(() => {
+      if (!readonly) setIsFocus(true);
+   }, [readonly]);
 
-  const onBlur = useCallback(() => {
-    setIsFocus(false)
-  }, [])
+   const onBlur = useCallback(() => {
+      setIsFocus(false);
+   }, []);
 
-  const mods: Mods = useMemo(() => (
-    {
-      [cls.isFocus]: isFocus,
-      [cls.readonly]: readonly
-    }
-  ), [isFocus, readonly])
+   const mods: Mods = useMemo(
+      () => ({
+         [cls.isFocus]: isFocus,
+         [cls.readonly]: readonly,
+      }),
+      [isFocus, readonly],
+   );
 
-  return (
-        <div data-testid='input-wrapper' className={classNames(cls.inputWrapper, mods, [className, cls[variant]])}>
-          <label >
-            {label && <Text size={TextFontSize.SXS} title={label} className={cls.label}/>}
+   return (
+      <div
+         data-testid="input-wrapper"
+         className={classNames(cls.inputWrapper, mods, [className, cls[variant]])}
+      >
+         <label>
+            {label && <Text size={TextFontSize.SXS} title={label} className={cls.label} />}
             <input
-                data-testid='input'
-                value={value}
-                onChange={onChangeHandler}
-                type={type}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                readOnly={readonly}
-                {...otherProps}
-                autoFocus={autofocus}
+               data-testid="input"
+               value={value}
+               onChange={onChangeHandler}
+               type={type}
+               onFocus={onFocus}
+               onBlur={onBlur}
+               readOnly={readonly}
+               {...otherProps}
+               autoFocus={autofocus}
             />
-          </label>
-        </div>
-  )
-})
+         </label>
+      </div>
+   );
+});

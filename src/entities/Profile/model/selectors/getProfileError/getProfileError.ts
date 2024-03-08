@@ -1,5 +1,6 @@
-import { type StateSchema } from '@/app/povaiders/StoreProvaider'
+import { type StateSchema } from '@/app/povaiders/StoreProvaider';
 
-import { type ValidateProfileErrors } from '../../consts/profileConsts'
+import { type ValidateProfileErrors } from '../../consts/profileConsts';
 
-export const getProfileError = (state: StateSchema): ValidateProfileErrors[] | undefined => state?.profile?.validateError
+export const getProfileError = (state: StateSchema): ValidateProfileErrors[] | undefined =>
+   state?.profile?.validateError;

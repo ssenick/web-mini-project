@@ -1,27 +1,28 @@
-import { memo, useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
+import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { VStack } from '@/shared/ui/Stack'
-import { ErrorMessage } from '@/widgets/ErrorMessage'
+import { VStack } from '@/shared/ui/Stack';
+import { ErrorMessage } from '@/widgets/ErrorMessage';
 
-import cls from './ErrorPage.module.scss'
+import cls from './ErrorPage.module.scss';
 
 interface ErrorPageProps {
-  className?: string
+   className?: string;
 }
 
 export const ErrorPage = memo(({ className }: ErrorPageProps) => {
-  const { t } = useTranslation()
-  const reloadPage = useCallback(() => {
-    location.reload()
-  }, [])
-  return (
+   const { t } = useTranslation();
+   const reloadPage = useCallback(() => {
+      location.reload();
+   }, []);
+   return (
       <VStack data-testid={'ErrorPage'} className={cls.ErrorPage}>
-        <ErrorMessage
+         <ErrorMessage
             title={t('упс')}
             description={t('что-то пошло не так')}
             buttonContent={t('обновить станицу')}
-            onClick={reloadPage}/>
+            onClick={reloadPage}
+         />
       </VStack>
-  )
-})
+   );
+});

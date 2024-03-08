@@ -1,1 +1,1 @@
-export { ViewSelector } from './ui/ViewSelector/ViewSelector'
+export { ViewSelector } from './ui/ViewSelector/ViewSelector';

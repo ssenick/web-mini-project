@@ -1,58 +1,56 @@
-import { memo, useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
+import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { ListBox } from '@/shared/ui/ListBox/ListBox'
+import { ListBox } from '@/shared/ui/ListBox/ListBox';
 
-import { Country } from '../../model/consts/countryConsts'
+import { Country } from '../../model/consts/countryConsts';
 
 interface CountrySelectProps {
-  className?: string
-  readonly?: boolean
-  value?: string
-  onChange?: (value: Country) => void
+   className?: string;
+   readonly?: boolean;
+   value?: string;
+   onChange?: (value: Country) => void;
 }
 
 const options = [
-  { value: Country.Canada, content: Country.Canada },
-  { value: Country.Ukraine, content: Country.Ukraine },
-  { value: Country.Slovakia, content: Country.Slovakia }
-]
+   { value: Country.Canada, content: Country.Canada },
+   { value: Country.Ukraine, content: Country.Ukraine },
+   { value: Country.Slovakia, content: Country.Slovakia },
+];
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
-  const {
-    className,
-    readonly,
-    value,
-    onChange
-  } = props
-  const { t } = useTranslation()
+   const { className, readonly, value, onChange } = props;
+   const { t } = useTranslation();
 
-  const onChangeHandler = useCallback((value: string) => {
-    onChange?.(value as Country)
-  }, [onChange])
+   const onChangeHandler = useCallback(
+      (value: string) => {
+         onChange?.(value as Country);
+      },
+      [onChange],
+   );
 
-  return (
+   return (
       <ListBox
-          data-testid='country-select'
-          className={className}
-          onChange={onChangeHandler}
-          value={value}
-          label={t('Страна')}
-          items={options}
-          readonly={readonly}
+         data-testid="country-select"
+         className={className}
+         onChange={onChangeHandler}
+         value={value}
+         label={t('Страна')}
+         items={options}
+         readonly={readonly}
       />
-  )
+   );
 
-  // return (
-  //       <Select
-  //           data-testid='country-select'
-  //           className={classNames('', {}, [className])}
-  //           options={options}
-  //           label={t('Страна')}
-  //           variant={SelectVariant.INVERSE_BG}
-  //           readonly={readonly}
-  //           onChange={onChangeHandler}
-  //           value={value}
-  //       />
-  // )
-})
+   // return (
+   //       <Select
+   //           data-testid='country-select'
+   //           className={classNames('', {}, [className])}
+   //           options={options}
+   //           label={t('Страна')}
+   //           variant={SelectVariant.INVERSE_BG}
+   //           readonly={readonly}
+   //           onChange={onChangeHandler}
+   //           value={value}
+   //       />
+   // )
+});

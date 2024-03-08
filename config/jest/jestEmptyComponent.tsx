@@ -1,7 +1,5 @@
 const JestEmptyComponent = (): JSX.Element => {
-  return (
-       <div></div>
-  )
-}
+   return <div></div>;
+};
 
-export default JestEmptyComponent
+export default JestEmptyComponent;

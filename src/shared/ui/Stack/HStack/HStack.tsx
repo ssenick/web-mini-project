@@ -1,11 +1,9 @@
-import { memo } from 'react'
+import { memo } from 'react';
 
-import { Flex, type FlexProps } from '../Flex/Flex'
+import { Flex, type FlexProps } from '../Flex/Flex';
 
-type HStakeProps = Omit<FlexProps, 'direction' >
+type HStakeProps = Omit<FlexProps, 'direction'>;
 
 export const HStack = memo((props: HStakeProps) => {
-  return (
-        <Flex direction={'row'} {...props}/>
-  )
-})
+   return <Flex direction={'row'} {...props} />;
+});

@@ -1,3 +1,3 @@
-import { type StateSchema } from '@/app/povaiders/StoreProvaider'
+import { type StateSchema } from '@/app/povaiders/StoreProvaider';
 
-export const getProfileReadonly = (state: StateSchema): boolean | undefined => state?.profile?.readonly
+export const getProfileReadonly = (state: StateSchema): boolean | undefined => state?.profile?.readonly;

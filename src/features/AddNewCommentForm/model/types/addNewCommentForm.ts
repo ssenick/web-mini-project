@@ -1,5 +1,5 @@
 export interface AddNewCommentFormSchema {
-  text?: string
-  error?: string
-  isLoading?: boolean
+   text?: string;
+   error?: string;
+   isLoading?: boolean;
 }

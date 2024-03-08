@@ -1,34 +1,33 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "strict": true,
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-
-    },
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "isolatedModules": true
-  },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-//      "strictNullChecks": true
-    }
-  },
-  "include": [
-    "./config/jest/setupTests.ts",
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-    "./config",
-    "./json-server",
-    "scripts/updateImports.ts"
-  ]
+   "compilerOptions": {
+      "outDir": "./dist/",
+      "noImplicitAny": true,
+      "module": "ESNext",
+      "target": "es5",
+      "jsx": "react-jsx",
+      "allowJs": true,
+      "strict": true,
+      "moduleResolution": "node",
+      "baseUrl": ".",
+      "paths": {
+         "@/*": ["./src/*"]
+      },
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "isolatedModules": true
+   },
+   "ts-node": {
+      "compilerOptions": {
+         "module": "CommonJS"
+         //      "strictNullChecks": true
+      }
+   },
+   "include": [
+      "./config/jest/setupTests.ts",
+      "./src/**/*.ts",
+      "./src/**/*.tsx",
+      "./config",
+      "./json-server",
+      "scripts/updateImports.ts"
+   ]
 }
