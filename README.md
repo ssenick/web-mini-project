@@ -31,7 +31,7 @@
 - `npm run test:ui:html` -Generating HTML report for screenshot tests
 - `npm run storybook` - Running Storybook
 - `npm run storybook:build` - Assembling a storybook build
-- `npm run prepare` - Precommit hooks
+- `npm run prepare` - Pre commit hooks
 - `npm run prettier` - Format all files with Prettier
 - `npm run generate:slice` - Script for generating FSD slices
 
