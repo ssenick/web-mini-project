@@ -1,4 +1,4 @@
-import { memo, type ReactNode, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 
 import { Theme, useTheme } from '@/app/povaiders/ThemeProvaider';
 import FunnyIcon from '@/shared/assets/icons/funnyTheme.svg';
@@ -6,12 +6,7 @@ import MoonIcon from '@/shared/assets/icons/moon.svg';
 import SunIcon from '@/shared/assets/icons/sun.svg';
 import { ListBox, type ListBoxItem, ListBoxVariant } from '@/shared/ui/ListBox/ListBox';
 
-interface ThemeSwitcherProps {
-   className?: string;
-   childrenStorybook?: ReactNode;
-}
-
-export const ThemeSwitcher = memo(({ className, childrenStorybook }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(() => {
    const { theme, toggleTheme } = useTheme();
    const orderOptions = useMemo<Array<ListBoxItem<Theme>>>(
       () => [
