@@ -1,5 +1,13 @@
 import { createContext, type ReactNode, useContext } from 'react';
 import { useMediaQuery } from 'react-responsive';
+
+import {
+   isBigScreen,
+   isMobileScreen,
+   isPcScreen,
+   isSmallMobileScreen,
+   isTabletScreen,
+} from '@/shared/const/querys';
 interface ReturnContextTypes {
    isBig: boolean;
    isPc: boolean;
@@ -8,9 +16,9 @@ interface ReturnContextTypes {
    isSmallMobile: boolean;
 }
 const defaultContext = {
-   isBig: false ?? true,
+   isBig: false,
    isPc: false,
-   isMobile: false ?? true,
+   isMobile: false,
    isTablet: false,
    isSmallMobile: false,
 };
@@ -21,11 +29,11 @@ interface MediaQueryProviderProps {
 }
 
 const MediaQueryProvider = ({ children }: MediaQueryProviderProps) => {
-   const isBig = useMediaQuery({ minWidth: 1440 });
-   const isPc = useMediaQuery({ maxWidth: 1440 });
-   const isTablet = useMediaQuery({ maxWidth: 992 });
-   const isMobile = useMediaQuery({ maxWidth: 772 });
-   const isSmallMobile = useMediaQuery({ maxWidth: 410 });
+   const isBig = useMediaQuery({ minWidth: isBigScreen });
+   const isPc = useMediaQuery({ maxWidth: isPcScreen });
+   const isTablet = useMediaQuery({ maxWidth: isTabletScreen });
+   const isMobile = useMediaQuery({ maxWidth: isMobileScreen });
+   const isSmallMobile = useMediaQuery({ maxWidth: isSmallMobileScreen });
 
    const values: ReturnContextTypes = {
       isBig,

@@ -202,7 +202,7 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
                   </div>
                   <CountrySelect
                      onChange={onChangeCountry}
-                     className={cls.currency}
+                     className={classNames(cls.currency, {}, [cls.country])}
                      value={data?.country}
                      readonly={readonly}
                   />
@@ -211,7 +211,7 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
             <div className={cls.row}>
                <Text title={t('Настройки профиля')} />
                <div className={cls.column}>
-                  <div className={cls.inputWithError}>
+                  <div className={classNames(cls.inputWithError, {}, [cls.name])}>
                      <Input
                         data-testid={'ProfileCard.UsernameInput'}
                         className={cls.username}

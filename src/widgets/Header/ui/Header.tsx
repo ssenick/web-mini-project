@@ -34,7 +34,6 @@ interface HeaderProps {
 export const Header = memo(({ className }: HeaderProps): JSX.Element => {
    const { theme } = useTheme();
    const { t } = useTranslation();
-   const [error, setError] = useState(false);
    const [isAuthModal, setIsAuthModal] = useState(false);
    const [isCloseModal, setIsCloseModal] = useState(false);
    const userAuth = useSelector(getUserAuthData);
@@ -55,9 +54,7 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
    const onShowModal = useCallback((): void => {
       setIsAuthModal(true);
    }, []);
-   const onThrow = useCallback((): void => {
-      setError(true);
-   }, []);
+
    const onLogout = useCallback(() => {
       dispatch(userActions.logout());
       // if (location?.pathname.substring(1) === RoutPath.profile) {
@@ -74,10 +71,7 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
       } else {
          setIsCloseModal(false);
       }
-      if (error) {
-         throw new Error();
-      }
-   }, [userAuth, error, onCloseDrawer]);
+   }, [userAuth, onCloseDrawer]);
 
    const DropDawnItems: DropdownItem[] = useMemo(
       () => [
@@ -132,9 +126,6 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
          <div className={cls.action}>
             <ThemeSwitcher />
             <LangSwitcher />
-            <Button onClick={onThrow} variant={ButtonVariant.BACKGROUND}>
-               {t('ошибка')}
-            </Button>
             {userAuth ? (
                <>
                   <NotificationButton />

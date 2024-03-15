@@ -24,7 +24,7 @@ export const SidebarLink = memo(({ item, collapsed }: SidebarLinkProps) => {
    return (
       <li data-testid="sidebar-link" className={classNames(cls.item, { [cls.collapsed]: collapsed })}>
          <AppLink className={cls.link} to={item.path}>
-            {item.Icon && <item.Icon />}
+            <item.Icon className={cls.icon} />
             <span>{t(item.text)}</span>
          </AppLink>
       </li>

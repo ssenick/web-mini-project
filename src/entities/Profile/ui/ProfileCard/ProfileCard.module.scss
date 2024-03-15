@@ -8,6 +8,8 @@
 
   .data {
     width: 100%;
+    display: grid;
+    gap: 10px;
   }
 
   .row {
@@ -44,5 +46,42 @@
 
   .currency {
     grid-column: span 3;
+  }
+
+  @media (max-width: 772px) {
+    .currency {
+      grid-column: span 4;
+    }
+
+    .country {
+      grid-column: span 6;
+    }
+
+    .name {
+      grid-column: span 8;
+    }
+  }
+
+  @media (max-width: 410px) {
+    .input,
+    .inputWithError {
+      grid-column: span 12;
+    }
+
+    .username {
+      grid-column: span 12;
+    }
+
+    .avatar {
+      grid-column: span 12;
+    }
+
+    .age {
+      grid-column: span 12;
+    }
+
+    .currency {
+      grid-column: span 12;
+    }
   }
 }

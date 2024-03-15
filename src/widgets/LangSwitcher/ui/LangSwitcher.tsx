@@ -1,9 +1,11 @@
-import { memo, type ReactNode } from 'react';
+import { memo, type ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import Language from '@/shared/assets/icons/language.svg';
 import { LANGUAGE_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
 
 import cls from './LangSwitcher.module.scss';
 
@@ -17,9 +19,9 @@ enum Languages {
 }
 
 export const LangSwitcher = memo(({ className, children }: LangSwitcherProps): JSX.Element => {
-   const { t, i18n } = useTranslation();
+   const { i18n } = useTranslation();
 
-   const toggle = async (): Promise<void> => {
+   const toggle = useCallback(async (): Promise<void> => {
       switch (localStorage.getItem(LANGUAGE_LOCALSTORAGE_KEY)) {
          case Languages.RU:
             localStorage.setItem(LANGUAGE_LOCALSTORAGE_KEY, Languages.EN);
@@ -33,16 +35,18 @@ export const LangSwitcher = memo(({ className, children }: LangSwitcherProps): J
             localStorage.setItem(LANGUAGE_LOCALSTORAGE_KEY, Languages.RU);
             await i18n.changeLanguage((i18n.language = Languages.RU));
       }
-   };
+   }, [i18n]);
 
    return (
       <Button
-         variant={ButtonVariant.BACKGROUND}
+         variant={ButtonVariant.CLEAN}
+         square
          className={classNames(cls.LangSwitcher, {}, [className])}
-         size={ButtonSize.XS}
          onClick={toggle}
+         size={ButtonSize.SM}
       >
-         {children || t('Язык')}
+         {/* {children || t('Язык')} */}
+         {children || <Icon className={cls.icon} Svg={Language} width={'30px'} height={'30px'} />}
       </Button>
    );
 });

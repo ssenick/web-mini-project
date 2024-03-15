@@ -34,8 +34,8 @@ body {
 
   &__content {
     grid-area: content;
-    overflow: hidden;
     display: grid;
+    overflow: hidden;
   }
 }
 
@@ -55,4 +55,11 @@ body {
 *::-webkit-scrollbar-thumb {
   background-color: var(--bg-module);    /* цвет плашки */
   border-radius: 20px;       /* закругления плашки */
+}
+
+@media (max-width: 772px) {
+  *::-webkit-scrollbar {
+    width: 6px;               /* ширина scrollbar */
+    height: 8px;
+  }
 }

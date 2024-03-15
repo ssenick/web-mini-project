@@ -24,7 +24,8 @@
 
   // dimensions
   --sidebar-width: 250px;
-  --sidebar-width-collapsed: 70px;
+  --sidebar-width-collapsed: 74px;
+  --sidebar-width-collapsed-mobile: 64px;
   --height-input: 36px;
   --height-header: 50px;
   --height-textarea: 100px;
@@ -46,4 +47,11 @@
   --gap20: 20px;
   --gap25: 25px;
   --gap30: 30px;
+
+  // screen
+  --big: 1440px;
+  --pc: 1440px;
+  --tablet: 992px;
+  --mobile: 772px;
+  --small: 410px;
 }

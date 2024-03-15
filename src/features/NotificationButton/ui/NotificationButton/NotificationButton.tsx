@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import { NotificationList, useGetNotificationsQuery } from '@/entities/Notofication';
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
+import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/Button/Button';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { Popover } from '@/shared/ui/Popover/Popover';
@@ -35,6 +35,7 @@ export const NotificationButton = memo(({ className }: NotificationButtonProps) 
          onClick={onOpenDrawer}
          className={classNames(cls.trigger, {}, [])}
          variant={ButtonVariant.CLEAN}
+         size={ButtonSize.SM}
       >
          <Icon className={cls.icon} Svg={NotificationIcon} width={'20px'} height={'20px'} />
          {data?.length && <span className={cls.count}>{data.length}</span>}

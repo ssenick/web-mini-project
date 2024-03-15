@@ -9,18 +9,25 @@
   display: flex;
   flex-direction: column;
 
-  .createBtn {
+  .footer {
     margin-top: auto;
+    display: grid;
+    gap: var(--gap10);
+  }
+
+  .createBtn {
     transition:
       margin var(--animation-time),
       opacity var(--animation-time);
     overflow: hidden;
     white-space: nowrap;
+    gap: 0;
 
     span {
       margin-left: 10px;
       overflow: hidden;
       transition:
+        width var(--animation-time),
         margin var(--animation-time),
         opacity var(--animation-time);
     }
@@ -41,13 +48,25 @@
     width: var(--sidebar-width-collapsed);
 
     .createBtn {
-      padding: 3px 5px;
+      padding: 5px 3px 5px 7px;
 
       span {
         margin: 0;
         opacity: 0;
         pointer-events: none;
       }
+    }
+  }
+
+  @media (max-width: 992px) {
+    padding: 65px 15px 15px;
+
+    .footer {
+      gap: var(--gap20);
+    }
+
+    &.collapsed {
+      width: var(--sidebar-width-collapsed-mobile);
     }
   }
 }
@@ -60,7 +79,9 @@
   width: 30px;
   height: 20px;
   cursor: pointer;
-  transition: right var(--animation-time), transform var(--animation-time);
+  transition:
+    right var(--animation-time),
+    transform var(--animation-time);
   background-color: transparent;
 
   .itemBtn {
@@ -75,7 +96,9 @@
       left: 0;
       top: 43%;
       transform: rotate(-45deg);
-      transition: top var(--animation-time) 0.15s, transform var(--animation-time) 0.15s;
+      transition:
+        top var(--animation-time) 0.15s,
+        transform var(--animation-time) 0.15s;
     }
 
     &:nth-child(2) {
@@ -106,7 +129,9 @@
     .itemBtn {
       &:nth-child(1) {
         top: 0;
-        transition: top 0.15s, transform 0.15s;
+        transition:
+          top 0.15s,
+          transform 0.15s;
         transform: rotate(0deg);
       }
 

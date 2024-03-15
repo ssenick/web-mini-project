@@ -8,6 +8,7 @@ import { StoreProvider } from '@/app/povaiders/StoreProvaider';
 import { ThemeProvider } from '@/app/povaiders/ThemeProvaider';
 
 import App from './app/App';
+import { MediaQueryProvider } from './app/povaiders/MediaQueryProvaider';
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Failed to mount the application, check the container!');
@@ -18,9 +19,11 @@ root.render(
    <BrowserRouter>
       <StoreProvider>
          <ErrorBoundary>
-            <ThemeProvider>
-               <App />
-            </ThemeProvider>
+            <MediaQueryProvider>
+               <ThemeProvider>
+                  <App />
+               </ThemeProvider>
+            </MediaQueryProvider>
          </ErrorBoundary>
       </StoreProvider>
    </BrowserRouter>,

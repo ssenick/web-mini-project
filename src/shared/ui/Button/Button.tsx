@@ -24,6 +24,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    variant?: ButtonVariant;
    square?: boolean;
    withIcon?: boolean;
+   center?: boolean;
    type?: 'submit' | 'reset' | 'button';
    size?: ButtonSize;
    max?: boolean;
@@ -36,6 +37,7 @@ export const Button = memo((props: ButtonProps): JSX.Element => {
       children,
       variant = ButtonVariant.CLEAN,
       square,
+      center,
       withIcon,
       type = 'button',
       max,
@@ -46,7 +48,7 @@ export const Button = memo((props: ButtonProps): JSX.Element => {
       <button
          className={classNames(
             cls.Button,
-            { [cls.square]: square, [cls.withIcon]: withIcon, [cls.max]: max },
+            { [cls.square]: square, [cls.center]: center, [cls.withIcon]: withIcon, [cls.max]: max },
             [className, cls[variant], cls[size]],
          )}
          type={type}
