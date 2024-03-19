@@ -28,6 +28,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    type?: 'submit' | 'reset' | 'button';
    size?: ButtonSize;
    max?: boolean;
+   circle?: boolean;
    children?: ReactNode;
 }
 
@@ -39,6 +40,7 @@ export const Button = memo((props: ButtonProps): JSX.Element => {
       square,
       center,
       withIcon,
+      circle,
       type = 'button',
       max,
       size = ButtonSize.XS,
@@ -48,7 +50,13 @@ export const Button = memo((props: ButtonProps): JSX.Element => {
       <button
          className={classNames(
             cls.Button,
-            { [cls.square]: square, [cls.center]: center, [cls.withIcon]: withIcon, [cls.max]: max },
+            {
+               [cls.square]: square,
+               [cls.center]: center,
+               [cls.circle]: circle,
+               [cls.withIcon]: withIcon,
+               [cls.max]: max,
+            },
             [className, cls[variant], cls[size]],
          )}
          type={type}

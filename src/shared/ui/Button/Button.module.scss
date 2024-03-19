@@ -12,11 +12,13 @@
     pointer-events: none;
   }
 
-  @media (any-hover: hover) {
-    &:hover {
-      animation: pulse 1s;
-      box-shadow: 0 0 0 1em transparent;
-    }
+  &:hover {
+    animation: pulse 1s;
+    box-shadow: 0 0 0 1em transparent;
+  }
+
+  @media (max-width: 772px) {
+    padding: 3px 8px;
   }
 }
 
@@ -34,6 +36,10 @@
     justify-content: center;
     align-items: center;
   }
+}
+
+.circle {
+  border-radius: 50%;
 }
 
 .background {

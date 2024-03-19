@@ -44,4 +44,15 @@
     border-radius: var(--border-radius-small);
     background-color: var(--bg-module);
   }
+
+  @media (max-width: 772px) {
+    .pre {
+      padding: 15px 30px 15px 15px;
+      overflow: auto;
+    }
+
+    .code {
+      font-size: var(--font-size-sxs);
+    }
+  }
 }

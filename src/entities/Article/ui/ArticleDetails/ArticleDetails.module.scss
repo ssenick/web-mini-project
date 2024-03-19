@@ -53,4 +53,16 @@
     flex-direction: column;
     gap: 30px;
   }
+
+  @media (max-width: 772px) {
+    gap: 20px;
+
+    .header {
+      gap: 10px;
+    }
+
+    .header__image {
+      padding-bottom: 40%;
+    }
+  }
 }

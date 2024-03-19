@@ -87,6 +87,7 @@ const meta: Meta<typeof ArticleRecommendationsList> = {
    component: ArticleRecommendationsList,
    parameters: {
       layout: 'fullscreen',
+      loki: { skip: true },
       mockData: [
          {
             url: `${__API__}/articles?_limit=1`,

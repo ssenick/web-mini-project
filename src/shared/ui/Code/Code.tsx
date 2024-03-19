@@ -38,7 +38,7 @@ export const Code = memo(({ className, text }: CodeProps) => {
                   <Text className={cls.textMassage} size={TextFontSize.L} title={t('Текст скопирован')} />
                </div>
             )}
-            <code>{text}</code>
+            <code className={cls.code}>{text}</code>
          </pre>
       </div>
    );

@@ -1,7 +1,8 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 
+import { useMediaQueryValues } from '@/app/povaiders/MediaQueryProvaider';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/Button/Button';
 import { Card } from '@/shared/ui/Card/Card';
@@ -30,6 +31,7 @@ export const Rating = memo((props: RatingProps) => {
    const [isModalOpen, setIsModalOpen] = useState(false);
    const [startsCount, setStartsCount] = useState(rate);
    const [feedback, setFeedback] = useState('');
+   const { isMobile } = useMediaQueryValues();
 
    const onSelectStars = useCallback(
       (selectedStartCount: number) => {
@@ -57,20 +59,43 @@ export const Rating = memo((props: RatingProps) => {
       setFeedback(value);
    }, []);
 
-   const modalContent = (
-      <VStack gap={'15'} max>
-         <Text size={TextFontSize.M} title={feedbackTitle} />
-         <TextArea label={t('Ваш отзыв')} value={feedback} onChange={onChange} />
-         <HStack gap={'15'} max>
-            <Button max size={ButtonSize.M} variant={ButtonVariant.BORDER_ERROR} onClick={cancelHandler}>
-               {t('Закрыть')}
-            </Button>
-            <Button max size={ButtonSize.M} onClick={acceptHandler} variant={ButtonVariant.BORDER}>
-               {t('Отправить')}
-            </Button>
-         </HStack>
-      </VStack>
-   );
+   const modalContent = useMemo(() => {
+      return (
+         <VStack gap={'15'} max>
+            <Text size={TextFontSize.M} title={feedbackTitle} />
+            <TextArea label={t('Ваш отзыв')} value={feedback} onChange={onChange} />
+            <HStack gap={'15'} max>
+               <Button max size={ButtonSize.M} variant={ButtonVariant.BORDER_ERROR} onClick={cancelHandler}>
+                  {t('Закрыть')}
+               </Button>
+               <Button max size={ButtonSize.M} onClick={acceptHandler} variant={ButtonVariant.BORDER}>
+                  {t('Отправить')}
+               </Button>
+            </HStack>
+         </VStack>
+      );
+   }, [feedbackTitle, feedback, onChange, cancelHandler, acceptHandler, t]);
+
+   if (isMobile) {
+      return (
+         <Card className={classNames(cls.Rating, {}, [className])}>
+            <VStack gap={'15'} align={'center'}>
+               <Text title={startsCount ? t('Спасибо за вашу оценку!') : title} size={TextFontSize.L} />
+               <StarRating size={40} selectedStarts={startsCount} onSelect={onSelectStars} />
+            </VStack>
+            <BrowserView>
+               <Modal isOpen={isModalOpen} onClose={cancelHandler} lazy>
+                  {modalContent}
+               </Modal>
+            </BrowserView>
+            <MobileView>
+               <Drawer isOpen={isModalOpen} lazy>
+                  {modalContent}
+               </Drawer>
+            </MobileView>
+         </Card>
+      );
+   }
 
    return (
       <Card className={classNames(cls.Rating, {}, [className])}>

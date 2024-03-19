@@ -21,4 +21,8 @@
   .text {
     grid-column: 2;
   }
+
+  @media (max-width: 772px) {
+    padding: 8px;
+  }
 }

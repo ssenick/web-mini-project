@@ -1,15 +1,18 @@
-import { type FC, type MutableRefObject, type ReactNode, useRef } from 'react';
+import { type FC, type MutableRefObject, type ReactNode, useCallback, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import { type StateSchema } from '@/app/povaiders/StoreProvaider';
 import { getScrollSaveByPath, scrollActions } from '@/features/ScrollSave';
+import ArrowUp from '@/shared/assets/icons/arrowUp.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { useInfinityScroll } from '@/shared/lib/hooks/useInfinityScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { type TestProps } from '@/shared/types';
+import { Button } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
 import { Text, TextFontSize } from '@/shared/ui/Text/Text';
 
 import cls from './Page.module.scss';
@@ -17,13 +20,15 @@ import cls from './Page.module.scss';
 interface PageProps extends TestProps {
    className?: string;
    scrollTrigger?: boolean;
+   arrowUp?: boolean;
    children: ReactNode;
    onScrollEnd?: () => void;
    title?: string;
 }
 
 export const Page: FC<PageProps> = (props) => {
-   const { className, children, onScrollEnd, title, scrollTrigger = false } = props;
+   const { className, children, onScrollEnd, title, scrollTrigger = false, arrowUp } = props;
+   const scrollArrowUpOn = useRef(false);
    const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
    const dispatch = useAppDispatch();
@@ -47,8 +52,19 @@ export const Page: FC<PageProps> = (props) => {
                path: pathname,
             }),
          );
+         arrowUp && wrapperRef.current?.scrollTop > 200
+            ? (scrollArrowUpOn.current = true)
+            : (scrollArrowUpOn.current = false);
       }
    }, 400);
+
+   const scrollUp = useCallback(() => {
+      wrapperRef.current.scrollTo({
+         top: 0,
+         behavior: 'smooth',
+      });
+   }, []);
+
    useInfinityScroll({
       triggerRef,
       wrapperRef,
@@ -57,6 +73,10 @@ export const Page: FC<PageProps> = (props) => {
    // прокрутка к позиции
    useInitialEffect(() => {
       wrapperRef.current.scrollTop = scrollPosition;
+      // wrapperRef?.current.scrollTo({
+      //    top: scrollPosition,
+      //    behavior: 'smooth',
+      // });
    });
    return (
       <section
@@ -67,7 +87,16 @@ export const Page: FC<PageProps> = (props) => {
       >
          {title && <Text title={title} className={cls.title} size={TextFontSize.L} />}
          {children}
-         <div className={cls.trigger} ref={triggerRef}></div>
+         {onScrollEnd ? <div className={cls.trigger} ref={triggerRef}></div> : null}
+         {arrowUp && (
+            <Button
+               onClick={scrollUp}
+               circle
+               className={classNames(cls.arrowUp, { [cls.on]: scrollArrowUpOn.current }, [])}
+            >
+               <Icon Svg={ArrowUp}></Icon>
+            </Button>
+         )}
       </section>
    );
 };

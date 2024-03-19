@@ -31,4 +31,8 @@
       transform: translate(-50%, -50%);
     }
   }
+
+  @media (max-width: 772px) {
+    gap: 15px;
+  }
 }

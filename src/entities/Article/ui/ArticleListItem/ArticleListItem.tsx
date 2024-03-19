@@ -51,7 +51,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             className={cls.image}
             src={article.img}
             alt={'article image'}
-            fallback={<Skeleton width={'100%'} height={'100%'} />}
+            fallback={<Skeleton className={cls.image} width={'100%'} height={'100%'} />}
             errorFallback={errorImage}
          />
       </div>
@@ -111,7 +111,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                src={article.img}
                alt={'article image'}
                errorFallback={errorImage}
-               fallback={<Skeleton width={'100%'} height={'100%'} />}
+               fallback={<Skeleton className={cls.image} width={'100%'} height={'100%'} />}
             />
             <Text className={cls.createAtt} text={article.createdAt} size={TextFontSize.XS} />
          </div>

@@ -1,7 +1,9 @@
 .ForbiddenPage {
-  display: grid;
+  display: flex;
+  flex-direction: column;
 
   .content {
+    flex: 1 1 auto;
     display: flex;
     justify-content: center;
     align-items: center;

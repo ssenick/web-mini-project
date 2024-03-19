@@ -23,7 +23,7 @@ export const ArticleImageBlockComponent = memo(({ className, block }: ArticleIma
             src={block.src}
             alt={block.title}
             className={cls.image}
-            fallback={<Skeleton width={'100%'} height={'100%'} />}
+            fallback={<Skeleton className={cls.image} width={'100%'} height={'100%'} />}
             errorFallback={errorImage}
          />
          {block.title && <Text title={block.title} texAlign={TextAlign.CENTER} />}

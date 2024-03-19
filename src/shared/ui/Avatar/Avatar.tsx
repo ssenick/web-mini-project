@@ -34,7 +34,13 @@ export const Avatar = memo((props: AvatarProps) => {
    return (
       <div data-testid={'avatar'} style={styles} className={classNames(cls.Avatar, {}, [className])}>
          {/* <img src={src || spareImage} alt={alt}/> */}
-         <AppImage src={src} fallback={imageSkeleton} errorFallback={imageError} alt={alt} />
+         <AppImage
+            className={cls.image}
+            src={src}
+            fallback={imageSkeleton}
+            errorFallback={imageError}
+            alt={alt}
+         />
       </div>
    );
 });

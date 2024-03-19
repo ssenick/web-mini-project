@@ -136,7 +136,9 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
    return (
       <div className={classNames(cls.ProfileCard, {}, [className])}>
          <div className={cls.data}>
-            <div className={cls.header}>{data?.avatar && <Avatar src={data?.avatar} />}</div>
+            <div className={cls.header}>
+               {data?.avatar && <Avatar className={cls.avatar} src={data?.avatar} />}
+            </div>
             <div className={cls.row}>
                <Text title={t('Личные данные')} />
                <div className={cls.column}>

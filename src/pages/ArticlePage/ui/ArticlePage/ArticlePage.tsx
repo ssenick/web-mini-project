@@ -1,8 +1,9 @@
-import { type FC, memo } from 'react';
+import { type FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ArticlesPageWrapper } from '@/features/ArticlesPageWrapper';
+import { ArticlesPageWrapper, fetchNextArticlesPage } from '@/features/ArticlesPageWrapper';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Page } from '@/widgets/Page';
 
 import { ArticlePageHeader } from '../ArticlePageHeader/ArticlePageHeader';
@@ -14,10 +15,19 @@ interface ArticlePageProps {
 
 const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
    const { t } = useTranslation('articles');
+   const dispatch = useAppDispatch();
+
+   const onLoadNextPart = useCallback(() => {
+      void dispatch(fetchNextArticlesPage());
+   }, [dispatch]);
+
    return (
       <Page
          data-testid={'ArticlePage'}
+         onScrollEnd={onLoadNextPart}
          title={t('Заголовок страницы')}
+         scrollTrigger
+         arrowUp
          className={classNames(cls.ArticlePage, {}, [className])}
       >
          <div className={cls.content}>
