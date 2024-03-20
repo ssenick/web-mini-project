@@ -78,6 +78,14 @@ export const Page: FC<PageProps> = (props) => {
       //    behavior: 'smooth',
       // });
    });
+   if (__PROJECT__ === 'storybook') {
+      return (
+         <section className={classNames(cls.Page, {}, [className])}>
+            {title && <Text title={title} className={cls.title} size={TextFontSize.L} />}
+            {children}
+         </section>
+      );
+   }
    return (
       <section
          ref={wrapperRef}
