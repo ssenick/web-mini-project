@@ -45,7 +45,7 @@
     background-color: var(--bg-module);
   }
 
-  @media (max-width: var(--mobile)) {
+  @media (max-width: 772px) {
     .pre {
       padding: 15px 30px 15px 15px;
       overflow: auto;

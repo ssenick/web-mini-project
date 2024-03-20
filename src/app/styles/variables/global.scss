@@ -56,7 +56,7 @@
   --small: 410px;
 }
 
-@media (max-width: var(--mobile)) {
+@media (max-width: 772px) {
   :root {
     --font-size-m: 17px;
     --font-size-l: 20px;

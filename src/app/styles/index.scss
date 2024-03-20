@@ -22,12 +22,12 @@ body {
     "sidebar header"
     "sidebar content";
   background-color: var(--bg-color);
-  height: 100%;
+  height: 100vh;
 
   &.mobile {
     height: calc(var(--vh, 1vh) * 100);
 
-    @media (max-width: var(--mobile)) {
+    @media (max-width: 772px) {
       transition: height 0.2s;
     }
   }
@@ -65,7 +65,7 @@ body {
   border-radius: 20px;       /* закругления плашки */
 }
 
-@media (max-width: var(--mobile)) {
+@media (max-width: 772px) {
   *::-webkit-scrollbar {
     width: 6px;               /* ширина scrollbar */
     height: 8px;
