@@ -98,6 +98,7 @@ const meta: Meta<typeof ArticlePage> = {
    component: ArticlePage,
    parameters: {
       layout: 'fullscreen',
+      loki: { skip: true },
    },
    // tags: ['autodocs'],
    argTypes: {},
