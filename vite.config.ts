@@ -13,6 +13,7 @@ export default defineConfig({
    server: {
       strictPort: true,
       open: true,
+      host: '0.0.0.0',
    },
    resolve: {
       alias: [{ find: '@', replacement: '/src' }],

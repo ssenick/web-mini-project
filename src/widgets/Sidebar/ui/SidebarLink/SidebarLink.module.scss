@@ -58,7 +58,7 @@
     }
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: var(--tablet)) {
     padding: 16px 5px;
 
     .icon {

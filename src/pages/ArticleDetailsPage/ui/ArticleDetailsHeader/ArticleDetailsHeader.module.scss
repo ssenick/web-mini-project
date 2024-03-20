@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   gap: 20px;
 
-  @media (max-width: 772px) {
+  @media (max-width: var(--mobile)) {
     gap: 10px;
   }
 }

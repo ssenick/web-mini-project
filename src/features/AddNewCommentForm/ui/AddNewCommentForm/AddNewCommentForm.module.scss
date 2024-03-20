@@ -32,7 +32,7 @@
     }
   }
 
-  @media (max-width: 772px) {
+  @media (max-width: var(--mobile)) {
     gap: 15px;
   }
 }

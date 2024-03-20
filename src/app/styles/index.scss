@@ -4,14 +4,6 @@
 @import "./themes/light";
 @import "./themes/funny";
 
-html {
-  min-height: calc(var(--vh, 1vh) * 100);
-
-  @media (max-width: 772px) {
-    transition: height 0.2s;
-  }
-}
-
 body {
   &.lock {
     overflow: hidden;
@@ -30,7 +22,15 @@ body {
     "sidebar header"
     "sidebar content";
   background-color: var(--bg-color);
-  height: 100vh;
+  height: 100%;
+
+  &.mobile {
+    height: calc(var(--vh, 1vh) * 100);
+
+    @media (max-width: var(--mobile)) {
+      transition: height 0.2s;
+    }
+  }
 
   &__header {
     grid-area: header;
@@ -65,7 +65,7 @@ body {
   border-radius: 20px;       /* закругления плашки */
 }
 
-@media (max-width: 772px) {
+@media (max-width: var(--mobile)) {
   *::-webkit-scrollbar {
     width: 6px;               /* ширина scrollbar */
     height: 8px;

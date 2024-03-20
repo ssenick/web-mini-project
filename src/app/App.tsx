@@ -29,7 +29,7 @@ const App = (): JSX.Element => {
    }, [dispatch, isMobile]);
 
    return (
-      <div className={classNames('app', {}, [])}>
+      <div className={classNames('app', { mobile: isMobile }, [])}>
          <Suspense fallback="">
             <Header className="app__header" />
             <Sidebar className="app__sidebar" />

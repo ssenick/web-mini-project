@@ -48,7 +48,7 @@
     grid-column: span 3;
   }
 
-  @media (max-width: 772px) {
+  @media (max-width: var(--mobile)) {
     .currency {
       grid-column: span 4;
     }
@@ -62,7 +62,7 @@
     }
   }
 
-  @media (max-width: 410px) {
+  @media (max-width: var(--small)) {
     .input,
     .inputWithError {
       grid-column: span 12;

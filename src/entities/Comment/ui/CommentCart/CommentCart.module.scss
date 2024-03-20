@@ -22,7 +22,7 @@
     grid-column: 2;
   }
 
-  @media (max-width: 772px) {
+  @media (max-width: var(--mobile)) {
     padding: 8px;
   }
 }

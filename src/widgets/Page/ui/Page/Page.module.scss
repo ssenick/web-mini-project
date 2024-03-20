@@ -40,7 +40,7 @@
       }
     }
 
-    @media (max-width: 772px) {
+    @media (max-width: var(--mobile)) {
       width: 40px;
       height: 40px;
       right: 30px;
