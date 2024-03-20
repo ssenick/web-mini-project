@@ -33,6 +33,15 @@ const HomePage = memo((): JSX.Element => {
                11111
             </Drawer>
             <StarRating />
+            <StarRating />
+            <StarRating />
+            <StarRating />
+            <StarRating />
+            <StarRating />
+            <StarRating />
+            <StarRating />
+            <StarRating />
+            <Rating title={t('Заголовок страницы')} feedbackTitle={'спасибо'} hasFeedback />
             <Rating title={t('Заголовок страницы')} feedbackTitle={'спасибо'} hasFeedback />
          </div>
       </Page>

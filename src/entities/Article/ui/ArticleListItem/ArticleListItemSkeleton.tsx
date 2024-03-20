@@ -19,12 +19,12 @@ export const ArticleListItemSkeleton = memo(({ className, view }: ArticleListIte
                <div className={cls.about}>
                   <div className={cls.user}>
                      <Skeleton width={30} height={30} border={'50%'} />
-                     <Skeleton width={80} height={22} border={'5px'} />
+                     <Skeleton width={50} height={22} border={'5px'} />
                   </div>
                   <Skeleton className={cls.title} width={70} height={30} border={'5px'} />
-                  <Skeleton className={cls.types} width={150} height={25} border={'5px'} />
+                  <Skeleton className={cls.types} width={50} height={25} border={'5px'} />
                </div>
-               <Skeleton className={cls.createAtt} width={65} height={18} border={'5px'} />
+               <Skeleton className={cls.createAtt} width={45} height={30} border={'5px'} />
             </div>
             <div className={cls.imageBlock}>
                <Skeleton className={cls.image} width={'100%'} height={'100%'} border={'5px'} />

@@ -2,6 +2,7 @@ import { type FC, type MutableRefObject, type ReactNode, useCallback, useRef } f
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
+import { useMediaQueryValues } from '@/app/povaiders/MediaQueryProvaider';
 import { type StateSchema } from '@/app/povaiders/StoreProvaider';
 import { getScrollSaveByPath, scrollActions } from '@/features/ScrollSave';
 import ArrowUp from '@/shared/assets/icons/arrowUp.svg';
@@ -28,6 +29,7 @@ interface PageProps extends TestProps {
 
 export const Page: FC<PageProps> = (props) => {
    const { className, children, onScrollEnd, title, scrollTrigger = false, arrowUp } = props;
+   const { isMobile } = useMediaQueryValues();
    const scrollArrowUpOn = useRef(false);
    const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -91,7 +93,7 @@ export const Page: FC<PageProps> = (props) => {
          ref={wrapperRef}
          data-testid={props['data-testid'] ?? 'Page'}
          onScroll={onScroll}
-         className={classNames(cls.Page, {}, [className])}
+         className={classNames(cls.Page, { [cls.mobile]: isMobile }, [className])}
       >
          {title && <Text title={title} className={cls.title} size={TextFontSize.L} />}
          {children}
