@@ -83,13 +83,8 @@ export const Rating = memo((props: RatingProps) => {
                <Text title={startsCount ? t('Спасибо за вашу оценку!') : title} size={TextFontSize.L} />
                <StarRating size={40} selectedStarts={startsCount} onSelect={onSelectStars} />
             </VStack>
-            <BrowserView>
-               <Modal isOpen={isModalOpen} onClose={cancelHandler} lazy>
-                  {modalContent}
-               </Modal>
-            </BrowserView>
             <MobileView>
-               <Drawer isOpen={isModalOpen} lazy>
+               <Drawer lazy isOpen={isModalOpen} onClose={cancelHandler}>
                   {modalContent}
                </Drawer>
             </MobileView>
@@ -108,11 +103,6 @@ export const Rating = memo((props: RatingProps) => {
                {modalContent}
             </Modal>
          </BrowserView>
-         <MobileView>
-            <Drawer isOpen={isModalOpen} lazy>
-               {modalContent}
-            </Drawer>
-         </MobileView>
       </Card>
    );
 });

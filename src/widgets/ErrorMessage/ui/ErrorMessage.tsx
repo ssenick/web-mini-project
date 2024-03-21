@@ -9,8 +9,8 @@ interface ErrorMessageProps {
    className?: string;
    title: string;
    description?: string;
-   buttonContent: string;
-   onClick: () => void;
+   buttonContent?: string;
+   onClick?: () => void;
 }
 
 export const ErrorMessage = memo((props: ErrorMessageProps): JSX.Element => {
@@ -26,9 +26,11 @@ export const ErrorMessage = memo((props: ErrorMessageProps): JSX.Element => {
                   {description}
                </div>
             )}
-            <Button onClick={onClick} className={cls.btn} variant={ButtonVariant.BACKGROUND}>
-               {buttonContent}
-            </Button>
+            {buttonContent && onClick && (
+               <Button onClick={onClick} className={cls.btn} variant={ButtonVariant.BACKGROUND}>
+                  {buttonContent}
+               </Button>
+            )}
          </div>
       </div>
    );

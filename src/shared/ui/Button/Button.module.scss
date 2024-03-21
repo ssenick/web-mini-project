@@ -16,10 +16,6 @@
     animation: pulse 1s;
     box-shadow: 0 0 0 1em transparent;
   }
-
-  @media (max-width: 772px) {
-    padding: 3px 8px;
-  }
 }
 
 .clean {
@@ -56,6 +52,11 @@
     width: 18px;
     height: 18px;
     fill: var(--primary-color);
+
+    @media (max-width: 772px) {
+      width: 16px;
+      height: 16px;
+    }
   }
 }
 

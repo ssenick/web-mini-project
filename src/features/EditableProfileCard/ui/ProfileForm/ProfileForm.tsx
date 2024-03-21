@@ -55,6 +55,7 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
    useEffect(() => {
       if (id) void dispatch(fetchProfileData(id));
    }, [id, dispatch]);
+
    const onEdit = useCallback(() => {
       dispatch(profileActions.setReadonly(false));
    }, [dispatch]);

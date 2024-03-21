@@ -17,12 +17,14 @@
     display: flex;
     align-items: end;
     background-color: var(--overlay-color);
+    touch-action: none;
   }
 
   .wrapper {
     display: grid !important;
     position: relative;
     width: 100%;
+    touch-action: none;
     height: calc(90% + 30px);
     will-change: transform;
     background-color: var(--bg-module);
@@ -43,10 +45,12 @@
   }
 
   .content {
+    transform: translateY(0%);
     display: grid;
     overflow-y: auto;
     overflow-x: hidden;
     min-height: 100px;
+    touch-action: none;
     padding: 0 5px;
 
     &::-webkit-scrollbar-thumb {

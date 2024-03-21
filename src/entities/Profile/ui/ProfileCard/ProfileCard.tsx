@@ -8,6 +8,7 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Input, InputVariant } from '@/shared/ui/Input/Input';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Text, TextAlign, TextFontSize, TextVariant } from '@/shared/ui/Text/Text';
+import { ErrorMessage } from '@/widgets/ErrorMessage';
 
 import { type Profile } from '../..';
 import { ValidateProfileErrors } from '../../model/consts/profileConsts';
@@ -132,6 +133,9 @@ export const ProfileCard = memo((props: ProfileCardProps): JSX.Element => {
             text={t('попробуйте обновить страницу')}
          />
       );
+   }
+   if (!data) {
+      return <ErrorMessage title={t('упс')} description={t('что-то пошло не так')} />;
    }
    return (
       <div className={classNames(cls.ProfileCard, {}, [className])}>
