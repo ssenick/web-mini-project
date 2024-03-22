@@ -1,5 +1,4 @@
 import { memo, useCallback, useMemo, useState } from 'react';
-import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 
 import { useMediaQueryValues } from '@/app/povaiders/MediaQueryProvaider';
@@ -51,6 +50,7 @@ export const Rating = memo((props: RatingProps) => {
    }, [feedback, startsCount, onAccept]);
 
    const cancelHandler = useCallback(() => {
+      // setIsCloseModal(true);
       setIsModalOpen(false);
       onCancel?.(startsCount);
    }, [startsCount, onCancel]);
@@ -76,33 +76,21 @@ export const Rating = memo((props: RatingProps) => {
       );
    }, [feedbackTitle, feedback, onChange, cancelHandler, acceptHandler, t]);
 
-   if (isMobile) {
-      return (
-         <Card className={classNames(cls.Rating, {}, [className])}>
-            <VStack gap={'15'} align={'center'}>
-               <Text title={startsCount ? t('Спасибо за вашу оценку!') : title} size={TextFontSize.L} />
-               <StarRating size={40} selectedStarts={startsCount} onSelect={onSelectStars} />
-            </VStack>
-            <MobileView>
-               <Drawer lazy isOpen={isModalOpen} onClose={cancelHandler}>
-                  {modalContent}
-               </Drawer>
-            </MobileView>
-         </Card>
-      );
-   }
-
    return (
       <Card className={classNames(cls.Rating, {}, [className])}>
          <VStack gap={'15'} align={'center'}>
             <Text title={startsCount ? t('Спасибо за вашу оценку!') : title} size={TextFontSize.L} />
             <StarRating size={50} selectedStarts={startsCount} onSelect={onSelectStars} />
          </VStack>
-         <BrowserView>
+         {isMobile ? (
+            <Drawer lazy isOpen={isModalOpen} onClose={cancelHandler}>
+               {modalContent}
+            </Drawer>
+         ) : (
             <Modal isOpen={isModalOpen} onClose={cancelHandler} lazy>
                {modalContent}
             </Modal>
-         </BrowserView>
+         )}
       </Card>
    );
 });

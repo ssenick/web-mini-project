@@ -8,12 +8,11 @@ interface LoginModalProps {
    className?: string;
    isOpen?: boolean;
    onClose?: () => void;
-   isCloseModal?: boolean;
 }
 
-export const LoginModal = memo(({ className, isOpen, onClose, isCloseModal }: LoginModalProps) => {
+export const LoginModal = memo(({ className, isOpen, onClose }: LoginModalProps) => {
    return (
-      <Modal className={className} isOpen={isOpen} onClose={onClose} lazy isCloseModal={isCloseModal}>
+      <Modal className={className} isOpen={isOpen} onClose={onClose} lazy>
          <LoginFormAsync />
       </Modal>
    );

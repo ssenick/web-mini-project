@@ -1994,6 +1994,19 @@
       "feedback": "Хорошая статья",
       "userId": "1",
       "articleId": "1"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 5,
+      "feedback": "OK!",
+      "id": "0CasSgx"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 5,
+      "id": "V1LVaje"
     }
   ],
   "profile-ratings": [

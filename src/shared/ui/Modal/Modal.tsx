@@ -1,4 +1,4 @@
-import { type ReactNode, useMemo } from 'react';
+import { type ReactNode, useEffect, useMemo } from 'react';
 
 import { classNames, type Mods } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal';
@@ -12,16 +12,14 @@ interface ModalProps {
    isOpen?: boolean;
    onClose?: () => void;
    lazy?: boolean;
-   isCloseModal?: boolean;
    animationDelay?: number;
 }
 
 export const Modal = (props: ModalProps): JSX.Element | null => {
-   const { className, children, isOpen, onClose, lazy, isCloseModal, animationDelay = 1000 } = props;
+   const { className, children, isOpen, onClose, lazy, animationDelay = 1000 } = props;
    const { isMounted, isClosing, onContentClick, closeHandler } = useModal({
       onClose,
       isOpen,
-      isCloseModal,
       animationDelay,
    });
 
@@ -72,6 +70,11 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
    //     window.removeEventListener('keydown', onKeyDown)
    //   }
    // }, [isOpen, onKeyDown])
+   useEffect(() => {
+      if (!isOpen && isMounted) {
+         closeHandler();
+      }
+   }, [isOpen, isMounted, closeHandler]);
 
    const mods: Mods = useMemo(
       () => ({
@@ -81,8 +84,9 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
       [isOpen, isClosing],
    );
 
-   if (lazy && !isMounted) return null;
-
+   if (lazy && !isMounted && !isClosing) {
+      return null;
+   }
    return (
       <Portal>
          <div data-testid="modal" className={classNames(cls.Modal, mods, [className])}>

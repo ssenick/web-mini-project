@@ -3,12 +3,11 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 interface UseModalProps {
    onClose?: () => void;
    isOpen?: boolean;
-   isCloseModal?: boolean;
    animationDelay?: number;
 }
 
 export function useModal(props: UseModalProps) {
-   const { onClose, isOpen, animationDelay = 1000, isCloseModal } = props;
+   const { onClose, isOpen, animationDelay = 1000 } = props;
    const [isClosing, setIsClosing] = useState(false);
    const [isMounted, setIsMounted] = useState(false);
    const timeRef = useRef<ReturnType<typeof setTimeout>>();
@@ -36,12 +35,6 @@ export function useModal(props: UseModalProps) {
       },
       [closeHandler],
    );
-
-   useEffect(() => {
-      if (isCloseModal) {
-         closeHandler();
-      }
-   }, [isCloseModal, closeHandler]);
 
    useEffect(() => {
       if (isOpen) {

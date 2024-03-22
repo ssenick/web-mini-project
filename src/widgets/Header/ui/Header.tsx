@@ -35,7 +35,6 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
    const { theme } = useTheme();
    const { t } = useTranslation();
    const [isAuthModal, setIsAuthModal] = useState(false);
-   const [isCloseModal, setIsCloseModal] = useState(false);
    const userAuth = useSelector(getUserAuthData);
    const isAdmin = useSelector(isUserAdmin);
    const isManager = useSelector(isUserManager);
@@ -66,12 +65,10 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
 
    useEffect(() => {
       if (userAuth) {
-         setIsCloseModal(true);
+         onCloseModal();
          onCloseDrawer();
-      } else {
-         setIsCloseModal(false);
       }
-   }, [userAuth, onCloseDrawer]);
+   }, [userAuth, onCloseModal, onCloseDrawer]);
 
    const DropDawnItems: DropdownItem[] = useMemo(
       () => [
@@ -153,7 +150,7 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
                </>
             )}
          </div>
-         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} isCloseModal={isCloseModal} />
+         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
       </header>
    );
 });
