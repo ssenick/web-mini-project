@@ -95,18 +95,20 @@ export const Page: FC<PageProps> = (props) => {
          onScroll={onScroll}
          className={classNames(cls.Page, { [cls.mobile]: isMobile }, [className])}
       >
-         {title && <Text title={title} className={cls.title} size={TextFontSize.L} />}
-         {children}
-         {onScrollEnd ? <div className={cls.trigger} ref={triggerRef}></div> : null}
-         {arrowUp && (
-            <Button
-               onClick={scrollUp}
-               circle
-               className={classNames(cls.arrowUp, { [cls.on]: scrollArrowUpOn.current }, [])}
-            >
-               <Icon Svg={ArrowUp}></Icon>
-            </Button>
-         )}
+         <div className={cls.content}>
+            {title && <Text title={title} className={cls.title} size={TextFontSize.L} />}
+            {children}
+            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef}></div> : null}
+            {arrowUp && (
+               <Button
+                  onClick={scrollUp}
+                  circle
+                  className={classNames(cls.arrowUp, { [cls.on]: scrollArrowUpOn.current }, [])}
+               >
+                  <Icon Svg={ArrowUp}></Icon>
+               </Button>
+            )}
+         </div>
       </section>
    );
 };

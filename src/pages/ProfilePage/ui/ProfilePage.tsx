@@ -18,9 +18,7 @@ const ProfilePage = ({ className }: ProfilePageProps): JSX.Element => {
          title={t('Заголовок страницы')}
          className={classNames(cls.ProfilePage, {}, [className])}
       >
-         <div className={cls.content}>
-            <ProfileForm />
-         </div>
+         <ProfileForm />
       </Page>
    );
 };
