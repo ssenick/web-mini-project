@@ -1897,6 +1897,9 @@
         "MANAGER",
         "USER"
       ],
+      "features": {
+        "isAppRedesigned": true
+      },
       "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"
     },
     {
@@ -1906,6 +1909,9 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isAppRedesigned": false
+      },
       "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
     },
     {
@@ -1915,6 +1921,9 @@
       "roles": [
         "MANAGER"
       ],
+      "features": {
+        "isAppRedesigned": true
+      },
       "avatar": "https://klike.net/uploads/posts/2019-03/1551512888_2.jpg"
     }
   ],
@@ -1924,7 +1933,7 @@
       "first": "Ruslan",
       "lastname": "Senchenko",
       "age": 33,
-      "currency": "CAD",
+      "currency": "EUR",
       "country": "Canada",
       "city": "Sumy",
       "username": "ssenick",
