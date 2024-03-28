@@ -21,6 +21,7 @@ interface InputProps extends HTMLInputProps {
    autofocus?: boolean;
    readonly?: boolean;
    label?: string;
+   labelSize?: TextFontSize;
 }
 
 export const Input = memo((props: InputProps): JSX.Element => {
@@ -33,6 +34,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
       autofocus,
       readonly,
       label,
+      labelSize = TextFontSize.SXS,
       ...otherProps
    } = props;
    const [isFocus, setIsFocus] = useState(false);
@@ -66,7 +68,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
          className={classNames(cls.inputWrapper, mods, [className, cls[variant]])}
       >
          <label>
-            {label && <Text size={TextFontSize.SXS} title={label} className={cls.label} />}
+            {label && <Text size={labelSize} title={label} className={cls.label} />}
             <input
                data-testid="input"
                value={value}

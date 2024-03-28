@@ -8,14 +8,14 @@ interface UseInfinityScrollOptions {
 
 export function useInfinityScroll({ callback, triggerRef, wrapperRef }: UseInfinityScrollOptions): void {
    useEffect(() => {
-      const wrapperElement = wrapperRef.current;
+      const wrapperElement = wrapperRef.current || null;
       const triggerElement = triggerRef.current;
 
       if (callback && wrapperElement && triggerElement) {
          const options = {
             root: null,
             rootMargin: '0px',
-            threshold: 1.0,
+            threshold: 0.1,
          };
          const observer = new IntersectionObserver(([entries]) => {
             if (entries.isIntersecting) {

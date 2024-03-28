@@ -1,11 +1,12 @@
 import { type ImgHTMLAttributes, memo, type ReactElement, useLayoutEffect, useState } from 'react';
 
+import TestImage from '@/shared/assets/test/image.jpg';
+
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
    className?: string;
    fallback?: ReactElement;
    errorFallback?: ReactElement;
 }
-
 export const AppImage = memo((props: AppImageProps) => {
    const { className, src, alt = 'image', fallback, errorFallback, ...otherProps } = props;
    const [isLoading, setIsLoading] = useState(true);
@@ -30,5 +31,8 @@ export const AppImage = memo((props: AppImageProps) => {
       return errorFallback;
    }
 
+   if (__PROJECT__ === 'storybook') {
+      return <img className={className} src={TestImage} alt={alt} {...otherProps} />;
+   }
    return <img className={className} src={src} alt={alt} {...otherProps} />;
 });

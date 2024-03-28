@@ -28,6 +28,6 @@
       "./src/**/*.tsx",
       "./config",
       "./json-server",
-      "scripts/updateImports.ts"
+      "scripts"
    ]
 }

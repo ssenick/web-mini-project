@@ -6,18 +6,33 @@ import { classNames, type Mods } from '@/shared/lib/classNames/classNames';
 import { Text, TextFontSize } from '../Text/Text';
 import cls from './TextArea.module.scss';
 
+export enum TextAreaVariant {
+   NORMAL = '',
+   INVERSE_BG = 'inverse-bg',
+}
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'value' | 'onChange' | 'readOnly'>;
 
 interface TextAreaProps extends HTMLInputProps {
    className?: string;
+   variant?: TextAreaVariant;
    value?: string | number;
    onChange?: (value: string) => void;
    readonly?: boolean;
    label?: string;
+   height?: string;
 }
 
 export const TextArea = memo((props: TextAreaProps) => {
-   const { className, value, onChange, readonly, label, ...otherProps } = props;
+   const {
+      className,
+      value,
+      onChange,
+      readonly,
+      label,
+      height,
+      variant = TextAreaVariant.NORMAL,
+      ...otherProps
+   } = props;
 
    const [isFocus, setIsFocus] = useState(false);
 
@@ -43,10 +58,10 @@ export const TextArea = memo((props: TextAreaProps) => {
       }),
       [isFocus, readonly],
    );
-
+   const style = useMemo(() => ({ height }), [height]);
    if (label) {
       return (
-         <div className={classNames(cls.TextArea, mods, [className])}>
+         <div className={classNames(cls.TextArea, mods, [className, cls[variant]])}>
             <label>
                {label && <Text size={TextFontSize.SXS} title={label} className={cls.label} />}
                <textarea
@@ -56,6 +71,7 @@ export const TextArea = memo((props: TextAreaProps) => {
                   onFocus={onFocus}
                   onBlur={onBlur}
                   readOnly={readonly}
+                  style={style}
                   {...otherProps}
                />
             </label>
@@ -72,6 +88,7 @@ export const TextArea = memo((props: TextAreaProps) => {
             onFocus={onFocus}
             onBlur={onBlur}
             readOnly={readonly}
+            style={style}
             {...otherProps}
          />
       </div>

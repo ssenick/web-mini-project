@@ -1,4 +1,10 @@
 .ArticleTextBlockComponent {
+  .editBlock {
+    padding: 10px;
+    border: 1px dashed var(--secondary-color);
+    border-radius: var(--border-radius-small);
+  }
+
   .title {
     margin-bottom: 10px;
   }

@@ -1,9 +1,7 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
-import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
    DynamicModuleLoader,
@@ -38,8 +36,8 @@ const LoginForm = memo(({ className, max }: LoginFormProps) => {
    const isLoading = useSelector(getLoginIsLoading);
    const error = useSelector(getLoginError);
    const dispatch = useAppDispatch();
-   const navigate = useNavigate();
-   const user = useSelector(getUserAuthData);
+   // const navigate = useNavigate();
+   // const user = useSelector(getUserAuthData);
    const onChangeUsername = useCallback(
       (value: string) => {
          dispatch(loginActions.setUsername(value));
@@ -76,11 +74,11 @@ const LoginForm = memo(({ className, max }: LoginFormProps) => {
       };
    }, [onKeyDown]);
 
-   useEffect(() => {
-      if (user) {
-         navigate('/profile/' + user.id);
-      }
-   }, [navigate, user]);
+   // useEffect(() => {
+   //    if (user) {
+   //       navigate('/profile/' + user.id);
+   //    }
+   // }, [navigate, user]);
    return (
       <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
          <div className={classNames(cls.LoginForm, {}, [className])}>

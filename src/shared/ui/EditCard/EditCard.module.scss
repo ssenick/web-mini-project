@@ -1,0 +1,19 @@
+.EditCard {
+  border-radius: var(--border-radius-small);
+  border: 1px solid var(--bg-input);
+
+  .header {
+    padding: 10px;
+    background-color: var(--bg-color-comment);
+  }
+
+  .closeBtn {
+    color: var(--error-primary);
+  }
+
+  .content {
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+  }
+}

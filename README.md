@@ -34,6 +34,7 @@
 - `npm run prepare` - Pre commit hooks
 - `npm run prettier` - Format all files with Prettier
 - `npm run generate:slice` - Script for generating FSD slices
+- `npm run remove-feature` - Script removes one of the functions, for "ToggleFeatures"
 
 ----
 

@@ -1,0 +1,14 @@
+.ArticleEditImageBlock {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .image {
+    max-width: 100%;
+    justify-self: center;
+
+    &:not(:last-child) {
+      margin-bottom: 7px;
+    }
+  }
+}

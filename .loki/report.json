@@ -1,1 +1,44 @@
-{"newItems":[],"deletedItems":[],"passedItems":[],"failedItems":["chrome_laptop_pages_Article_ArticlePage_Big.png","chrome_laptop_pages_Article_ArticlePage_Big_Dark.png","chrome_laptop_pages_Article_ArticlePage_Big_Funny.png","chrome_laptop_pages_Article_ArticlePage_Small.png","chrome_laptop_pages_Article_ArticlePage_Small_Dark.png","chrome_laptop_pages_Article_ArticlePage_Small_Funny.png","chrome_laptop_pages_ForbiddenPage_Light.png"],"expectedItems":["chrome_laptop_pages_Article_ArticlePage_Big.png","chrome_laptop_pages_Article_ArticlePage_Big_Dark.png","chrome_laptop_pages_Article_ArticlePage_Big_Funny.png","chrome_laptop_pages_Article_ArticlePage_Small.png","chrome_laptop_pages_Article_ArticlePage_Small_Dark.png","chrome_laptop_pages_Article_ArticlePage_Small_Funny.png","chrome_laptop_pages_ForbiddenPage_Light.png"],"actualItems":["chrome_laptop_pages_Article_ArticlePage_Big.png","chrome_laptop_pages_Article_ArticlePage_Big_Dark.png","chrome_laptop_pages_Article_ArticlePage_Big_Funny.png","chrome_laptop_pages_Article_ArticlePage_Small.png","chrome_laptop_pages_Article_ArticlePage_Small_Dark.png","chrome_laptop_pages_Article_ArticlePage_Small_Funny.png","chrome_laptop_pages_ForbiddenPage_Light.png"],"diffItems":["chrome_laptop_pages_Article_ArticlePage_Big.png","chrome_laptop_pages_Article_ArticlePage_Big_Dark.png","chrome_laptop_pages_Article_ArticlePage_Big_Funny.png","chrome_laptop_pages_Article_ArticlePage_Small.png","chrome_laptop_pages_Article_ArticlePage_Small_Dark.png","chrome_laptop_pages_Article_ArticlePage_Small_Funny.png","chrome_laptop_pages_ForbiddenPage_Light.png"],"actualDir":"current","expectedDir":"reference","diffDir":"difference"}
+{
+   "newItems": [],
+   "deletedItems": [],
+   "passedItems": [],
+   "failedItems": [
+      "chrome_laptop_pages_Article_ArticlePage_Big.png",
+      "chrome_laptop_pages_Article_ArticlePage_Big_Dark.png",
+      "chrome_laptop_pages_Article_ArticlePage_Big_Funny.png",
+      "chrome_laptop_pages_Article_ArticlePage_Small.png",
+      "chrome_laptop_pages_Article_ArticlePage_Small_Dark.png",
+      "chrome_laptop_pages_Article_ArticlePage_Small_Funny.png",
+      "chrome_laptop_pages_ForbiddenPage_Light.png"
+   ],
+   "expectedItems": [
+      "chrome_laptop_pages_Article_ArticlePage_Big.png",
+      "chrome_laptop_pages_Article_ArticlePage_Big_Dark.png",
+      "chrome_laptop_pages_Article_ArticlePage_Big_Funny.png",
+      "chrome_laptop_pages_Article_ArticlePage_Small.png",
+      "chrome_laptop_pages_Article_ArticlePage_Small_Dark.png",
+      "chrome_laptop_pages_Article_ArticlePage_Small_Funny.png",
+      "chrome_laptop_pages_ForbiddenPage_Light.png"
+   ],
+   "actualItems": [
+      "chrome_laptop_pages_Article_ArticlePage_Big.png",
+      "chrome_laptop_pages_Article_ArticlePage_Big_Dark.png",
+      "chrome_laptop_pages_Article_ArticlePage_Big_Funny.png",
+      "chrome_laptop_pages_Article_ArticlePage_Small.png",
+      "chrome_laptop_pages_Article_ArticlePage_Small_Dark.png",
+      "chrome_laptop_pages_Article_ArticlePage_Small_Funny.png",
+      "chrome_laptop_pages_ForbiddenPage_Light.png"
+   ],
+   "diffItems": [
+      "chrome_laptop_pages_Article_ArticlePage_Big.png",
+      "chrome_laptop_pages_Article_ArticlePage_Big_Dark.png",
+      "chrome_laptop_pages_Article_ArticlePage_Big_Funny.png",
+      "chrome_laptop_pages_Article_ArticlePage_Small.png",
+      "chrome_laptop_pages_Article_ArticlePage_Small_Dark.png",
+      "chrome_laptop_pages_Article_ArticlePage_Small_Funny.png",
+      "chrome_laptop_pages_ForbiddenPage_Light.png"
+   ],
+   "actualDir": "current",
+   "expectedDir": "reference",
+   "diffDir": "difference"
+}

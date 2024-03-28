@@ -12,10 +12,11 @@ import cls from './Code.module.scss';
 interface CodeProps {
    className?: string;
    text: string;
+   readonly?: boolean;
 }
 const delay = 500;
 
-export const Code = memo(({ className, text }: CodeProps) => {
+export const Code = memo(({ className, text, readonly }: CodeProps) => {
    const [isCopy, setIsCopy] = useState(false);
    const { t } = useTranslation();
 
@@ -30,9 +31,11 @@ export const Code = memo(({ className, text }: CodeProps) => {
    return (
       <div className={classNames(cls.Code, {}, [className])}>
          <pre className={cls.pre}>
-            <Button onClick={onCopy} className={cls.button_copy} variant={ButtonVariant.THEME_ICON}>
-               <Icon Svg={CopyIcon} className={cls.icon} />
-            </Button>
+            {!readonly && (
+               <Button onClick={onCopy} className={cls.button_copy} variant={ButtonVariant.THEME_ICON}>
+                  <Icon Svg={CopyIcon} className={cls.icon} />
+               </Button>
+            )}
             {isCopy && (
                <div className={cls.massage}>
                   <Text className={cls.textMassage} size={TextFontSize.L} title={t('Текст скопирован')} />
