@@ -1,7 +1,8 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
+import { updateArticleById } from '../../model/services/updateArticleById/updateArticleById';
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
-import { type Article } from '../types/article';
+import { type Article, type ArticleBlock } from '../types/article';
 import { type ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
 const initialState: ArticleDetailsSchema = {
@@ -13,7 +14,26 @@ const initialState: ArticleDetailsSchema = {
 export const articleDetailsSlice = createSlice({
    name: 'articleDetails',
    initialState,
-   reducers: {},
+   reducers: {
+      updateTitle: (state, action: PayloadAction<string>) => {
+         if (state.forms) state.forms.title = action.payload;
+      },
+      updateMainImage: (state, action: PayloadAction<string>) => {
+         if (state.forms) state.forms.img = action.payload;
+      },
+      updateSubTitle: (state, action: PayloadAction<string>) => {
+         if (state.forms) state.forms.subtitle = action.payload;
+      },
+      updateTextBlock: (state, action: PayloadAction<{ id: string; updatedBlock: ArticleBlock }>) => {
+         if (state.forms?.blocks) {
+            const { id, updatedBlock } = action.payload;
+            const index = state.forms.blocks.findIndex((block) => block.id === id);
+            if (index !== -1) {
+               state.forms.blocks[index] = updatedBlock;
+            }
+         }
+      },
+   },
    extraReducers: (builder) => {
       builder
          .addCase(fetchArticleById.pending, (state) => {
@@ -23,8 +43,22 @@ export const articleDetailsSlice = createSlice({
          .addCase(fetchArticleById.fulfilled, (state, action: PayloadAction<Article>) => {
             state.isLoading = false;
             state.data = action.payload;
+            state.forms = action.payload;
          })
          .addCase(fetchArticleById.rejected, (state, action) => {
+            state.isLoading = false;
+            state.error = action.payload;
+         })
+         .addCase(updateArticleById.pending, (state) => {
+            state.error = undefined;
+            state.isLoading = true;
+         })
+         .addCase(updateArticleById.fulfilled, (state, action: PayloadAction<Article>) => {
+            state.isLoading = false;
+            state.data = action.payload;
+            state.forms = action.payload;
+         })
+         .addCase(updateArticleById.rejected, (state, action) => {
             state.isLoading = false;
             state.error = action.payload;
          });

@@ -54,10 +54,11 @@ export const Page: FC<PageProps> = (props) => {
                path: pathname,
             }),
          );
-         arrowUp && wrapperRef.current?.scrollTop > 200
-            ? (scrollArrowUpOn.current = true)
-            : (scrollArrowUpOn.current = false);
       }
+
+      arrowUp && wrapperRef.current?.scrollTop > 200
+         ? (scrollArrowUpOn.current = true)
+         : (scrollArrowUpOn.current = false);
    }, 400);
 
    const scrollUp = useCallback(() => {
@@ -80,6 +81,7 @@ export const Page: FC<PageProps> = (props) => {
       //    behavior: 'smooth',
       // });
    });
+
    if (__PROJECT__ === 'storybook') {
       return (
          <section className={classNames(cls.Page, {}, [className])}>
@@ -88,6 +90,7 @@ export const Page: FC<PageProps> = (props) => {
          </section>
       );
    }
+
    return (
       <section
          ref={wrapperRef}

@@ -2,7 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { type ThunkConfig } from '@/app/povaiders/StoreProvaider';
 
-import { type Article, getArticleDetailsForms } from '../../..';
+import { getArticleDetailsForms } from '../../selectors/articleDetails';
+import { type Article } from '../../types/article';
 
 function checkData(data: Article): void {
    if (!data) {

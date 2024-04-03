@@ -53,7 +53,7 @@ Light.decorators = [
    ThemeDecorator(Theme.LIGHT),
    StoreDecorator({
       articleDetails: {
-         data,
+         forms: data,
       },
    }),
    RouterDecorator,

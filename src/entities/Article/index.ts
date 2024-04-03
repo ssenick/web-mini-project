@@ -3,10 +3,12 @@ export { getCanEditArticle } from './model/selectors/article';
 export {
    getArticleDetailsData,
    getArticleDetailsError,
+   getArticleDetailsForms,
    getArticleDetailsIsLoading,
 } from './model/selectors/articleDetails';
 export { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
-export { articleDetailsReducer } from './model/slice/articleDetailsSlice';
+export { updateArticleById } from './model/services/updateArticleById/updateArticleById';
+export { articleDetailsActions, articleDetailsReducer } from './model/slice/articleDetailsSlice';
 export type { ArticleBlock } from './model/types/article';
 export type { ArticleCodeBlock, ArticleImageBlock, ArticleTextBlock } from './model/types/article';
 export { type Article } from './model/types/article';

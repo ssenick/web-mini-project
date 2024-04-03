@@ -1,6 +1,7 @@
 .EditCard {
   border-radius: var(--border-radius-small);
   border: 1px solid var(--bg-input);
+  overflow: hidden;
 
   .header {
     padding: 10px;

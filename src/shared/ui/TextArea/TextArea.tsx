@@ -20,6 +20,7 @@ interface TextAreaProps extends HTMLInputProps {
    readonly?: boolean;
    label?: string;
    height?: string;
+   maxHeight?: boolean;
 }
 
 export const TextArea = memo((props: TextAreaProps) => {
@@ -30,6 +31,7 @@ export const TextArea = memo((props: TextAreaProps) => {
       readonly,
       label,
       height,
+      maxHeight,
       variant = TextAreaVariant.NORMAL,
       ...otherProps
    } = props;
@@ -55,8 +57,9 @@ export const TextArea = memo((props: TextAreaProps) => {
       () => ({
          [cls.isFocus]: isFocus,
          [cls.readonly]: readonly,
+         [cls.maxHeight]: maxHeight,
       }),
-      [isFocus, readonly],
+      [isFocus, readonly, maxHeight],
    );
    const style = useMemo(() => ({ height }), [height]);
    if (label) {
