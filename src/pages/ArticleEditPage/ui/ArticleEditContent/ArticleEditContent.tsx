@@ -21,6 +21,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { AppImage } from '@/shared/ui/AppImage/AppImage';
 import { Input, InputVariant } from '@/shared/ui/Input/Input';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { VStack } from '@/shared/ui/Stack';
 import { TextFontSize } from '@/shared/ui/Text/Text';
 import { ErrorMessage } from '@/widgets/ErrorMessage';
 
@@ -75,7 +76,14 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
 
    const onUpdateBlock = useCallback(
       (updatedData: { id: string; updatedBlock: ArticleBlock }) => {
-         dispatch(articleDetailsActions.updateTextBlock(updatedData));
+         dispatch(articleDetailsActions.updateBlock(updatedData));
+      },
+      [dispatch],
+   );
+
+   const onDeleteBlock = useCallback(
+      (id: string) => {
+         dispatch(articleDetailsActions.deleteBlock(id));
       },
       [dispatch],
    );
@@ -90,6 +98,7 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
                      className={cls.block}
                      block={block}
                      onUpdateTextBlock={onUpdateBlock}
+                     onDeleteBlock={onDeleteBlock}
                   />
                );
             case ArticleBlockType.IMAGE:
@@ -99,6 +108,7 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
                      className={cls.block}
                      block={block}
                      onUpdateImageBlock={onUpdateBlock}
+                     onDeleteBlock={onDeleteBlock}
                   />
                );
             case ArticleBlockType.CODE:
@@ -108,11 +118,12 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
                      className={cls.block}
                      block={block}
                      onUpdateCodeBlock={onUpdateBlock}
+                     onDeleteBlock={onDeleteBlock}
                   />
                );
          }
       },
-      [onUpdateBlock],
+      [onDeleteBlock, onUpdateBlock],
    );
 
    let content;
@@ -120,7 +131,7 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
    if (isLoading) {
       content = (
          <>
-            <div className={cls.header}>
+            <VStack gap={'15'} className={cls.header}>
                <div className={cls.editBlock}>
                   <Skeleton className={cls.header__title} width={'100%'} height={72} border={'5px'} />
                </div>
@@ -135,7 +146,7 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
                      <Skeleton width={'100%'} height={64} border={'5px'} />
                   </div>
                </div>
-            </div>
+            </VStack>
             <div className={cls.article}>
                <Skeleton className={cls.block} width={'100%'} height={200} border={'5px'} />
                <Skeleton className={cls.block} width={'100%'} height={200} border={'5px'} />
@@ -150,7 +161,7 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
    } else if (article) {
       content = (
          <>
-            <div className={cls.header}>
+            <VStack gap={'15'} className={cls.header}>
                <div className={cls.editBlock}>
                   <Input
                      onChange={onChangeTitle}
@@ -172,6 +183,7 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
                      />
                   </div>
                   <Input
+                     className={cls.mainLink}
                      onChange={onChangeMainImage}
                      label={t('Ссылка на главное изображение')}
                      labelSize={TextFontSize.M}
@@ -190,7 +202,7 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
                      />
                   </div>
                </div>
-            </div>
+            </VStack>
             <div className={cls.article}>{article?.blocks.map(renderBlock)}</div>
          </>
       );

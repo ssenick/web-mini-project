@@ -7,6 +7,9 @@ export default defineConfig({
    plugins: [
       svgr({
          exportAsDefault: true,
+         svgrOptions: {
+            icon: true,
+         },
       }),
       react(),
    ],

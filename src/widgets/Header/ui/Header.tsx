@@ -117,8 +117,8 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
    return (
       <header className={classNames(cls.Header, {}, [className])}>
          <AppLink className={cls.logo} noActive to="/" variant={AppLinkVariant.CLEAN}>
-            {(theme === Theme.DARK || theme === Theme.FUNNY) && <LogoWhiteIcon />}
-            {theme === Theme.LIGHT && <LogoDarkIcon />}
+            {(theme === Theme.DARK || theme === Theme.FUNNY) && <Icon width={'100%'} Svg={LogoWhiteIcon} />}
+            {theme === Theme.LIGHT && <Icon width={'100%'} Svg={LogoDarkIcon} />}
          </AppLink>
          <div className={cls.action}>
             <ThemeSwitcher />

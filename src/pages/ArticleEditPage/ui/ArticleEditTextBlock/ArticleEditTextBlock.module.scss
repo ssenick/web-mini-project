@@ -1,3 +1,22 @@
 .ArticleEditTextBlock {
   position: relative;
+
+  .title {
+    margin-bottom: 15px;
+  }
+
+  .block {
+    position: relative;
+    padding: 10px;
+    border-radius: var(--border-radius-small);
+    border: 1px dashed  var(--bg-input);
+  }
+
+  .closeBtn {
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    z-index: 1;
+    color: var(--error-primary);
+  }
 }

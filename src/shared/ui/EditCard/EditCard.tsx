@@ -11,20 +11,22 @@ import cls from './EditCard.module.scss';
 interface EditCardProps {
    className?: string;
    children?: ReactNode;
-   icon: FC<SVGProps<SVGElement>>;
-   title: string;
+   icon?: FC<SVGProps<SVGElement>>;
+   title?: string;
+   onClickBtn: () => void;
 }
 
-export const EditCard = memo(({ className, children, icon, title }: EditCardProps) => {
+export const EditCard = memo((props: EditCardProps) => {
+   const { className, children, icon, title, onClickBtn } = props;
    return (
       <div className={classNames(cls.EditCard, {}, [className])}>
          <HStack justify={'between'} gap={'15'} className={cls.header}>
             <HStack gap={'15'} className={cls.info}>
-               <Icon mainColor Svg={icon} />
-               <Text title={title} />
+               {icon && <Icon mainColor Svg={icon} />}
+               {title && <Text title={title} />}
             </HStack>
             <HStack className={cls.action}>
-               <Button withIcon className={cls.closeBtn}>
+               <Button onClick={onClickBtn} withIcon className={cls.closeBtn}>
                   <Icon Svg={CLoseImage} />
                </Button>
             </HStack>

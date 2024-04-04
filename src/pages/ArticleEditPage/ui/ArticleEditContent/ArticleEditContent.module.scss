@@ -11,12 +11,6 @@
     flex: 1 1 auto;
   }
 
-  .header {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
   .header__image {
     position: relative;
     padding-bottom: 25%;
@@ -59,6 +53,10 @@
     display: flex;
     flex-direction: column;
     gap: 35px;
+  }
+
+  .mainLink {
+    padding-top: 10px;
   }
 
   @media (max-width: 772px) {

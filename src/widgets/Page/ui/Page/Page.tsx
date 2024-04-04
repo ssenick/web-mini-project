@@ -108,7 +108,7 @@ export const Page: FC<PageProps> = (props) => {
                   circle
                   className={classNames(cls.arrowUp, { [cls.on]: scrollArrowUpOn.current }, [])}
                >
-                  <Icon Svg={ArrowUp}></Icon>
+                  <Icon width={'40px'} height={'40px'} Svg={ArrowUp}></Icon>
                </Button>
             )}
          </div>

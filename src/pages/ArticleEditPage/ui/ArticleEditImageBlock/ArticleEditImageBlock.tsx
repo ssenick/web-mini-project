@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { type ArticleImageBlock } from '@/entities/Article';
-import IconImage from '@/shared/assets/icons/txt-block.svg';
+import IconImage from '@/shared/assets/icons/image.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppImage } from '@/shared/ui/AppImage/AppImage';
 import { EditCard } from '@/shared/ui/EditCard/EditCard';
@@ -15,10 +15,11 @@ interface ArticleEditImageBlockProps {
    className?: string;
    block: ArticleImageBlock;
    onUpdateImageBlock: (updatedBlock: { id: string; updatedBlock: ArticleImageBlock }) => void;
+   onDeleteBlock: (id: string) => void;
 }
 
 export const ArticleEditImageBlock = memo(
-   ({ className, block, onUpdateImageBlock }: ArticleEditImageBlockProps) => {
+   ({ className, block, onUpdateImageBlock, onDeleteBlock }: ArticleEditImageBlockProps) => {
       const { t } = useTranslation('articleEdit');
 
       const onUpdateSrc = useCallback(
@@ -47,11 +48,16 @@ export const ArticleEditImageBlock = memo(
          [block, onUpdateImageBlock],
       );
 
+      const onDelete = useCallback(() => {
+         onDeleteBlock(block.id);
+      }, [block.id, onDeleteBlock]);
+
       return (
          <EditCard
             icon={IconImage}
             title={t('Блок изображения')}
             className={classNames(cls.ArticleEditImageBlock, {}, [className])}
+            onClickBtn={onDelete}
          >
             <AppImage src={block.src} alt={block.title} className={cls.image} />
             {block.title && <Text title={block.title} texAlign={TextAlign.CENTER} />}

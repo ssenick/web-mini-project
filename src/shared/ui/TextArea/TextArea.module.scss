@@ -37,6 +37,18 @@
     }
   }
 
+  &.maxHeight {
+    textarea {
+      resize: none;
+      overflow-y: hidden;
+      height: auto !important;
+      min-height: 50px;
+      max-height: 500px;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
   &.inverse-bg {
     textarea {
       background-color: var(--bg-input-inverse);

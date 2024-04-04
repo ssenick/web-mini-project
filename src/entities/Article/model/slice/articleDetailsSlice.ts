@@ -24,13 +24,18 @@ export const articleDetailsSlice = createSlice({
       updateSubTitle: (state, action: PayloadAction<string>) => {
          if (state.forms) state.forms.subtitle = action.payload;
       },
-      updateTextBlock: (state, action: PayloadAction<{ id: string; updatedBlock: ArticleBlock }>) => {
+      updateBlock: (state, action: PayloadAction<{ id: string; updatedBlock: ArticleBlock }>) => {
          if (state.forms?.blocks) {
             const { id, updatedBlock } = action.payload;
             const index = state.forms.blocks.findIndex((block) => block.id === id);
             if (index !== -1) {
                state.forms.blocks[index] = updatedBlock;
             }
+         }
+      },
+      deleteBlock: (state, action: PayloadAction<string>) => {
+         if (state.forms?.blocks) {
+            state.forms.blocks = state.forms.blocks.filter((block) => block.id !== action.payload);
          }
       },
    },
