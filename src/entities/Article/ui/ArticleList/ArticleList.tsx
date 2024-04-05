@@ -17,7 +17,6 @@ interface ArticleListProps {
    view?: ArticleView;
    slider?: boolean;
    target?: HTMLAttributeAnchorTarget;
-   onLoadNextPart?: () => void;
 }
 
 const getSkeletons = (view: ArticleView): ReactNode =>

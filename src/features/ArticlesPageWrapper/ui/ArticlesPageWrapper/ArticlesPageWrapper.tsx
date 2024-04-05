@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
@@ -23,7 +23,6 @@ import {
    getArticlesPageSort,
    getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
-import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPageWrapper.module.scss';
@@ -45,17 +44,9 @@ export const ArticlesPageWrapper = memo(({ className }: ArticlesPageWrapperProps
    const sort = useSelector(getArticlesPageSort);
    const order = useSelector(getArticlesPageOrder);
    const search = useSelector(getArticlesPageSearch);
+
    const inited = useSelector(getArticlesPageInited);
    const [searchParams] = useSearchParams();
-
-   const onLoadNextPart = useCallback(() => {
-      if (__PROJECT__ !== 'storybook') {
-         if (!isLoading) {
-            void dispatch(fetchNextArticlesPage());
-         }
-      }
-   }, [dispatch, isLoading]);
-
    useInitialEffect(() => {
       void dispatch(initArticlesPage(searchParams));
       if (inited && __PROJECT__ !== 'storybook') {
@@ -69,12 +60,7 @@ export const ArticlesPageWrapper = memo(({ className }: ArticlesPageWrapperProps
    return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
          <div className={classNames(cls.ArticlesPageWrapper, {}, [className])}>
-            <ArticleList
-               onLoadNextPart={onLoadNextPart}
-               articles={articles}
-               view={view}
-               isLoading={isLoading}
-            />
+            <ArticleList articles={articles} view={view} isLoading={isLoading} />
          </div>
       </DynamicModuleLoader>
    );

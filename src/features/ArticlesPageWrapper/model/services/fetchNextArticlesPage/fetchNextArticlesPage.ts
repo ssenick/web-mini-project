@@ -10,8 +10,7 @@ import {
 import { articlesPageActions } from '../../slice/articlesPageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
-// eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-export const fetchNextArticlesPage = createAsyncThunk<void, undefined, ThunkConfig<string>>(
+export const fetchNextArticlesPage = createAsyncThunk<Promise<void>, undefined, ThunkConfig<string>>(
    'articlesPage/fetchNextArticlesPage',
    async (_, thunkAPI) => {
       const { dispatch, getState } = thunkAPI;
