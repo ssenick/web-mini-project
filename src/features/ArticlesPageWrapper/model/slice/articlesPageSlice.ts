@@ -1,7 +1,7 @@
 import { createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import { type StateSchema } from '@/app/povaiders/StoreProvaider';
-import { type Article, ArticleView } from '@/entities/Article';
+import { type Article, ArticleView, updateArticleById } from '@/entities/Article';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { type SortOrder } from '@/shared/types';
@@ -86,6 +86,13 @@ export const articlesPageSlice = createSlice({
          .addCase(fetchArticlesList.rejected, (state, action) => {
             state.error = action.payload;
             state.isLoading = false;
+         })
+         .addCase(updateArticleById.fulfilled, (state, action: PayloadAction<Article>) => {
+            const updatedArticle = action.payload;
+            const existingArticle = state.entities[updatedArticle.id];
+            if (existingArticle) {
+               articlesAdapter.updateOne(state, { id: updatedArticle.id, changes: updatedArticle });
+            }
          });
    },
 });

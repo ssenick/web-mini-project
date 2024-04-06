@@ -29,7 +29,7 @@
   "articles": [
     {
       "id": "1",
-      "title": "Javascript news ",
+      "title": "Javascript news !",
       "subtitle": "What's new in JS for 2023?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
@@ -391,8 +391,8 @@
     },
     {
       "id": "6",
-      "title": "Java s",
-      "subtitle": "Java new Keyword 1",
+      "title": "Java or JavaScript ",
+      "subtitle": "Java new Keyword ",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAGoxnlpFes17GP20HdYBNetAb2xDa4NYrtQ&usqp=CAU",
       "views": 2202,
       "createdAt": "22.12.2020",
@@ -406,9 +406,9 @@
         {
           "id": "7",
           "type": "TEXT",
-          "title": "Lastly block  2",
+          "title": "Lastly block ",
           "paragraphs": [
-            "Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end.   111",
+            "Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end.  ",
             "Whether you're preparing for your first job interview or aiming to upskill in this ever-evolving tech landscape, GeeksforGeeks Courses are your key to logng.  "
           ]
         },
@@ -820,7 +820,7 @@
     },
     {
       "id": "12",
-      "title": "Java",
+      "title": "Java and TS",
       "subtitle": "Java new Keyword",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAGoxnlpFes17GP20HdYBNetAb2xDa4NYrtQ&usqp=CAU",
       "views": 2202,
