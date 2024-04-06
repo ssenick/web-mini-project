@@ -3,7 +3,7 @@
   width: var(--sidebar-width);
   background-color: var(--bg-module);
   transition: width var(--animation-time) cubic-bezier(0.42, 0, 0.58, 1) 0s;
-  padding: 65px 20px 20px;
+  padding: 65px 0 10px;
   overflow: hidden;
   border-radius: 0 var(--border-radius-small) var(--border-radius-small) 0;
   display: flex;
@@ -13,6 +13,7 @@
     margin-top: auto;
     display: grid;
     gap: var(--gap10);
+    padding: 20px;
   }
 
   .createBtn {
@@ -59,10 +60,11 @@
   }
 
   @media (max-width: 992px) {
-    padding: 65px 15px 15px;
+    padding: 65px 0 15px;
 
     .footer {
       gap: var(--gap20);
+      padding: 15px;
     }
 
     &.collapsed {
