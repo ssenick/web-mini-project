@@ -6,6 +6,7 @@ export {
    getArticleDetailsForms,
    getArticleDetailsIsLoading,
 } from './model/selectors/articleDetails';
+export { deleteArticleById } from './model/services/deleteArticleById/deleteArticleById';
 export { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
 export { updateArticleById } from './model/services/updateArticleById/updateArticleById';
 export { articleDetailsActions, articleDetailsReducer } from './model/slice/articleDetailsSlice';

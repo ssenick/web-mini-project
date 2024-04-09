@@ -23,7 +23,7 @@ const ArticleEditPage = memo(({ className }: ArticleEditPageProps) => {
          scrollTrigger
       >
          <div className={cls.wrapper}>
-            <ArticleEditHeader />
+            <ArticleEditHeader id={id} />
             <ArticleEditContent id={id} />
          </div>
       </Page>

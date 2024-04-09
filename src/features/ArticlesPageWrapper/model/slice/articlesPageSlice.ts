@@ -1,12 +1,12 @@
 import { createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import { type StateSchema } from '@/app/povaiders/StoreProvaider';
-import { type Article, ArticleView, updateArticleById } from '@/entities/Article';
+import { type Article, ArticleView, deleteArticleById, updateArticleById } from '@/entities/Article';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { type SortOrder } from '@/shared/types';
 
-import { type ArticlePageWrapperSchema } from '../..';
+import { type ArticlePageWrapperSchema } from '../../model/types/articlePageWrapper';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 
 const articlesAdapter = createEntityAdapter<Article>({
@@ -72,6 +72,7 @@ export const articlesPageSlice = createSlice({
                articlesAdapter.removeAll(state);
             }
          })
+
          .addCase(fetchArticlesList.fulfilled, (state, action) => {
             state.isLoading = false;
             if (action.meta.arg.replace) {
@@ -93,6 +94,10 @@ export const articlesPageSlice = createSlice({
             if (existingArticle) {
                articlesAdapter.updateOne(state, { id: updatedArticle.id, changes: updatedArticle });
             }
+         })
+         .addCase(deleteArticleById.fulfilled, (state, action: PayloadAction<string>) => {
+            const deletedArticleId = action.payload;
+            articlesAdapter.removeOne(state, deletedArticleId);
          });
    },
 });

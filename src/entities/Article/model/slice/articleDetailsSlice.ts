@@ -47,6 +47,7 @@ export const articleDetailsSlice = createSlice({
          })
          .addCase(fetchArticleById.fulfilled, (state, action: PayloadAction<Article>) => {
             state.isLoading = false;
+            state.error = undefined;
             state.data = action.payload;
             state.forms = action.payload;
          })
@@ -60,6 +61,7 @@ export const articleDetailsSlice = createSlice({
          })
          .addCase(updateArticleById.fulfilled, (state, action: PayloadAction<Article>) => {
             state.isLoading = false;
+            state.error = undefined;
             state.data = action.payload;
             state.forms = action.payload;
          })
@@ -67,6 +69,12 @@ export const articleDetailsSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
          });
+      // .addCase(deleteArticleById.fulfilled, (state, action: PayloadAction<string>) => {
+      //    state.isLoading = false;
+      //    state.error = undefined;
+      //    state.data = undefined;
+      //    state.forms = undefined;
+      // });
    },
 });
 

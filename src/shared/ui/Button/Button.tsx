@@ -10,6 +10,7 @@ export enum ButtonVariant {
    BACKGROUND = 'background',
    BORDER = 'border',
    BORDER_ERROR = 'border_error',
+   BORDER_ERROR_LIGHT = 'border_error_light',
 }
 
 export enum ButtonSize {

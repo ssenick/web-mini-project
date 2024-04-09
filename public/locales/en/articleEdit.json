@@ -17,5 +17,7 @@
    "Код": "Code",
    "Блок изображения": "Image block",
    "Описание изображения": "Description of the image",
-  "Назад": "Back"
+  "Назад": "Back",
+  "Удалить статью": "Delete article",
+   "Вы точно хотите удалить эту статью?": "Are you sure you want to delete this article?"
 }

@@ -66,11 +66,28 @@
 
 .border {
   border: 1.5px solid var(--primary-color);
+
+  &:hover {
+    animation: pulse-border 1s !important;
+  }
 }
 
 .border_error {
   border: 1.5px solid var(--error-primary);
   color: var(--error-primary);
+
+  &:hover {
+    animation: pulse-error 1s !important;
+  }
+}
+
+.border_error_light {
+  border: 1.5px solid var(--error-secondary);
+  color: var(--error-secondary);
+
+  &:hover {
+    animation: pulse-error-light 1s !important;
+  }
 }
 
 .square {
@@ -123,4 +140,16 @@
 
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 var(--bg-module); }
+}
+
+@keyframes pulse-error {
+  0% { box-shadow: 0 0 0 0 var(--error-primary); }
+}
+
+@keyframes pulse-error-light {
+  0% { box-shadow: 0 0 0 0 var(--error-secondary); }
+}
+
+@keyframes pulse-border {
+  0% { box-shadow: 0 0 0 0 var(--primary-color); }
 }
