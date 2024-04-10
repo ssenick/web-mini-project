@@ -5,7 +5,7 @@ import Image from '@/shared/assets/test/image.jpg';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 
-import { ArticleView } from '../..';
+import { ArticleView } from '../../model/consts/articleConsts';
 import { type Article } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
 

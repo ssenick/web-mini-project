@@ -12,6 +12,7 @@ import {
    getArticleDetailsIsLoading,
 } from '@/entities/Article';
 import { articleDetailsActions } from '@/entities/Article';
+import { AddBlock } from '@/features/ArticleUpdate';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
    DynamicModuleLoader,
@@ -81,6 +82,13 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
       [dispatch],
    );
 
+   const addBlock = useCallback(
+      (updatedBlocks: ArticleBlock[]) => {
+         dispatch(articleDetailsActions.addBlock(updatedBlocks));
+      },
+      [dispatch],
+   );
+
    const onDeleteBlock = useCallback(
       (id: string) => {
          dispatch(articleDetailsActions.deleteBlock(id));
@@ -131,7 +139,7 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
    if (isLoading) {
       content = (
          <>
-            <VStack gap={'15'} className={cls.header}>
+            <VStack gap={'25'} className={cls.header}>
                <div className={cls.editBlock}>
                   <Skeleton className={cls.header__title} width={'100%'} height={72} border={'5px'} />
                </div>
@@ -161,7 +169,7 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
    } else if (article) {
       content = (
          <>
-            <VStack gap={'15'} className={cls.header}>
+            <VStack gap={'25'} className={cls.header}>
                <div className={cls.editBlock}>
                   <Input
                      onChange={onChangeTitle}
@@ -204,6 +212,7 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
                </div>
             </VStack>
             <div className={cls.article}>{article?.blocks.map(renderBlock)}</div>
+            <AddBlock addBlocks={addBlock} articlesBlocks={article.blocks} />
          </>
       );
    }

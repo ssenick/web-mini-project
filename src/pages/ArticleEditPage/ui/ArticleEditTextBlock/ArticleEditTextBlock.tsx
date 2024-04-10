@@ -89,17 +89,14 @@ export const ArticleEditTextBlock = memo((props: ArticleEditTextBlockProps) => {
          className={classNames(cls.ArticleEditTextBlock, {}, [className])}
          onClickBtn={onDeleteEverything}
       >
-         {block.title && (
-            <Input
-               className={cls.title}
-               onChange={onUpdateTitle}
-               value={block.title}
-               label={t('Заголовок')}
-               labelSize={TextFontSize.SXS}
-               variant={InputVariant.INVERSE_BG}
-            />
-         )}
-
+         <Input
+            className={cls.title}
+            onChange={onUpdateTitle}
+            value={block.title}
+            label={t('Заголовок')}
+            labelSize={TextFontSize.SXS}
+            variant={InputVariant.INVERSE_BG}
+         />
          <VStack gap={'15'} className={cls.blocks}>
             {block.paragraphs.map((paragraph, i) => (
                // <Text key={i} text={paragraph} className={cls.paragraph} />

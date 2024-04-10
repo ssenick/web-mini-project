@@ -391,9 +391,9 @@
     },
     {
       "id": "6",
-      "title": "Java or JavaScript ",
+      "title": "Java Ruslan",
       "subtitle": "Java new Keyword ",
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAGoxnlpFes17GP20HdYBNetAb2xDa4NYrtQ&usqp=CAU",
+      "img": "https://miro.medium.com/v2/resize:fit:1400/1*kBMrlbNuSH9vrCN0GSsm2Q.jpeg",
       "views": 2202,
       "createdAt": "22.12.2020",
       "userId": "1",
@@ -455,6 +455,25 @@
             "So new empty object will now include ‘a’ property. The func() also includes ‘c’ variable which is not declared with this keyword. So ‘c’ will not be included in new object. Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end.",
             "New empty object will now include ‘a’ property. The func() also includes ‘c’ variable which is not declared with this keyword. So ‘c’ will not be included in new object. Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end."
           ]
+        },
+        {
+          "id": "17127135665532623",
+          "type": "TEXT",
+          "title": "Ruslan test text ! ",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi ipsam ipsum non nostrum? Consequuntur cupiditate dolores earum error eveniet exercitationem maiores minus mollitia pariatur, quam quidem quos sequi velit voluptatibus.\n\nPS: Ruslan "
+          ]
+        },
+        {
+          "id": "17127135692689941",
+          "type": "IMAGE",
+          "title": "Programming image",
+          "src": "https://media.licdn.com/dms/image/D4E12AQHfI0JivkkHbg/article-cover_image-shrink_720_1280/0/1700216752213?e=2147483647&v=beta&t=nee6BJB6T8rnorxr92WMTfNzBNKA775-vcEbqXEk3cU"
+        },
+        {
+          "id": "17127135742825589",
+          "type": "CODE",
+          "code": "import { memo, useCallback, useMemo } from 'react';\nimport { useTranslation } from 'react-i18next';\n\nimport { ArticleBlockType } from '@/entities/Article';\nimport IconCode from '@/shared/assets/icons/code.svg';\nimport IconImage from '@/shared/assets/icons/image.svg';\nimport IconText from '@/shared/assets/icons/txt-block.svg';\nimport { Button, ButtonVariant } from '@/shared/ui/Button/Button';\nimport { Icon } from '@/shared/ui/Icon/Icon';\n\nimport cls from '../styles/AddBlock.module.scss';\n\ninterface BlocksProps {\n   onClick: (id: ArticleBlockType) => void;\n}\n\nexport const Blocks = memo(({ onClick }: BlocksProps) => {\n   const { t } = useTranslation();\n   const blocks = useMemo(\n      () => [\n         {\n            id: ArticleBlockType.TEXT,\n            title: t('Текстовый блок'),\n            icon: IconText,\n         },\n         {\n            id: ArticleBlockType.IMAGE,\n            title: t('Блок с изображением'),\n            icon: IconImage,\n         },\n         {\n            id: ArticleBlockType.CODE,\n            title: t('Блок с кодом'),\n            icon: IconCode,\n         },\n      ],\n      [t],\n   );\n\n   const handleBlockClick = useCallback(\n      (blockId: ArticleBlockType) => () => {\n         onClick(blockId);\n      },\n      [onClick],\n   );\n\n   return (\n      <div className={cls.blocks}>\n         {blocks.map((block) => (\n            <Button\n               onClick={handleBlockClick(block.id)}\n               withIcon\n               key={block.id}\n               variant={ButtonVariant.BACKGROUND}\n               className={cls.block}\n            >\n               <Icon Svg={block.icon} />\n               {block.title}\n            </Button>\n         ))}\n      </div>\n   );\n});\n"
         }
       ],
       "user": {
@@ -1901,6 +1920,13 @@
       "text": "Dno...",
       "createdComment": "09.01.2024",
       "id": "zi_iQ7H"
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "text": "ruslan",
+      "createdComment": "09.04.2024",
+      "id": "fByytjZ"
     }
   ],
   "users": [

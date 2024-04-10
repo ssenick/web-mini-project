@@ -33,6 +33,11 @@ export const articleDetailsSlice = createSlice({
             }
          }
       },
+      addBlock: (state, action: PayloadAction<ArticleBlock[]>) => {
+         if (state.forms?.blocks) {
+            state.forms.blocks = action.payload;
+         }
+      },
       deleteBlock: (state, action: PayloadAction<string>) => {
          if (state.forms?.blocks) {
             state.forms.blocks = state.forms.blocks.filter((block) => block.id !== action.payload);
