@@ -106,7 +106,6 @@ export const Header = memo(({ className }: HeaderProps): JSX.Element => {
       ],
       [userAuth, onLogout, t, isAdminPanelIsAvailable],
    );
-
    const trigger = (
       <Button className={cls.login} onClick={onOpenDrawer} variant={ButtonVariant.BACKGROUND} withIcon={true}>
          <LoginIcon />
