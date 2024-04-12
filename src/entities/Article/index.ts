@@ -6,10 +6,12 @@ export {
    getArticleDetailsForms,
    getArticleDetailsIsLoading,
 } from './model/selectors/articleDetails';
+export { getNewArticleData } from './model/selectors/newArticle';
 export { deleteArticleById } from './model/services/deleteArticleById/deleteArticleById';
 export { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
 export { updateArticleById } from './model/services/updateArticleById/updateArticleById';
 export { articleDetailsActions, articleDetailsReducer } from './model/slice/articleDetailsSlice';
+export { newArticleActions, newArticleReducer } from './model/slice/newArticleSlice';
 export type { ArticleBlock } from './model/types/article';
 export type { ArticleCodeBlock, ArticleImageBlock, ArticleTextBlock } from './model/types/article';
 export { type Article } from './model/types/article';

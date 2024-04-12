@@ -20,7 +20,10 @@ export const AppImage = memo((props: AppImageProps) => {
          setIsLoading(false);
          setHasError(true);
       };
-   }, [src]);
+      if (src && !isLoading) {
+         setHasError(false);
+      }
+   }, [src, isLoading]);
 
    if (isLoading && fallback) {
       return fallback;

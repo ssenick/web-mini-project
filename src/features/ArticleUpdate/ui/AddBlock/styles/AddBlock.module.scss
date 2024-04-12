@@ -3,6 +3,10 @@
   border: 1px solid var(--bg-input);
   border-radius: var(--border-radius-small);
 
+  &.bgColor {
+    background-color: var(--bg-color-comment);
+  }
+
   .header {
     display: flex;
     align-items: center;

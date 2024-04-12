@@ -6,11 +6,7 @@ import { ErrorMessage } from '@/widgets/ErrorMessage';
 
 import cls from './ErrorPage.module.scss';
 
-interface ErrorPageProps {
-   className?: string;
-}
-
-export const ErrorPage = memo(({ className }: ErrorPageProps) => {
+export const ErrorPage = memo(() => {
    const { t } = useTranslation();
    const reloadPage = useCallback(() => {
       location.reload();

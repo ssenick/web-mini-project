@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
    args: {},
-   render: (args) => (
+   render: () => (
       <div className="app__content storybook">
          <Code
             text={

@@ -11,7 +11,6 @@ const meta: Meta<typeof PageLoader> = {
    parameters: {
       layout: 'fullscreen',
    },
-   // tags: ['autodocs'],
    argTypes: {},
 };
 export default meta;
@@ -19,7 +18,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-   render: (args) => (
+   render: () => (
       <div className="app__content storybook">
          <PageLoader />
       </div>
@@ -28,7 +27,7 @@ export const Light: Story = {
 Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark: Story = {
-   render: (args) => (
+   render: () => (
       <div className="app__content storybook">
          <PageLoader />
       </div>
@@ -37,7 +36,7 @@ export const Dark: Story = {
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Funny: Story = {
-   render: (args) => (
+   render: () => (
       <div className="app__content storybook">
          <PageLoader />
       </div>

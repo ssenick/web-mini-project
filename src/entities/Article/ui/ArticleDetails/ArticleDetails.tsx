@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import DateIcon from '@/shared/assets/icons/date.svg';
+import ErrorImage from '@/shared/assets/icons/errorImage.svg';
 import ViewIcon from '@/shared/assets/icons/view.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
@@ -112,6 +113,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
                      className={cls.header__img}
                      src={article?.img}
                      alt="Article image"
+                     errorFallback={<Icon className={cls.header__img} Svg={ErrorImage} />}
                      fallback={<Skeleton className={cls.header__img} />}
                   />
                </div>

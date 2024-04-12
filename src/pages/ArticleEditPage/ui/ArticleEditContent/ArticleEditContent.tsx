@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 import {
    type ArticleBlock,
-   ArticleBlockType,
    articleDetailsReducer,
    fetchArticleById,
    getArticleDetailsError,
@@ -12,7 +11,8 @@ import {
    getArticleDetailsIsLoading,
 } from '@/entities/Article';
 import { articleDetailsActions } from '@/entities/Article';
-import { AddBlock } from '@/features/ArticleUpdate';
+import { AddBlock, ArticleBlockRender } from '@/features/ArticleUpdate';
+import ErrorImage from '@/shared/assets/icons/errorImage.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
    DynamicModuleLoader,
@@ -20,15 +20,13 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { AppImage } from '@/shared/ui/AppImage/AppImage';
+import { Icon } from '@/shared/ui/Icon/Icon';
 import { Input, InputVariant } from '@/shared/ui/Input/Input';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { VStack } from '@/shared/ui/Stack';
 import { TextFontSize } from '@/shared/ui/Text/Text';
 import { ErrorMessage } from '@/widgets/ErrorMessage';
 
-import { ArticleEditCodeBlock } from '../ArticleEditCodeBlock/ArticleEditCodeBlock';
-import { ArticleEditImageBlock } from '../ArticleEditImageBlock/ArticleEditImageBlock';
-import { ArticleEditTextBlock } from '../ArticleEditTextBlock/ArticleEditTextBlock';
 import cls from './ArticleEditContent.module.scss';
 
 interface ArticleEditContentProps {
@@ -96,44 +94,6 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
       [dispatch],
    );
 
-   const renderBlock = useCallback(
-      (block: ArticleBlock) => {
-         switch (block?.type) {
-            case ArticleBlockType.TEXT:
-               return (
-                  <ArticleEditTextBlock
-                     key={block.id}
-                     className={cls.block}
-                     block={block}
-                     onUpdateTextBlock={onUpdateBlock}
-                     onDeleteBlock={onDeleteBlock}
-                  />
-               );
-            case ArticleBlockType.IMAGE:
-               return (
-                  <ArticleEditImageBlock
-                     key={block.id}
-                     className={cls.block}
-                     block={block}
-                     onUpdateImageBlock={onUpdateBlock}
-                     onDeleteBlock={onDeleteBlock}
-                  />
-               );
-            case ArticleBlockType.CODE:
-               return (
-                  <ArticleEditCodeBlock
-                     key={block.id}
-                     className={cls.block}
-                     block={block}
-                     onUpdateCodeBlock={onUpdateBlock}
-                     onDeleteBlock={onDeleteBlock}
-                  />
-               );
-         }
-      },
-      [onDeleteBlock, onUpdateBlock],
-   );
-
    let content;
 
    if (isLoading) {
@@ -187,6 +147,7 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
                         className={cls.header__img}
                         src={article?.img}
                         alt="Article image"
+                        errorFallback={<Icon className={cls.header__img} Svg={ErrorImage} />}
                         fallback={<Skeleton className={cls.header__img} />}
                      />
                   </div>
@@ -211,7 +172,17 @@ export const ArticleEditContent = memo(({ className, id }: ArticleEditContentPro
                   </div>
                </div>
             </VStack>
-            <div className={cls.article}>{article?.blocks.map(renderBlock)}</div>
+            <div className={cls.article}>
+               {article?.blocks.map((block) => (
+                  <ArticleBlockRender
+                     key={block.id}
+                     className={cls.block}
+                     block={block}
+                     onUpdateBlock={onUpdateBlock}
+                     onDeleteBlock={onDeleteBlock}
+                  />
+               ))}
+            </div>
             <AddBlock addBlocks={addBlock} articlesBlocks={article.blocks} />
          </>
       );

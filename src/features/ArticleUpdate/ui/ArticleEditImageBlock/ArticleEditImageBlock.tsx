@@ -2,11 +2,14 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { type ArticleImageBlock } from '@/entities/Article';
+import ErrorImage from '@/shared/assets/icons/errorImage.svg';
 import IconImage from '@/shared/assets/icons/image.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppImage } from '@/shared/ui/AppImage/AppImage';
 import { EditCard } from '@/shared/ui/EditCard/EditCard';
+import { Icon } from '@/shared/ui/Icon/Icon';
 import { Input, InputVariant } from '@/shared/ui/Input/Input';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Text, TextAlign } from '@/shared/ui/Text/Text';
 
 import cls from './ArticleEditImageBlock.module.scss';
@@ -59,7 +62,13 @@ export const ArticleEditImageBlock = memo(
             className={classNames(cls.ArticleEditImageBlock, {}, [className])}
             onClickBtn={onDelete}
          >
-            <AppImage src={block.src} alt={block.title} className={cls.image} />
+            <AppImage
+               src={block.src}
+               alt={block.title}
+               className={cls.image}
+               errorFallback={<Icon className={cls.image} Svg={ErrorImage} />}
+               fallback={<Skeleton className={cls.image} />}
+            />
             {block.title && <Text title={block.title} texAlign={TextAlign.CENTER} />}
             <Input
                onChange={onUpdateSrc}
