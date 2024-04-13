@@ -2,16 +2,16 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
 
-  .image {
-    width: 100%;
-    justify-self: center;
-    object-fit: cover;
-    max-height: 500px;
-    min-height: 200px;
+.image {
+  width: 100%;
+  justify-self: center;
+  object-fit: cover;
+  max-height: 500px;
+  min-height: 200px;
 
-    &:not(:last-child) {
-      margin-bottom: 7px;
-    }
+  &:not(:last-child) {
+    margin-bottom: 7px;
   }
 }

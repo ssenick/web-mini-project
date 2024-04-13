@@ -1,7 +1,13 @@
 import { createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import { type StateSchema } from '@/app/povaiders/StoreProvaider';
-import { type Article, ArticleView, deleteArticleById, updateArticleById } from '@/entities/Article';
+import {
+   type Article,
+   ArticleView,
+   createNewArticle,
+   deleteArticleById,
+   updateArticleById,
+} from '@/entities/Article';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { type SortOrder } from '@/shared/types';
@@ -98,6 +104,10 @@ export const articlesPageSlice = createSlice({
          .addCase(deleteArticleById.fulfilled, (state, action: PayloadAction<string>) => {
             const deletedArticleId = action.payload;
             articlesAdapter.removeOne(state, deletedArticleId);
+         })
+
+         .addCase(createNewArticle.fulfilled, (state, action: PayloadAction<Article>) => {
+            articlesAdapter.addOne(state, action.payload);
          });
    },
 });

@@ -15,7 +15,7 @@ describe('fetchArticlesList test', () => {
             createdAt: '26.02.2023',
             user: {
                id: '1',
-               username: 'ssenick',
+               username: '1',
             },
             type: ['IT'],
             blocks: [

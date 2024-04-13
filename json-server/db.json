@@ -1,31 +1,4 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": "2",
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": "3",
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": "4",
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": "5",
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
   "articles": [
     {
       "id": "1",
@@ -98,21 +71,7 @@
             "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program."
           ]
         }
-      ],
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "123",
-        "roles": [
-          "ADMIN",
-          "MANAGER",
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": true
-        },
-        "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"
-      }
+      ]
     },
     {
       "id": "2",
@@ -185,19 +144,7 @@
             "So new empty object will now include ‘a’ property. The func() also includes ‘c’ variable which is not declared with this keyword. So ‘c’ will not be included in new object. Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "3",
@@ -341,19 +288,7 @@
             "So new empty object will now include ‘a’ property. The func() also includes ‘c’ variable which is not declared with this keyword. So ‘c’ will not be included in new object. Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "5",
@@ -411,19 +346,7 @@
             "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "6",
@@ -511,21 +434,7 @@
           "type": "CODE",
           "code": "import { memo, useCallback, useMemo } from 'react';\nimport { useTranslation } from 'react-i18next';\n\nimport { ArticleBlockType } from '@/entities/Article';\nimport IconCode from '@/shared/assets/icons/code.svg';\nimport IconImage from '@/shared/assets/icons/image.svg';\nimport IconText from '@/shared/assets/icons/txt-block.svg';\nimport { Button, ButtonVariant } from '@/shared/ui/Button/Button';\nimport { Icon } from '@/shared/ui/Icon/Icon';\n\nimport cls from '../styles/AddBlock.module.scss';\n\ninterface BlocksProps {\n   onClick: (id: ArticleBlockType) => void;\n}\n\nexport const Blocks = memo(({ onClick }: BlocksProps) => {\n   const { t } = useTranslation();\n   const blocks = useMemo(\n      () => [\n         {\n            id: ArticleBlockType.TEXT,\n            title: t('Текстовый блок'),\n            icon: IconText,\n         },\n         {\n            id: ArticleBlockType.IMAGE,\n            title: t('Блок с изображением'),\n            icon: IconImage,\n         },\n         {\n            id: ArticleBlockType.CODE,\n            title: t('Блок с кодом'),\n            icon: IconCode,\n         },\n      ],\n      [t],\n   );\n\n   const handleBlockClick = useCallback(\n      (blockId: ArticleBlockType) => () => {\n         onClick(blockId);\n      },\n      [onClick],\n   );\n\n   return (\n      <div className={cls.blocks}>\n         {blocks.map((block) => (\n            <Button\n               onClick={handleBlockClick(block.id)}\n               withIcon\n               key={block.id}\n               variant={ButtonVariant.BACKGROUND}\n               className={cls.block}\n            >\n               <Icon Svg={block.icon} />\n               {block.title}\n            </Button>\n         ))}\n      </div>\n   );\n});\n"
         }
-      ],
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "123",
-        "roles": [
-          "ADMIN",
-          "MANAGER",
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": true
-        },
-        "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"
-      }
+      ]
     },
     {
       "id": "7",
@@ -597,21 +506,7 @@
             "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program."
           ]
         }
-      ],
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "123",
-        "roles": [
-          "ADMIN",
-          "MANAGER",
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": true
-        },
-        "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"
-      }
+      ]
     },
     {
       "id": "8",
@@ -683,19 +578,7 @@
             "So new empty object will now include ‘a’ property. The func() also includes ‘c’ variable which is not declared with this keyword. So ‘c’ will not be included in new object. Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "9",
@@ -767,19 +650,7 @@
             "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "10",
@@ -851,19 +722,7 @@
             "So new empty object will now include ‘a’ property. The func() also includes ‘c’ variable which is not declared with this keyword. So ‘c’ will not be included in new object. Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "11",
@@ -921,19 +780,7 @@
             "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "12",
@@ -995,21 +842,7 @@
           "title": "image computer",
           "src": "https://www.expert.ai/wp-content/uploads/2023/08/Knowledge-Engineer-1024x680.jpeg"
         }
-      ],
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "123",
-        "roles": [
-          "ADMIN",
-          "MANAGER",
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": true
-        },
-        "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"
-      }
+      ]
     },
     {
       "id": "13",
@@ -1081,21 +914,7 @@
             "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program."
           ]
         }
-      ],
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "123",
-        "roles": [
-          "ADMIN",
-          "MANAGER",
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": true
-        },
-        "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"
-      }
+      ]
     },
     {
       "id": "14",
@@ -1168,19 +987,7 @@
             "So new empty object will now include ‘a’ property. The func() also includes ‘c’ variable which is not declared with this keyword. So ‘c’ will not be included in new object. Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "15",
@@ -1253,19 +1060,7 @@
             "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "16",
@@ -1339,19 +1134,7 @@
             "So new empty object will now include ‘a’ property. The func() also includes ‘c’ variable which is not declared with this keyword. So ‘c’ will not be included in new object. Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "17",
@@ -1409,19 +1192,7 @@
             "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "18",
@@ -1496,21 +1267,7 @@
             "New empty object will now include ‘a’ property. The func() also includes ‘c’ variable which is not declared with this keyword. So ‘c’ will not be included in new object. Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end."
           ]
         }
-      ],
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "123",
-        "roles": [
-          "ADMIN",
-          "MANAGER",
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": true
-        },
-        "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"
-      }
+      ]
     },
     {
       "id": "19",
@@ -1582,21 +1339,7 @@
             "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program."
           ]
         }
-      ],
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "123",
-        "roles": [
-          "ADMIN",
-          "MANAGER",
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": true
-        },
-        "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg"
-      }
+      ]
     },
     {
       "id": "20",
@@ -1669,19 +1412,7 @@
             "So new empty object will now include ‘a’ property. The func() also includes ‘c’ variable which is not declared with this keyword. So ‘c’ will not be included in new object. Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "21",
@@ -1754,19 +1485,7 @@
             "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "22",
@@ -1840,19 +1559,7 @@
             "So new empty object will now include ‘a’ property. The func() also includes ‘c’ variable which is not declared with this keyword. So ‘c’ will not be included in new object. Lastly, the newly created object is returned. Note that func() does not include areturn statement. The compiler will implicitly insert ‘return this’ at the end."
           ]
         }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
-        "roles": [
-          "USER"
-        ],
-        "features": {
-          "isAppRedesigned": false
-        },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+      ]
     },
     {
       "id": "23",
@@ -1910,19 +1617,202 @@
             "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program."
           ]
         }
-      ],
+      ]
+    },
+    {
+      "id": "17129844915317719",
+      "title": "Do create a reactjs and react native app",
+      "subtitle": "Quick Start",
+      "img": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/292474670/original/3f67e9710bf67a3feae3d645ad31843c5c9c37c0/do-create-and-debugging-reactjs-and-react-native-app.jpeg",
+      "views": 0,
+      "createdAt": "12.04.2024",
       "user": {
-        "id": "2",
-        "username": "user",
-        "password": "123",
+        "id": "1",
+        "username": "admin",
+        "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg",
         "roles": [
+          "ADMIN",
+          "MANAGER",
           "USER"
         ],
         "features": {
-          "isAppRedesigned": false
+          "isAppRedesigned": true
+        }
+      },
+      "type": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": "17129845532725420",
+          "type": "TEXT",
+          "title": "You will learn",
+          "paragraphs": [
+            "How to create and nest components\nHow to add markup and styles\nHow to display data\nHow to render conditions and lists\nHow to respond to events and update the screen\nHow to share data between components"
+          ]
         },
-        "avatar": "https://s3.amazonaws.com/37assets/svn/1667-jz-avatar-blue.png"
-      }
+        {
+          "id": "17129845717689570",
+          "type": "CODE",
+          "code": "export default function MyApp() {\n  return (\n    <div>\n      <h1>Welcome to my app</h1>\n      <MyButton />\n    </div>\n  );\n}"
+        }
+      ],
+      "userId": "1"
+    },
+    {
+      "id": "17129846317987635",
+      "title": "A complete guide to React refs",
+      "subtitle": "React refs",
+      "img": "https://blog.logrocket.com/wp-content/uploads/2023/10/complete-guide-react-refs.png",
+      "views": 0,
+      "createdAt": "12.04.2024",
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg",
+        "roles": [
+          "ADMIN",
+          "MANAGER",
+          "USER"
+        ],
+        "features": {
+          "isAppRedesigned": true
+        }
+      },
+      "type": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": "17129847080884074",
+          "type": "CODE",
+          "code": "import React, { useRef } from \"react\";\n\nfunction ActionButton() {\n  const buttonRef = useRef(null);\n\n  function handleClick() {\n    console.log(buttonRef.current);\n  }\n\n  return (\n    <button onClick={handleClick} ref={buttonRef}>\n      Click me\n    </button>\n  );\n};\nexport default ActionButton;"
+        }
+      ],
+      "userId": "1"
+    },
+    {
+      "id": "17129848257278435",
+      "title": "The Importance of UI/UX Design in Mobile App Development: Creating Engaging User Experiences in 2023",
+      "subtitle": "Recent Posts",
+      "img": "https://segwitz.com/wp-content/uploads/5757453-scaled.jpg",
+      "views": 0,
+      "createdAt": "12.04.2024",
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg",
+        "roles": [
+          "ADMIN",
+          "MANAGER",
+          "USER"
+        ],
+        "features": {
+          "isAppRedesigned": true
+        }
+      },
+      "type": [
+        "IT",
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "17129849798355091",
+          "type": "TEXT",
+          "title": "Recent Posts",
+          "paragraphs": [
+            "Healthcare in Your Pocket: Exploring the Rise of Mobile Health Apps\nBasics of Outsourcing to a Mobile App Development Agency\nApple Vision Pro and the Future of Business\nGoogle Gemini and How Can You Integrate It in Your Mobile App\nWhat is an iOS App Simulator and How Does it Work?"
+          ]
+        },
+        {
+          "id": "17129849949699794",
+          "type": "IMAGE",
+          "title": "",
+          "src": "https://i0.wp.com/segwitz.com/wp-content/uploads//representations-user-experience-interface-design-scaled.jpg?w=1800&ssl=1"
+        },
+        {
+          "id": "17129849996062710",
+          "type": "CODE",
+          "code": "      <HStack\n         justify={left ? 'start' : 'between'}\n         gap={'15'}\n         className={classNames(cls.ArticleEditHeader, {}, [className])}\n      >\n         <Button\n            className={cls.btnBack}\n            variant={ButtonVariant.BORDER_ERROR}\n            size={ButtonSize.XS}\n            onClick={goBack}\n         >\n            {t('Отмена')}\n         </Button>\n\n         <Button onClick={onSave} className={cls.btnEdit} variant={ButtonVariant.BACKGROUND}>\n            {t('Сохранить')}\n         </Button>\n      </HStack>\n   );"
+        },
+        {
+          "id": "1712985005483152",
+          "type": "IMAGE",
+          "title": "",
+          "src": "https://i0.wp.com/segwitz.com/wp-content/uploads//representations-user-experience-interface-design-1-scaled.jpg?w=1800&ssl=1"
+        }
+      ],
+      "userId": "1"
+    },
+    {
+      "id": "17129859526112760",
+      "title": "What’s the Difference Between UX vs. UI Design?",
+      "subtitle": "What is UX Design?",
+      "img": "https://buildfire.com/wp-content/uploads/2021/10/Whats-the-Difference-Between-UX-Design-vs.-UI-Design_@3x-1-scaled.jpg",
+      "views": 0,
+      "createdAt": "12.04.2024",
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "avatar": "https://thumbs.dreamstime.com/b/cartoon-avatar-designer-ai-generated-programmer-avatar-designer-ai-generated-programmer-cartoon-character-programming-286004113.jpg",
+        "roles": [
+          "ADMIN",
+          "MANAGER",
+          "USER"
+        ],
+        "features": {
+          "isAppRedesigned": true
+        }
+      },
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "id": "17129860289146180",
+          "type": "IMAGE",
+          "title": "Images ",
+          "src": "https://buildfire.com/wp-content/uploads/2021/10/UX-Design-Skills-1536x1002.png"
+        },
+        {
+          "id": "17129860484302460",
+          "type": "TEXT",
+          "title": "What is UI Design?",
+          "paragraphs": [
+            "User interface (UI) design is a bit different from UX design. The UI design process is a bit more technical, which means UI designers need to have a solid understanding of information architecture and command line interface code.\n\n",
+            "UI designers create the user interface design and graphical user interface. Similar to UX design, UI designers still need to prioritize the end users when they create interfaces. But the approach to the visual interface elements is different. ",
+            "UX design usually comes first during the initial software development stage. Then UI designers work closely with the UX designer when it comes to things like color, typography, responsive design, buttons, icons, and similar features of the product. "
+          ]
+        }
+      ],
+      "userId": "1"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "3",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "4",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "5",
+      "title": "json-server",
+      "author": "typicode"
     }
   ],
   "comments": [

@@ -26,7 +26,7 @@ const ArticleCreatePage = memo(({ className }: ArticleCreatePageProps) => {
          <VStack gap={'30'} className={cls.wrapper}>
             <ArticleCreateHeader />
             <ArticleCreateForm />
-            <ArticleCreateHeader />
+            <ArticleCreateHeader left />
          </VStack>
       </Page>
    );

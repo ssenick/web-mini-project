@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import {
    type ArticleBlock,
    getNewArticleData,
+   getNewArticleIsLoading,
    newArticleActions,
    newArticleReducer,
 } from '@/entities/Article';
@@ -27,6 +28,7 @@ import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { VStack } from '@/shared/ui/Stack';
 import { TextFontSize } from '@/shared/ui/Text/Text';
 
+import { ArticleCreateTypes } from '../ArticleCreateTypes/ArticleCreateTypes';
 import cls from './ArticleCreateForm.module.scss';
 
 interface ArticleCreateFormProps {
@@ -42,7 +44,7 @@ export const ArticleCreateForm = memo(({ className }: ArticleCreateFormProps) =>
    const data = useSelector(getNewArticleData);
    const userData = useSelector(getUserAuthData);
    const dispatch = useAppDispatch();
-   console.log(userData);
+   const isLoading = useSelector(getNewArticleIsLoading);
    const onChangeTitle = useCallback(
       (value?: string) => {
          dispatch(newArticleActions.updateTitle(value || ''));
@@ -88,14 +90,50 @@ export const ArticleCreateForm = memo(({ className }: ArticleCreateFormProps) =>
    useEffect(() => {
       dispatch(newArticleActions.updateId(generateUniqueId()));
       dispatch(newArticleActions.updateCreatedAt(getDate()));
+
       if (userData) {
+         dispatch(newArticleActions.updateUserId(userData.id));
          dispatch(newArticleActions.updateUser(userData));
       }
    }, [dispatch, userData]);
 
+   if (isLoading) {
+      return (
+         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            <VStack gap={'25'} className={classNames(cls.ArticleCreateForm, {}, [className])}>
+               <Card>
+                  <Skeleton width={'100%'} height={72} />
+               </Card>
+               <Card>
+                  <Skeleton width={'100%'} height={72} />
+               </Card>
+               <Card>
+                  <div className={cls.image}>
+                     <Skeleton className={cls.img} width={'100%'} />
+                  </div>
+                  <Skeleton width={'100%'} height={64} />
+               </Card>
+               <Card>
+                  <Skeleton width={'100%'} height={80} />
+               </Card>
+               <Card>
+                  <Skeleton width={'100%'} height={80} />
+               </Card>
+               <Card>
+                  <Skeleton width={'100%'} height={80} />
+               </Card>
+               <Card>
+                  <Skeleton width={'100%'} height={80} />
+               </Card>
+            </VStack>
+         </DynamicModuleLoader>
+      );
+   }
+
    return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
          <VStack gap={'25'} className={classNames(cls.ArticleCreateForm, {}, [className])}>
+            <ArticleCreateTypes />
             <Card>
                <Input
                   onChange={onChangeTitle}

@@ -48,10 +48,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
                : null}
 
             {isLoading && getSkeletons(view)}
-            {!articles?.length && !isLoading && (
-               <Text size={TextFontSize.L} texAlign={TextAlign.CENTER} title={t('Нет статей')} />
-            )}
          </div>
+         {!articles?.length && !isLoading && (
+            <Text size={TextFontSize.L} texAlign={TextAlign.CENTER} title={t('Нет статей')} />
+         )}
       </div>
    );
 });

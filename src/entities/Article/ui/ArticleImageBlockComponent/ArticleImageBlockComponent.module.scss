@@ -5,7 +5,11 @@
   overflow: hidden;
 
   .image {
-    max-width: 100%;
+    width: 100%;
+    justify-self: center;
+    object-fit: cover;
+    max-height: 500px;
+    min-height: 200px;
 
     &:not(:last-child) {
       margin-bottom: 7px;

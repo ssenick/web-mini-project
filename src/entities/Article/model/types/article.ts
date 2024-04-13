@@ -31,6 +31,7 @@ export interface Article {
    img: string;
    views: number;
    createdAt: string;
+   userId?: string;
    user: User;
    type: ArticleType[];
    blocks: ArticleBlock[];

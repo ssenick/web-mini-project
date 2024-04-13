@@ -6,7 +6,8 @@ export {
    getArticleDetailsForms,
    getArticleDetailsIsLoading,
 } from './model/selectors/articleDetails';
-export { getNewArticleData } from './model/selectors/newArticle';
+export { getNewArticleData, getNewArticleError, getNewArticleIsLoading } from './model/selectors/newArticle';
+export { createNewArticle } from './model/services/createNewArticle/createNewArticle';
 export { deleteArticleById } from './model/services/deleteArticleById/deleteArticleById';
 export { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
 export { updateArticleById } from './model/services/updateArticleById/updateArticleById';

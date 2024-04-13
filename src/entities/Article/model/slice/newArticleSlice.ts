@@ -2,8 +2,9 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import { type User } from '@/entities/User';
 
-import { type ArticleType } from '../consts/articleConsts';
-import { type ArticleBlock } from '../types/article';
+import { ArticleType } from '../consts/articleConsts';
+import { createNewArticle } from '../services/createNewArticle/createNewArticle';
+import { type Article, type ArticleBlock } from '../types/article';
 import { type ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
 const initialState: ArticleDetailsSchema = {
@@ -19,8 +20,9 @@ const initialState: ArticleDetailsSchema = {
       user: {
          id: '',
          username: '',
+         avatar: '',
       },
-      type: [],
+      type: [ArticleType.IT],
       blocks: [],
    },
 };
@@ -43,7 +45,13 @@ export const newArticleSlice = createSlice({
             state.forms.user = {
                id: action.payload.id,
                username: action.payload.username,
+               avatar: action.payload.avatar,
+               roles: action.payload.roles,
+               features: action.payload.features,
             };
+      },
+      updateUserId: (state, action: PayloadAction<string>) => {
+         if (state.forms) state.forms.userId = action.payload;
       },
       updateTitle: (state, action: PayloadAction<string>) => {
          if (state.forms) state.forms.title = action.payload;
@@ -75,20 +83,19 @@ export const newArticleSlice = createSlice({
       },
    },
    extraReducers: (builder) => {
-      // builder
-      //    .addCase(fetchProfileData.pending, (state) => {
-      //       state.error = undefined;
-      //       state.isLoading = true;
-      //    })
-      //    .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
-      //       state.isLoading = false;
-      //       state.data = action.payload;
-      //       state.form = action.payload;
-      //    })
-      //    .addCase(fetchProfileData.rejected, (state, action) => {
-      //       state.isLoading = false;
-      //       state.error = action.payload;
-      //    });
+      builder
+         .addCase(createNewArticle.pending, (state) => {
+            state.error = undefined;
+            state.isLoading = true;
+         })
+         .addCase(createNewArticle.fulfilled, (state, action: PayloadAction<Article>) => {
+            state.isLoading = false;
+            state.forms = action.payload;
+         })
+         .addCase(createNewArticle.rejected, (state, action) => {
+            state.isLoading = false;
+            state.error = action.payload;
+         });
    },
 });
 
