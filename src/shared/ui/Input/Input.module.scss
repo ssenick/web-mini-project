@@ -11,6 +11,27 @@
     margin-bottom: 5px;
   }
 
+  .close {
+    padding: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: var(--border-radius-small);
+
+    @media (any-hover: hover) {
+      &:hover {
+        animation: pulse 1s;
+        box-shadow: 0 0 0 1em transparent;
+      }
+    }
+  }
+
+  .stack {
+    position: relative;
+  }
+
   input {
     background-color: var(--bg-input);
     transition: opacity var(--animation-time) ease 0s;
@@ -18,7 +39,7 @@
     border-radius: var(--border-radius-small);
     height: var(--height-input);
     width: 100%;
-    padding: 5px 15px;
+    padding: 5px 34px 5px 15px;
     outline: none;
     color: inherit;
 
@@ -51,4 +72,8 @@
       opacity: 0;
     }
   }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--bg-module); }
 }

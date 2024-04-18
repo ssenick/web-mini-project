@@ -3,6 +3,9 @@ import { type InputHTMLAttributes, memo, useCallback, useMemo, useState } from '
 
 import { classNames, type Mods } from '@/shared/lib/classNames/classNames';
 
+import closeIcon from '../../assets/icons/close.svg';
+import { Icon } from '../Icon/Icon';
+import { VStack } from '../Stack';
 import { Text, TextFontSize } from '../Text/Text';
 import cls from './Input.module.scss';
 
@@ -54,6 +57,10 @@ export const Input = memo((props: InputProps): JSX.Element => {
       setIsFocus(false);
    }, []);
 
+   const cleaningValue = useCallback(() => {
+      onChange?.('');
+   }, [onChange]);
+
    const mods: Mods = useMemo(
       () => ({
          [cls.isFocus]: isFocus,
@@ -69,17 +76,28 @@ export const Input = memo((props: InputProps): JSX.Element => {
       >
          <label>
             {label && <Text size={labelSize} title={label} className={cls.label} />}
-            <input
-               data-testid="input"
-               value={value}
-               onChange={onChangeHandler}
-               type={type}
-               onFocus={onFocus}
-               onBlur={onBlur}
-               readOnly={readonly}
-               {...otherProps}
-               autoFocus={autofocus}
-            />
+            <VStack className={cls.stack}>
+               <input
+                  data-testid="input"
+                  value={value}
+                  onChange={onChangeHandler}
+                  type={type}
+                  onFocus={onFocus}
+                  onBlur={onBlur}
+                  readOnly={readonly}
+                  {...otherProps}
+                  autoFocus={autofocus}
+               />
+               {value && !readonly && (
+                  <Icon
+                     onClick={cleaningValue}
+                     width={24}
+                     height={24}
+                     Svg={closeIcon}
+                     className={cls.close}
+                  />
+               )}
+            </VStack>
          </label>
       </div>
    );

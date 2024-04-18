@@ -13,6 +13,30 @@ interface AppRouterProps {
 
 export const AppRouter = ({ className }: AppRouterProps): JSX.Element => {
    const location = useLocation();
+
+   if (__PROJECT__ === 'jest') {
+      return (
+         <main className={classNames('', {}, [className])}>
+            <Suspense fallback={<PageLoader />}>
+               <Routes location={location}>
+                  {Object.values(routeConfig).map((el: AppRoutersProps) => (
+                     <Route
+                        key={el.path}
+                        path={el.path}
+                        element={
+                           el.authOnly ? (
+                              <RequireAuth roles={el.roles}> {el.element} </RequireAuth>
+                           ) : (
+                              el.element
+                           )
+                        }
+                     />
+                  ))}
+               </Routes>
+            </Suspense>
+         </main>
+      );
+   }
    return (
       <main className={classNames('', {}, [className])}>
          <PageTransition location={location}>
