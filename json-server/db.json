@@ -2149,14 +2149,14 @@
       "title": "Notification 2",
       "description": "Some event happened",
       "userId": "1",
-      "href": "http://localhost:8080/admin"
+      "href": "/admin"
     },
     {
       "id": "3",
       "title": "Notification 3",
       "description": "Some event happened",
       "userId": "1",
-      "href": "http://localhost:8080/admin"
+      "href": "/admin"
     },
     {
       "id": "4",
