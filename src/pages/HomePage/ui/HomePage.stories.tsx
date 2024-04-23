@@ -84,6 +84,7 @@ const meta: Meta<typeof HomePage> = {
    component: HomePage,
    parameters: {
       layout: 'fullscreen',
+      loki: { skip: true },
       mockData: [
          {
             url: `${__API__}/articles?_limit=1`,
