@@ -2,6 +2,7 @@ import { type HTMLAttributeAnchorTarget, memo, type ReactNode, useRef } from 're
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { shuffleArray } from '@/shared/lib/func/shuffleArray';
 import { Text, TextAlign, TextFontSize } from '@/shared/ui/Text/Text';
 
 import { ArticleView } from '../../model/consts/articleConsts';
@@ -28,24 +29,26 @@ export const ArticleList = memo((props: ArticleListProps) => {
    const { t } = useTranslation('articles');
    const { className, articles, isLoading = true, view = ArticleView.BIG, slider, target } = props;
    const refList = useRef<HTMLDivElement>(null);
+
+   // Перемешиваем массив статей, если он не пустой
+   const shuffledArticles = articles?.length > 0 ? shuffleArray(articles) : [];
+
    return (
       <div
          ref={refList}
          className={classNames(cls.ArticleList, { [cls.slider]: slider }, [className, cls[view]])}
       >
          <div className={cls.articles}>
-            {articles?.length > 0
-               ? articles.map((article, index) => (
-                    <ArticleListItem
-                       className={cls.article}
-                       index={index}
-                       key={article.id}
-                       article={article}
-                       view={view}
-                       target={target}
-                    />
-                 ))
-               : null}
+            {shuffledArticles.map((article, index) => (
+               <ArticleListItem
+                  className={cls.article}
+                  index={index}
+                  key={article.id}
+                  article={article}
+                  view={view}
+                  target={target}
+               />
+            ))}
 
             {isLoading && getSkeletons(view)}
          </div>

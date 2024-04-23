@@ -1,0 +1,235 @@
+.Sl {
+  position: relative;
+  padding-bottom: 50%;
+  border-radius: var(--border-radius-small);
+  width: 100%;
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 300px;
+    transform: translate(0, -50%);
+    background-color: var(--bg-module);
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    animation: opacity 1s ease-in-out 1 forwards;
+    gap: 10px;
+    box-shadow: var(--box-shadow);
+
+    .title {
+      font-size: var(--font-size-l);
+      text-transform: uppercase;
+      animation: animate 1s ease-in-out 1 forwards;
+    }
+
+    .viewWrapper {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: start;
+      padding: 5px;
+      align-items: center;
+      gap: 6px;
+      animation: opacity 1s ease-in-out  0.1s forwards;
+    }
+
+    .text {
+      animation: animate 1s ease-in-out 0.3s 1 forwards;
+    }
+  }
+
+  .slide {
+    .item {
+      position: absolute;
+      border-radius: var(--border-radius-small);
+      overflow: hidden;
+      width: 200px;
+      height: 150px;
+      bottom: 10%;
+      display: block;
+      transition: 1s;
+
+      .img {
+        border-radius: var(--border-radius-small);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        object-fit: cover;
+        overflow: hidden;
+      }
+    }
+
+    .item:nth-child(1),
+    .item:nth-child(2) {
+      bottom: 0;
+      left: 0;
+      transform: translate(0, 0);
+      width: 100%;
+      height: 100%;
+
+      .content {
+        display: grid;
+      }
+    }
+
+    .item:nth-child(3) {
+      left: 50%;
+    }
+
+    .item:nth-child(n + 3) {
+      box-shadow: var(--box-shadow);
+    }
+
+    .item:nth-child(4) {
+      left: calc(50% + 220px);
+    }
+
+    .item:nth-child(5) {
+      left: calc(50% + 440px);
+    }
+
+    .item:nth-child(n + 6) {
+      left: calc(50% + 660px);
+      opacity: 0;
+    }
+  }
+
+  &.isLoading {
+    .slide {
+      .item:nth-child(n + 3) {
+        box-shadow: 0 2px 10px 0 var(--skeleton-shadow);
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .slide {
+      .item {
+        width: 160px;
+        height: 100px;
+      }
+
+      .item:nth-child(4) {
+        left: calc(50% + 180px);
+      }
+
+      .item:nth-child(5) {
+        left: calc(50% + 360px);
+      }
+
+      .item:nth-child(n + 6) {
+        left: calc(50% + 540px);
+        opacity: 0;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    padding-bottom: 60%;
+
+    .slide {
+      .item {
+        width: 120px;
+        height: 90px;
+      }
+
+      .item:nth-child(3) {
+        left: 55%;
+      }
+
+      .item:nth-child(4) {
+        left: calc(55% + 130px);
+      }
+
+      .item:nth-child(5) {
+        left: calc(55% + 260px);
+      }
+
+      .item:nth-child(n + 6) {
+        left: calc(55% + 390px);
+        opacity: 0;
+      }
+    }
+  }
+
+  @media (max-width: 740px) {
+    padding-bottom: 65%;
+
+    .content {
+      top: 10%;
+      left: 5%;
+      width: auto;
+      max-width: 200px;
+      transform: translate(0, 0);
+      padding: 8px;
+    }
+  }
+
+  @media (max-width: 550px) {
+    padding-bottom: 90%;
+
+    .slide {
+      .item {
+        bottom: 10px;
+        width: 100px;
+        height: 70px;
+      }
+
+      .item:nth-child(3) {
+        left: calc(100% - 110px);
+      }
+
+      .item:nth-child(4) {
+        left: calc(100% + 130px);
+      }
+    }
+  }
+
+  @media (max-width: 430px) {
+    padding-bottom: 100%;
+
+    .slide {
+
+      .item { width: 70px; }
+
+      .item:nth-child(n + 3) {
+        left: calc(100% - 80px);
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: translate(0, 100px);
+    filter: blur(33px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    filter: blur(33px);
+  }
+
+  50% {
+    opacity: 0;
+    filter: blur(33px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}

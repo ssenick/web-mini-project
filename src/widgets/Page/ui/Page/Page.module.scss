@@ -3,6 +3,7 @@
   padding: 15px 15px 35px;
   overflow: auto;
   position: relative;
+  overflow-x: hidden;
 
   .content {
     flex: 1 1 auto;
