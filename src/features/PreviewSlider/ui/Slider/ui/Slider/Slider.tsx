@@ -72,7 +72,7 @@ export const Slider = memo(({ className }: SlProps) => {
                         <Text size={TextFontSize.L} title={item.title} className={cls.title} />
                         <div className={cls.viewWrapper}>
                            <Text className={cls.view} text={String(item.views)} size={TextFontSize.SXS} />
-                           <Icon className={cls.icon} Svg={IconEye} />
+                           <Icon className={cls.icon} width={18} height={18} Svg={IconEye} />
                         </div>
                         <Text text={item.subtitle} className={cls.text} />
                      </div>
