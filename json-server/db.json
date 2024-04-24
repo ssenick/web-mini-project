@@ -512,7 +512,7 @@
       "id": "8",
       "title": "RAG vs. fine-tuning",
       "subtitle": "JavaScript new Keyword",
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7O63qIPyuRqAPaimKNhvpSWSl9NwHGeURrfjmxVt30A&s",
+      "img": "https://miro.medium.com/v2/resize:fit:1358/1*NfDr_qIXhpbLle3p94QHyQ.jpeg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "2",
@@ -1791,28 +1791,66 @@
   "posts": [
     {
       "id": "1",
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Javascript news !",
+      "subtitle": "What's new in JS for 2023?",
+      "img": "https://erkqdopz7j5.exactdn.com/wp-content/uploads/sites/2/2018/12/AI-is-coming-%E2%80%94-and-HR-is-not-prepared.jpg?strip=all&lossy=1&ssl=1",
+      "views": 1022
     },
     {
       "id": "2",
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Java or Javascript",
+      "subtitle": "JavaScript new Keyword",
+      "img": "https://www.nature.com/immersive/d41586-020-03002-z/assets/vfUDEcMAzm/gettyimages-1159521351-750x500.jpeg",
+      "views": 1022
     },
     {
       "id": "3",
-      "title": "json-server",
-      "author": "typicode"
+      "title": "News",
+      "subtitle": "Hello, world!",
+      "img": "https://contentwriters.com/blog/wp-content/uploads/2023/06/AI-detection-false-positive-AI-writing-750x500.jpg",
+      "views": 122
     },
     {
       "id": "4",
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Integrating ChatGPT with a React.js",
+      "subtitle": "Java new Keyword",
+      "img": "https://cdn2.opsmatters.com/sites/default/files/images/cloud-computing-technology-and-online-data-storage-for-global-data-picture-id1284524360.jpg",
+      "views": 2202
     },
     {
       "id": "5",
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Choosing the Right Technique",
+      "subtitle": "Hello, world!",
+      "img": "https://www.training.com.au/wp-content/uploads/career-in-technology-feature.png",
+      "views": 122
+    },
+    {
+      "id": "6",
+      "title": "Java ",
+      "subtitle": "Java new Keyword ",
+      "img": "https://miro.medium.com/v2/resize:fit:750/1*TtJpp7q1cZZS2lriqlFLaA.jpeg",
+      "views": 2202
+    },
+    {
+      "id": "7",
+      "title": "Six skills you need to become an AI prompt",
+      "subtitle": "What's new in JS for 2023?",
+      "img": "https://insightglobal.com/wp-content/uploads/2021/09/ITArticle.png",
+      "views": 1022
+    },
+    {
+      "id": "8",
+      "title": "RAG vs. fine-tuning",
+      "subtitle": "JavaScript new Keyword",
+      "img": "https://miro.medium.com/v2/resize:fit:1358/1*NfDr_qIXhpbLle3p94QHyQ.jpeg",
+      "views": 1022
+    },
+    {
+      "id": "9",
+      "title": "Prompting vs Finetuning in Generative A",
+      "subtitle": "Hello, world!",
+      "img": "https://miro.medium.com/v2/resize:fit:1200/1*y6C4nSvy2Woe0m7bWEn4BA.png",
+      "views": 122
     }
   ],
   "comments": [

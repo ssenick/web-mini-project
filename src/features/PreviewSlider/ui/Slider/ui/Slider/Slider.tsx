@@ -1,8 +1,6 @@
 import { memo, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { type Article } from '@/entities/Article';
-import { useGetArticleRecommendationListQuery } from '@/features/ArticleRecommendationsList';
 import ErrorImage from '@/shared/assets/icons/errorImage.svg';
 import IconEye from '@/shared/assets/icons/view.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -12,17 +10,19 @@ import { Icon } from '@/shared/ui/Icon/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Text, TextAlign, TextFontSize } from '@/shared/ui/Text/Text';
 
+import { useGetPostsPreviewListQuery } from '../../../../api/postsPreviewList';
+import { type PostsI } from '../../../../model/types/posts';
 import cls from './Slider.module.scss';
 
 interface SlProps {
    className?: string;
 }
+
 export const Slider = memo(({ className }: SlProps) => {
    const timer = useRef<ReturnType<typeof setInterval> | null>(null);
    const { t } = useTranslation();
-   const { isLoading, error, data } = useGetArticleRecommendationListQuery(9);
-   const [slides, setSlides] = useState<Article[]>([]);
-   console.log(data);
+   const { isLoading, error, data } = useGetPostsPreviewListQuery(null);
+   const [slides, setSlides] = useState<PostsI[]>([]);
 
    useEffect(() => {
       if (data) {
@@ -33,7 +33,7 @@ export const Slider = memo(({ className }: SlProps) => {
    useEffect(() => {
       timer.current = setInterval(() => {
          setSlides((prev) => {
-            const newArr: Article[] = [];
+            const newArr: PostsI[] = [];
             return newArr.concat(prev.slice(1), prev.slice(0, 1));
          });
       }, 6000);
