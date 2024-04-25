@@ -80,7 +80,7 @@ const article: Article = {
    ],
 };
 const meta: Meta<typeof HomePage> = {
-   title: 'pages/HomePage',
+   title: 'pages/HomePage/HomePage',
    component: HomePage,
    parameters: {
       layout: 'fullscreen',
