@@ -16,6 +16,10 @@
     background: linear-gradient(to right, transparent 0%, var(--skeleton-color) 50%, transparent 100%);
     animation: load 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
+
+  &.inverse {
+    box-shadow: 0 2px 10px 0 var(--skeleton-shadow-inverse);
+  }
 }
 
 @keyframes load {

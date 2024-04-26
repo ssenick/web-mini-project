@@ -1,9 +1,10 @@
 import { Tab } from '@headlessui/react';
-import { memo, type ReactNode, useMemo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { ArticleType } from '@/entities/Article';
+import { type ArticleType } from '@/entities/Article';
+import { useGetTopicsListQuery } from '@/entities/Topics';
 import { getUserAuthData } from '@/entities/User';
 import ErrorImage from '@/shared/assets/icons/errorImage.svg';
 import { getRouteArticles } from '@/shared/config/routeConfig';
@@ -17,60 +18,41 @@ import { Text, TextAlign, TextFontSize } from '@/shared/ui/Text/Text';
 
 import cls from './TypesArticleTabs.module.scss';
 
-interface ContentType {
-   title: string;
-   description: string;
-   img: string;
-}
-interface TabI {
-   id: string;
-   trigger: ReactNode;
-   content: ContentType;
-}
-
 interface TypesArticleTabsProps {
    className?: string;
 }
 
 export const TypesArticleTabs = memo(({ className }: TypesArticleTabsProps) => {
-   const errorImage = <Icon className={cls.img} Svg={ErrorImage} width={'100%'} height={'100%'} />;
-   const userAuth = useSelector(getUserAuthData);
    const { t } = useTranslation();
-   const tabs: TabI[] = useMemo(
-      () => [
-         {
-            id: '1',
-            trigger: t('Айти'),
-            content: {
-               title: ArticleType.IT,
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-               img: 'https://st2.depositphotos.com/4021139/7320/i/450/depositphotos_73205685-stock-photo-it-strategy-concept.jpg',
-            },
-         },
-         {
-            id: '2',
-            trigger: t('Экономика'),
-            content: {
-               title: ArticleType.ECONOMICS,
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing. ut labore et dolore magna aliqua.',
-               img: 'https://img.freepik.com/free-vector/flat-design-stock-market-concept_23-2149162443.jpg',
-            },
-         },
-         {
-            id: '3',
-            trigger: t('Наука'),
-            content: {
-               title: ArticleType.SCIENCE,
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-               img: 'https://img.freepik.com/free-vector/colourful-science-work-concept_23-2148539571.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1713916800&semt=sph',
-            },
-         },
-      ],
-      [t],
-   );
+   const userAuth = useSelector(getUserAuthData);
+   const { error, isLoading, data: topics } = useGetTopicsListQuery(null);
+   const errorImage = <Icon className={cls.img} Svg={ErrorImage} width={'100%'} height={'100%'} />;
+   const triggers: ArticleType[] = [t('Айти'), t('Экономика'), t('Наука')];
+
+   if (error) {
+      return (
+         <div className={classNames(cls.TypesArticleTabs, {}, [className])}>
+            <Text title={t('что-то пошло не так')} texAlign={TextAlign.CENTER} />
+         </div>
+      );
+   }
+   if (isLoading) {
+      return (
+         <VStack gap={'25'} className={classNames(cls.TypesArticleTabs, {}, [className])}>
+            <Skeleton inverse className={cls.text} border={'5px'} width={'100%'} height={'115px'} />
+            <div className={classNames(cls.ContentTabs, {}, [className])}>
+               <div className={cls.list}>
+                  <Skeleton inverse border={'5px'} width={'33%'} height={'34px'} />
+                  <Skeleton inverse border={'5px'} width={'33%'} height={'34px'} />
+                  <Skeleton inverse border={'5px'} width={'33%'} height={'34px'} />
+               </div>
+               <div className={cls.skeletonPanels}>
+                  <Skeleton inverse border={'5px'} width={'100%'} height={'184px'} />
+               </div>
+            </div>
+         </VStack>
+      );
+   }
 
    return (
       <VStack gap={'25'} className={classNames(cls.TypesArticleTabs, {}, [className])}>
@@ -86,23 +68,27 @@ export const TypesArticleTabs = memo(({ className }: TypesArticleTabsProps) => {
          <div className={classNames(cls.ContentTabs, {}, [className])}>
             <Tab.Group>
                <Tab.List className={cls.list}>
-                  {tabs.map((tab) => (
+                  {triggers.map((trigger) => (
                      <Tab
-                        key={tab.id}
+                        key={trigger}
                         className={({ selected }) => classNames(cls.title, { [cls.active]: selected }, [])}
                      >
-                        {tab.trigger}
+                        {trigger}
                      </Tab>
                   ))}
                </Tab.List>
                <Tab.Panels className={cls.panels}>
-                  {tabs.map(({ content }, idx) => (
+                  {topics?.map(({ content }, idx) => (
                      <Tab.Panel key={idx} className={cls.panel}>
                         <VStack gap={'15'} className={cls.info}>
                            <Text title={content.title} size={TextFontSize.L} />
                            <Text text={content.description} />
                            {userAuth && (
-                              <AppLink variant={AppLinkVariant.BORDER} to={getRouteArticles()}>
+                              <AppLink
+                                 className={cls.link}
+                                 variant={AppLinkVariant.BORDER}
+                                 to={getRouteArticles()}
+                              >
                                  {t('Перейти к статьям')}
                               </AppLink>
                            )}

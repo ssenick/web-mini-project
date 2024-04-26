@@ -93,6 +93,15 @@
     left: 0;
     object-fit: cover;
   }
+
+  .link {
+    align-self: start;
+  }
+
+  .skeletonPanels {
+    max-width: 800px;
+    margin: 0 auto;
+  }
 }
 
 @keyframes pulse-border {

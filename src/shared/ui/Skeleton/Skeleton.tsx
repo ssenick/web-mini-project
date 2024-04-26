@@ -9,15 +9,18 @@ interface SkeletonProps {
    width?: string | number;
    height?: string | number;
    border?: string;
+   inverse?: boolean;
 }
 
 export const Skeleton = memo((props: SkeletonProps) => {
-   const { className, width, height, border } = props;
+   const { className, width, height, border, inverse } = props;
 
    const styles: CSSProperties = {
       width,
       height,
       borderRadius: border,
    };
-   return <div className={classNames(cls.Skeleton, {}, [className])} style={styles}></div>;
+   return (
+      <div className={classNames(cls.Skeleton, { [cls.inverse]: inverse }, [className])} style={styles}></div>
+   );
 });
