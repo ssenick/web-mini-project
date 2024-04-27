@@ -8,10 +8,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Spoiler } from '@/shared/ui/Spoiler/Spoiler';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text, TextAlign, TextFontSize } from '@/shared/ui/Text/Text';
 import { ErrorMessage } from '@/widgets/ErrorMessage';
 
 import cls from './FaqList.module.scss';
+
 interface FaqListProps {
    className?: string;
 }
@@ -63,6 +64,9 @@ export const FaqList = memo(({ className }: FaqListProps) => {
                />
             </div>
          ))}
+         {faqList && faqList.length < 1 && (
+            <Text texAlign={TextAlign.CENTER} size={TextFontSize.L} title={t('Ничего не удалось найти')} />
+         )}
       </div>
    );
 });
