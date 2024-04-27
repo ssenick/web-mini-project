@@ -13,6 +13,7 @@ const meta: Meta<typeof TypesArticleTabs> = {
    component: TypesArticleTabs,
    parameters: {
       layout: 'fullscreen',
+      loki: { skip: true },
       mockData: [
          {
             url: `${__API__}/topics`,

@@ -22,7 +22,7 @@ export const EditCard = memo((props: EditCardProps) => {
       <div className={classNames(cls.EditCard, {}, [className])}>
          <HStack justify={'between'} gap={'15'} className={cls.header}>
             <HStack gap={'15'} className={cls.info}>
-               {icon && <Icon mainColor Svg={icon} />}
+               {icon && <Icon mainColor Svg={icon} width={20} height={20} />}
                {title && <Text title={title} />}
             </HStack>
             <HStack className={cls.action}>
