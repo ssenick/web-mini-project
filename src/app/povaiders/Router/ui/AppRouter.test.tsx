@@ -2,14 +2,14 @@ import { screen } from '@testing-library/react';
 
 import { AppRouter } from '@/app/povaiders/Router';
 import { UserRole } from '@/entities/User';
-import { getRouteAbout, getRouteAdmin, getRouteProfile } from '@/shared/config/routeConfig';
+import { getRouteAdmin, getRouteFAQ, getRouteProfile } from '@/shared/config/routeConfig';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 describe('AppRouter.test', () => {
    test('Page render', async () => {
       componentRender(<AppRouter />, {
-         route: getRouteAbout(),
+         route: getRouteFAQ(),
       });
-      const page = await screen.findByTestId('AboutPage');
+      const page = await screen.findByTestId('FaqPage');
       expect(page).toBeInTheDocument();
    });
 

@@ -75,6 +75,7 @@ export const AddBlock = memo(({ className, articlesBlocks, addBlocks, bgColor }:
          <Spoiler
             actionBlock={<div className={cls.btn}></div>}
             classNameActionBlock={cls.header}
+            classNameActive={cls.active}
             showBlock={<Blocks onClick={addNewBlock} />}
          />
       </div>

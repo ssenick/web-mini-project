@@ -1,12 +1,12 @@
 import { type RouteProps } from 'react-router-dom';
 
 import { UserRole } from '@/entities/User';
-import { AboutPage } from '@/pages/AboutPage';
 import { AdminPage } from '@/pages/AdminPage';
 import { ArticleCreatePage } from '@/pages/ArticleCreatePage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { ArticlePage } from '@/pages/ArticlePage';
+import { FaqPage } from '@/pages/FaqPage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { HomePage } from '@/pages/HomePage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
@@ -18,7 +18,7 @@ export type AppRoutersProps = RouteProps & {
 };
 export enum AppRoutes {
    MAIN = 'main',
-   ABOUT = 'about',
+   FAQ = 'FAQ',
    PROFILE = 'profile',
    ARTICLES = 'articles',
    ARTICLE_DETAILS = 'articles_details',
@@ -31,7 +31,7 @@ export enum AppRoutes {
 }
 
 export const getRouteMain = (): string => '/';
-export const getRouteAbout = (): string => '/about';
+export const getRouteFAQ = (): string => '/faq';
 export const getRouteProfile = (id: string): string => `/profile/${id}`;
 export const getRouteArticles = (): string => '/articles';
 export const getRouteArticlesCreate = (): string => '/articles/new';
@@ -45,9 +45,9 @@ export const routeConfig: Record<AppRoutes, AppRoutersProps> = {
       path: getRouteMain(),
       element: <HomePage />,
    },
-   [AppRoutes.ABOUT]: {
-      path: getRouteAbout(),
-      element: <AboutPage />,
+   [AppRoutes.FAQ]: {
+      path: getRouteFAQ(),
+      element: <FaqPage />,
    },
    [AppRoutes.PROFILE]: {
       path: getRouteProfile(':id'),

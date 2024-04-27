@@ -8,6 +8,7 @@ import { type AxiosInstance } from 'axios';
 
 import { type ArticleDetailsSchema } from '@/entities/Article';
 import { type CounterSchema } from '@/entities/Counter';
+import { type FaqSearch } from '@/entities/FAQ';
 import { type ProfileSchema } from '@/entities/Profile';
 import { type UserSchema } from '@/entities/User';
 import { type AddNewCommentFormSchema } from '@/features/AddNewCommentForm';
@@ -31,6 +32,7 @@ export interface StateSchema {
    articleDetailsComments?: ArticleDetailsCommentSchema;
    addCommentForm?: AddNewCommentFormSchema;
    articlePage?: ArticlePageWrapperSchema;
+   faq?: FaqSearch;
 }
 
 export type StateSchemaKey = keyof StateSchema;

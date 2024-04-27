@@ -1,6 +1,7 @@
 {
    "Главная": "Home",
    "О Сайте": "About",
+   "ЧЗВ": "FAQ",
    "Язык": "RU",
    "упс": "Whoops!",
    "что-то пошло не так": "Something went wrong...",
@@ -68,5 +69,7 @@
   "Добавить блок": "Add block",
   "Main topics in articles": "Main topics in articles",
    "Here you can find topics from these categories, in the future there will only be more and more topics": "Here you can find topics from these categories, in the future there will only be more and more topics",
-  "Перейти к статьям": "Go to articles"
+  "Перейти к статьям": "Go to articles",
+  "Поиск по FAQ": "Search FAQ",
+  "Поиск по ЧЗВ": "Search FAQ"
 }

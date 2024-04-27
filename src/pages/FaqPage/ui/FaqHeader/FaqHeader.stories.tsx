@@ -5,11 +5,11 @@ import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 
-import AboutPage from './AboutPage';
+import { FaqHeader } from './FaqHeader';
 
-const meta: Meta<typeof AboutPage> = {
-   title: 'pages/AboutPage',
-   component: AboutPage,
+const meta: Meta<typeof FaqHeader> = {
+   title: 'pages/FaqPage/FaqHeader',
+   component: FaqHeader,
    parameters: {
       layout: 'fullscreen',
    },
@@ -24,13 +24,3 @@ export const Light: Story = {
    args: {},
 };
 Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator(), RouterDecorator];
-
-export const Dark: Story = {
-   args: {},
-};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(), RouterDecorator];
-
-export const Funny: Story = {
-   args: {},
-};
-Funny.decorators = [ThemeDecorator(Theme.FUNNY), StoreDecorator(), RouterDecorator];

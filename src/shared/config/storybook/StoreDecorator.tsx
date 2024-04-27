@@ -3,6 +3,7 @@ import { type Decorator } from '@storybook/react';
 
 import { type StateSchema, StoreProvider } from '@/app/povaiders/StoreProvaider';
 import { articleDetailsReducer } from '@/entities/Article';
+import { faqReducer } from '@/entities/FAQ';
 import { profileReducer } from '@/entities/Profile';
 import { addNewCommentFormReducer } from '@/features/AddNewCommentForm';
 import { articleDetailsCommentsReducer } from '@/features/ArticleCommentList';
@@ -16,6 +17,7 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
    articleDetailsComments: articleDetailsCommentsReducer,
    addCommentForm: addNewCommentFormReducer,
    articlePage: articlesPageReducer,
+   faq: faqReducer,
 };
 
 export const StoreDecorator =

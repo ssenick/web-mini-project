@@ -1,0 +1,90 @@
+.FaqList {
+  counter-reset: section;
+  width: 100%;
+
+  .text {
+    color: var(--primary-color);
+    transition: color var(--animation-time) ease 0s;
+  }
+
+  .title {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--secondary-color);
+    width: 100%;
+    flex: 1 1 auto;
+    padding: 7px 0 8px;
+    column-gap: 8px;
+
+    @media (any-hover: hover) {
+      &:hover {
+        .text {
+          color: var(--bg-module);
+        }
+      }
+    }
+
+    .number {
+      content: "0" counter(section) ".";
+      counter-increment: section;
+      margin-right: 7px;
+      color: var(--bg-module);
+    }
+  }
+
+  .item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 36px;
+    margin-left: auto;
+    width: 36px;
+    height: 36px;
+    background-color: var(--bg-module-40);
+    border-radius: var(--border-radius-small);
+  }
+
+  .arrow {
+    transition: transform 0.3s ease 0s;
+  }
+
+  .active {
+    .arrow {
+      transform: rotate(-180deg);
+    }
+  }
+
+  .body {
+    padding: 15px 36px 15px  40px;
+  }
+
+  @media (max-width: 600px) {
+    .item {
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+
+    .title {
+      padding: 10px 0;
+    }
+
+    .body {
+      padding: 10px;
+    }
+
+    .icon {
+      flex: 0 0 30px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

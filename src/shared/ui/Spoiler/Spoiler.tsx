@@ -4,16 +4,24 @@ import { memo, type ReactNode, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useHeight } from '@/shared/lib/hooks/useHeight';
 
-import cls from './Spoiler.module.scss';
 interface SpoilerProps {
    classNameActionBlock?: string;
+   classNameActive?: string;
    actionBlock: ReactNode | 'string' | 'number';
    showBlock: ReactNode | 'string' | number;
    classNameShowBlock?: string;
+   buttonWithMax?: boolean;
 }
 
 export const Spoiler = memo((props: SpoilerProps) => {
-   const { classNameActionBlock, actionBlock, showBlock, classNameShowBlock } = props;
+   const {
+      classNameActionBlock,
+      actionBlock,
+      showBlock,
+      classNameShowBlock,
+      classNameActive,
+      buttonWithMax,
+   } = props;
    const [isShow, setIsShow] = useState(false);
    const [heightRef, height] = useHeight();
 
@@ -32,8 +40,10 @@ export const Spoiler = memo((props: SpoilerProps) => {
 
    return (
       <>
-         <div className={classNames('', { [cls.isShow]: isShow }, [classNameActionBlock])}>
-            <button onClick={onHandlerClick}>{actionBlock}</button>
+         <div className={classNames('', { [`${classNameActive}`]: isShow }, [classNameActionBlock])}>
+            <button style={{ width: buttonWithMax ? '100%' : '' }} onClick={onHandlerClick}>
+               {actionBlock}
+            </button>
          </div>
          <animated.div style={{ ...slideInStyles, overflow: 'hidden' }}>
             <div className={classNameShowBlock} ref={heightRef}>

@@ -5,7 +5,7 @@ import AboutIcon from '@/shared/assets/icons/about.svg';
 import ArticlesIcon from '@/shared/assets/icons/articles.svg';
 import HomeIcon from '@/shared/assets/icons/home.svg';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';
-import { getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile } from '@/shared/config/routeConfig';
+import { getRouteArticles, getRouteFAQ, getRouteMain, getRouteProfile } from '@/shared/config/routeConfig';
 
 import { type SidebarLinkType } from '../types/sidebar';
 
@@ -17,9 +17,9 @@ export const getSidebarLinks = createSelector(getUserAuthData, (userData) => {
          text: 'Главная',
       },
       {
-         path: getRouteAbout(),
+         path: getRouteFAQ(),
          Icon: AboutIcon,
-         text: 'О Сайте',
+         text: 'ЧЗВ',
       },
    ];
    if (userData) {

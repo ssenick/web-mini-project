@@ -2185,5 +2185,107 @@
             "img": "https://img.freepik.com/free-vector/colourful-science-work-concept_23-2148539571.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1713916800&semt=sph"
          }
       }
+   ],
+   "faq": [
+      {
+         "id": "1",
+         "question": "How to unsubscribe?",
+         "answer": "You can disable your subscription in your personal account in the \"Profile\" tab - the \"Connected services\" button by clicking on the cross next to the active subscription. You will receive forecasts for all remaining paid days."
+      },
+      {
+         "id": "2",
+         "question": "What should I do if I forgot my password?",
+         "answer": "If you have forgotten your password, use the password recovery form: If you are unable to use the form, write to the online support chat on the website."
+      },
+      {
+         "id": "3",
+         "question": "I didn't receive an email confirming my registration?",
+         "answer": "If you haven't received your registration confirmation email from .. within a few minutes, check your Spam folder. It happens that a letter gets there by mistake. Add the address to your address book or filter exclusion list. Then try again. If you still don’t see the letter, contact the online support chat on the website"
+      },
+      {
+         "id": "4",
+         "question": "What is a “Trial Period”?",
+         "answer": "The trial is a free 5-day access to GameSport analytics so you can evaluate the service and see if it's right for you."
+      },
+      {
+         "id": "5",
+         "question": "Payment Methods",
+         "answer": "Payment for GameSport service services is currently only possible by credit card. If your card is linked to Apple Pay or Google Pay, you can also pay for the service"
+      },
+      {
+         "id": "6",
+         "question": "How to change the tariff?",
+         "answer": "You can change the tariff in the “Tariffs” section. There you can choose the most profitable and suitable one for you and click on the “Activate tariff” button. The new tariff will begin after the previously paid period expires."
+      },
+      {
+         "id": "7",
+         "question": "What is a Trial Period?",
+         "answer": "The trial is a free 5-day access to GameSport analytics so you can evaluate the service and see if it's right for you."
+      },
+      {
+         "id": "8",
+         "question": "Payment Methods 2 ?? ",
+         "answer": "Payment for GameSport service services is currently only possible by credit card. If your card is linked to Apple Pay or Google Pay, you can also pay for the service"
+      },
+      {
+         "id": "9",
+         "question": "How  it p?",
+         "answer": "You can change the tariff in the “Tariffs” section. There you can choose the most profitable and suitable one for you and click on the “Activate tariff” button. The new tariff will begin after the previously paid period expires."
+      },
+      {
+         "id": "10",
+         "question": "How to receive a bonus from a partner?",
+         "answer": "Payment for GameSport service services is currently only possible by credit card. If your card is linked to Apple Pay or Google Pay, you can also pay for the service"
+      },
+      {
+         "id": "11",
+         "question": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, rem.?",
+         "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab cupiditate dicta doloribus ducimus est eveniet fuga illo laboriosam magni maxime minima, minus mollitia nobis, perferendis quidem similique suscipit temporibus voluptate."
+      },
+      {
+         "id": "12",
+         "question": "Lorem ipsum dolor sit amet?",
+         "answer": "Consectetur adipisicing elit. Ab cupiditate dicta doloribus ducimus est eveniet fuga illo laboriosam magni maxime minima, minus mollitia nobis, perferendis quidem similique suscipit temporibus voluptate."
+      },
+      {
+         "id": "13",
+         "question": "How ipsum dolor sit amet, consectetur adipisicing.?",
+         "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem distinctio ducimus eaque odio saepe?"
+      },
+      {
+         "id": "14",
+         "question": "A autem distinctio ducimus eaque odio saepe?",
+         "answer": "Payment for GameSport service services is currently only possible by credit card. If your card is linked to Apple Pay or Google Pay, you can also pay for the service"
+      },
+      {
+         "id": "15",
+         "question": "How consectetur adipisicing elit?",
+         "answer": "Payment for GameSport service services is currently only possible by credit card. If your card is linked to Apple Pay or Google Pay, you can also pay for the service"
+      },
+      {
+         "id": "16",
+         "question": "Ipsum dolor a bonus from a partner?",
+         "answer": "Payment for GameSport service services is currently only possible by credit card. If your card is linked to Apple Pay or Google Pay, you can also pay for the service"
+      },
+      {
+         "id": "17",
+         "question": "How to  bonus from a partner?",
+         "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda eos et fugiat perferendis vel voluptate voluptatum! Accusamus dolore harum, laboriosam magnam magni minima nihil omnis, possimus quaerat quam reiciendis?"
+      },
+      {
+         "id": "18",
+         "question": "Receive a bonus from a partner?",
+         "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda eos et fugiat perferendis vel voluptate voluptatum! Accusamus dolore harum, laboriosam magnam magni minima nihil omnis, possimus quaerat quam reiciendis?"
+      },
+      {
+         "id": "19",
+         "question": "Receive a bonus from a partner?",
+         "answer": "Payment for GameSport service services is currently only possible by credit card. If your card is linked to Apple Pay or Google Pay, you can also pay for the service"
+      },
+      {
+         "id": "20",
+         "question": "How a bonus  partner?",
+         "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda eos et fugiat perferendis vel voluptate voluptatum! Accusamus dolore harum, laboriosam magnam magni minima nihil omnis, possimus quaerat quam reiciendis?"
+      }
    ]
 }
