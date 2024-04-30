@@ -40,7 +40,7 @@ server.post('/login', (req, res) => {
 // проверяем, авторизован ли пользователь
 server.use((req, res, next) => {
    // Определите эндпоинты, которые доступны без авторизации
-   const publicEndpoints = ['/posts', '/topics'];
+   const publicEndpoints = ['/posts', '/topics', '/faq'];
 
    // Если запрос идет к публичному эндпоинту, пропустите его без проверки авторизации
    if (publicEndpoints.includes(req.path)) {

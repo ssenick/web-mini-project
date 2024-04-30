@@ -1,83 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from '@/app/povaiders/ThemeProvaider';
-import { type Article, ArticleBlockType, ArticleType } from '@/entities/Article';
+import { type PostsI } from '@/features/PreviewSlider';
 import Image from '@/shared/assets/test/image.jpg';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 
 import HomePage from './HomePage';
-const article: Article = {
+const post: PostsI = {
    id: '1',
    title: 'Javascript news',
    subtitle: "What's new in JS for 2023?",
    img: Image,
-   views: 1022,
-   createdAt: '26.02.2023',
-   user: {
-      username: 'Admin',
-      avatar: Image,
-      id: '2',
-   },
-   type: [ArticleType.IT, ArticleType.SCIENCE],
-   blocks: [
-      {
-         id: '1',
-         type: ArticleBlockType.TEXT,
-         title: 'Title of this block',
-         paragraphs: [
-            'The program, which is traditionally called “Hello, world!”, is very simple. It outputs somewhere the phrase “Hello, world!”, or something similar, using a certain language.',
-            "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program.",
-         ],
-      },
-      {
-         id: '4',
-         type: ArticleBlockType.CODE,
-         code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
-      },
-      {
-         id: '5',
-         type: ArticleBlockType.TEXT,
-         title: 'Title of this block',
-         paragraphs: [
-            'The program, which is traditionally called “Hello, world!”, is very simple. It outputs somewhere the phrase “Hello, world!”, or something similar, using a certain language.',
-         ],
-      },
-      {
-         id: '2',
-         type: ArticleBlockType.IMAGE,
-         src: Image,
-         title: 'Figure 1 - site screenshot',
-      },
-      {
-         id: '3',
-         type: ArticleBlockType.CODE,
-         code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
-      },
-      {
-         id: '7',
-         type: ArticleBlockType.TEXT,
-         title: 'Title of this block',
-         paragraphs: [
-            "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program.",
-         ],
-      },
-      {
-         id: '8',
-         type: ArticleBlockType.IMAGE,
-         src: Image,
-         title: 'Figure 1 - site screenshot',
-      },
-      {
-         id: '9',
-         type: ArticleBlockType.TEXT,
-         title: 'Title of this block',
-         paragraphs: [
-            "JavaScript is a language in which programs can be executed in different environments. In our case, we are talking about browsers and the Node.js server platform. If you have not yet written a single line of code in JS and are reading this text in a browser, on desktop, which means you're literally seconds away from running your first JavaScript program.",
-         ],
-      },
-   ],
+   views: '2000',
 };
 const meta: Meta<typeof HomePage> = {
    title: 'pages/HomePage/HomePage',
@@ -87,12 +23,28 @@ const meta: Meta<typeof HomePage> = {
       loki: { skip: true },
       mockData: [
          {
-            url: `${__API__}/articles?_limit=1`,
+            url: `${__API__}/posts`,
             method: 'GET',
             status: 200,
             response: [
-               { ...article, id: 1 },
-               { ...article, id: 2 },
+               { ...post, id: 1 },
+               { ...post, id: 2 },
+            ],
+         },
+         {
+            url: `${__API__}/topics`,
+            method: 'GET',
+            status: 200,
+            response: [
+               {
+                  id: '1',
+                  content: {
+                     title: 'IT',
+                     description:
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                     img: Image,
+                  },
+               },
             ],
          },
       ],
