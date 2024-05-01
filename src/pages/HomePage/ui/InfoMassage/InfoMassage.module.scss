@@ -3,18 +3,18 @@
   grid-template-columns: repeat(2, 1fr);
   overflow: hidden;
   border-radius: var(--border-radius-small);
-  border: 1px solid var(--error-primary);
+  border: 3px solid var(--error-primary);
 
   .item {
     padding: 10px 15px;
 
     &:nth-child(1),
     &:nth-child(2) {
-      background-color: var(--error-secondary);
+      background-color: var(--error-primary);
     }
 
     &:nth-child(2n + 4) {
-      border-left: 1px solid var(--error-primary);
+      border-left: 3px solid var(--error-primary);
     }
 
     &:nth-child(4n + 5) {
