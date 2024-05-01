@@ -5,6 +5,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { Text, TextFontSize } from '@/shared/ui/Text/Text';
 import { Page } from '@/widgets/Page';
 
+import { InfoMassage } from '../InfoMassage/InfoMassage';
 import { TypesArticleTabs } from '../TypesArticleTabs/TypesArticleTabs';
 
 const HomePage = (): JSX.Element => {
@@ -13,6 +14,7 @@ const HomePage = (): JSX.Element => {
    return (
       <Page data-testid={'HomePage'}>
          <VStack gap={'30'}>
+            <InfoMassage />
             <Text
                title={t('главный заголовок домашней страницы')}
                text={t('подзаголовок клавной страницы')}
