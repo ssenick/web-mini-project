@@ -51,6 +51,7 @@
       bottom: 10%;
       display: block;
       transition: 1s;
+      will-change: transform;
 
       &::after {
         content: "";
