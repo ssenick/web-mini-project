@@ -39,16 +39,27 @@ export const ArticleList = memo((props: ArticleListProps) => {
          className={classNames(cls.ArticleList, { [cls.slider]: slider }, [className, cls[view]])}
       >
          <div className={cls.articles}>
-            {shuffledArticles.map((article, index) => (
-               <ArticleListItem
-                  className={cls.article}
-                  index={index}
-                  key={article.id}
-                  article={article}
-                  view={view}
-                  target={target}
-               />
-            ))}
+            {slider
+               ? shuffledArticles.map((article, index) => (
+                    <ArticleListItem
+                       className={cls.article}
+                       index={index}
+                       key={article.id}
+                       article={article}
+                       view={view}
+                       target={target}
+                    />
+                 ))
+               : articles.map((article, index) => (
+                    <ArticleListItem
+                       className={cls.article}
+                       index={index}
+                       key={article.id}
+                       article={article}
+                       view={view}
+                       target={target}
+                    />
+                 ))}
 
             {isLoading && getSkeletons(view)}
          </div>
