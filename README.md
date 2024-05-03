@@ -1,3 +1,4 @@
+
 ## Start of the project
 
 ```
@@ -5,6 +6,11 @@
 "npm run start:all" - starting a server + frontend project (Vite) in dev mode + storybook
 "npm run start:webpack:all" - starting a server + frontend project (Webpack) in dev mode + storybook
 ```
+
+----
+DEMO: https://dulcet-pudding-009166.netlify.app/
+
+![Screenshot](https://github.com/ssenick/web-mini-project/blob/master/docs/screenshot.png)
 
 ----
 
