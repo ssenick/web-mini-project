@@ -47,7 +47,6 @@ export const Drawer = (props: DrawerProps): JSX.Element | null => {
          } else {
             api.start({ y: my, immediate: true });
          }
-         console.log(my, vy);
       },
       {
          from: () => [0, y.get()],
