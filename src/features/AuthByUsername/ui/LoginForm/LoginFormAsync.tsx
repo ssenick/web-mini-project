@@ -7,7 +7,13 @@ export const LoginFormLazy = lazy<FC<LoginFormProps>>(async () => await import('
 
 export const LoginFormAsync = ({ ...props }): JSX.Element => {
    return (
-      <Suspense fallback={<LoaderPoints />}>
+      <Suspense
+         fallback={
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+               <LoaderPoints />
+            </div>
+         }
+      >
          <LoginFormLazy {...props} />
       </Suspense>
    );

@@ -8,10 +8,87 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>mini-project</title>
+    <style>
+        :root {
+            --box-shadow-color: #abebfc;
+            --bg-color: #fff;
+        }
+
+        .dark-mode {
+            --box-shadow-color: #136e7d;
+            --bg-color: #252525;
+        }
+
+        .container{
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--bg-color);
+        }
+        .loader {
+            width: 65px;
+            aspect-ratio: 1;
+            position: relative;
+        }
+        .loader:before,
+        .loader:after {
+            content: "";
+            position: absolute;
+            border-radius: 50px;
+            box-shadow: 0 0 0 3px inset var(--box-shadow-color);
+            animation: l4 2.5s infinite;
+        }
+        .loader:after {
+            animation-delay: -1.25s;
+        }
+        @keyframes l4 {
+            0% {
+                inset: 0 35px 35px 0;
+            }
+            12.5% {
+                inset: 0 35px 0 0;
+            }
+            25% {
+                inset: 35px 35px 0 0;
+            }
+            37.5% {
+                inset: 35px 0 0 0;
+            }
+            50% {
+                inset: 35px 0 0 35px;
+            }
+            62.5% {
+                inset: 0 0 0 35px;
+            }
+            75% {
+                inset: 0 0 35px 35px;
+            }
+            87.5% {
+                inset: 0 0 35px 0;
+            }
+            100% {
+                inset: 0 35px 35px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <div class="container">
+            <div class="loader"></div>
+        </div>
+    </div>
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
     <script type="module" src="/src/index.tsx"></script>
 </body>
 </html>
