@@ -12,7 +12,7 @@ const HomePage = (): JSX.Element => {
    const { t } = useTranslation('home');
 
    return (
-      <Page data-testid={'HomePage'}>
+      <Page data-testid={'HomePage'} arrowUp scrollTrigger>
          <VStack gap={'30'}>
             <InfoMassage />
             <Text

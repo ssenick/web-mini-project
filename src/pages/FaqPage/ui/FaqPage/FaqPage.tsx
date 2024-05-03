@@ -17,7 +17,7 @@ const reducers: ReducersList = {
 
 const FaqPage = memo((): JSX.Element => {
    return (
-      <Page data-testid={'FaqPage'}>
+      <Page data-testid={'FaqPage'} arrowUp scrollTrigger>
          <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <VStack gap={'30'}>
                <FaqHeader />
