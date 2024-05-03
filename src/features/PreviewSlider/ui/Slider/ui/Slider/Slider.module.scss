@@ -94,6 +94,12 @@
       }
     }
 
+    .item:nth-child(1) {
+      .content {
+        animation: opacity-exit 0.3s ease-in-out 1 forwards;
+      }
+    }
+
     .item:nth-child(3) {
       left: 50%;
     }
@@ -257,5 +263,17 @@
   100% {
     opacity: 1;
     filter: blur(0);
+  }
+}
+
+@keyframes opacity-exit {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(33px);
   }
 }
