@@ -1,3 +1,14 @@
+----
+DEMO: https://dulcet-pudding-009166.netlify.app/
+----
+
+Description: This project is a comprehensive web application developed with a modern tech stack including TypeScript, React, and Redux. It utilizes various tools and libraries such as Webpack, Vite, and Storybook for efficient development and testing workflows. The application features a responsive design and incorporates animations, sliders, and other interactive elements to enhance user engagement. It also includes localization support with i18next for multilingual content. The project structure follows best practices, with linting and formatting tools like ESLint and Prettier ensuring code quality. Additionally, it integrates testing frameworks like Jest and Loki for unit and UI testing, providing comprehensive test coverage. The project is hosted on GitHub, allowing for collaboration and contributions from the community.
+
+Main Dependencies: React, Redux, TypeScript, Webpack, Vite, Storybook, Jest, Loki, i18next, Axios, Swiper, and others.
+
+This project showcases expertise in front-end development, including advanced features, robust testing, and efficient development practices.
+
+![Screenshot](https://github.com/ssenick/web-mini-project/blob/master/docs/screenshot.png)
 
 ## Start of the project
 
@@ -7,12 +18,7 @@
 "npm run start:webpack:all" - starting a server + frontend project (Webpack) in dev mode + storybook
 ```
 
-----
-DEMO: https://dulcet-pudding-009166.netlify.app/
 
-![Screenshot](https://github.com/ssenick/web-mini-project/blob/master/docs/screenshot.png)
-
-----
 
 ## Scripts
 
