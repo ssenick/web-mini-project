@@ -7,13 +7,9 @@ import { useMediaQueryValues } from '@/app/povaiders/MediaQueryProvaider';
 import { AppRouter } from '@/app/povaiders/Router';
 import { getUserInited, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { fixHeight } from '@/shared/lib/func/fixHeight';
 import { Header } from '@/widgets/Header';
 import { Sidebar } from '@/widgets/Sidebar';
-
-const fixHeight = (): void => {
-   const vh = window.innerHeight * 0.01;
-   document.documentElement.style.setProperty('--vh', `${vh}px`);
-};
 
 const App = (): JSX.Element => {
    const dispatch = useDispatch();
