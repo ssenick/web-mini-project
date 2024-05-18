@@ -5,11 +5,11 @@ import Image from '@/shared/assets/test/image.jpg';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 
-import { ArticleView } from '../../model/consts/articleConsts';
+import { ArticleBlockType, ArticleType, ArticleView } from '../../model/consts/articleConsts';
 import { type Article } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
 
-const article = {
+const article: Article = {
    id: '1',
    title: 'Javascript news',
    subtitle: "What's new in JS for 2023?",
@@ -21,11 +21,11 @@ const article = {
       username: 'ssenick',
       avatar: Image,
    },
-   type: ['IT'],
+   type: [ArticleType.IT],
    blocks: [
       {
          id: '1',
-         type: 'TEXT',
+         type: ArticleBlockType.TEXT,
          title: 'Title of this block',
          paragraphs: [
             'The program, which is traditionally called “Hello, world!”, is very simple. It outputs somewhere the phrase “Hello, world!”, or something similar, using a certain language.',
@@ -35,12 +35,12 @@ const article = {
       },
       {
          id: '4',
-         type: 'CODE',
+         type: ArticleBlockType.CODE,
          code: 'sd',
       },
       {
          id: '5',
-         type: 'TEXT',
+         type: ArticleBlockType.TEXT,
          title: 'Title of this block',
          paragraphs: [
             'The program, which is traditionally called “Hello, world!”, is very simple. It outputs somewhere the phrase “Hello, world!”, or something similar, using a certain language.',
@@ -49,12 +49,12 @@ const article = {
       },
       {
          id: '2',
-         type: 'IMAGE',
+         type: ArticleBlockType.IMAGE,
          src: Image,
          title: 'Figure 1 - site screenshot',
       },
    ],
-} as Article;
+};
 
 const meta: Meta<typeof ArticleListItem> = {
    title: 'entities/ArticleListItem',
