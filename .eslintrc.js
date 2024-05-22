@@ -13,7 +13,6 @@ module.exports = {
       'plugin:react-hooks/recommended',
       'prettier',
    ],
-   // "parser": '@typescript-eslint/parser',
 
    parserOptions: {
       ecmaVersion: '2020',
@@ -82,11 +81,7 @@ module.exports = {
          'error',
          {
             alias: '@',
-            testFilesPatterns: [
-               '**/*.test.*',
-               '**/*.story.*',
-               'StoreDecorator.tsx',
-            ],
+            testFilesPatterns: ['**/*.test.*', '**/*.story.*', 'StoreDecorator.tsx'],
          },
       ],
       'simple-import-sort/imports': 'error',
